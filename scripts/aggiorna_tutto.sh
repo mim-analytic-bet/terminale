@@ -12,6 +12,7 @@ scarica "https://www.football-data.co.uk/fixtures.csv" "dati/fixtures.csv"
 PY=$(command -v python3 || echo /usr/bin/python3)
 "$PY" scripts/assenze.py >> "$LOG" 2>&1 || true
 "$PY" scripts/scarica_coppe.py >> "$LOG" 2>&1 || true
+"$PY" scripts/calendario_aperto.py >> "$LOG" 2>&1 || true   # calendario aperto openfootball (solo abbinamenti)
 "$PY" scripts/scarica_stemmi.py >> "$LOG" 2>&1 || true
 OUT=$("$PY" scripts/aggiorna_dashboard.py 2>&1); RC=$?
 echo "$OUT" >> "$LOG"

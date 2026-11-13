@@ -13,6 +13,7 @@ import modello as mod
 import track_record as TR
 import apprendimento as AP
 import colori_squadre as CS
+import calendario_aperto as CA
 W_APP = 1.0
 RAW = {}
 COLORI = {}
@@ -531,6 +532,9 @@ def file_dati(cod):
         p = os.path.join(BASE, "risultati.csv")
     return p
 
+CAL_APERTO = None
+MAX_TURNI_APERTI = 2   # al massimo due giornate future per lega mostrate (manuali + fixtures + calendario aperto)
+
 def turni_automatici(partite, fixtures, oggi):
     """Partite future lette da fixtures.csv (football-data): abbinamenti, data, ora (UK+1h) e quote reali."""
     if not os.path.exists(fixtures): return {}
@@ -559,6 +563,8 @@ def main():
     oggi = dt.datetime.now().date()
     cal = json.load(open(os.path.join(BASE, "dati", "calendario.json"), encoding="utf-8"))
     fix = os.path.join(BASE, "dati", "fixtures.csv")
+    global CAL_APERTO
+    CAL_APERTO = CA.carica(BASE)
     s = open(HTML, encoding="utf-8").read()
     bk = HTML.replace(".html", ".BACKUP-prima-aggiornamento.html")
     if not os.path.exists(bk): shutil.copy(HTML, bk)
@@ -599,6 +605,26 @@ def main():
             if not nuovi: continue
             t = turni_src.setdefault(n, {"giornata": f"{n}ª Giornata", "finestra": None, "dataFine": None, "partite": []})
             t["partite"] += nuovi
+        # Calendario aperto (openfootball): completa le giornate con i soli ABBINAMENTI; giorno provvisorio, ora vuota; non sovrascrive mai manuale/fixtures
+        of_t, of_err = CA.per_lega(CAL_APERTO, key, {p["casa"] for p in partite} | {p["ospite"] for p in partite})
+        if of_t is None:
+            if CAL_APERTO is not None: rapporto.append(f"{nm}: calendario aperto non usato ({of_err})")
+        else:
+            for _r in CA.confronta(manuali, of_t)[:6]: rapporto.append(f"{nm}: CONFRONTO calendario {_r}")
+            giocati = {(p["casa"], p["ospite"]) for p in partite}
+            viste = {(e["casa"], e["ospite"]) for t in turni_src.values() for e in t["partite"]}
+            def _aperto(t): return any(e.get("giorno") and dt.date.fromisoformat(e["giorno"]) >= oggi for e in t["partite"])
+            aggiunte = 0
+            for n in sorted(of_t):
+                if sum(1 for t in turni_src.values() if _aperto(t)) >= MAX_TURNI_APERTI: break
+                nuovi = [e for e in of_t[n]["partite"] if (e["casa"], e["ospite"]) not in giocati and (e["casa"], e["ospite"]) not in viste and dt.date.fromisoformat(e["giorno"]) >= oggi]
+                if not nuovi: continue
+                t = turni_src.setdefault(str(n), {"giornata": f"{n}ª Giornata", "finestra": None, "dataFine": None, "partite": []})
+                conf = of_t[n]["confermato"]
+                t["partite"] += [{"casa": e["casa"], "ospite": e["ospite"], "giorno": e["giorno"], "ora": e["ora"],
+                                  "nota": None if conf and e["ora"] else "data e orario provvisori (calendario aperto)", "_of": True} for e in nuovi]
+                aggiunte += len(nuovi)
+            if aggiunte: rapporto.append(f"{nm}: {aggiunte} partite aggiunte dal calendario aperto (solo abbinamenti; giorno/ora da confermare)")
         turni = {}
         for tk, t in sorted(turni_src.items(), key=lambda kv: int(kv[0])):
             giorni = [e["giorno"] for e in t["partite"] if e.get("giorno")]
@@ -609,6 +635,7 @@ def main():
                 m, f1, f2 = costruisci_partita(nm.split(" (")[0], cod, partite, cl, e, t, fix)
                 lista.append(m); nuove_forme[nome(e["casa"])] = f1; nuove_forme[nome(e["ospite"])] = f2
                 fs = m["fasi"]; q = m.get("quoteMercato") or {}
+                if e.get("_of") and not q.get("1"): continue   # abbinamento solo da calendario aperto e senza quote: non entra nel registro pre-partita (sarebbe una previsione senza ancora di mercato)
                 previsioni.append({"lega": key, "casa": e["casa"], "ospite": e["ospite"], "giorno": e.get("giorno") or "", "p1": fs["1"]["seg1"]["p"], "pX": fs["1"]["seg2"]["p"], "p2": fs["1"]["seg3"]["p"],
                                    "pOver25": fs["3"]["seg1"]["p"], "pGol": fs["2"]["seg1"]["p"], "lh": RAW[(e["casa"], e["ospite"])][0], "la": RAW[(e["casa"], e["ospite"])][1], "mc": RAW[(e["casa"], e["ospite"])][2], "mt": RAW[(e["casa"], e["ospite"])][3], "q1": q.get("1", ""), "qX": q.get("X", ""), "q2": q.get("2", ""), "qOver25": q.get("Over 2,5", "")})
             if giorni:
