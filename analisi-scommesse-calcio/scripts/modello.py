@@ -210,7 +210,7 @@ def tempi(d, lh, la):
 CATALOGO = (
     ["1", "X", "2", "1X", "X2", "12", "Gol", "No Gol"]
     + [f"{t} {s}" for s in ("0,5", "1,5", "2,5", "3,5", "4,5") for t in ("Over", "Under")]
-    + ["Multigol 1-2", "Multigol 1-3", "Multigol 2-3", "Multigol 2-4", "Multigol 3-5"]
+    + ["Multigol 1-2", "Multigol 1-3", "Multigol 1-4", "Multigol 2-3", "Multigol 2-4", "Multigol 2-5", "Multigol 3-5"]
     + ["Casa Over 0,5", "Casa Over 1,5", "Ospite Over 0,5", "Ospite Over 1,5"]
     + [f"{e} + {u}" for e in ("1", "X", "2", "1X", "X2") for u in ("Over 1,5", "Over 2,5", "Under 2,5", "Under 3,5", "Gol", "No Gol")]
     + ["Gol + Over 2,5", "No Gol + Under 2,5"]

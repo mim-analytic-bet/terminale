@@ -91,6 +91,43 @@ def scegli(mercati, lo, hi, escludi=()):
     c = [m for m in mercati if lo <= m["prob_modello"] <= hi and "Over 0,5" not in m["mercato"]]
     return sorted(c, key=lambda m: -m["prob_modello"])
 
+
+def seleziona_livelli(dq):
+    """Seleziona i tre livelli (Alta Probabilita', Equilibrato, Hard) con vincoli rigorosi:
+    - Al massimo 1 Multigol consentito sull'intera terna dei pronostici della partita.
+    - Quota minima multigol >= 1.25 (probabilita' <= 0.80), scartando multigol iper-ampi come 1-5.
+    - Esclusione mercati triviali (Over 0,5).
+    """
+    def is_mg(m):
+        return "multigol" in m["mercato"].lower()
+
+    triv = ("over 0,5",)
+    c_alta = [m for m in dq if 0.74 <= m["prob_modello"] <= 0.90 and not any(t in m["mercato"].lower() for t in triv)]
+    c_alta = [m for m in c_alta if not is_mg(m) or m["prob_modello"] <= 0.80]
+    c_alta.sort(key=lambda m: -m["prob_modello"])
+
+    c_eq = [m for m in dq if 0.55 <= m["prob_modello"] <= 0.73 and not any(t in m["mercato"].lower() for t in triv)]
+    c_eq.sort(key=lambda m: -m["prob_modello"])
+
+    c_hard = [m for m in dq if 0.30 <= m["prob_modello"] <= 0.50 and not any(t in m["mercato"].lower() for t in triv)]
+    c_hard.sort(key=lambda m: -m["prob_modello"])
+
+    mg_a = bool(c_alta and is_mg(c_alta[0]))
+    mg_eq = bool(c_eq and is_mg(c_eq[0]))
+    mg_hard = bool(c_hard and is_mg(c_hard[0]))
+
+    if sum([mg_a, mg_eq, mg_hard]) > 1:
+        if mg_eq:
+            c_alta_no = [m for m in c_alta if not is_mg(m)]
+            if c_alta_no: c_alta = c_alta_no
+            c_hard_no = [m for m in c_hard if not is_mg(m)]
+            if c_hard_no: c_hard = c_hard_no
+        elif mg_a:
+            c_hard_no = [m for m in c_hard if not is_mg(m)]
+            if c_hard_no: c_hard = c_hard_no
+
+    return c_alta, c_eq, c_hard
+
 def heat(g, k=4):
     """Griglia per la heatmap, presa dalla STESSA matrice del modello (0..10 gol, normalizzata): celle 0..k esatte e colonna/riga 'k+' che somma la coda,
     cosi' le probabilita' sommano al 100% e coincidono con 1X2/Over/Gol mostrati. 'top' = i 3 punteggi piu' probabili sull'intera matrice."""
@@ -225,8 +262,7 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
     bc = {1: "text-emerald-400 bg-emerald-500/10 border-emerald-500/30", 2: "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
           3: "text-rose-400 bg-rose-500/10 border-rose-500/30", 4: "text-purple-400 bg-purple-500/10 border-purple-500/30"}
     br = {1: "from-emerald-500 to-teal-400", 2: "from-cyan-500 to-blue-500", 3: "from-rose-500 to-amber-500", 4: "from-purple-500 to-indigo-500"}
-    triv = ("Over 0,5",)
-    a = scegli(dq, 0.74, 0.90, triv); bb = scegli(dq, 0.55, 0.73, triv); c = scegli(dq, 0.30, 0.50, triv)
+    a, bb, c = seleziona_livelli(dq)
     pe = {}
     if a: pe["1"] = pron(a[0], "ALTA PROBABILITÀ (BASE)", "🛡️", bc[1], br[1], "Mercato a probabilità più alta secondo il modello.", f"{a[1]['mercato']} ({round(a[1]['prob_modello']*100)}%)" if len(a) > 1 else None)
     if bb: pe["2"] = pron(bb[0], "EQUILIBRATO", "⚡", bc[2], br[2], "Miglior rapporto probabilità/quota del fascio medio.", f"{bb[1]['mercato']} ({round(bb[1]['prob_modello']*100)}%)" if len(bb) > 1 else None)
@@ -320,10 +356,12 @@ def costruisci_partita_coppa(rec, squadre, track, NC="Champions", NL="Champions 
     po = over(2); casa, osp = _nome_vis(rec["casa_api"], rec["sn_h"], squadre), _nome_vis(rec["ospite_api"], rec["sn_a"], squadre)
     cands = [("1", p1), ("X", px), ("2", p2), ("1X", p1 + px), ("X2", px + p2), ("12", p1 + p2), ("Gol", pg), ("No Gol", 1 - pg), ("Over 1,5", over(1)), ("Over 2,5", po),
              ("Over 3,5", over(3)), ("Under 2,5", 1 - po), ("Under 3,5", 1 - over(3))]
+    def p_mg(lo, hi): return sum(M[i][j] for i in range(n) for j in range(n) if lo <= i + j <= hi)
+    cands += [("Multigol 1-3", p_mg(1, 3)), ("Multigol 1-4", p_mg(1, 4)), ("Multigol 2-3", p_mg(2, 3)), ("Multigol 2-4", p_mg(2, 4)), ("Multigol 2-5", p_mg(2, 5)), ("Multigol 3-5", p_mg(3, 5))]
     dq = [{"mercato": m_, "prob_modello": p_, "quota_equa": 1 / p_, "quota_minima": 1.03 / p_} for m_, p_ in cands if 0.05 < p_ < 0.97]
     bc = {1: "text-emerald-400 bg-emerald-500/10 border-emerald-500/30", 2: "text-cyan-400 bg-cyan-500/10 border-cyan-500/30", 3: "text-rose-400 bg-rose-500/10 border-rose-500/30", 4: "text-purple-400 bg-purple-500/10 border-purple-500/30"}
     br = {1: "from-emerald-500 to-teal-400", 2: "from-cyan-500 to-blue-500", 3: "from-rose-500 to-amber-500", 4: "from-purple-500 to-indigo-500"}
-    a = scegli(dq, 0.74, 0.90); bb = scegli(dq, 0.55, 0.73); c = scegli(dq, 0.30, 0.50); pe = {}
+    a, bb, c = seleziona_livelli(dq); pe = {}
     alt = lambda l: f"{l[1]['mercato']} ({round(l[1]['prob_modello']*100)}%)" if len(l) > 1 else None
     if a: pe["1"] = pron(a[0], "ALTA PROBABILITÀ (BASE)", "🛡️", bc[1], br[1], "Mercato a probabilità più alta secondo il modello (non validato).", alt(a))
     if bb: pe["2"] = pron(bb[0], "EQUILIBRATO", "⚡", bc[2], br[2], "Fascia media del modello Elo europeo (non validato).", alt(bb))
