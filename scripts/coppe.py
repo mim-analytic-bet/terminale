@@ -7,7 +7,10 @@ import coppe_modello as CM
 
 BASE = CM.BASE
 D = os.path.join(BASE, "dati", "coppe")
-LIVE, LOG, MEM = (os.path.join(D, x) for x in ("CL_live.json", "previsioni_CL.csv", "memoria_coppe.json"))
+NOMI = {"cl": "Champions", "el": "Europa League"}
+def percorsi(comp):
+    c = comp.upper()
+    return (os.path.join(D, f"{c}_live.json"), os.path.join(D, f"previsioni_{c}.csv"), os.path.join(D, "memoria_coppe.json" if comp == "cl" else f"memoria_coppe_{c}.json"))
 CAMPI = ["id", "data", "ora", "casa", "ospite", "rh", "ra", "trend_h", "trend_a", "w_dom", "p1", "pX", "p2", "lh", "la", "e1", "eX", "e2", "retro", "stato", "gc", "go"]
 STAGE = {"LEAGUE_STAGE": None, "PLAYOFFS": (9, "Spareggi"), "LAST_16": (10, "Ottavi"), "QUARTER_FINALS": (11, "Quarti"), "SEMI_FINALS": (12, "Semifinali"), "FINAL": (13, "Finale")}
 W_DOM0, W_DOM_MAX, CAP_AGG = 0.25, 1.0, 40.0
@@ -44,19 +47,19 @@ def risultato90(m):
     return None
 
 
-def carica_log():
+def carica_log(LOG):
     try: return {r["id"]: r for r in csv.DictReader(open(LOG, encoding="utf-8"))}
     except Exception: return {}
 
 
-def salva_log(log):
+def salva_log(log, LOG):
     os.makedirs(D, exist_ok=True)
     with open(LOG, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, CAMPI); w.writeheader()
         for k in sorted(log, key=lambda k: (log[k]["data"], k)): w.writerow({c: log[k].get(c, "") for c in CAMPI})
 
 
-def carica_mem():
+def carica_mem(MEM):
     try: return json.load(open(MEM, encoding="utf-8"))
     except Exception: return {"w_dom": W_DOM0, "storia_w": []}
 
@@ -87,14 +90,13 @@ def adatta_w(log, P, mem, avvisi):
     return w, len(righe)
 
 
-def elabora(oggi, forma_naz=None, avvisi=None):
+def elabora(oggi, forma_naz=None, avvisi=None, comp="cl"):
     """Ritorna {"turni": {...}, "track": {...}} oppure None. forma_naz(nome_api) -> {"trend":float,"summary5":str,"xgd5":float,"campionato":str,"csv":str} o None."""
-    avvisi = avvisi if avvisi is not None else []
-    if not os.path.exists(LIVE): avvisi.append("Champions: dati live non ancora scaricati (serve FOOTBALL_DATA_KEY)"); return None
+    avvisi = avvisi if avvisi is not None else []; NOME = NOMI[comp]; LIVE, LOG, MEM = percorsi(comp)
+    if not os.path.exists(LIVE): avvisi.append(f"{NOME}: dati live non ancora scaricati (serve la chiave API della fonte)"); return None
     live = json.load(open(LIVE, encoding="utf-8")); partite = live["matches"]
     storico = CM.leggi_storico(); note = {m["casa"] for m in storico} | {m["ospite"] for m in storico}
-    mem = carica_mem(); P = dict(CM.PARAMS0); w_dom, n_real = adatta_w(carica_log(), P, mem, avvisi); mem["w_dom"] = w_dom
-    log = carica_log()
+    mem = carica_mem(MEM); P = dict(CM.PARAMS0); log = carica_log(LOG); w_dom, n_real = adatta_w(log, P, mem, avvisi); mem["w_dom"] = w_dom
     # 1) risultati live conclusi -> aggiorno rating in ordine cronologico (memoria del modello)
     mappa_nome = {}
     def nome_storico(n):
@@ -116,7 +118,7 @@ def elabora(oggi, forma_naz=None, avvisi=None):
         if r90 is None or not a or not b:
             if not (a and b): scartate.update(x for x, y in zip(t, (a, b)) if not y)
             continue
-        mm = {"data": d.date(), "comp": "cl", "casa": a, "ospite": b, "gc": r90[0], "go": r90[1], "neutro": 1 if m.get("stage") == "FINAL" else 0}
+        mm = {"data": d.date(), "comp": comp, "casa": a, "ospite": b, "gc": r90[0], "go": r90[1], "neutro": 1 if m.get("stage") == "FINAL" else 0}
         st.inizio_stagione(mm["data"]); rh, ra = st.rating(a), st.rating(b); (p1, px, p2), (lh, la) = st.aggiorna(mm)
         k = str(m["id"]); riga = log.get(k)
         o = esito(*r90)
@@ -162,7 +164,7 @@ def elabora(oggi, forma_naz=None, avvisi=None):
             log[k] = {"id": k, "data": giorno.date().isoformat(), "ora": ora or "", "casa": a, "ospite": b, "rh": f"{rh:.1f}", "ra": f"{ra:.1f}", "trend_h": "" if trh is None else f"{trh:.3f}",
                       "trend_a": "" if tra is None else f"{tra:.3f}", "w_dom": f"{w_dom:.2f}", "p1": f"{p1:.4f}", "pX": f"{px:.4f}", "p2": f"{p2:.4f}", "lh": f"{lh:.3f}", "la": f"{la:.3f}",
                       "e1": f"{e1:.4f}", "eX": f"{ex:.4f}", "e2": f"{e2:.4f}", "retro": "0", "stato": "SCHEDULED", "gc": "", "go": ""}
-    if scartate: avvisi.append("Champions: rating non affidabile (nome squadra non riconosciuto), partite escluse per: " + ", ".join(sorted(scartate)))
+    if scartate: avvisi.append(NOME + ": rating non affidabile (nome squadra non riconosciuto), partite escluse per: " + ", ".join(sorted(scartate)))
     # 3) track record vero (solo previsioni fatte prima del calcio d'inizio) vs Elo puro vs frequenze di base
     bt = json.load(open(os.path.join(D, "backtest.json"), encoding="utf-8")); base = bt["frequenze_base_1X2"]
     def metr(rs, ch):
@@ -177,5 +179,5 @@ def elabora(oggi, forma_naz=None, avvisi=None):
     track = {"reali": metr(reali, ("p1", "pX", "p2")), "reali_elo_puro": metr(reali, ("e1", "eX", "e2")), "retro": metr(retro, ("p1", "pX", "p2")),
              "backtest": {k: bt[k] for k in ("n_test", "brier_modello", "brier_frequenze_base", "hit_1x2", "test_da")}, "w_dom": w_dom, "aperte": sum(1 for r in log.values() if r.get("gc") in ("", None)),
              "aggiornato": dt.datetime.now().strftime("%d/%m/%Y %H:%M")}
-    salva_log(log); mem["aggiornato"] = track["aggiornato"]; json.dump(mem, open(MEM, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    salva_log(log, LOG); mem["aggiornato"] = track["aggiornato"]; json.dump(mem, open(MEM, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     return {"turni": turni, "track": track, "ratings_n": len(ranking)}
