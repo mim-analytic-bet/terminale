@@ -22,7 +22,7 @@ jobs:
       - name: Scarica dati e rigenera
         env:
           FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
-          API_NINJAS_KEY: ${{ secrets.API_NINJAS_KEY }}
+          API_NINJAS_KEY: ${{ secrets.API_NINJAS_KEY || secrets.APIS_NINJAS_KEY }}
         run: bash scripts/aggiorna_tutto.sh
       - name: Controllo download
         run: |
