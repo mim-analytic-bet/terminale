@@ -77,3 +77,4 @@ Repo: https://github.com/mim-analytic-bet/terminale  ·  Sito: https://mim-analy
 ## Stato del collaudo (aggiornato 13/11/2026 sera)
 - Le modifiche ai multigol nel catalogo e al riferimento Bet365 (commit 7e8ce30, 65b1283) sono state tenute per decisione di Domenico a collaudo già iniziato. Il confronto con i pronostici precedenti non è più valido: il collaudo è ripartito da questo momento. La nuova data di fine collaudo va fissata con Domenico.
 - Da ora fino a nuovo avviso: nessun'altra modifica a modello, catalogo, soglie o riferimento quote senza decisione esplicita di Domenico.
+- Schedina (regola di Domenico, 13/11 sera): accetta SOLO selezioni con quota reale Bet365. Senza quota reale il pulsante non aggiunge nulla (toast «non aggiunta: nessuna quota reale»). Mai quote stimate o di ripiego.

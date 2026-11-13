@@ -100139,6 +100139,7 @@ let FASE_TORTA_ATTUALE = 1;
       const qE = parseFloat(quotaEqua) || 1.80;
       const pB = parseFloat(prob) || 50;
 
+      if (!qR) { mostraToastSlip({ partita: partitaLabel, mercato: mercato, quota: 'non aggiunta: nessuna quota reale' }); return; }   // la schedina accetta SOLO quote reali
       const index = SCHEDINA_LISTA.findIndex(x => x.partita === partitaLabel && x.mercato === mercato);
       if (index === -1) {
         SCHEDINA_LISTA.push({
