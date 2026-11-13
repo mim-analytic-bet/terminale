@@ -148,7 +148,7 @@ def riferimento_da_fixtures(path, casa, ospite):
             return v if v > 1 else None
         except ValueError:
             return None
-    for pref, fonte in (("BFE", "Betfair Exchange"), ("PS", "Pinnacle"), ("Avg", "media dei bookmaker")):
+    for pref, fonte in (("B365", "Bet365"), ("BFE", "Betfair Exchange"), ("PS", "Pinnacle"), ("Avg", "media dei bookmaker")):
         trio = [q(pref + x) for x in ("H", "D", "A")]
         if all(trio):
             out = dict(zip(("1", "X", "2"), trio))
@@ -178,10 +178,12 @@ def main(argv):
         if o == "--correzione":
             sq, cod = opz[i + 1].split(":")
             d["correzioni"].append({"squadra": sq, "codice": cod})
-    d["tipo_quota"] = val("--tipo-quota") or "Eurobet"
+    d["tipo_quota"] = val("--tipo-quota") or "Bet365"
     d["quote"] = {}
     if val("--q"):
         d["quote"].update(quote_rapide(val("--q")))
+        if not val("--tipo-quota"):
+            d["tipo_quota"] = "Eurobet"
     if val("--quote"):
         for coppia in val("--quote").split(";"):
             k, v = coppia.rsplit("=", 1)
@@ -192,6 +194,9 @@ def main(argv):
     if val("--rif-da"):
         rif, fonte, arbitro = riferimento_da_fixtures(val("--rif-da"), casa, ospite)
         d["quote_riferimento"], d["fonte_riferimento"] = rif, fonte
+        if not d["quote"]:
+            d["quote"] = dict(rif)
+            d["tipo_quota"] = fonte.split(" (")[0]
         if arbitro:
             d["arbitro"] = arbitro
     print(json.dumps(d, indent=2, ensure_ascii=False))

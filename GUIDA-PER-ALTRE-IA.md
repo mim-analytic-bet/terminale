@@ -1,6 +1,6 @@
 # Quant Terminal PRO – guida per un'altra IA (Gemini o simili)
 
-Dashboard di analisi calcio con SOLI dati reali: Serie A, Premier, LaLiga, Bundesliga, Ligue 1. Utente: Domenico (italiano). Riferimento Eurobet, budget 100 €/mese. Rispondere sempre in italiano, senza assecondare: se un dato manca, dirlo.
+Dashboard di analisi calcio con SOLI dati reali: Serie A, Premier, LaLiga, Bundesliga, Ligue 1. Utente: Domenico (italiano). Riferimento primario automatico Bet365 (confrontabile e giocabile su Eurobet o concessionari ADM), budget 100 €/mese. Rispondere sempre in italiano, senza assecondare: se un dato manca, dirlo.
 
 Repo: https://github.com/mim-analytic-bet/terminale  ·  Sito: https://mim-analytic-bet.github.io/terminale/
 
