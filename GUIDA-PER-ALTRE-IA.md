@@ -2,7 +2,7 @@
 
 Dashboard di analisi calcio con SOLI dati reali: Serie A, Premier, LaLiga, Bundesliga, Ligue 1. Utente: Domenico (italiano). Riferimento Eurobet, budget 100 €/mese. Rispondere sempre in italiano, senza assecondare: se un dato manca, dirlo.
 
-Repo: https://github.com/domypititto-ops/terminale  ·  Sito: https://domypititto-ops.github.io/terminale/
+Repo: https://github.com/mim-analytic-bet/terminale  ·  Sito: https://mim-analytic-bet.github.io/terminale/
 
 ## Come funziona
 - `scripts/aggiorna_tutto.sh`: scarica i CSV di football-data.co.uk, esegue `scripts/assenze.py` (orari) e poi `scripts/aggiorna_dashboard.py`, che rigenera `scheda-partita-dashboard.html` (il sito online usa `index.html`, copia dello stesso file).
