@@ -43,7 +43,12 @@ def main():
             if len(dati) < 200: raise ValueError("file troppo piccolo")
             col = None
             if ext == ".png":
-                from PIL import Image; import io; Image.open(io.BytesIO(dati)).verify()
+                try:
+                    from PIL import Image; import io
+                    Image.open(io.BytesIO(dati)).verify()
+                except ImportError:
+                    if not dati.startswith(b'\x89PNG\r\n\x1a\n'):
+                        raise ValueError("dati non validi come PNG")
             else: col = colori_svg(dati.decode("utf-8", "ignore"))
             open(dest, "wb").write(dati)
             for k in chiavi: esistenti[k] = {"file": rel, "colori": col}
