@@ -5,7 +5,10 @@ import os, json, colorsys
 def _hex(c): return "#%02x%02x%02x" % c
 
 def dominanti(path):
-    from PIL import Image
+    try:
+        from PIL import Image
+    except ImportError:
+        return None
     im = Image.open(path).convert("RGBA"); im.thumbnail((96, 96))
     px = [p[:3] for p in im.getdata() if p[3] > 200]
     if not px: return None

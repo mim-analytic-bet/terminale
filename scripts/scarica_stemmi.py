@@ -57,6 +57,12 @@ def main():
             fall += 1; print(f"AVVISO stemmi: {nome}: {e}")
     json.dump(esistenti, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"stemmi: {nuovi} scaricati, {fall} falliti, {len(esistenti)} in archivio")
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import scarica_stemmi_el
+        scarica_stemmi_el.main()
+    except Exception as e_el:
+        print(f"AVVISO scarica_stemmi_el: {e_el}")
 
 
 try: main()
