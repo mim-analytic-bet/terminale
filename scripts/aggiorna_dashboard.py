@@ -96,8 +96,53 @@ def pron(m, tipo, icona, bc, br, desc, alt=None):
             "quota": f"{m['quota_equa']:.2f}", "qEqua": f"{m['quota_equa']:.2f}", "badgeCol": bc, "barCol": br,
             "desc": f"{desc} Quota equa {m['quota_equa']:.2f}: gioca solo se il bookmaker paga almeno {m['quota_minima']:.2f}."}
 
+# ---- assenze/orari da API-Football (dati/assenze.json, scritto da scripts/assenze.py) ----
+import difflib, unicodedata
+def _norm(x):
+    x = unicodedata.normalize("NFKD", x).encode("ascii", "ignore").decode().lower()
+    x = re.sub(r"[^a-z0-9 ]", " ", x)
+    return " ".join(w for w in x.split() if w not in ("fc", "afc", "cf", "ac", "as", "ssc", "sc", "us", "calcio", "club", "de", "1", "04", "05", "fsv", "sv", "rc", "ud", "cd", "rcd", "ca"))
+_ALIAS = {"man utd": "manchester united", "man united": "manchester united", "man city": "manchester city", "nott m forest": "nottingham forest", "ath madrid": "atletico madrid",
+          "ath bilbao": "athletic club", "sociedad": "real sociedad", "espanol": "espanyol", "milan": "ac milan", "inter": "inter", "paris sg": "paris saint germain",
+          "m gladbach": "borussia monchengladbach", "dortmund": "borussia dortmund", "leverkusen": "bayer leverkusen", "ein frankfurt": "eintracht frankfurt", "st pauli": "st pauli",
+          "betis": "real betis", "celta": "celta vigo", "vallecano": "rayo vallecano", "wolves": "wolverhampton wanderers", "spurs": "tottenham", "newcastle": "newcastle united",
+          "west ham": "west ham united", "leeds": "leeds united", "brighton": "brighton hove albion", "stuttgart": "vfb stuttgart", "mainz": "mainz 05", "hoffenheim": "tsg hoffenheim",
+          "lyon": "olympique lyonnais", "marseille": "olympique marseille", "monaco": "as monaco", "lille": "lille osc"}
+def _sim(a, b):
+    a, b = _norm(a), _norm(b); a = _ALIAS.get(a, a)
+    if not a or not b: return 0.0
+    if a == b or a in b or b in a: return 1.0
+    return difflib.SequenceMatcher(None, a, b).ratio()
+_ASS = None
+def assenze_per(casa, osp, giorno):
+    """Restituisce il record API-Football della partita (o None). Abbina i nomi di entrambe le squadre."""
+    global _ASS
+    if _ASS is None:
+        try: _ASS = json.load(open(os.path.join(BASE, "dati", "assenze.json"), encoding="utf-8"))
+        except Exception: _ASS = {"partite": []}
+    best, bs = None, 0
+    for p in _ASS.get("partite", []):
+        if giorno and p.get("giorno") and abs((dt.date.fromisoformat(p["giorno"]) - dt.date.fromisoformat(giorno)).days) > 1: continue
+        a, b = _sim(casa, p["casa"]), _sim(osp, p["ospite"])
+        if min(a, b) >= 0.6 and a + b > bs: best, bs = p, a + b
+    return best
+def testo_assenze(rec, casa, osp):
+    """Elenco leggibile delle assenze; None se la fonte non ha controllato questa partita."""
+    if not rec or rec.get("assenze") is None: return None
+    def lato(lista, squadra):
+        if not lista: return f"{squadra}: nessuna assenza segnalata"
+        voci = []
+        for x in lista:
+            m = (x.get("motivo") or "").strip(); t = x.get("tipo") or ""
+            voci.append(f"{x.get('nome','?')} ({m or 'n.d.'}{', in dubbio' if t == 'Questionable' else ''})")
+        return f"{squadra}: " + ", ".join(voci)
+    return lato(rec["assenze"]["casa"], nome(casa)) + " | " + lato(rec["assenze"]["ospite"], nome(osp))
+
 def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
     casa, osp = e["casa"], e["ospite"]
+    rec_api = assenze_per(casa, osp, e.get("giorno"))
+    if rec_api and rec_api.get("ora") and not e.get("ora") and (not e.get("giorno") or e["giorno"] == rec_api["giorno"]):
+        e = dict(e, giorno=rec_api["giorno"], ora=rec_api["ora"], nota=None)  # orario ufficiale da API-Football
     d = pp.costruisci(partite, casa, osp)
     d["assenze_verificate"] = False
     rif = None
@@ -144,6 +189,13 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
               + (f"Quota equa {_qe}: giocala solo se il bookmaker paga almeno quel prezzo con margine. " if _qe else "")
               + ((f"Quote di riferimento ({mq['fonte']}): " + " · ".join(f"{k} {mq[k]}" for k in ('1','X','2') if k in mq) + ". ") if mq else "Quote di mercato non disponibili per questa partita. ")
               + "Puntata consigliata 0 € finché non emerge un edge verificato: nei test il modello da solo non batte il mercato, quindi nessuna giocata è forzata.")
+    _ta = testo_assenze(rec_api, casa, osp)
+    if _ta:
+        _rischio = (f"Assenze e squalificati segnalati (API-Football, controllo del {rec_api['controllato'][:16].replace('T', ' ')} UTC): {_ta}. "
+                    "Il modello NON le usa nel calcolo e le formazioni probabili non sono incluse: verifica le ufficiali prima di giocare.")
+    else:
+        _rischio = "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare."
+    _rischio += "" if mq else " Nessuna quota di mercato disponibile per questa partita nei dati."
     return {
         "id": (sigla(casa) + "-" + sigla(osp)).lower(), "label": f"{nome(casa)} - {nome(osp)}",
         "bgGradient": f"from-[{coppia(COLORI.get(nome(casa), NEUTRO))[0]}] via-[#090d16] to-[{coppia(COLORI.get(nome(osp), NEUTRO))[0]}]",
@@ -170,7 +222,7 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
         "spiegazione": _spieg, "quoteMercato": mq,
         "analisi": (f"{nome(casa)}: {fcs['summary5']} nelle ultime 5, xG diff {fcs['tot_xg_diff_5']:+.2f}, {fcs['gf']} gol fatti e {fcs['gs']} subiti in {fcs['tot_partite']} gare. "
                     f"{nome(osp)}: {fos['summary5']} nelle ultime 5, xG diff {fos['tot_xg_diff_5']:+.2f}, {fos['gf']} fatti e {fos['gs']} subiti in {fos['tot_partite']}. (Dati football-data.co.uk)"),
-        "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare." + ("" if mq else " Nessuna quota di mercato disponibile per questa partita nei dati."),
+        "rischio": _rischio,
         "pronosticiExtra": pe}, fcs, fos
 
 PANNELLO = r'''<!--/*TRACKPANEL*/--><script>
