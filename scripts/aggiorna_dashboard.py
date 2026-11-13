@@ -276,6 +276,7 @@ def costruisci_partita_coppa(rec, squadre, track, NC="Champions", NL="Champions 
     def riga_naz(dn): return (f"in {dn['campionato']} {dn['summary5']} nelle ultime 5 (xG diff {dn['xgd5']:+.2f})" if dn else "forma nazionale non disponibile (campionato fuori dai 5 seguiti)")
     analisi = (f"{casa}: Elo europeo {rec['rh']:.0f}" + (f" ({rec['pos_h']}ª tra le squadre in {NC})" if rec.get("pos_h") else "") + f"; {riga_eu(rec['eu_h'])}; {riga_naz(rec['naz_h'])}. "
                f"{osp}: Elo europeo {rec['ra']:.0f}" + (f" ({rec['pos_a']}ª)" if rec.get("pos_a") else "") + f"; {riga_eu(rec['eu_a'])}; {riga_naz(rec['naz_a'])}. "
+               + (f"ATTENZIONE: {' e '.join(n for n, f in zip((casa, osp), rec.get('nuovi', (False, False))) if f)} senza storico europeo: rating di partenza standard, affidabilità bassa. " if any(rec.get("nuovi", ())) else "") +
                f"Correzione forma nazionale applicata: {rec['agg_h']:+.0f} / {rec['agg_a']:+.0f} punti Elo (peso {rec['w_dom']:.2f}, ricalibrato sui risultati). (Dati: openfootball, " + ("football-data.org" if NC == "Champions" else "API Ninjas") + ")")
     qe = (pe.get("1") or pe.get("2") or pe.get("3") or pe["4"]); 
     spieg = (f"Stime del modello (90 minuti) — 1: {round(p1*100)}% · X: {round(px*100)}% · 2: {round(p2*100)}% · Gol: {round(pg*100)}% · Over 2.5: {round(po*100)}%. Attesa gol: {casa} {gc:.2f} – {osp} {go:.2f}. "

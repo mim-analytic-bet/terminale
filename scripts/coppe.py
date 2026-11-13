@@ -22,6 +22,9 @@ ALIAS = {"paris saint germain": "paris sg", "internazionale milano": "inter", "c
          "atalanta bc": "atalanta", "ac fiorentina": "fiorentina", "aston villa": "aston villa", "nottingham forest": "nott m forest", "rayo vallecano": "vallecano", "real betis": "betis"}
 
 
+ALIAS_EU = {"lask linz": "lask", "aek": "aek athen"}
+
+
 def norm(x):
     x = unicodedata.normalize("NFKD", x).encode("ascii", "ignore").decode().lower().replace("&", " ")
     x = re.sub(r"[^a-z0-9 ]", " ", x)
@@ -99,8 +102,14 @@ def elabora(oggi, forma_naz=None, avvisi=None, comp="cl"):
     mem = carica_mem(MEM); P = dict(CM.PARAMS0); log = carica_log(LOG); w_dom, n_real = adatta_w(log, P, mem, avvisi); mem["w_dom"] = w_dom
     # 1) risultati live conclusi -> aggiorno rating in ordine cronologico (memoria del modello)
     mappa_nome = {}
+    nuovi = set()
     def nome_storico(n):
-        if n not in mappa_nome: mappa_nome[n] = abbina(n, note)
+        if n not in mappa_nome:
+            c = abbina(n, note, alias=ALIAS_EU)
+            if c is None:  # nessuna somiglianza con nessuno storico: club mai visto in Europa -> rating iniziale, segnalato (non inventato)
+                k = norm(n)
+                if max((difflib.SequenceMatcher(None, k, norm(x)).ratio() for x in note), default=0) < 0.6: c = n; nuovi.add(n)
+            mappa_nome[n] = c
         return mappa_nome[n]
     fin, future, scartate = [], [], set()
     for m in partite:
@@ -157,7 +166,7 @@ def elabora(oggi, forma_naz=None, avvisi=None, comp="cl"):
         rec = {"turno": tk, "etichetta": lbl, "giorno": giorno.date().isoformat(), "ora": ora, "casa_api": t[0], "ospite_api": t[1], "casa": a, "ospite": b, "id": str(m["id"]),
                "rh": rh, "ra": ra, "agg_h": ag(trh), "agg_a": ag(tra), "neutro": neutro, "p": (p1, px, p2), "p_elo": (e1, ex, e2), "lh": lh, "la": la, "M": M,
                "pos_h": posiz.get(a), "pos_a": posiz.get(b), "eu_h": eu.get(a), "eu_a": eu.get(b), "naz_h": dn[0], "naz_a": dn[1], "w_dom": w_dom,
-               "ritorno": bool(stg and tk in (10, 11, 12)), "sn_h": m["homeTeam"].get("shortName") or t[0], "sn_a": m["awayTeam"].get("shortName") or t[1]}
+               "nuovi": (a in nuovi, b in nuovi), "ritorno": bool(stg and tk in (10, 11, 12)), "sn_h": m["homeTeam"].get("shortName") or t[0], "sn_a": m["awayTeam"].get("shortName") or t[1]}
         turni.setdefault(tk, {"etichetta": lbl, "partite": []})["partite"].append(rec)
         k = rec["id"]; riga = log.get(k)
         if giorno.astimezone(dt.timezone.utc) > dt.datetime.now(dt.timezone.utc) and (riga is None or riga.get("retro") == "0" or riga.get("stato") != "FINISHED"):
