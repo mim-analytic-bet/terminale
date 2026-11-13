@@ -59,3 +59,8 @@ Repo: https://github.com/mim-analytic-bet/terminale  ·  Sito: https://mim-analy
 - La heatmap NON ricalcola più una griglia propria (prima: 0-3 gol, rho -0.06, senza normalizzazione). Ora usa `m.heat`, generato da `heat()` in `aggiorna_dashboard.py` dalla STESSA matrice del modello (MAX_GOL=10, rho del modello, normalizzata).
 - Le celle "4+" aggregano tutti i punteggi con 4 o più gol (per casa e/o ospite): la somma è sempre 100% e coerente con 1X2/Gol/Over. Il top-3 è calcolato sulla matrice completa.
 - Non reintrodurre calcoli Poisson nel JS: se serve cambiare la griglia, modificare `heat()`.
+
+## Mercati Multigol (aggiunti 13/11/2026)
+- `multigol(g, d)` in `scripts/aggiorna_dashboard.py` calcola, dalla stessa matrice del modello (come la heatmap), il campo `mg` di ogni partita: Multigol Totale, Casa, Ospite, 1T, 2T e combo (1/X/2/1X/X2/12 e Gol/No Gol + Multigol totale). Riquadro "Mercati Multigol" in `renderizzaMultigol(m)` (HTML).
+- 1T/2T: Poisson indipendenti per tempo, medie = gol attesi × quota di gol al 1T (storica della squadra, ridotta al 50% verso la media di lega 0.45; per le coppe solo media di lega). Approssimazione, non coerente al 100% con la matrice a tempo pieno.
+- Volutamente NON aggiunti a `CATALOGO` di modello.py: cambierebbero i pronostici scelti durante il collaudo (13–27 nov) e sporcherebbero il track record. Quote mostrate = quota equa 1/prob, senza quote Eurobet reali.

@@ -110,6 +110,54 @@ def pron(m, tipo, icona, bc, br, desc, alt=None):
             "desc": f"{desc} Quota equa {m['quota_equa']:.2f}: gioca solo se il bookmaker paga almeno {m['quota_minima']:.2f}."}
 
 # ---- assenze/orari da API-Football (dati/assenze.json, scritto da scripts/assenze.py) ----
+# ---- Mercati multigol (totale, casa, ospite, 1T/2T, combo) dalla STESSA matrice del modello ----
+MG_TOT = [(1, 2), (1, 3), (1, 4), (1, 5), (2, 3), (2, 4), (2, 5), (3, 5), (3, 6), (4, 6)]
+MG_SQ = [(0, 1), (1, 2), (1, 3), (2, 3), (2, 4)]
+MG_TEMPO = [(0, 1), (1, 2), (1, 3), (2, 3), (2, 4)]
+MG_COMBO_TOT = [(1, 3), (1, 4), (2, 3), (2, 4), (2, 5), (3, 5)]
+MG_COMBO_ESITI = ["1", "X", "2", "1X", "X2", "12"]
+SHRINK_1T = 0.5   # peso della quota di gol al 1T della squadra; il resto va alla media di lega (modello.QUOTA_1T_LEGA)
+
+def _pois_vet(lam, n=13):
+    import math
+    return [math.exp(-lam) * lam ** k / math.factorial(k) for k in range(n)]
+
+def multigol(g, d=None):
+    """g: matrice normalizzata del modello. Restituisce probabilita' per ogni mercato multigol.
+    1T/2T: Poisson indipendenti per tempo (senza correzione Dixon-Coles), medie = gol attesi x quota di gol al 1T
+    (della squadra, ridotta verso la media di lega); e' un'approssimazione, non e' coerente al 100% con la matrice a tempo pieno."""
+    n = len(g)
+    esito = {"1": lambda i, j: i > j, "X": lambda i, j: i == j, "2": lambda i, j: i < j,
+             "1X": lambda i, j: i >= j, "X2": lambda i, j: i <= j, "12": lambda i, j: i != j}
+    def pr(f): return sum(g[i][j] for i in range(n) for j in range(n) if f(i, j))
+    def rng(lo, hi, val): return lambda i, j: lo <= val(i, j) <= hi
+    tot = lambda i, j: i + j; cs = lambda i, j: i; os_ = lambda i, j: j
+    out = {"totale": {f"{a}-{b}": pr(rng(a, b, tot)) for a, b in MG_TOT},
+           "casa": {f"{a}-{b}": pr(rng(a, b, cs)) for a, b in MG_SQ},
+           "ospite": {f"{a}-{b}": pr(rng(a, b, os_)) for a, b in MG_SQ}}
+    lh = sum(i * g[i][j] for i in range(n) for j in range(n)); la = sum(j * g[i][j] for i in range(n) for j in range(n))
+    qc = qo = mod.QUOTA_1T_LEGA; reali = False
+    if d:
+        a, b = d["casa"].get("quota_gol_1t"), d["trasferta"].get("quota_gol_1t")
+        if a is not None and b is not None:
+            qc = SHRINK_1T * a + (1 - SHRINK_1T) * mod.QUOTA_1T_LEGA; qo = SHRINK_1T * b + (1 - SHRINK_1T) * mod.QUOTA_1T_LEGA; reali = True
+    l1 = lh * qc + la * qo; l2 = (lh + la) - l1
+    for nome, lam in (("1t", l1), ("2t", l2)):
+        v = _pois_vet(lam)
+        out[nome] = {f"{a}-{b}": sum(v[a:b + 1]) / sum(v) for a, b in MG_TEMPO}
+    out["tempi_info"] = {"l1": round(l1, 2), "l2": round(l2, 2), "reali": reali}
+    combo = []
+    for e in MG_COMBO_ESITI:
+        for a, b in MG_COMBO_TOT:
+            combo.append([f"{e} + Multigol {a}-{b}", pr(lambda i, j, e=e, a=a, b=b: esito[e](i, j) and a <= i + j <= b)])
+    for nm, f in (("Gol", lambda i, j: i > 0 and j > 0), ("No Gol", lambda i, j: i == 0 or j == 0)):
+        for a, b in MG_COMBO_TOT:
+            combo.append([f"{nm} + Multigol {a}-{b}", pr(lambda i, j, f=f, a=a, b=b: f(i, j) and a <= i + j <= b)])
+    out["combo"] = [[k, round(p, 5)] for k, p in combo]
+    for k in ("totale", "casa", "ospite", "1t", "2t"):
+        out[k] = {kk: round(vv, 5) for kk, vv in out[k].items()}
+    return out
+
 import difflib, unicodedata
 def _norm(x):
     x = unicodedata.normalize("NFKD", x).encode("ascii", "ignore").decode().lower()
@@ -242,7 +290,7 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
         "analisi": (f"{nome(casa)}: {fcs['summary5']} nelle ultime 5, xG diff {fcs['tot_xg_diff_5']:+.2f}, {fcs['gf']} gol fatti e {fcs['gs']} subiti in {fcs['tot_partite']} gare. "
                     f"{nome(osp)}: {fos['summary5']} nelle ultime 5, xG diff {fos['tot_xg_diff_5']:+.2f}, {fos['gf']} fatti e {fos['gs']} subiti in {fos['tot_partite']}. (Dati football-data.co.uk)"),
         "rischio": _rischio, "assenti": _assenti,
-        "heat": heat(mod.griglia(gc, go)), "pronosticiExtra": pe}, fcs, fos
+        "heat": heat(mod.griglia(gc, go)), "mg": multigol(mod.griglia(gc, go), d), "pronosticiExtra": pe}, fcs, fos
 
 # ---- Champions League in modalita' osservazione (scripts/coppe.py) ----
 def _csv_squadre(archivi):
@@ -316,7 +364,7 @@ def costruisci_partita_coppa(rec, squadre, track, NC="Champions", NL="Champions 
             "4": {"label": "Fase 4: xG per Squadra", "centerVal": f"{gc:.2f} vs {go:.2f}", "centerLbl": "Gol attesi",
                   "seg1": {"p": round(gc/(gc+go), 2), "col": "#0ea5e9", "nome": f"{casa}: {round(100*gc/(gc+go))}% ({gc:.2f})"}, "seg2": {"p": round(go/(gc+go), 2), "col": "#d97706", "nome": f"{osp}: {round(100*go/(gc+go))}% ({go:.2f})"}, "seg3": {"p": 0.0, "col": "transparent", "nome": ""}}},
         "isValore": False, "evBadge": "", "mercato": f"Miglior stima del modello: {qe['mercato']} ({qe['probStr']})", "qEqua": qe.get("qEqua", ""), "qReale": "", "spiegazione": spieg, "quoteMercato": None,
-        "analisi": analisi, "rischio": rischio, "assenti": assenti, "osservazione": track, "heat": heat(M), "pronosticiExtra": pe}
+        "analisi": analisi, "rischio": rischio, "assenti": assenti, "osservazione": track, "heat": heat(M), "mg": multigol(M), "pronosticiExtra": pe}
 
 def _slug(n):
     n = unicodedata.normalize("NFKD", n).encode("ascii", "ignore").decode().lower()
