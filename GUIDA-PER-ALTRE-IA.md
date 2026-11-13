@@ -54,3 +54,8 @@ Repo: https://github.com/mim-analytic-bet/terminale  ·  Sito: https://mim-analy
 ## Stemmi delle coppe (regola: TUTTE le squadre devono avere uno stemma)
 - Priorità: 1) PNG manuale `assets/loghi/<nome_squadra_slug>.png` (sempre vince), 2) stemma ufficiale scaricato da `scripts/scarica_stemmi.py` (URL `crest` di football-data.org per le squadre di Champions → `assets/loghi/coppe_*.png|svg`, indice in `dati/stemmi_coppe.json`), 3) distintivo PROVVISORIO con iniziali generato da `assicura_stemmi()` (`assets/loghi/prov_*.png`).
 - Le voci `prov_`/`coppe_` vengono rivalutate a ogni giro: quando arriva lo stemma ufficiale sostituisce il provvisorio. L'avviso "Stemma PROVVISORIO" elenca le squadre da sistemare. Gli stemmi sono marchi dei club: uso personale OK, da verificare prima di monetizzare.
+
+## Heatmap risultato esatto (aggiornata 13/11/2026)
+- La heatmap NON ricalcola più una griglia propria (prima: 0-3 gol, rho -0.06, senza normalizzazione). Ora usa `m.heat`, generato da `heat()` in `aggiorna_dashboard.py` dalla STESSA matrice del modello (MAX_GOL=10, rho del modello, normalizzata).
+- Le celle "4+" aggregano tutti i punteggi con 4 o più gol (per casa e/o ospite): la somma è sempre 100% e coerente con 1X2/Gol/Over. Il top-3 è calcolato sulla matrice completa.
+- Non reintrodurre calcoli Poisson nel JS: se serve cambiare la griglia, modificare `heat()`.

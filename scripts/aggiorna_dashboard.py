@@ -91,6 +91,18 @@ def scegli(mercati, lo, hi, escludi=()):
     c = [m for m in mercati if lo <= m["prob_modello"] <= hi and "Over 0,5" not in m["mercato"]]
     return sorted(c, key=lambda m: -m["prob_modello"])
 
+def heat(g, k=4):
+    """Griglia per la heatmap, presa dalla STESSA matrice del modello (0..10 gol, normalizzata): celle 0..k esatte e colonna/riga 'k+' che somma la coda,
+    cosi' le probabilita' sommano al 100% e coincidono con 1X2/Over/Gol mostrati. 'top' = i 3 punteggi piu' probabili sull'intera matrice."""
+    n = len(g); tot = sum(map(sum, g))
+    def b(i): return min(i, k)
+    c = [[0.0] * (k + 1) for _ in range(k + 1)]
+    for i in range(n):
+        for j in range(n): c[b(i)][b(j)] += g[i][j] / tot
+    top = sorted(((g[i][j] / tot, i, j) for i in range(n) for j in range(n)), reverse=True)[:3]
+    return {"k": k, "c": [[round(x, 5) for x in r] for r in c], "top": [[i, j, round(p, 5)] for p, i, j in top]}
+
+
 def pron(m, tipo, icona, bc, br, desc, alt=None):
     p = round(m["prob_modello"] * 100)
     return {"tipo": tipo, "icona": icona, "mercato": m["mercato"], "alt": alt or "-", "prob": p, "probStr": f"{p}%",
@@ -230,7 +242,7 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
         "analisi": (f"{nome(casa)}: {fcs['summary5']} nelle ultime 5, xG diff {fcs['tot_xg_diff_5']:+.2f}, {fcs['gf']} gol fatti e {fcs['gs']} subiti in {fcs['tot_partite']} gare. "
                     f"{nome(osp)}: {fos['summary5']} nelle ultime 5, xG diff {fos['tot_xg_diff_5']:+.2f}, {fos['gf']} fatti e {fos['gs']} subiti in {fos['tot_partite']}. (Dati football-data.co.uk)"),
         "rischio": _rischio, "assenti": _assenti,
-        "pronosticiExtra": pe}, fcs, fos
+        "heat": heat(mod.griglia(gc, go)), "pronosticiExtra": pe}, fcs, fos
 
 # ---- Champions League in modalita' osservazione (scripts/coppe.py) ----
 def _csv_squadre(archivi):
@@ -304,7 +316,7 @@ def costruisci_partita_coppa(rec, squadre, track, NC="Champions", NL="Champions 
             "4": {"label": "Fase 4: xG per Squadra", "centerVal": f"{gc:.2f} vs {go:.2f}", "centerLbl": "Gol attesi",
                   "seg1": {"p": round(gc/(gc+go), 2), "col": "#0ea5e9", "nome": f"{casa}: {round(100*gc/(gc+go))}% ({gc:.2f})"}, "seg2": {"p": round(go/(gc+go), 2), "col": "#d97706", "nome": f"{osp}: {round(100*go/(gc+go))}% ({go:.2f})"}, "seg3": {"p": 0.0, "col": "transparent", "nome": ""}}},
         "isValore": False, "evBadge": "", "mercato": f"Miglior stima del modello: {qe['mercato']} ({qe['probStr']})", "qEqua": qe.get("qEqua", ""), "qReale": "", "spiegazione": spieg, "quoteMercato": None,
-        "analisi": analisi, "rischio": rischio, "assenti": assenti, "osservazione": track, "pronosticiExtra": pe}
+        "analisi": analisi, "rischio": rischio, "assenti": assenti, "osservazione": track, "heat": heat(M), "pronosticiExtra": pe}
 
 def _slug(n):
     n = unicodedata.normalize("NFKD", n).encode("ascii", "ignore").decode().lower()
