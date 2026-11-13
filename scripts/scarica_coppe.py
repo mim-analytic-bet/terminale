@@ -9,9 +9,9 @@ oggi = dt.date.today(); stagione = oggi.year if oggi.month >= 7 else oggi.year -
 DEST = os.path.join(BASE, "dati", "coppe")
 
 
-def salva(nome, stagione, matches):
+def salva(nome, stagione, matches, extra=None):
     os.makedirs(DEST, exist_ok=True)
-    json.dump({"scaricato": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"), "stagione": stagione, "matches": matches}, open(os.path.join(DEST, nome), "w", encoding="utf-8"), ensure_ascii=False)
+    json.dump({"scaricato": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"), "stagione": stagione, "matches": matches, **(extra or {})}, open(os.path.join(DEST, nome), "w", encoding="utf-8"), ensure_ascii=False)
 
 
 def http(url, header, valore):
@@ -60,25 +60,41 @@ def converti_ninjas(g):
 
 
 def europa():
-    chiave = os.environ.get("API_NINJAS_KEY", "").strip()
+    chiave = (os.environ.get("API_NINJAS_KEY") or "").strip()
     if not chiave: print("coppe: chiave API_NINJAS_KEY assente, salto l'Europa League"); return
+    # Il piano gratuito non ammette limit/offset: si interroga un giorno alla volta (mercoledi' e giovedi'), in modo incrementale.
+    dest = os.path.join(DEST, "EL_live.json"); prec, fatti = {}, set()
     try:
-        tutte, off = [], 0
-        while True:
-            pag = http(f"https://api.api-ninjas.com/v1/soccermatches?league=uel&season={stagione}&limit=100&offset={off}", "X-Api-Key", chiave)
-            if not isinstance(pag, list): raise ValueError("risposta inattesa")
-            tutte += pag
-            if len(pag) < 100 or off >= 1000: break
-            off += 100; time.sleep(0.5)
-        if not tutte: raise ValueError("nessuna partita nella risposta (la fonte potrebbe non avere ancora il calendario)")
-        conv = [converti_ninjas(g) for g in tutte if g.get("home_team") and g.get("away_team") and g.get("game_id")]
-        # giornata della fase campionato se la fonte non la fornisce: n-esima partita della squadra di casa
+        vecchio = json.load(open(dest, encoding="utf-8")); fatti = set(vecchio.get("giorni_ok", []))
+        for m in vecchio.get("matches", []): prec[m["id"]] = m
+    except Exception: pass
+    try:
+        g = dt.date(stagione, 9, 10); giorni = []
+        while g <= oggi + dt.timedelta(days=14):
+            if g.weekday() in (2, 3) and (g >= oggi - dt.timedelta(days=3) or g.isoformat() not in fatti): giorni.append(g)
+            g += dt.timedelta(days=1)
+        nuovi, tot_err = 0, 0
+        for g in giorni:
+            try:
+                pag = http(f"https://api.api-ninjas.com/v1/soccermatches?league=uel&date={g.isoformat()}", "X-Api-Key", chiave)
+            except RuntimeError as e:
+                tot_err += 1
+                if tot_err >= 3: raise
+                print("AVVISO coppe: EL", g, e); continue
+            time.sleep(0.4)
+            if not isinstance(pag, list): continue
+            if g < oggi - dt.timedelta(days=3): fatti.add(g.isoformat())
+            for x in pag:
+                if x.get("home_team") and x.get("away_team") and x.get("game_id") and x.get("season") in (None, stagione):
+                    c = converti_ninjas(x)
+                    if c["status"] != "FINISHED_NO90": prec[c["id"]] = c; nuovi += 1
+        conv = list(prec.values())
+        if not conv: raise ValueError("nessuna partita trovata (la fonte potrebbe non avere ancora il calendario)")
         per_sq = {}
         for m in sorted((m for m in conv if m["stage"] == "LEAGUE_STAGE" and m["matchday"] is None), key=lambda m: m["utcDate"]):
             for sq in (m["homeTeam"]["name"], m["awayTeam"]["name"]): per_sq[sq] = per_sq.get(sq, 0) + 1
             m["matchday"] = per_sq[m["homeTeam"]["name"]]
-        conv = [m for m in conv if m["status"] != "FINISHED_NO90"]
-        salva("EL_live.json", stagione, conv); print(f"coppe: EL {stagione}: {len(conv)} partite scaricate")
+        salva("EL_live.json", stagione, conv, {"giorni_ok": sorted(fatti)}); print(f"coppe: EL {stagione}: {len(conv)} partite in archivio ({len(giorni)} giorni interrogati)")
     except Exception as e: print("AVVISO coppe: download Europa League fallito:", e)
 
 
