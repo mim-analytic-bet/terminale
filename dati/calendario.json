@@ -1,0 +1,412 @@
+{
+ "_nota": "Calendario ufficiale inserito a mano (fonti: premierleague.com, laliga.com, bundesliga.com, ligue1.com). Nomi squadra come nei CSV di football-data. 'ora' e' ora italiana; null = orario non confermato. Dopo ogni giornata aggiungi il turno successivo (stessa struttura) e rilancia aggiorna_dashboard.py.",
+ "serie-a": {
+  "nome": "Serie A (Italia)",
+  "turni": {
+   "12": {
+    "giornata": "12ª Giornata",
+    "partite": [
+     {
+      "casa": "Como",
+      "ospite": "Cagliari",
+      "giorno": "2026-11-21",
+      "ora": "15:00"
+     },
+     {
+      "casa": "Lazio",
+      "ospite": "Lecce",
+      "giorno": "2026-11-21",
+      "ora": "15:00"
+     },
+     {
+      "casa": "Parma",
+      "ospite": "Roma",
+      "giorno": "2026-11-21",
+      "ora": "18:00"
+     },
+     {
+      "casa": "Napoli",
+      "ospite": "Torino",
+      "giorno": "2026-11-21",
+      "ora": "20:45"
+     },
+     {
+      "casa": "Juventus",
+      "ospite": "Venezia",
+      "giorno": "2026-11-22",
+      "ora": "12:30"
+     },
+     {
+      "casa": "Bologna",
+      "ospite": "Udinese",
+      "giorno": "2026-11-22",
+      "ora": "15:00"
+     },
+     {
+      "casa": "Sassuolo",
+      "ospite": "Genoa",
+      "giorno": "2026-11-22",
+      "ora": "15:00"
+     },
+     {
+      "casa": "Milan",
+      "ospite": "Frosinone",
+      "giorno": "2026-11-22",
+      "ora": "18:00"
+     },
+     {
+      "casa": "Atalanta",
+      "ospite": "Inter",
+      "giorno": "2026-11-22",
+      "ora": "20:45"
+     },
+     {
+      "casa": "Monza",
+      "ospite": "Fiorentina",
+      "giorno": "2026-11-23",
+      "ora": "20:45"
+     }
+    ]
+   },
+   "13": {
+    "giornata": "13ª Giornata",
+    "partite": [
+     {
+      "casa": "Venezia",
+      "ospite": "Bologna",
+      "giorno": "2026-11-27",
+      "ora": "20:45"
+     },
+     {
+      "casa": "Frosinone",
+      "ospite": "Parma",
+      "giorno": "2026-11-28",
+      "ora": "15:00"
+     },
+     {
+      "casa": "Torino",
+      "ospite": "Lazio",
+      "giorno": "2026-11-28",
+      "ora": "18:00"
+     },
+     {
+      "casa": "Inter",
+      "ospite": "Genoa",
+      "giorno": "2026-11-28",
+      "ora": "20:45"
+     },
+     {
+      "casa": "Udinese",
+      "ospite": "Fiorentina",
+      "giorno": "2026-11-29",
+      "ora": "12:30"
+     },
+     {
+      "casa": "Sassuolo",
+      "ospite": "Napoli",
+      "giorno": "2026-11-29",
+      "ora": "15:00"
+     },
+     {
+      "casa": "Roma",
+      "ospite": "Monza",
+      "giorno": "2026-11-29",
+      "ora": "18:00"
+     },
+     {
+      "casa": "Como",
+      "ospite": "Juventus",
+      "giorno": "2026-11-29",
+      "ora": "20:45"
+     },
+     {
+      "casa": "Lecce",
+      "ospite": "Atalanta",
+      "giorno": "2026-11-30",
+      "ora": "18:30"
+     },
+     {
+      "casa": "Cagliari",
+      "ospite": "Milan",
+      "giorno": "2026-11-30",
+      "ora": "20:45"
+     }
+    ]
+   }
+  },
+  "_verifica": "abbinamenti/orari ereditati dalla dashboard precedente: controllali su legaseriea.it"
+ },
+ "premier": {
+  "nome": "Premier League (Inghilterra)",
+  "turni": {
+   "11": {
+    "giornata": "11ª Giornata",
+    "partite": [
+     {
+      "casa": "Bournemouth",
+      "ospite": "Nott'm Forest",
+      "giorno": "2026-11-21",
+      "ora": "16:00"
+     },
+     {
+      "casa": "Aston Villa",
+      "ospite": "Sunderland",
+      "giorno": "2026-11-21",
+      "ora": "16:00"
+     },
+     {
+      "casa": "Chelsea",
+      "ospite": "Leeds",
+      "giorno": "2026-11-21",
+      "ora": "16:00"
+     },
+     {
+      "casa": "Coventry",
+      "ospite": "Crystal Palace",
+      "giorno": "2026-11-21",
+      "ora": "16:00"
+     },
+     {
+      "casa": "Tottenham",
+      "ospite": "Ipswich",
+      "giorno": "2026-11-21",
+      "ora": "16:00"
+     },
+     {
+      "casa": "Man City",
+      "ospite": "Fulham",
+      "giorno": "2026-11-21",
+      "ora": "13:30"
+     },
+     {
+      "casa": "Newcastle",
+      "ospite": "Arsenal",
+      "giorno": "2026-11-21",
+      "ora": "18:30"
+     },
+     {
+      "casa": "Hull",
+      "ospite": "Brighton",
+      "giorno": "2026-11-22",
+      "ora": "15:00"
+     },
+     {
+      "casa": "Liverpool",
+      "ospite": "Man United",
+      "giorno": "2026-11-22",
+      "ora": "17:30"
+     },
+     {
+      "casa": "Brentford",
+      "ospite": "Everton",
+      "giorno": "2026-11-23",
+      "ora": "21:00",
+      "nota": "giorno da verificare (fonti discordanti)"
+     }
+    ]
+   }
+  }
+ },
+ "liga": {
+  "nome": "LaLiga (Spagna)",
+  "turni": {
+   "13": {
+    "giornata": "13ª Giornata",
+    "partite": [
+     {
+      "casa": "Real Madrid",
+      "ospite": "Celta",
+      "giorno": "2026-11-22",
+      "ora": null
+     },
+     {
+      "casa": "Sevilla",
+      "ospite": "Betis",
+      "giorno": "2026-11-22",
+      "ora": null
+     },
+     {
+      "casa": "Getafe",
+      "ospite": "Ath Madrid",
+      "giorno": "2026-11-22",
+      "ora": null
+     },
+     {
+      "casa": "Levante",
+      "ospite": "Elche",
+      "giorno": "2026-11-22",
+      "ora": null
+     },
+     {
+      "casa": "Vallecano",
+      "ospite": "Valencia",
+      "giorno": null,
+      "ora": null
+     },
+     {
+      "casa": "Ath Bilbao",
+      "ospite": "Espanol",
+      "giorno": null,
+      "ora": null
+     },
+     {
+      "casa": "Barcelona",
+      "ospite": "Villarreal",
+      "giorno": null,
+      "ora": null
+     },
+     {
+      "casa": "Osasuna",
+      "ospite": "Malaga",
+      "giorno": null,
+      "ora": null
+     },
+     {
+      "casa": "Alaves",
+      "ospite": "La Coruna",
+      "giorno": null,
+      "ora": null
+     },
+     {
+      "casa": "Santander",
+      "ospite": "Sociedad",
+      "giorno": null,
+      "ora": null
+     }
+    ],
+    "finestra": "21-22 Nov",
+    "dataFine": "2026-11-22"
+   }
+  }
+ },
+ "bundesliga": {
+  "nome": "Bundesliga (Germania)",
+  "turni": {
+   "10": {
+    "giornata": "10ª Giornata",
+    "partite": [
+     {
+      "casa": "Bayern Munich",
+      "ospite": "FC Koln",
+      "giorno": "2026-11-20",
+      "ora": "20:30"
+     },
+     {
+      "casa": "Union Berlin",
+      "ospite": "RB Leipzig",
+      "giorno": "2026-11-21",
+      "ora": "15:30"
+     },
+     {
+      "casa": "Leverkusen",
+      "ospite": "Paderborn",
+      "giorno": "2026-11-21",
+      "ora": "15:30"
+     },
+     {
+      "casa": "Elversberg",
+      "ospite": "Freiburg",
+      "giorno": "2026-11-21",
+      "ora": "15:30"
+     },
+     {
+      "casa": "Werder Bremen",
+      "ospite": "Hamburg",
+      "giorno": "2026-11-22",
+      "ora": "17:30"
+     },
+     {
+      "casa": "M'gladbach",
+      "ospite": "Dortmund",
+      "giorno": null,
+      "ora": null
+     },
+     {
+      "casa": "Schalke 04",
+      "ospite": "Stuttgart",
+      "giorno": null,
+      "ora": null
+     },
+     {
+      "casa": "Hoffenheim",
+      "ospite": "Ein Frankfurt",
+      "giorno": null,
+      "ora": null
+     },
+     {
+      "casa": "Mainz",
+      "ospite": "Augsburg",
+      "giorno": null,
+      "ora": null
+     }
+    ],
+    "finestra": "21-22 Nov",
+    "dataFine": "2026-11-22"
+   }
+  }
+ },
+ "ligue1": {
+  "nome": "Ligue 1 (Francia)",
+  "turni": {
+   "11": {
+    "giornata": "11ª Giornata",
+    "partite": [
+     {
+      "casa": "Troyes",
+      "ospite": "Le Havre",
+      "giorno": "2026-11-20",
+      "ora": "20:45"
+     },
+     {
+      "casa": "Nice",
+      "ospite": "Paris SG",
+      "giorno": "2026-11-21",
+      "ora": "17:15"
+     },
+     {
+      "casa": "Lille",
+      "ospite": "Lyon",
+      "giorno": "2026-11-21",
+      "ora": "20:45"
+     },
+     {
+      "casa": "Lens",
+      "ospite": "Toulouse",
+      "giorno": "2026-11-21",
+      "ora": "20:45"
+     },
+     {
+      "casa": "Monaco",
+      "ospite": "Auxerre",
+      "giorno": "2026-11-21",
+      "ora": "20:45"
+     },
+     {
+      "casa": "Strasbourg",
+      "ospite": "Brest",
+      "giorno": "2026-11-21",
+      "ora": "20:45"
+     },
+     {
+      "casa": "Paris FC",
+      "ospite": "Angers",
+      "giorno": "2026-11-22",
+      "ora": "15:00"
+     },
+     {
+      "casa": "Lorient",
+      "ospite": "Rennes",
+      "giorno": "2026-11-22",
+      "ora": "17:15"
+     },
+     {
+      "casa": "Marseille",
+      "ospite": "Le Mans",
+      "giorno": "2026-11-22",
+      "ora": "20:45"
+     }
+    ]
+   }
+  }
+ }
+}

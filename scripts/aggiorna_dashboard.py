@@ -1,0 +1,347 @@
+#!/usr/bin/env python3
+"""Ricostruisce i 4 campionati esteri della dashboard SOLO da dati reali.
+Fonti: dati/E0|SP1|D1|F1.csv (risultati+xG), dati/fixtures.csv (quote, se la partita c'e'),
+dati/calendario.json (abbinamenti ufficiali). Nessun testo scritto a mano, nessuna quota inventata.
+Uso:  python3 scripts/aggiorna_dashboard.py            (dalla cartella scommesse)
+"""
+import csv, json, os, sys, shutil, re, datetime as dt, hashlib
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(BASE, "analisi-scommesse-calcio", "scripts"))
+import prepara_partita as pp
+import modello as mod
+import track_record as TR
+import apprendimento as AP
+import colori_squadre as CS
+W_APP = 1.0
+RAW = {}
+COLORI = {}
+NEUTRO = ["#1e3a5f", "#334155"]
+NUOVI_LOGHI = {"Leeds": "leeds", "Sunderland": "sunderland", "Hull": "hull_city", "Coventry": "coventry_city", "Elche": "elche", "Levante": "levante",
+    "Deportivo": "deportivo", "Racing Santander": "racing_santander", "Málaga": "malaga", "Elversberg": "elversberg", "Paderborn": "paderborn",
+    "Amburgo": "hamburger_sv", "Colonia": "koln", "Schalke 04": "schalke_04", "Troyes": "troyes", "Paris FC": "paris_fc", "Le Mans": "le_mans", "Lorient": "lorient",
+    "Atlético Madrid": "atletico_madrid", "Athletic Club": "athletic_bilbao", "Betis": "real_betis", "Celta": "celta_vigo", "Alavés": "alaves",
+    "Bayern Monaco": "bayern_munchen", "Eintracht Francoforte": "eintracht_frankfurt", "Mönchengladbach": "borussia_monchengladbach",
+    "Werder Brema": "werder_bremen", "Stoccarda": "stuttgart", "Magonza": "mainz", "Lione": "lyon", "Marsiglia": "marseille"}
+
+HTML = os.path.join(BASE, "scheda-partita-dashboard.html")
+LEGHE = {"serie-a": "I1", "premier": "E0", "liga": "SP1", "bundesliga": "D1", "ligue1": "F1"}
+NOMI = {  # nome CSV -> nome mostrato
+ "Man City": "Manchester City", "Man United": "Manchester United", "Nott'm Forest": "Nottingham Forest",
+ "Ath Madrid": "Atlético Madrid", "Ath Bilbao": "Athletic Club", "Sociedad": "Real Sociedad", "Espanol": "Espanyol",
+ "Vallecano": "Rayo Vallecano", "La Coruna": "Deportivo", "Santander": "Racing Santander", "Alaves": "Alavés", "Malaga": "Málaga",
+ "Bayern Munich": "Bayern Monaco", "FC Koln": "Colonia", "Ein Frankfurt": "Eintracht Francoforte", "M'gladbach": "Mönchengladbach",
+ "Werder Bremen": "Werder Brema", "Dortmund": "Borussia Dortmund", "Leverkusen": "Bayer Leverkusen", "Stuttgart": "Stoccarda",
+ "Paris SG": "Paris Saint-Germain", "Marseille": "Marsiglia", "Lyon": "Lione", "Hamburg": "Amburgo", "Mainz": "Magonza",
+}
+GIORNI = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"]
+MESI = ["", "Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"]
+PAL = ["sky", "rose", "amber", "emerald", "violet", "cyan", "orange", "indigo", "teal", "fuchsia"]
+
+def nome(x): return NOMI.get(x, x)
+
+def coppia(cols):
+    """Due colori per lo sfondo: se il secondo e' bianco/grigio/nero lo sostituisce con una tinta chiara del primo (niente riflessi grigi)."""
+    import colorsys
+    c1 = cols[0]; c2 = cols[1] if len(cols) > 1 else cols[0]
+    def hsv(h): return colorsys.rgb_to_hsv(*(int(h[i:i+2], 16) / 255 for i in (1, 3, 5)))
+    def hx(r, g_, b): return "#%02x%02x%02x" % (round(r*255), round(g_*255), round(b*255))
+    h1, s1, v1 = hsv(c1); h2, s2, v2 = hsv(c2)
+    if s1 < 0.2:                                   # primo colore grigio/bianco (es. Juventus): usa un azzurro freddo neutro
+        c1 = "#5b6b8c"; h1, s1, v1 = hsv(c1)
+    if s2 < 0.2 or v2 < 0.22:
+        c2 = hx(*colorsys.hsv_to_rgb(h1, max(0.35, s1 * 0.55), min(1.0, v1 + 0.28)))
+    return [c1, c2]
+def sigla(x): return "".join(c for c in nome(x) if c.isalpha()).upper()[:3]
+def colore(x):
+    c = PAL[int(hashlib.md5(x.encode()).hexdigest(), 16) % len(PAL)]
+    return f"bg-{c}-500/20 text-{c}-400 border-{c}-400"
+
+def classifica(partite):
+    t = {}
+    for p in partite:
+        for sq, gf, gs in ((p["casa"], p["gc"], p["go"]), (p["ospite"], p["go"], p["gc"])):
+            r = t.setdefault(sq, [0, 0, 0, 0])
+            r[0] += 3 if gf > gs else 1 if gf == gs else 0; r[1] += gf - gs; r[2] += gf; r[3] += gs
+    ordine = sorted(t, key=lambda s: (-t[s][0], -t[s][1], -t[s][2]))
+    return {s: (i + 1, t[s]) for i, s in enumerate(ordine)}
+
+def forma(partite, sq):
+    mie = sorted([p for p in partite if sq in (p["casa"], p["ospite"])], key=lambda p: p["data"])
+    def riga(p):
+        c = p["casa"] == sq
+        gf, gs = (p["gc"], p["go"]) if c else (p["go"], p["gc"])
+        xf, xs = (p["xgc"], p["xgo"]) if c else (p["xgo"], p["xgc"])
+        xf = xf if xf is not None else 0.0; xs = xs if xs is not None else 0.0
+        return {"opp": nome(p["ospite"] if c else p["casa"]), "gf": gf, "gs": gs,
+                "res": "V" if gf > gs else "N" if gf == gs else "P", "xg_f": round(xf, 2), "xg_s": round(xs, 2),
+                "xg_diff": round(xf - xs, 2), "home": c, "date": p["data"].strftime("%d/%m/%Y")}
+    tutte = [riga(p) for p in mie]; l5 = tutte[-5:]
+    v = sum(r["res"] == "V" for r in tutte); n = sum(r["res"] == "N" for r in tutte); pr = sum(r["res"] == "P" for r in tutte)
+    d5 = round(sum(r["xg_diff"] for r in l5), 2); N = len(tutte)
+    tr = (f"Creazione offensiva dominante ({d5:+.2f} xG diff)" if d5 > 1 else
+          f"Squadra in difficoltà sotto porta/difesa ({d5:+.2f} xG diff)" if d5 < -1 else f"Equilibrio xG ({d5:+.2f} xG diff)")
+    return {"last5": l5, "summary5": f"{sum(r['res']=='V' for r in l5)}V {sum(r['res']=='N' for r in l5)}N {sum(r['res']=='P' for r in l5)}P",
+            "tot_xg_diff_5": d5, "trend_desc": tr, "tot_partite": N, "v": v, "n": n, "p": pr,
+            "gf": sum(r["gf"] for r in tutte), "gs": sum(r["gs"] for r in tutte),
+            "xg_f_avg": round(sum(r["xg_f"] for r in tutte) / N, 2), "xg_s_avg": round(sum(r["xg_s"] for r in tutte) / N, 2),
+            "cs_perc": round(100 * sum(r["gs"] == 0 for r in tutte) / N), "bts_perc": round(100 * sum(r["gf"] > 0 and r["gs"] > 0 for r in tutte) / N)}
+
+def scegli(mercati, lo, hi, escludi=()):
+    c = [m for m in mercati if lo <= m["prob_modello"] <= hi and "Over 0,5" not in m["mercato"]]
+    return sorted(c, key=lambda m: -m["prob_modello"])
+
+def pron(m, tipo, icona, bc, br, desc, alt=None):
+    p = round(m["prob_modello"] * 100)
+    return {"tipo": tipo, "icona": icona, "mercato": m["mercato"], "alt": alt or "-", "prob": p, "probStr": f"{p}%",
+            "quota": f"{m['quota_equa']:.2f}", "qEqua": f"{m['quota_equa']:.2f}", "badgeCol": bc, "barCol": br,
+            "desc": f"{desc} Quota equa {m['quota_equa']:.2f}: gioca solo se il bookmaker paga almeno {m['quota_minima']:.2f}."}
+
+def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
+    casa, osp = e["casa"], e["ospite"]
+    d = pp.costruisci(partite, casa, osp)
+    d["assenze_verificate"] = False
+    rif = None
+    try:
+        q, fonte, arb = pp.riferimento_da_fixtures(fixtures, casa, osp)
+        d["quote_riferimento"] = q; d["fonte_riferimento"] = fonte; rif = (q, fonte)
+    except SystemExit:
+        pass
+    r = mod.analizza(d)
+    RAW[(casa, osp)] = (r["gol_attesi"]["casa"], r["gol_attesi"]["trasferta"], d["lega"]["media_gol_casa"], d["lega"]["media_gol_trasferta"])
+    r = AP.ricalibra(r, d, W_APP)
+    b = r["base"]; p1, px, p2 = b["1"], b["X"], b["2"]; pg = b["Gol"]; po = b["Over 2,5"]
+    gc, go = r["gol_attesi"]["casa"], r["gol_attesi"]["trasferta"]
+    dq = r["da_quotare"]
+    bc = {1: "text-emerald-400 bg-emerald-500/10 border-emerald-500/30", 2: "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+          3: "text-rose-400 bg-rose-500/10 border-rose-500/30", 4: "text-purple-400 bg-purple-500/10 border-purple-500/30"}
+    br = {1: "from-emerald-500 to-teal-400", 2: "from-cyan-500 to-blue-500", 3: "from-rose-500 to-amber-500", 4: "from-purple-500 to-indigo-500"}
+    triv = ("Over 0,5",)
+    a = scegli(dq, 0.74, 0.90, triv); bb = scegli(dq, 0.55, 0.73, triv); c = scegli(dq, 0.30, 0.50, triv)
+    pe = {}
+    if a: pe["1"] = pron(a[0], "ALTA PROBABILITÀ (BASE)", "🛡️", bc[1], br[1], "Mercato a probabilità più alta secondo il modello.", f"{a[1]['mercato']} ({round(a[1]['prob_modello']*100)}%)" if len(a) > 1 else None)
+    if bb: pe["2"] = pron(bb[0], "EQUILIBRATO", "⚡", bc[2], br[2], "Miglior rapporto probabilità/quota del fascio medio.", f"{bb[1]['mercato']} ({round(bb[1]['prob_modello']*100)}%)" if len(bb) > 1 else None)
+    if c: pe["3"] = pron(c[0], "PRONOSTICO HARD", "🎯", bc[3], br[3], "Più rischioso, probabilità più bassa.", f"{c[1]['mercato']} ({round(c[1]['prob_modello']*100)}%)" if len(c) > 1 else None)
+    s, ps = r["punteggi_top"][0]
+    pe["4"] = {"tipo": "PRONOSTICO EXTRA", "icona": "🔮", "mercato": f"Risultato esatto {s}", "alt": f"{r['punteggi_top'][1][0]} ({round(r['punteggi_top'][1][1]*100)}%)",
+               "prob": round(ps * 100), "probStr": f"{round(ps*100)}%", "quota": f"{1/ps:.2f}", "qEqua": f"{1/ps:.2f}", "badgeCol": bc[4], "barCol": br[4],
+               "desc": "Punteggio più probabile per il modello Dixon-Coles."}
+    cc, oc = cl[casa], cl[osp]
+    fcs, fos = forma(partite, casa), forma(partite, osp)
+    # data
+    if e.get("giorno"):
+        g = dt.date.fromisoformat(e["giorno"]); data = f"{GIORNI[g.weekday()]} {g.day} {MESI[g.month]}" + (f" · {e['ora']}" if e.get("ora") else " · orario da confermare")
+    else:
+        data = f"{turno_lbl.get('finestra','')} · giorno e orario da confermare"
+    if e.get("nota"): data += " (verificare)"
+    mq = None
+    if rif:
+        q, fonte = rif; mq = dict(q); mq["fonte"] = fonte
+    _t1 = pe.get("1") or pe.get("2") or pe.get("3") or pe.get("4") or {}
+    _merc = f"Miglior stima del modello: {_t1.get('mercato','n.d.')} ({_t1.get('probStr','n.d.')})"
+    _qe = _t1.get("qEqua", "")
+    _spieg = (f"Stime del modello — 1: {round(p1*100)}% · X: {round(px*100)}% · 2: {round(p2*100)}% · Gol: {round(pg*100)}% · Over 2.5: {round(po*100)}%. "
+              f"Attesa gol (xG modello): {nome(casa)} {gc:.2f} – {nome(osp)} {go:.2f}. "
+              + (f"Quota equa {_qe}: giocala solo se il bookmaker paga almeno quel prezzo con margine. " if _qe else "")
+              + ((f"Quote di riferimento ({mq['fonte']}): " + " · ".join(f"{k} {mq[k]}" for k in ('1','X','2') if k in mq) + ". ") if mq else "Quote di mercato non disponibili per questa partita. ")
+              + "Puntata consigliata 0 € finché non emerge un edge verificato: nei test il modello da solo non batte il mercato, quindi nessuna giocata è forzata.")
+    return {
+        "id": (sigla(casa) + "-" + sigla(osp)).lower(), "label": f"{nome(casa)} - {nome(osp)}",
+        "bgGradient": f"from-[{coppia(COLORI.get(nome(casa), NEUTRO))[0]}] via-[#090d16] to-[{coppia(COLORI.get(nome(osp), NEUTRO))[0]}]",
+        "colori": {"casa": coppia(COLORI.get(nome(casa), NEUTRO)), "ospite": coppia(COLORI.get(nome(osp), NEUTRO))},
+        "casa": {"sigla": sigla(casa), "nome": nome(casa), "rank": f"{cc[0]}° · {cc[1][0]} pt", "colBox": colore(casa)},
+        "ospite": {"sigla": sigla(osp), "nome": nome(osp), "rank": f"{oc[0]}° · {oc[1][0]} pt", "colBox": colore(osp)},
+        "data": data, "giornata": f"{lega} · {turno_lbl['giornata']}",
+        "golC": f"{gc:.2f}", "golO": f"{go:.2f}", "barC": f"{round(100*gc/(gc+go))}%", "barO": f"{100-round(100*gc/(gc+go))}%",
+        "fasi": {
+            "1": {"label": "Fase 1: 1X2", "centerVal": f"{round(max(p1,px,p2)*100)}%", "centerLbl": "Segno " + ("1" if p1 >= max(px, p2) else "X" if px >= p2 else "2"),
+                  "seg1": {"p": round(p1, 3), "col": "#06b6d4", "nome": f"1: {round(p1*100)}%"}, "seg2": {"p": round(px, 3), "col": "#f59e0b", "nome": f"X: {round(px*100)}%"},
+                  "seg3": {"p": round(p2, 3), "col": "#f43f5e", "nome": f"2: {round(p2*100)}%"}},
+            "2": {"label": "Fase 2: GG / NG", "centerVal": f"{round(max(pg,1-pg)*100)}%", "centerLbl": "Gol (GG)" if pg >= .5 else "No Gol",
+                  "seg1": {"p": round(pg, 3), "col": "#10b981", "nome": f"Gol: {round(pg*100)}%"}, "seg2": {"p": round(1-pg, 3), "col": "#64748b", "nome": f"No Gol: {round((1-pg)*100)}%"},
+                  "seg3": {"p": 0.0, "col": "transparent", "nome": ""}},
+            "3": {"label": "Fase 3: Under / Over 2.5", "centerVal": f"{round(max(po,1-po)*100)}%", "centerLbl": "Over 2.5" if po >= .5 else "Under 2.5",
+                  "seg1": {"p": round(po, 3), "col": "#8b5cf6", "nome": f"Over: {round(po*100)}%"}, "seg2": {"p": round(1-po, 3), "col": "#3b82f6", "nome": f"Under: {round((1-po)*100)}%"},
+                  "seg3": {"p": 0.0, "col": "transparent", "nome": ""}},
+            "4": {"label": "Fase 4: xG per Squadra", "centerVal": f"{gc:.2f} vs {go:.2f}", "centerLbl": "Volume xG",
+                  "seg1": {"p": round(gc/(gc+go), 2), "col": "#0ea5e9", "nome": f"{nome(casa)}: {round(100*gc/(gc+go))}% ({gc:.2f})"},
+                  "seg2": {"p": round(go/(gc+go), 2), "col": "#d97706", "nome": f"{nome(osp)}: {round(100*go/(gc+go))}% ({go:.2f})"},
+                  "seg3": {"p": 0.0, "col": "transparent", "nome": ""}}},
+        "isValore": False, "evBadge": "", "mercato": _merc, "qEqua": _qe, "qReale": "",
+        "spiegazione": _spieg, "quoteMercato": mq,
+        "analisi": (f"{nome(casa)}: {fcs['summary5']} nelle ultime 5, xG diff {fcs['tot_xg_diff_5']:+.2f}, {fcs['gf']} gol fatti e {fcs['gs']} subiti in {fcs['tot_partite']} gare. "
+                    f"{nome(osp)}: {fos['summary5']} nelle ultime 5, xG diff {fos['tot_xg_diff_5']:+.2f}, {fos['gf']} fatti e {fos['gs']} subiti in {fos['tot_partite']}. (Dati football-data.co.uk)"),
+        "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare." + ("" if mq else " Nessuna quota di mercato disponibile per questa partita nei dati."),
+        "pronosticiExtra": pe}, fcs, fos
+
+PANNELLO = r'''<!--/*TRACKPANEL*/--><script>
+(function(){try{var T=DATA_TRACK,t=T.totale,L=T.live;
+var box=document.createElement('details');box.style.cssText='margin:24px auto 56px;max-width:1100px;padding:0 16px;font:12px ui-monospace,monospace;color:#cbd5e1';
+function r(a){return '<tr>'+a.map(function(x){return '<td style="padding:4px 10px;border-bottom:1px solid #1e293b">'+x+'</td>'}).join('')+'</tr>'}
+var leg=Object.keys(T.leghe).map(function(k){var x=T.leghe[k];return x.n?r([k,x.n,x.hit_1x2+'%',x.brier_modello,x.brier_mercato,x.value_roi===null?'n.d.':x.value_roi+'% ('+x.value_giocate+')']):''}).join('');
+var cal=(t.calibrazione||[]).map(function(c){return r([c.fascia,c.n,c.previsto+'%',c.reale+'%'])}).join('');
+var gap=(t.brier_modello-t.brier_mercato);
+box.innerHTML='<summary style="cursor:pointer;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#fff;padding:10px 0">\ud83d\udcca Track record del modello (onesto)</summary>'+
+'<div style="background:#0f172a;border:1px solid #1e293b;border-radius:16px;padding:16px;line-height:1.5">'+
+'<p style="color:#fbbf24">Backtest su '+t.n+' partite gi\u00e0 giocate, usando solo dati precedenti a ogni partita. Brier (pi\u00f9 basso = meglio): modello solo-dati <b>'+t.brier_modello+'</b> vs mercato <b>'+t.brier_mercato+'</b>. '+
+(gap>0?'Il modello \u00e8 PEGGIO del mercato: usalo come filtro e controllo, non come segnale di value.':'Il modello \u00e8 in linea o meglio del mercato.')+'</p>'+
+'<table style="width:100%;border-collapse:collapse;margin:10px 0"><tr style="color:#94a3b8"><td style="padding:4px 10px">Campionato</td><td>Partite</td><td>1X2 azzeccati</td><td>Brier modello</td><td>Brier mercato</td><td>ROI regola value (n. giocate)</td></tr>'+leg+'</table>'+
+'<table style="width:100%;border-collapse:collapse;margin:10px 0"><tr style="color:#94a3b8"><td style="padding:4px 10px">Fascia probabilit\u00e0</td><td>Casi</td><td>Previsto</td><td>Reale</td></tr>'+cal+'</table>'+
+'<p>ROI value (totale): <b>'+(t.value_roi===null?'n.d.':t.value_roi+'%')+'</b> su '+t.value_giocate+' giocate con quote Bet365 di apertura: puntare dove il solo-dati vede valore ha perso denaro. Campione ancora piccolo, ma il segnale \u00e8 negativo.</p>'+
+(T.apprendimento&&T.apprendimento.storia.length?'<p style="border-top:1px solid #1e293b;padding-top:8px">Memoria del modello: fiducia nei gol attesi w = <b>'+T.apprendimento.w+'</b> (1 = piena)'+(T.apprendimento.a!==null&&T.apprendimento.a!==undefined?' \u00b7 peso dei dati contro il mercato = <b>'+T.apprendimento.a+'</b> (0 = solo mercato)':'')+'. Si riaddestra ad ogni aggiornamento su backtest + registro live ('+T.apprendimento.storia.length+' ricalibrazioni salvate in dati/memoria_modello.json).</p>':'')+
+'<p style="border-top:1px solid #1e293b;padding-top:8px">Registro live (previsioni congelate prima della partita, valutate dopo): <b>'+L.registrate+'</b> registrate, <b>'+L.valutate+'</b> valutate'+(L.valutate?' \u00b7 1X2 azzeccati '+L.hit_1x2+'% \u00b7 Brier '+L.brier:' \u00b7 i primi risultati arrivano dopo la prossima giornata')+'. Aggiornato '+T.aggiornato+'.</p></div>';
+(document.querySelector('body > div')||document.body).appendChild(box);}catch(e){}})();
+</script>'''
+
+def parsa_blocco(s, nome_const):
+    i = s.index(f"const {nome_const} = ") + len(f"const {nome_const} = ")
+    j, depth, ins, esc = i, 0, False, False
+    while True:
+        ch = s[j]
+        if ins:
+            if esc: esc = False
+            elif ch == "\\": esc = True
+            elif ch == '"': ins = False
+        elif ch == '"': ins = True
+        elif ch == "{": depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0: break
+        j += 1
+    return i, j + 1, json.loads(s[i:j + 1])
+
+def file_dati(cod):
+    p = os.path.join(BASE, "dati", cod + ".csv")
+    if not os.path.exists(p) and cod == "I1":
+        p = os.path.join(BASE, "risultati.csv")
+    return p
+
+def turni_automatici(partite, fixtures, oggi):
+    """Partite future lette da fixtures.csv (football-data): abbinamenti, data, ora (UK+1h) e quote reali."""
+    if not os.path.exists(fixtures): return {}
+    giocate = {(p["data"], p["casa"], p["ospite"]) for p in partite}
+    squadre = {p["casa"] for p in partite} | {p["ospite"] for p in partite}
+    gg = {}
+    for p in partite:
+        for sq in (p["casa"], p["ospite"]): gg[sq] = gg.get(sq, 0) + 1
+    out = {}
+    cod = partite[0]["riga"]["Div"]
+    for r in csv.DictReader(open(fixtures, encoding="utf-8-sig")):
+        if r.get("Div") != cod: continue
+        try: d = dt.datetime.strptime(r["Date"], "%d/%m/%Y").date()
+        except ValueError: continue
+        if d < oggi or (d, r["HomeTeam"], r["AwayTeam"]) in giocate: continue
+        if r["HomeTeam"] not in squadre or r["AwayTeam"] not in squadre: continue
+        ora = None
+        if r.get("Time"):
+            h, m = r["Time"].split(":"); ora = f"{(int(h)+1)%24:02d}:{m}"
+            if int(h)+1 >= 24: d = d + dt.timedelta(days=1)
+        n = max(gg[r["HomeTeam"]], gg[r["AwayTeam"]]) + 1
+        out.setdefault(str(n), []).append({"casa": r["HomeTeam"], "ospite": r["AwayTeam"], "giorno": d.isoformat(), "ora": ora})
+    return out
+
+def main():
+    oggi = dt.datetime.now().date()
+    cal = json.load(open(os.path.join(BASE, "dati", "calendario.json"), encoding="utf-8"))
+    fix = os.path.join(BASE, "dati", "fixtures.csv")
+    s = open(HTML, encoding="utf-8").read()
+    bk = HTML.replace(".html", ".BACKUP-prima-aggiornamento.html")
+    if not os.path.exists(bk): shutil.copy(HTML, bk)
+    global COLORI
+    la, lb, loghi = parsa_blocco(s, "LOGHI_SQUADRE")
+    for nm_, f_ in NUOVI_LOGHI.items():
+        if os.path.exists(os.path.join(BASE, "assets", "loghi", f_ + ".png")): loghi[nm_] = f"./assets/loghi/{f_}.png"
+    s = s[:la] + json.dumps(loghi, ensure_ascii=False, indent=2) + s[lb:]
+    try:
+        COLORI, _man = CS.aggiorna(loghi, BASE, os.path.join(BASE, "dati", "colori_squadre.json"))
+    except Exception as ex_:
+        cp = os.path.join(BASE, "dati", "colori_squadre.json")
+        COLORI = {k: v["colori"] for k, v in json.load(open(cp)).items()} if os.path.exists(cp) else {}
+    a, b, pro = parsa_blocco(s, "DATA_PRO")
+    nuove_forme, rapporto, avvisi, dati_fino = {}, [], [], {}
+    previsioni, archivi, track = [], {}, {"leghe": {}}
+    tutte_righe = []
+    global W_APP
+    live_path = os.path.join(BASE, "dati", "storico_live.csv"); mem_path = os.path.join(BASE, "dati", "memoria_modello.json")
+    bt = {k: TR.backtest(pp.leggi(file_dati(c))) for k, c in LEGHE.items() if os.path.exists(file_dati(c))}
+    mem = AP.impara([r for v in bt.values() for r in v], AP.righe_live(TR.leggi_log(live_path)), mem_path)
+    W_APP = mem.get("w", 1.0)
+    if "a" in mem: mod.PESO_DATI = mem["a"]
+    for key, cod in LEGHE.items():
+        nm = (cal.get(key) or {}).get("nome") or {"serie-a": "Serie A (Italia)"}.get(key, key)
+        if not os.path.exists(file_dati(cod)):
+            avvisi.append(f"{nm}: file dati mancante ({cod}.csv), campionato non aggiornato"); continue
+        partite = pp.leggi(file_dati(cod)); cl = classifica(partite)
+        ultima = max(p["data"] for p in partite); dati_fino[key] = ultima.isoformat()
+        archivi[key] = partite
+        rr = bt[key]; tutte_righe += rr; track["leghe"][nm.split(" (")[0]] = TR.riepilogo(rr)
+        manuali = ((cal.get(key) or {}).get("turni")) or {}
+        turni_src = {k: {"giornata": t["giornata"], "finestra": t.get("finestra"), "dataFine": t.get("dataFine"), "partite": list(t["partite"])} for k, t in manuali.items()}
+        viste = {(e["casa"], e["ospite"]) for t in turni_src.values() for e in t["partite"]}
+        for n, lista in turni_automatici(partite, fix, oggi).items():
+            nuovi = [e for e in lista if (e["casa"], e["ospite"]) not in viste]
+            if not nuovi: continue
+            t = turni_src.setdefault(n, {"giornata": f"{n}ª Giornata", "finestra": None, "dataFine": None, "partite": []})
+            t["partite"] += nuovi
+        turni = {}
+        for tk, t in sorted(turni_src.items(), key=lambda kv: int(kv[0])):
+            giorni = [e["giorno"] for e in t["partite"] if e.get("giorno")]
+            fine = t.get("dataFine") or (max(giorni) if giorni else None)
+            if not fine or dt.date.fromisoformat(fine[:10]) < oggi: continue
+            lista = []
+            for e in t["partite"]:
+                m, f1, f2 = costruisci_partita(nm.split(" (")[0], cod, partite, cl, e, t, fix)
+                lista.append(m); nuove_forme[nome(e["casa"])] = f1; nuove_forme[nome(e["ospite"])] = f2
+                fs = m["fasi"]; q = m.get("quoteMercato") or {}
+                previsioni.append({"lega": key, "casa": e["casa"], "ospite": e["ospite"], "giorno": e.get("giorno") or "", "p1": fs["1"]["seg1"]["p"], "pX": fs["1"]["seg2"]["p"], "p2": fs["1"]["seg3"]["p"],
+                                   "pOver25": fs["3"]["seg1"]["p"], "pGol": fs["2"]["seg1"]["p"], "lh": RAW[(e["casa"], e["ospite"])][0], "la": RAW[(e["casa"], e["ospite"])][1], "mc": RAW[(e["casa"], e["ospite"])][2], "mt": RAW[(e["casa"], e["ospite"])][3], "q1": q.get("1", ""), "qX": q.get("X", ""), "q2": q.get("2", ""), "qOver25": q.get("Over 2,5", "")})
+            if giorni:
+                d1, d2 = dt.date.fromisoformat(min(giorni)), dt.date.fromisoformat(max(giorni))
+                fin = f"{d1.day}-{d2.day} {MESI[d2.month]}" if d1.month == d2.month else f"{d1.day} {MESI[d1.month]}-{d2.day} {MESI[d2.month]}"
+            else: fin = t.get("finestra") or ""
+            turni[tk] = {"label": f"{t['giornata']} ({fin} {d2.year if giorni else ''})".replace(" )", ")"), "dataFine": fine[:10] + "T23:59:59", "partite": lista}
+            if any(not e.get("giorno") or not e.get("ora") for e in t["partite"]):
+                avvisi.append(f"{nm}: {t['giornata']} ha partite con giorno/orario da confermare")
+            if any(e.get("nota") for e in t["partite"]):
+                avvisi.append(f"{nm}: {t['giornata']} ha date da verificare")
+        if not turni:
+            avvisi.append(f"{nm}: nessuna giornata futura (aggiungi il turno in dati/calendario.json o scarica fixtures.csv aggiornato)")
+            if key in pro: pass
+        else:
+            pro[key] = {"nome": nm, "turni": turni}
+        rapporto.append(f"{nm}: {sum(len(t['partite']) for t in turni.values())} partite in {len(turni)} giornate, dati fino al {ultima:%d/%m/%Y} ({len(partite)} gare)")
+    log = TR.aggiorna_live(live_path, previsioni, archivi)
+    track["totale"] = TR.riepilogo(tutte_righe); track["live"] = TR.riepilogo_live(log)
+    track["apprendimento"] = {"w": mem.get("w"), "a": mem.get("a"), "storia": mem.get("storia", [])[-5:]}
+    track["aggiornato"] = dt.datetime.now().strftime("%d/%m/%Y %H:%M")
+    s = s[:a] + json.dumps(pro, ensure_ascii=False, indent=2) + s[b:]
+    a, b, forma_d = parsa_blocco(s, "DATA_FORMA"); forma_d.update(nuove_forme)
+    s = s[:a] + json.dumps(forma_d, ensure_ascii=False, indent=2) + s[b:]
+    senza = sorted({m[k]["nome"] for c in pro.values() for t in c["turni"].values() for m in t["partite"] for k in ("casa", "ospite")} - set(loghi))
+    if senza: avvisi.append("Stemma mancante (colori neutri): " + ", ".join(senza) + " - aggiungi il PNG in assets/loghi")
+    meta = {"aggiornato": dt.datetime.now().isoformat(timespec="minutes"), "dati_fino": dati_fino, "avvisi": avvisi}
+    blocco = "/*META*/const DATA_META = " + json.dumps(meta, ensure_ascii=False) + ";/*ENDMETA*/\n    "
+    if "/*META*/" in s:
+        s = re.sub(r"/\*META\*/.*?/\*ENDMETA\*/\n    ", lambda m: blocco, s, count=1, flags=re.S)
+    else:
+        s = s.replace("const DATA_PRO = ", blocco + "const DATA_PRO = ", 1)
+    blk = "/*TRACK*/const DATA_TRACK = " + json.dumps(track, ensure_ascii=False) + ";/*ENDTRACK*/\n    "
+    if "/*TRACK*/" in s: s = re.sub(r"/\*TRACK\*/.*?/\*ENDTRACK\*/\n    ", lambda m: blk, s, count=1, flags=re.S)
+    else: s = s.replace("const DATA_PRO = ", blk + "const DATA_PRO = ", 1)
+    if "/*TRACKPANEL*/" not in s:
+        s = s.replace("</body>", PANNELLO + "\n</body>", 1)
+    if "/*STATUSBAR*/" not in s:
+        barra = """<!--/*STATUSBAR*/--><script>
+(function(){try{var M=DATA_META,el=document.createElement('div');
+el.style.cssText='position:fixed;bottom:0;left:0;right:0;z-index:50;font:11px ui-monospace,monospace;padding:4px 12px;background:#020617ee;border-top:1px solid #1e293b;color:#94a3b8;display:flex;flex-wrap:wrap;gap:12px';
+var ore=(Date.now()-new Date(M.aggiornato).getTime())/36e5;
+var st=ore>48?'<span style="color:#f87171">\u26a0 dati non aggiornati da '+Math.floor(ore/24)+' giorni</span>':'<span style="color:#34d399">\u25cf dati aggiornati</span>';
+var fino=Object.keys(M.dati_fino).map(function(k){return k+': '+M.dati_fino[k].split('-').reverse().join('/')}).join(' \u00b7 ');
+el.innerHTML=st+'<span>Ultimo aggiornamento: '+M.aggiornato.replace('T',' ')+'</span><span>Risultati fino al \u2192 '+fino+'</span>'+M.avvisi.map(function(a){return '<span style="color:#fbbf24">\u26a0 '+a+'</span>'}).join('');
+document.body.appendChild(el);document.body.style.paddingBottom='34px';}catch(e){}})();
+</script>"""
+        s = s.replace("</body>", barra + "\n</body>", 1)
+    open(HTML, "w", encoding="utf-8").write(s)
+    print("\n".join(rapporto)); print("\n".join("AVVISO: " + x for x in avvisi)); print("Dashboard aggiornata:", HTML)
+
+if __name__ == "__main__":
+    main()
