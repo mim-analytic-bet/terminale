@@ -247,10 +247,11 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
         e = dict(e, giorno=rec_api["giorno"], ora=rec_api["ora"], nota=None)  # orario ufficiale da API-Football
     d = pp.costruisci(partite, casa, osp)
     d["assenze_verificate"] = False
-    rif = None
+    rif = None; b365 = None
     try:
         q, fonte, arb = pp.riferimento_da_fixtures(fixtures, casa, osp)
-        d["quote_riferimento"] = q; d["fonte_riferimento"] = fonte; rif = (q, fonte)
+        d["quote_riferimento"] = q; d["fonte_riferimento"] = fonte; rif = (q, fonte)   # ancora del modello (probabilita')
+        b365 = pp.quote_bet365(fixtures, casa, osp)                                    # prezzo mostrato come confronto
     except SystemExit:
         pass
     r = mod.analizza(d)
@@ -282,6 +283,8 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
     mq = None
     if rif:
         q, fonte = rif; mq = dict(q); mq["fonte"] = fonte
+        if b365:
+            mq = dict(b365); mq["fonte"] = "Bet365 (prezzo di confronto, non Eurobet)"
     _t1 = pe.get("1") or pe.get("2") or pe.get("3") or pe.get("4") or {}
     _merc = f"Miglior stima del modello: {_t1.get('mercato','n.d.')} ({_t1.get('probStr','n.d.')})"
     _qe = _t1.get("qEqua", "")

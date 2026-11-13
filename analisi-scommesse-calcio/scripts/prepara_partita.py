@@ -148,7 +148,9 @@ def riferimento_da_fixtures(path, casa, ospite):
             return v if v > 1 else None
         except ValueError:
             return None
-    for pref, fonte in (("B365", "Bet365"), ("BFE", "Betfair Exchange"), ("PS", "Pinnacle"), ("Avg", "media dei bookmaker")):
+    # Ordine delle fonti per ANCORARE il modello (probabilita'): prima le piu' efficienti (margine minimo), Bet365 solo come ultima scelta.
+    # Le quote Bet365 da MOSTRARE come confronto si leggono a parte con quote_bet365().
+    for pref, fonte in (("BFE", "Betfair Exchange"), ("PS", "Pinnacle"), ("Avg", "media dei bookmaker"), ("B365", "Bet365")):
         trio = [q(pref + x) for x in ("H", "D", "A")]
         if all(trio):
             out = dict(zip(("1", "X", "2"), trio))
@@ -157,6 +159,30 @@ def riferimento_da_fixtures(path, casa, ospite):
                 out["Over 2,5"], out["Under 2,5"] = ou
             return out, f"{fonte} (football-data.co.uk, {r.get('Date', '')})", r.get("Referee") or None
     raise SystemExit("Nessuna quota di riferimento completa per questa partita nel file.")
+
+
+def quote_bet365(path, casa, ospite):
+    """Quote Bet365 (1X2 e Over/Under 2,5) dai prossimi incontri, da mostrare come prezzo di confronto. None se mancano."""
+    with open(path, encoding="utf-8-sig") as f:
+        righe = [r for r in csv.DictReader(f) if r.get("HomeTeam") == casa and r.get("AwayTeam") == ospite]
+    if not righe:
+        return None
+    r = righe[-1]
+
+    def q(k):
+        try:
+            v = float(r.get(k, ""))
+            return v if v > 1 else None
+        except ValueError:
+            return None
+    trio = [q("B365" + x) for x in ("H", "D", "A")]
+    if not all(trio):
+        return None
+    out = dict(zip(("1", "X", "2"), trio))
+    ou = [q("B365>2.5"), q("B365<2.5")]
+    if all(ou):
+        out["Over 2,5"], out["Under 2,5"] = ou
+    return out
 
 
 def main(argv):
@@ -194,9 +220,10 @@ def main(argv):
     if val("--rif-da"):
         rif, fonte, arbitro = riferimento_da_fixtures(val("--rif-da"), casa, ospite)
         d["quote_riferimento"], d["fonte_riferimento"] = rif, fonte
-        if not d["quote"]:
-            d["quote"] = dict(rif)
-            d["tipo_quota"] = fonte.split(" (")[0]
+        b365 = quote_bet365(val("--rif-da"), casa, ospite)
+        if not d["quote"] and b365:
+            d["quote"] = dict(b365)      # prezzo di confronto, NON quello di Eurobet
+            d["tipo_quota"] = "Bet365"
         if arbitro:
             d["arbitro"] = arbitro
     print(json.dumps(d, indent=2, ensure_ascii=False))
