@@ -1,0 +1,18 @@
+{
+ "w": 1.0,
+ "storia": [
+  {
+   "data": "2026-11-13",
+   "casi_backtest": 211,
+   "casi_live": 0,
+   "w": 1.0,
+   "perdita_senza_apprendimento": 1.067,
+   "perdita_con_apprendimento": 1.067,
+   "guadagno_pct": 0.21,
+   "peso_dati_vs_mercato": 0.0,
+   "brier_mercato_puro": 0.5337,
+   "brier_misto_appreso": 0.5337
+  }
+ ],
+ "a": 0.0
+}

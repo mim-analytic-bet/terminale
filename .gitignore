@@ -1,0 +1,5 @@
+dati/aggiornamento.log
+dati/launchd.err
+__pycache__/
+*.pyc
+scheda-partita-dashboard.BACKUP-*.html

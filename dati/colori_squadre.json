@@ -1,0 +1,905 @@
+{
+ "Atalanta": {
+  "colori": [
+   "#0d68b1",
+   "#ffffff"
+  ],
+  "firma": "v2-90381"
+ },
+ "Bologna": {
+  "colori": [
+   "#17529c",
+   "#f04d43"
+  ],
+  "firma": "v2-9046"
+ },
+ "Cagliari": {
+  "colori": [
+   "#b01028",
+   "#29324f"
+  ],
+  "firma": "v2-74757"
+ },
+ "Como": {
+  "colori": [
+   "#114169",
+   "#ffffff"
+  ],
+  "firma": "v2-90381"
+ },
+ "Fiorentina": {
+  "colori": [
+   "#59338a",
+   "#d52526"
+  ],
+  "firma": "v2-90381"
+ },
+ "Frosinone": {
+  "colori": [
+   "#2d56a6",
+   "#f7db32"
+  ],
+  "firma": "v2-16566"
+ },
+ "Genoa": {
+  "colori": [
+   "#ab131c",
+   "#fed80f"
+  ],
+  "firma": "v2-68145"
+ },
+ "Inter": {
+  "colori": [
+   "#0018a1",
+   "#000000"
+  ],
+  "firma": "v2-8059"
+ },
+ "Juventus": {
+  "colori": [
+   "#ffffff",
+   "#8c8c8c"
+  ],
+  "firma": "v2-90381"
+ },
+ "Lazio": {
+  "colori": [
+   "#00aaec",
+   "#e9d47b"
+  ],
+  "firma": "v2-8741"
+ },
+ "Lecce": {
+  "colori": [
+   "#096086",
+   "#d3bd7c"
+  ],
+  "firma": "v2-14087"
+ },
+ "Milan": {
+  "colori": [
+   "#f01c24",
+   "#ffffff"
+  ],
+  "firma": "v2-12635"
+ },
+ "Monza": {
+  "colori": [
+   "#ec193a",
+   "#fdfafb"
+  ],
+  "firma": "v2-90381"
+ },
+ "Napoli": {
+  "colori": [
+   "#122f4f",
+   "#fefefe"
+  ],
+  "firma": "v2-90381"
+ },
+ "Parma": {
+  "colori": [
+   "#1b3f93",
+   "#fed503"
+  ],
+  "firma": "v2-6342"
+ },
+ "Roma": {
+  "colori": [
+   "#f8982a",
+   "#b20838"
+  ],
+  "firma": "v2-15108"
+ },
+ "Sassuolo": {
+  "colori": [
+   "#0aa954",
+   "#000000"
+  ],
+  "firma": "v2-90381"
+ },
+ "Torino": {
+  "colori": [
+   "#7c1c21",
+   "#ffffff"
+  ],
+  "firma": "v2-15348"
+ },
+ "Udinese": {
+  "colori": [
+   "#a4854e",
+   "#ffffff"
+  ],
+  "firma": "v2-19644"
+ },
+ "Venezia": {
+  "colori": [
+   "#9f8b56",
+   "#2b622f"
+  ],
+  "firma": "v2-90381"
+ },
+ "Arsenal": {
+  "colori": [
+   "#a87657",
+   "#5b396c"
+  ],
+  "firma": "v2-18835"
+ },
+ "Real Madrid": {
+  "colori": [
+   "#1b4383",
+   "#ffb115"
+  ],
+  "firma": "v2-22271"
+ },
+ "Barcelona": {
+  "colori": [
+   "#e0b507",
+   "#075192"
+  ],
+  "firma": "v2-12357"
+ },
+ "Manchester City": {
+  "colori": [
+   "#04295c",
+   "#ffffff"
+  ],
+  "firma": "v2-11120"
+ },
+ "Liverpool": {
+  "colori": [
+   "#e31a25",
+   "#7c0e14"
+  ],
+  "firma": "v2-47104"
+ },
+ "Chelsea": {
+  "colori": [
+   "#273a90",
+   "#ffffff"
+  ],
+  "firma": "v2-28061"
+ },
+ "Manchester United": {
+  "colori": [
+   "#f20000",
+   "#e19600"
+  ],
+  "firma": "v2-90381"
+ },
+ "Tottenham": {
+  "colori": [
+   "#10204f",
+   "#d3d6df"
+  ],
+  "firma": "v2-49516"
+ },
+ "Bayern": {
+  "colori": [
+   "#0d4488",
+   "#ce1f37"
+  ],
+  "firma": "v2-90381"
+ },
+ "Bayern München": {
+  "colori": [
+   "#0d4488",
+   "#ce1f37"
+  ],
+  "firma": "v2-90381"
+ },
+ "PSG": {
+  "colori": [
+   "#003162",
+   "#723b54"
+  ],
+  "firma": "v2-29962"
+ },
+ "Paris Saint-Germain": {
+  "colori": [
+   "#003162",
+   "#723b54"
+  ],
+  "firma": "v2-29962"
+ },
+ "Leicester": {
+  "colori": [
+   "#004793",
+   "#dfba30"
+  ],
+  "firma": "v2-27935"
+ },
+ "Nottingham Forest": {
+  "colori": [
+   "#d0112b",
+   "#720917"
+  ],
+  "firma": "v2-90381"
+ },
+ "Aston Villa": {
+  "colori": [
+   "#feef55",
+   "#790c3f"
+  ],
+  "firma": "v2-16439"
+ },
+ "Crystal Palace": {
+  "colori": [
+   "#004990",
+   "#6d3161"
+  ],
+  "firma": "v2-90381"
+ },
+ "Everton": {
+  "colori": [
+   "#004f9e",
+   "#e1eaf3"
+  ],
+  "firma": "v2-90381"
+ },
+ "Brentford": {
+  "colori": [
+   "#c20000",
+   "#ffffff"
+  ],
+  "firma": "v2-90381"
+ },
+ "Fulham": {
+  "colori": [
+   "#f33b44",
+   "#ffffff"
+  ],
+  "firma": "v2-9271"
+ },
+ "Wolverhampton": {
+  "colori": [
+   "#fdb913",
+   "#231f20"
+  ],
+  "firma": "v2-104198"
+ },
+ "Bournemouth": {
+  "colori": [
+   "#b21218",
+   "#000000"
+  ],
+  "firma": "v2-15197"
+ },
+ "Brighton": {
+  "colori": [
+   "#0054a6",
+   "#ffffff"
+  ],
+  "firma": "v2-15892"
+ },
+ "Southampton": {
+  "colori": [
+   "#dc242b",
+   "#4c8e6b"
+  ],
+  "firma": "v2-16193"
+ },
+ "Ipswich": {
+  "colori": [
+   "#0061aa",
+   "#ee1b2d"
+  ],
+  "firma": "v2-90381"
+ },
+ "Newcastle": {
+  "colori": [
+   "#00b7f3",
+   "#936c3f"
+  ],
+  "firma": "v2-89769"
+ },
+ "West Ham": {
+  "colori": [
+   "#7c2c3b",
+   "#fae277"
+  ],
+  "firma": "v2-8146"
+ },
+ "Getafe": {
+  "colori": [
+   "#105ea9",
+   "#a5242e"
+  ],
+  "firma": "v2-20201"
+ },
+ "Real Valladolid": {
+  "colori": [
+   "#00734c",
+   "#ef3b33"
+  ],
+  "firma": "v2-22983"
+ },
+ "Valencia": {
+  "colori": [
+   "#ffe01c",
+   "#ef3924"
+  ],
+  "firma": "v2-90381"
+ },
+ "Real Betis": {
+  "colori": [
+   "#d9970b",
+   "#07954b"
+  ],
+  "firma": "v2-16475"
+ },
+ "Atletico Madrid": {
+  "colori": [
+   "#282a6f",
+   "#e8161f"
+  ],
+  "firma": "v2-90381"
+ },
+ "Alaves": {
+  "colori": [
+   "#0c2c91",
+   "#ffffff"
+  ],
+  "firma": "v2-41844"
+ },
+ "Las Palmas": {
+  "colori": [
+   "#004b9d",
+   "#d5c043"
+  ],
+  "firma": "v2-19732"
+ },
+ "Mallorca": {
+  "colori": [
+   "#ed1c24",
+   "#e5a508"
+  ],
+  "firma": "v2-20732"
+ },
+ "Girona": {
+  "colori": [
+   "#de1926",
+   "#f7d84b"
+  ],
+  "firma": "v2-17087"
+ },
+ "Espanyol": {
+  "colori": [
+   "#3d65b0",
+   "#f8c83b"
+  ],
+  "firma": "v2-16056"
+ },
+ "Celta Vigo": {
+  "colori": [
+   "#c12e30",
+   "#cdd8dd"
+  ],
+  "firma": "v2-7440"
+ },
+ "Osasuna": {
+  "colori": [
+   "#bb141a",
+   "#22366d"
+  ],
+  "firma": "v2-14359"
+ },
+ "Villarreal": {
+  "colori": [
+   "#ffe776",
+   "#005389"
+  ],
+  "firma": "v2-17828"
+ },
+ "Sevilla": {
+  "colori": [
+   "#cc6639",
+   "#ffffff"
+  ],
+  "firma": "v2-17158"
+ },
+ "Rayo Vallecano": {
+  "colori": [
+   "#8f8333",
+   "#cf3434"
+  ],
+  "firma": "v2-15352"
+ },
+ "Leganes": {
+  "colori": [
+   "#295bab",
+   "#c3673c"
+  ],
+  "firma": "v2-9440"
+ },
+ "Athletic Bilbao": {
+  "colori": [
+   "#ee1b23",
+   "#ffffff"
+  ],
+  "firma": "v2-14731"
+ },
+ "Real Sociedad": {
+  "colori": [
+   "#0056b4",
+   "#d77723"
+  ],
+  "firma": "v2-15167"
+ },
+ "Augsburg": {
+  "colori": [
+   "#b42b31",
+   "#ecd177"
+  ],
+  "firma": "v2-6672"
+ },
+ "Bayer Leverkusen": {
+  "colori": [
+   "#c0181b",
+   "#ffff10"
+  ],
+  "firma": "v2-20991"
+ },
+ "Heidenheim": {
+  "colori": [
+   "#003e7e",
+   "#ed1c24"
+  ],
+  "firma": "v2-12665"
+ },
+ "Stuttgart": {
+  "colori": [
+   "#d30028",
+   "#f4d268"
+  ],
+  "firma": "v2-25617"
+ },
+ "Bochum": {
+  "colori": [
+   "#005ca9",
+   "#ffffff"
+  ],
+  "firma": "v2-14473"
+ },
+ "Borussia Dortmund": {
+  "colori": [
+   "#fde100",
+   "#231f20"
+  ],
+  "firma": "v2-12752"
+ },
+ "Freiburg": {
+  "colori": [
+   "#000000",
+   "#000000"
+  ],
+  "firma": "v2-10455"
+ },
+ "Hoffenheim": {
+  "colori": [
+   "#175ba5",
+   "#ffffff"
+  ],
+  "firma": "v2-20494"
+ },
+ "RB Leipzig": {
+  "colori": [
+   "#2b3855",
+   "#c82c3a"
+  ],
+  "firma": "v2-26616"
+ },
+ "Wolfsburg": {
+  "colori": [
+   "#52a600",
+   "#ffffff"
+  ],
+  "firma": "v2-5643"
+ },
+ "Union Berlin": {
+  "colori": [
+   "#d42728",
+   "#f0eb41"
+  ],
+  "firma": "v2-9387"
+ },
+ "Eintracht Frankfurt": {
+  "colori": [
+   "#cc0000",
+   "#ffffff"
+  ],
+  "firma": "v2-12155"
+ },
+ "Werder Bremen": {
+  "colori": [
+   "#00a665",
+   "#ffffff"
+  ],
+  "firma": "v2-10051"
+ },
+ "Holstein Kiel": {
+  "colori": [
+   "#226799",
+   "#ffffff"
+  ],
+  "firma": "v2-25324"
+ },
+ "Mainz": {
+  "colori": [
+   "#c3141e",
+   "#ffffff"
+  ],
+  "firma": "v2-10262"
+ },
+ "Borussia Mönchengladbach": {
+  "colori": [
+   "#000000",
+   "#000000"
+  ],
+  "firma": "v2-6315"
+ },
+ "St. Pauli": {
+  "colori": [
+   "#ed1921",
+   "#ffffff"
+  ],
+  "firma": "v2-19139"
+ },
+ "Marseille": {
+  "colori": [
+   "#0e68ac",
+   "#ffffff"
+  ],
+  "firma": "v2-90381"
+ },
+ "Monaco": {
+  "colori": [
+   "#d0a22b",
+   "#d32027"
+  ],
+  "firma": "v2-14453"
+ },
+ "Lyon": {
+  "colori": [
+   "#e3242c",
+   "#083f88"
+  ],
+  "firma": "v2-12798"
+ },
+ "Lille": {
+  "colori": [
+   "#df180c",
+   "#232069"
+  ],
+  "firma": "v2-18886"
+ },
+ "Lens": {
+  "colori": [
+   "#c71d22",
+   "#ffd603"
+  ],
+  "firma": "v2-11775"
+ },
+ "Rennes": {
+  "colori": [
+   "#e23227",
+   "#000000"
+  ],
+  "firma": "v2-13984"
+ },
+ "Nice": {
+  "colori": [
+   "#bf9d61",
+   "#911a22"
+  ],
+  "firma": "v2-24397"
+ },
+ "Brest": {
+  "colori": [
+   "#ed1c27",
+   "#ffffff"
+  ],
+  "firma": "v2-16623"
+ },
+ "Reims": {
+  "colori": [
+   "#eb0000",
+   "#810000"
+  ],
+  "firma": "v2-53116"
+ },
+ "Toulouse": {
+  "colori": [
+   "#3e2c56",
+   "#882253"
+  ],
+  "firma": "v2-31616"
+ },
+ "Strasbourg": {
+  "colori": [
+   "#009fe0",
+   "#db2f38"
+  ],
+  "firma": "v2-9477"
+ },
+ "Saint-Etienne": {
+  "colori": [
+   "#1d995b",
+   "#feffff"
+  ],
+  "firma": "v2-72345"
+ },
+ "Montpellier": {
+  "colori": [
+   "#005ba6",
+   "#f36f21"
+  ],
+  "firma": "v2-24058"
+ },
+ "Nantes": {
+  "colori": [
+   "#ffdc00",
+   "#6dbc35"
+  ],
+  "firma": "v2-5317"
+ },
+ "Le Havre": {
+  "colori": [
+   "#193460",
+   "#f1f5f9"
+  ],
+  "firma": "v2-13747"
+ },
+ "Auxerre": {
+  "colori": [
+   "#3f87c0",
+   "#ffffff"
+  ],
+  "firma": "v2-90381"
+ },
+ "Angers": {
+  "colori": [
+   "#ffffff",
+   "#8c8c8c"
+  ],
+  "firma": "v2-9375"
+ },
+ "Leeds": {
+  "colori": [
+   "#0257a4",
+   "#ffdf10"
+  ],
+  "firma": "v2-35334"
+ },
+ "Sunderland": {
+  "colori": [
+   "#e3182b",
+   "#8c7b4f"
+  ],
+  "firma": "v2-26722"
+ },
+ "Hull": {
+  "colori": [
+   "#f08a01",
+   "#0f1820"
+  ],
+  "firma": "v2-41960"
+ },
+ "Coventry": {
+  "colori": [
+   "#8f7642",
+   "#1d1d1c"
+  ],
+  "firma": "v2-52241"
+ },
+ "Elche": {
+  "colori": [
+   "#caa257",
+   "#c5122f"
+  ],
+  "firma": "v2-31113"
+ },
+ "Levante": {
+  "colori": [
+   "#b4043f",
+   "#b39b58"
+  ],
+  "firma": "v2-28068"
+ },
+ "Deportivo": {
+  "colori": [
+   "#871b75",
+   "#b65b61"
+  ],
+  "firma": "v2-26019"
+ },
+ "Racing Santander": {
+  "colori": [
+   "#396e33",
+   "#b27340"
+  ],
+  "firma": "v2-40414"
+ },
+ "Málaga": {
+  "colori": [
+   "#2374ba",
+   "#b7a429"
+  ],
+  "firma": "v2-37953"
+ },
+ "Elversberg": {
+  "colori": [
+   "#ffffff",
+   "#8c8c8c"
+  ],
+  "firma": "v2-22493"
+ },
+ "Paderborn": {
+  "colori": [
+   "#005baa",
+   "#010101"
+  ],
+  "firma": "v2-16148"
+ },
+ "Amburgo": {
+  "colori": [
+   "#005faf",
+   "#ffffff"
+  ],
+  "firma": "v2-16798"
+ },
+ "Colonia": {
+  "colori": [
+   "#e8161f",
+   "#221a1c"
+  ],
+  "firma": "v2-30683"
+ },
+ "Schalke 04": {
+  "colori": [
+   "#004a9b",
+   "#ffffff"
+  ],
+  "firma": "v2-20474"
+ },
+ "Troyes": {
+  "colori": [
+   "#ab954e",
+   "#3984bf"
+  ],
+  "firma": "v2-40341"
+ },
+ "Paris FC": {
+  "colori": [
+   "#4393bd",
+   "#0e132e"
+  ],
+  "firma": "v2-30621"
+ },
+ "Le Mans": {
+  "colori": [
+   "#ac0a19",
+   "#ba791e"
+  ],
+  "firma": "v2-30652"
+ },
+ "Lorient": {
+  "colori": [
+   "#f78213",
+   "#fefefe"
+  ],
+  "firma": "v2-32195"
+ },
+ "Atlético Madrid": {
+  "colori": [
+   "#282a6f",
+   "#e8161f"
+  ],
+  "firma": "v2-90381"
+ },
+ "Athletic Club": {
+  "colori": [
+   "#ee1b23",
+   "#ffffff"
+  ],
+  "firma": "v2-14731"
+ },
+ "Betis": {
+  "colori": [
+   "#d9970b",
+   "#07954b"
+  ],
+  "firma": "v2-16475"
+ },
+ "Celta": {
+  "colori": [
+   "#c12e30",
+   "#cdd8dd"
+  ],
+  "firma": "v2-7440"
+ },
+ "Alavés": {
+  "colori": [
+   "#0c2c91",
+   "#ffffff"
+  ],
+  "firma": "v2-41844"
+ },
+ "Bayern Monaco": {
+  "colori": [
+   "#0d4488",
+   "#ce1f37"
+  ],
+  "firma": "v2-90381"
+ },
+ "Eintracht Francoforte": {
+  "colori": [
+   "#cc0000",
+   "#ffffff"
+  ],
+  "firma": "v2-12155"
+ },
+ "Mönchengladbach": {
+  "colori": [
+   "#000000",
+   "#000000"
+  ],
+  "firma": "v2-6315"
+ },
+ "Werder Brema": {
+  "colori": [
+   "#00a665",
+   "#ffffff"
+  ],
+  "firma": "v2-10051"
+ },
+ "Stoccarda": {
+  "colori": [
+   "#d30028",
+   "#f4d268"
+  ],
+  "firma": "v2-25617"
+ },
+ "Magonza": {
+  "colori": [
+   "#c3141e",
+   "#ffffff"
+  ],
+  "firma": "v2-10262"
+ },
+ "Lione": {
+  "colori": [
+   "#e3242c",
+   "#083f88"
+  ],
+  "firma": "v2-12798"
+ },
+ "Marsiglia": {
+  "colori": [
+   "#0e68ac",
+   "#ffffff"
+  ],
+  "firma": "v2-90381"
+ }
+}
