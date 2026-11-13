@@ -67,3 +67,10 @@ Repo: https://github.com/mim-analytic-bet/terminale  ·  Sito: https://mim-analy
   - `Multigol 1-4` e `Multigol 2-5` aggiunti a `CATALOGO` in `modello.py` insieme ai classici (1-2, 1-3, 2-3, 2-4, 3-5).
   - Funzione `seleziona_livelli(dq)` in `aggiorna_dashboard.py`: vincolo di massimo 1 solo multigol per partita tra i tre livelli (Alta Probabilità, Equilibrato, Hard), quota minima multigol >= 1.25 (probabilità <= 80%, scartando multigol iper-ampi), e gli altri due slot sempre garantiti su mercati tradizionali (1X2, U/O, Doppia Chance, Gol/NoGol).
   - Riferimento quote: Bet365 / media mercato (aggiornata via `fixtures.csv` di football-data.co.uk).
+  - Precisazione (verifica di Claude, 13/11/2026 sera): il codice applica SOLO due vincoli, multigol ≤80% nel livello Alta e massimo 1 multigol per partita (se non esiste un'alternativa non multigol, il vincolo può non reggere). NON esiste una lista di multigol ammessi per livello: non scriverla nei documenti come se fosse implementata. Nei test, 94 partite su 148 hanno un multigol tra i livelli (spesso 2-5 o 1-4 in Equilibrato).
+  - La quota mostrata accanto ai livelli è la QUOTA EQUA del modello (1/probabilità), non una quota di Bet365 o di Eurobet: l'etichetta è "quota equa".
+  - Il riferimento Bet365 ha cambiato le probabilità di molte partite (76 su 148 nel confronto), e i livelli sono cambiati in 90 su 148. Non è stato fatto un backtest sul nuovo riferimento.
+
+## Stato del collaudo (aggiornato 13/11/2026 sera)
+- Le modifiche ai multigol nel catalogo e al riferimento Bet365 (commit 7e8ce30, 65b1283) sono state tenute per decisione di Domenico a collaudo già iniziato. Il confronto con i pronostici precedenti non è più valido: il collaudo è ripartito da questo momento. La nuova data di fine collaudo va fissata con Domenico.
+- Da ora fino a nuovo avviso: nessun'altra modifica a modello, catalogo, soglie o riferimento quote senza decisione esplicita di Domenico.
