@@ -1,0 +1,3279 @@
+{
+  "serie-a": {
+    "nome": "Serie A (Italia)",
+    "turni": {
+      "12": {
+        "label": "12ª Giornata (21-23 Nov 2026)",
+        "dataFine": "2026-11-23T23:59:59",
+        "partite": [
+          {
+            "id": "com-cag",
+            "label": "Como - Cagliari",
+            "bgGradient": "from-[#082347] via-[#090d16] to-[#3a0a10]",
+            "casa": {
+              "sigla": "COM",
+              "nome": "Como",
+              "rank": "18-10 gol",
+              "colBox": "bg-blue-600/20 text-blue-400 border-blue-400"
+            },
+            "ospite": {
+              "sigla": "CAG",
+              "nome": "Cagliari",
+              "rank": "10-15 gol",
+              "colBox": "bg-red-700/20 text-red-400 border-red-600"
+            },
+            "data": "Sabato 21 Nov · 15:00",
+            "giornata": "Serie A · 12ª Giornata",
+            "golC": "2.15",
+            "golO": "0.80",
+            "barC": "73%",
+            "barO": "27%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "68%",
+                "centerLbl": "Segno 1",
+                "seg1": {
+                  "p": 0.68,
+                  "col": "#06b6d4",
+                  "nome": "1: 68%"
+                },
+                "seg2": {
+                  "p": 0.21,
+                  "col": "#f59e0b",
+                  "nome": "X: 21%"
+                },
+                "seg3": {
+                  "p": 0.12,
+                  "col": "#f43f5e",
+                  "nome": "2: 12%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "49%",
+                "centerLbl": "No Gol",
+                "seg1": {
+                  "p": 0.49,
+                  "col": "#10b981",
+                  "nome": "Gol: 49%"
+                },
+                "seg2": {
+                  "p": 0.51,
+                  "col": "#64748b",
+                  "nome": "No Gol: 51%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "57%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.57,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 57%"
+                },
+                "seg2": {
+                  "p": 0.43,
+                  "col": "#3b82f6",
+                  "nome": "Under: 43%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "2.15 vs 0.80",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.73,
+                  "col": "#0ea5e9",
+                  "nome": "Como: 73% (2.15)"
+                },
+                "seg2": {
+                  "p": 0.27,
+                  "col": "#d97706",
+                  "nome": "Cagliari: 27% (0.80)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Disaccordo Mercato",
+            "qEqua": "1.45",
+            "qReale": "1.33",
+            "spiegazione": "Disaccordo tra dati storici e mercato: il banco offre il Como a 1.33 (implicita 72%), mentre il modello lo stima a 69%. Giocare a 1.33 produce valore atteso negativo (-7,8%).",
+            "analisi": "Sull'1 i dati stimano 57% contro quota che implica 72% (scarto > 15 punti). Con campioni ridotti il modello quantitativo si arresta per proteggere il capitale.",
+            "rischio": "Sopravvalutazione del mercato dovuta all'entusiasmo mediatico per la neopromossa.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "1X (Doppia Chance)",
+                "alt": "Over 1.5 (84%)",
+                "prob": 88,
+                "probStr": "88%",
+                "quota": "1.12",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Como imbattuto in casa con 2.44 xG attesi. Probabilità di copertura schiacciante."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "1 + Over 1.5 Gol",
+                "alt": "1 + Multigol 2-5 (65%)",
+                "prob": 62,
+                "probStr": "62%",
+                "quota": "1.62",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "La trazione offensiva comasca produce una media superiore a 2.3 gol totali."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "1 + Gol",
+                "alt": "Ris. Esatto 2-0 (10%)",
+                "prob": 35,
+                "probStr": "35%",
+                "quota": "3.02",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "In trasferta il Cagliari segna 1,2 gol a partita (7 in 6). Almeno un gol isolano nel 61% dei casi."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol 2-4",
+                "alt": "Como segna in entrambi i tempi",
+                "prob": 74,
+                "probStr": "74%",
+                "quota": "1.55",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Intervallo statisticamente centrato nella quasi totalità dei match lariani."
+              }
+            }
+          },
+          {
+            "id": "laz-lec",
+            "label": "Lazio - Lecce",
+            "bgGradient": "from-[#082a4d] via-[#090d16] to-[#3a2e0a]",
+            "casa": {
+              "sigla": "LAZ",
+              "nome": "Lazio",
+              "rank": "25-9 gol",
+              "colBox": "bg-sky-400/20 text-sky-300 border-sky-400"
+            },
+            "ospite": {
+              "sigla": "LEC",
+              "nome": "Lecce",
+              "rank": "12-22 gol",
+              "colBox": "bg-yellow-500/20 text-yellow-400 border-yellow-500"
+            },
+            "data": "Sabato 21 Nov · 15:00",
+            "giornata": "Serie A · 12ª Giornata",
+            "golC": "2.17",
+            "golO": "0.86",
+            "barC": "72%",
+            "barO": "28%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "66%",
+                "centerLbl": "Segno 1",
+                "seg1": {
+                  "p": 0.66,
+                  "col": "#06b6d4",
+                  "nome": "1: 66%"
+                },
+                "seg2": {
+                  "p": 0.21,
+                  "col": "#f59e0b",
+                  "nome": "X: 21%"
+                },
+                "seg3": {
+                  "p": 0.13,
+                  "col": "#f43f5e",
+                  "nome": "2: 13%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "52%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.52,
+                  "col": "#10b981",
+                  "nome": "Gol: 52%"
+                },
+                "seg2": {
+                  "p": 0.48,
+                  "col": "#64748b",
+                  "nome": "No Gol: 48%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "58%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.58,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 58%"
+                },
+                "seg2": {
+                  "p": 0.42,
+                  "col": "#3b82f6",
+                  "nome": "Under: 42%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "2.17 vs 0.86",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.72,
+                  "col": "#0ea5e9",
+                  "nome": "Lazio: 72% (2.17)"
+                },
+                "seg2": {
+                  "p": 0.28,
+                  "col": "#d97706",
+                  "nome": "Lecce: 28% (0.86)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Valore Insufficiente",
+            "qEqua": "1.47",
+            "qReale": "1.40",
+            "spiegazione": "L'1 a 1.40 ha valore negativo (-4,4%): per giocarlo servirebbe almeno 1.51. Nessun mercato con edge sopra soglia.",
+            "analisi": "Lazio capolista a quota 29 punti (25-9 gol). Rende sopra i propri xG (17.3 fatti, 13.7 subiti). Il Lecce in trasferta ha subito 10 gol in 6 uscite.",
+            "rischio": "La Lazio sta overperformando gli xG: possibile regressione alla media statistica.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Under 4.5 Gol",
+                "alt": "1X (87%)",
+                "prob": 76,
+                "probStr": "76%",
+                "quota": "1.36",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Con 3,3 gol attesi complessivi, 5 o più reti escono solo 1 volta su 4."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "1 + Over 1.5 Gol",
+                "alt": "1 + Multigol 2-4 (58%)",
+                "prob": 61,
+                "probStr": "61%",
+                "quota": "1.70",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "La Lazio vince il 68% delle volte. L'1-0 da solo vale appena l'8%."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "1 + No Gol",
+                "alt": "Ris. Esatto 2-0 (10%)",
+                "prob": 34,
+                "probStr": "34%",
+                "quota": "3.06",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "La Lazio subisce appena 0,8 reti a partita. Clean sheet esce 1 volta su 3."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol 2-4",
+                "alt": "Zaccagni Marcatore",
+                "prob": 72,
+                "probStr": "72%",
+                "quota": "1.52",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Fascia standard di reti all'Olimpico per la squadra di Baroni."
+              }
+            }
+          },
+          {
+            "id": "par-rom",
+            "label": "Parma - Roma",
+            "bgGradient": "from-[#2e2608] via-[#090d16] to-[#3a1018]",
+            "casa": {
+              "sigla": "PAR",
+              "nome": "Parma",
+              "rank": "9-17 gol",
+              "colBox": "bg-amber-500/20 text-amber-400 border-amber-500"
+            },
+            "ospite": {
+              "sigla": "ROM",
+              "nome": "Roma",
+              "rank": "31-10 gol",
+              "colBox": "bg-amber-600/20 text-amber-500 border-amber-600"
+            },
+            "data": "Sabato 21 Nov · 18:00",
+            "giornata": "Serie A · 12ª Giornata",
+            "golC": "0.86",
+            "golO": "2.34",
+            "barC": "27%",
+            "barO": "73%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "70%",
+                "centerLbl": "Segno 2",
+                "seg1": {
+                  "p": 0.11,
+                  "col": "#06b6d4",
+                  "nome": "1: 11%"
+                },
+                "seg2": {
+                  "p": 0.19,
+                  "col": "#f59e0b",
+                  "nome": "X: 19%"
+                },
+                "seg3": {
+                  "p": 0.7,
+                  "col": "#f43f5e",
+                  "nome": "2: 70%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "53%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.53,
+                  "col": "#10b981",
+                  "nome": "Gol: 53%"
+                },
+                "seg2": {
+                  "p": 0.47,
+                  "col": "#64748b",
+                  "nome": "No Gol: 47%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "62%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.62,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 62%"
+                },
+                "seg2": {
+                  "p": 0.38,
+                  "col": "#3b82f6",
+                  "nome": "Under: 38%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "0.86 vs 2.34",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.27,
+                  "col": "#0ea5e9",
+                  "nome": "Parma: 27% (0.86)"
+                },
+                "seg2": {
+                  "p": 0.73,
+                  "col": "#d97706",
+                  "nome": "Roma: 73% (2.34)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Margine Bookmaker Eccessivo",
+            "qEqua": "1.37",
+            "qReale": "1.32",
+            "spiegazione": "Dati e mercato concordano (2 stimato al 73%), ma il prezzo a 1.32 incorpora un valore atteso di -3,4%. Servirebbe almeno 1.41.",
+            "analisi": "Il Parma ha gli xG peggiori del campionato (9.0 fatti, 21.5 subiti). In casa ha segnato solo 4 gol in 6 gare. La Roma è terza con 31 gol fatti.",
+            "rischio": "La Roma ha dimostrato cali di concentrazione contro avversarie di bassa classifica.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Segno 2 (Roma)",
+                "alt": "X2 (90%)",
+                "prob": 73,
+                "probStr": "73%",
+                "quota": "1.32",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Partita in cui dati storici e mercato concordano più di ogni altra."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "2 + Over 1.5 Gol",
+                "alt": "2 + Over 2.5 (58%)",
+                "prob": 66,
+                "probStr": "66%",
+                "quota": "1.56",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "La Roma ha 2.61 gol attesi: 0-2, 1-2 e 0-3 sono in cima ai risultati."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "2 + No Gol",
+                "alt": "Ris. Esatto 0-2 (10%)",
+                "prob": 37,
+                "probStr": "37%",
+                "quota": "2.85",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "Il Parma fatica tremendamente a creare occasioni da gol contro difese schierate."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol Ospite 2-3",
+                "alt": "Dovbyk Marcatore",
+                "prob": 64,
+                "probStr": "64%",
+                "quota": "1.78",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "La Roma fuori casa viaggia con regolarità a 2-3 reti a partita."
+              }
+            }
+          },
+          {
+            "id": "nap-tor",
+            "label": "Napoli - Torino",
+            "bgGradient": "from-[#081d38] via-[#090d16] to-[#3a0d14]",
+            "casa": {
+              "sigla": "NAP",
+              "nome": "Napoli",
+              "rank": "18-14 gol",
+              "colBox": "bg-sky-500/20 text-sky-400 border-sky-400"
+            },
+            "ospite": {
+              "sigla": "TOR",
+              "nome": "Torino",
+              "rank": "15-17 gol",
+              "colBox": "bg-amber-800/20 text-amber-400 border-amber-700"
+            },
+            "data": "Sabato 21 Nov · 20:45",
+            "giornata": "Serie A · 12ª Giornata",
+            "golC": "1.85",
+            "golO": "0.96",
+            "barC": "66%",
+            "barO": "34%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "57%",
+                "centerLbl": "Segno 1",
+                "seg1": {
+                  "p": 0.57,
+                  "col": "#06b6d4",
+                  "nome": "1: 57%"
+                },
+                "seg2": {
+                  "p": 0.25,
+                  "col": "#f59e0b",
+                  "nome": "X: 25%"
+                },
+                "seg3": {
+                  "p": 0.18,
+                  "col": "#f43f5e",
+                  "nome": "2: 18%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "53%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.53,
+                  "col": "#10b981",
+                  "nome": "Gol: 53%"
+                },
+                "seg2": {
+                  "p": 0.47,
+                  "col": "#64748b",
+                  "nome": "No Gol: 47%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "53%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.53,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 53%"
+                },
+                "seg2": {
+                  "p": 0.47,
+                  "col": "#3b82f6",
+                  "nome": "Under: 47%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "1.85 vs 0.96",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.66,
+                  "col": "#0ea5e9",
+                  "nome": "Napoli: 66% (1.85)"
+                },
+                "seg2": {
+                  "p": 0.34,
+                  "col": "#d97706",
+                  "nome": "Torino: 34% (0.96)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": true,
+            "evBadge": "+3,3%",
+            "mercato": "Gol (Entrambe le squadre segnano)",
+            "qEqua": "1.72",
+            "qReale": "1.95",
+            "spiegazione": "Stima Dixon-Coles al 58% vs implicita netta Eurobet del 48%. Il Torino segna da 4 trasferte consecutive, Napoli concede 0.95 xGA al Maradona. Valore confermato.",
+            "analisi": "Il Napoli in casa subisce gol in 3 gare su 5 concedendo 0,95 xGA. Il Torino in trasferta realizza 0,8 reti a partita con Adams e Vlasic in gran forma.",
+            "rischio": "Assenza di Lobotka a centrocampo potrebbe rallentare il ritmo e congelare il risultato sull'1-0.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "1 oppure Over 2,5",
+                "alt": "Over 1.5 (82%)",
+                "prob": 79,
+                "probStr": "79%",
+                "quota": "1.30",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Copre la vittoria del Napoli (62%) e ogni match con almeno 3 reti totali."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "Gol (Entrambe segnano)",
+                "alt": "1X + Gol (61%)",
+                "prob": 58,
+                "probStr": "58%",
+                "quota": "1.78",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "Il Torino segna 1,4 gol a partita fuori casa; Napoli subisce con regolarità."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "1 + Gol",
+                "alt": "Ris. Esatto 2-1 (10%)",
+                "prob": 32,
+                "probStr": "32%",
+                "quota": "3.33",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "2-1 e 3-1 sono tra i cinque punteggi con maggior frequenza attesa."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol 2-4",
+                "alt": "Kvaratskhelia Marcatore",
+                "prob": 74,
+                "probStr": "74%",
+                "quota": "1.55",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Intervallo gol confermato nell'85% dei match interni recenti azzurri."
+              }
+            }
+          },
+          {
+            "id": "juv-ven",
+            "label": "Juventus - Venezia",
+            "bgGradient": "from-[#1e293b] via-[#090d16] to-[#0a2e1d]",
+            "casa": {
+              "sigla": "JUV",
+              "nome": "Juventus",
+              "rank": "15-12 gol",
+              "colBox": "bg-slate-700/30 text-slate-100 border-slate-400"
+            },
+            "ospite": {
+              "sigla": "VEN",
+              "nome": "Venezia",
+              "rank": "8-21 gol",
+              "colBox": "bg-emerald-600/20 text-emerald-400 border-emerald-500"
+            },
+            "data": "Domenica 22 Nov · 12:30",
+            "giornata": "Serie A · 12ª Giornata",
+            "golC": "2.26",
+            "golO": "0.87",
+            "barC": "72%",
+            "barO": "28%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "68%",
+                "centerLbl": "Segno 1",
+                "seg1": {
+                  "p": 0.68,
+                  "col": "#06b6d4",
+                  "nome": "1: 68%"
+                },
+                "seg2": {
+                  "p": 0.2,
+                  "col": "#f59e0b",
+                  "nome": "X: 20%"
+                },
+                "seg3": {
+                  "p": 0.12,
+                  "col": "#f43f5e",
+                  "nome": "2: 12%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "53%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.53,
+                  "col": "#10b981",
+                  "nome": "Gol: 53%"
+                },
+                "seg2": {
+                  "p": 0.47,
+                  "col": "#64748b",
+                  "nome": "No Gol: 47%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "61%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.61,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 61%"
+                },
+                "seg2": {
+                  "p": 0.39,
+                  "col": "#3b82f6",
+                  "nome": "Under: 39%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "2.26 vs 0.87",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.72,
+                  "col": "#0ea5e9",
+                  "nome": "Juventus: 72% (2.26)"
+                },
+                "seg2": {
+                  "p": 0.28,
+                  "col": "#d97706",
+                  "nome": "Venezia: 28% (0.87)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Valore Negativo sull'1",
+            "qEqua": "1.49",
+            "qReale": "1.39",
+            "spiegazione": "L'1 a 1.39 incorpora un valore negativo (-6,2%): per giocarlo servirebbe almeno 1.53. Il mercato sovrastima il potenziale realizzativo bianconero.",
+            "analisi": "Juve: miglior difesa per xGA (7.9), ma attacco con 1.4 gol medi. Venezia: 0 punti e 3 gol fatti in 5 trasferte.",
+            "rischio": "La Juventus ha una produzione di gol bassa (meno di 2.5 complessivi a partita).",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Under 4.5 Gol",
+                "alt": "1X (87%)",
+                "prob": 78,
+                "probStr": "78%",
+                "quota": "1.33",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "In 11 partite la Juventus ha avuto appena 27 gol totali (meno di 2.5 a gara)."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "1 + Over 1.5 Gol",
+                "alt": "1 + Multigol 2-4 (54%)",
+                "prob": 59,
+                "probStr": "59%",
+                "quota": "1.74",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "La Juve vince il 67% delle volte. La vittoria per 1-0 vale solo l'8%."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "1 + No Gol",
+                "alt": "Ris. Esatto 2-0 (11%)",
+                "prob": 35,
+                "probStr": "35%",
+                "quota": "3.01",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "Miglior difesa per xG concessi della Serie A contro l'attacco lagunare a secco."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol Casa 2-3",
+                "alt": "Vlahovic Marcatore",
+                "prob": 62,
+                "probStr": "62%",
+                "quota": "1.82",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Fascia standard di produzione offensiva allo Stadium."
+              }
+            }
+          },
+          {
+            "id": "bol-udi",
+            "label": "Bologna - Udinese",
+            "bgGradient": "from-[#3a0a14] via-[#090d16] to-[#1e293b]",
+            "casa": {
+              "sigla": "BOL",
+              "nome": "Bologna",
+              "rank": "16-14 gol",
+              "colBox": "bg-rose-700/20 text-rose-400 border-rose-600"
+            },
+            "ospite": {
+              "sigla": "UDI",
+              "nome": "Udinese",
+              "rank": "12-25 gol",
+              "colBox": "bg-slate-700/30 text-slate-200 border-slate-500"
+            },
+            "data": "Domenica 22 Nov · 15:00",
+            "giornata": "Serie A · 12ª Giornata",
+            "golC": "1.81",
+            "golO": "1.01",
+            "barC": "64%",
+            "barO": "36%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "55%",
+                "centerLbl": "Segno 1",
+                "seg1": {
+                  "p": 0.55,
+                  "col": "#06b6d4",
+                  "nome": "1: 55%"
+                },
+                "seg2": {
+                  "p": 0.25,
+                  "col": "#f59e0b",
+                  "nome": "X: 25%"
+                },
+                "seg3": {
+                  "p": 0.2,
+                  "col": "#f43f5e",
+                  "nome": "2: 20%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "54%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.54,
+                  "col": "#10b981",
+                  "nome": "Gol: 54%"
+                },
+                "seg2": {
+                  "p": 0.46,
+                  "col": "#64748b",
+                  "nome": "No Gol: 46%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "54%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.54,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 54%"
+                },
+                "seg2": {
+                  "p": 0.46,
+                  "col": "#3b82f6",
+                  "nome": "Under: 46%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "1.81 vs 1.01",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.64,
+                  "col": "#0ea5e9",
+                  "nome": "Bologna: 64% (1.81)"
+                },
+                "seg2": {
+                  "p": 0.36,
+                  "col": "#d97706",
+                  "nome": "Udinese: 36% (1.01)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Valore Sotto Soglia",
+            "qEqua": "1.79",
+            "qReale": "1.76",
+            "spiegazione": "L'1 a 1.76 ha valore leggermente negativo (-0,8%): servirebbe 1.83 o più per attivare la giocata.",
+            "analisi": "Bologna all'8° posto con 17 punti. Udinese ultima a 5 punti con 25 gol subiti. Qui i dati sono più ottimisti del mercato sui rossoblù (63% vs 55%).",
+            "rischio": "Il Bologna in casa ha conquistato solo 5 punti su 15 disponibili.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Over 1.5 Gol",
+                "alt": "1X (81%)",
+                "prob": 78,
+                "probStr": "78%",
+                "quota": "1.32",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Ci sono 2.8 gol attesi in totale. 0-0 e 1-0 insieme valgono solo il 17%."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "1X + Under 3.5",
+                "alt": "1 + Over 1.5 (48%)",
+                "prob": 55,
+                "probStr": "55%",
+                "quota": "1.86",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "L'1X vale l'81%. Il Bologna al Dall'Ara produce punteggi compatti."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "1 + Gol",
+                "alt": "Ris. Esatto 2-1 (10%)",
+                "prob": 26,
+                "probStr": "26%",
+                "quota": "4.09",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "Quota eccellente (+309%). In trasferta l'Udinese ha segnato 8 gol in 5 gare."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol 1-3",
+                "alt": "Orsolini Marcatore",
+                "prob": 76,
+                "probStr": "76%",
+                "quota": "1.44",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Copre i punteggi tipici dei rossoblù al Dall'Ara."
+              }
+            }
+          },
+          {
+            "id": "sas-gen",
+            "label": "Sassuolo - Genoa",
+            "bgGradient": "from-[#0a2e18] via-[#090d16] to-[#3a0a14]",
+            "casa": {
+              "sigla": "SAS",
+              "nome": "Sassuolo",
+              "rank": "16-29 gol",
+              "colBox": "bg-emerald-700/20 text-emerald-300 border-emerald-600"
+            },
+            "ospite": {
+              "sigla": "GEN",
+              "nome": "Genoa",
+              "rank": "11-16 gol",
+              "colBox": "bg-red-800/20 text-red-400 border-red-700"
+            },
+            "data": "Domenica 22 Nov · 15:00",
+            "giornata": "Serie A · 12ª Giornata",
+            "golC": "1.29",
+            "golO": "1.29",
+            "barC": "50%",
+            "barO": "50%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "36%",
+                "centerLbl": "Segno 1",
+                "seg1": {
+                  "p": 0.36,
+                  "col": "#06b6d4",
+                  "nome": "1: 36%"
+                },
+                "seg2": {
+                  "p": 0.29,
+                  "col": "#f59e0b",
+                  "nome": "X: 29%"
+                },
+                "seg3": {
+                  "p": 0.35,
+                  "col": "#f43f5e",
+                  "nome": "2: 35%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "54%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.54,
+                  "col": "#10b981",
+                  "nome": "Gol: 54%"
+                },
+                "seg2": {
+                  "p": 0.46,
+                  "col": "#64748b",
+                  "nome": "No Gol: 46%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "48%",
+                "centerLbl": "Under 2.5",
+                "seg1": {
+                  "p": 0.48,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 48%"
+                },
+                "seg2": {
+                  "p": 0.52,
+                  "col": "#3b82f6",
+                  "nome": "Under: 52%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "1.29 vs 1.29",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.5,
+                  "col": "#0ea5e9",
+                  "nome": "Sassuolo: 50% (1.29)"
+                },
+                "seg2": {
+                  "p": 0.5,
+                  "col": "#d97706",
+                  "nome": "Genoa: 50% (1.29)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Match ad Alta Incertezza",
+            "qEqua": "2.78",
+            "qReale": "2.80",
+            "spiegazione": "Scontro salvezza in perfetto equilibrio (36% - 29% - 35%). Nessun esito offre margine utile.",
+            "analisi": "Il Sassuolo ha perso le ultime 5 partite subendo 29 reti. Il Genoa in trasferta ha raccolto 3 punti in 4 uscite con 3 gol fatti.",
+            "rischio": "La paura di perdere potrebbe congelare la partita sul pareggio.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Over 1.5 Gol",
+                "alt": "12 (65%)",
+                "prob": 75,
+                "probStr": "75%",
+                "quota": "1.38",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "2.6 gol attesi in totale. Il Sassuolo subisce 2.6 reti a partita."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "Under 2.5 Gol",
+                "alt": "Gol (54%)",
+                "prob": 52,
+                "probStr": "52%",
+                "quota": "1.99",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "1-1 e 0-0 sono i risultati con maggiore probabilità analitica."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "X + Under 2.5",
+                "alt": "Ris. Esatto 1-1 (14%)",
+                "prob": 22,
+                "probStr": "22%",
+                "quota": "4.69",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "La partita più equilibrata dell'intera giornata di campionato."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol 2-4",
+                "alt": "Pinamonti Marcatore",
+                "prob": 71,
+                "probStr": "71%",
+                "quota": "1.58",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Margine standard di gol nelle sfide salvezza al Mapei Stadium."
+              }
+            }
+          },
+          {
+            "id": "mil-fro",
+            "label": "Milan - Frosinone",
+            "bgGradient": "from-[#3a0a12] via-[#090d16] to-[#2e2608]",
+            "casa": {
+              "sigla": "MIL",
+              "nome": "Milan",
+              "rank": "23-13 gol",
+              "colBox": "bg-red-600/20 text-red-400 border-red-500"
+            },
+            "ospite": {
+              "sigla": "FRO",
+              "nome": "Frosinone",
+              "rank": "24-15 gol",
+              "colBox": "bg-yellow-500/20 text-yellow-400 border-yellow-500"
+            },
+            "data": "Domenica 22 Nov · 18:00",
+            "giornata": "Serie A · 12ª Giornata",
+            "golC": "2.28",
+            "golO": "1.22",
+            "barC": "65%",
+            "barO": "35%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "60%",
+                "centerLbl": "Segno 1",
+                "seg1": {
+                  "p": 0.6,
+                  "col": "#06b6d4",
+                  "nome": "1: 60%"
+                },
+                "seg2": {
+                  "p": 0.21,
+                  "col": "#f59e0b",
+                  "nome": "X: 21%"
+                },
+                "seg3": {
+                  "p": 0.19,
+                  "col": "#f43f5e",
+                  "nome": "2: 19%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "64%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.64,
+                  "col": "#10b981",
+                  "nome": "Gol: 64%"
+                },
+                "seg2": {
+                  "p": 0.36,
+                  "col": "#64748b",
+                  "nome": "No Gol: 36%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "68%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.68,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 68%"
+                },
+                "seg2": {
+                  "p": 0.32,
+                  "col": "#3b82f6",
+                  "nome": "Under: 32%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "2.28 vs 1.22",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.65,
+                  "col": "#0ea5e9",
+                  "nome": "Milan: 65% (2.28)"
+                },
+                "seg2": {
+                  "p": 0.35,
+                  "col": "#d97706",
+                  "nome": "Frosinone: 35% (1.22)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "+7,7%",
+            "mercato": "NO BET · Quasi Giocata (+7,7% vs +8% soglia)",
+            "qEqua": "5.00",
+            "qReale": "5.50",
+            "spiegazione": "Il 2 a 5.50 offre un valore del +7,7%, ma sopra quota 5 la regola impone +8% (servirebbe 5.51). È la scommessa più vicina all'attivazione del turno.",
+            "analisi": "Il Frosinone ha segnato ben 24 gol in 11 gare, il Milan in casa ne ha subiti 7 in 5 uscite. I dati vedono il match molto più aperto del mercato (1 al 48% vs 62%).",
+            "rischio": "Forza tecnica e ambiente di San Siro a favore dei rossoneri.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Doppia Chance 12",
+                "alt": "Over 1.5 (86%)",
+                "prob": 79,
+                "probStr": "79%",
+                "quota": "1.30",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Partita da 3.7 gol attesi totali: il pareggio vale appena il 21%."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "Gol (Entrambe segnano)",
+                "alt": "Gol + Over 2.5 (58%)",
+                "prob": 67,
+                "probStr": "67%",
+                "quota": "1.54",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "Il Frosinone segna 2.2 gol a partita; il Milan subisce regolarmente a San Siro."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "1 + Gol",
+                "alt": "Segno 2 @ 5.50 (+7,7%)",
+                "prob": 36,
+                "probStr": "36%",
+                "quota": "2.90",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "2-1 e 3-1 sono il primo e il terzo punteggio più probabile del modello."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "GG 1° Tempo + GG 2° Tempo",
+                "alt": "Over 3.5 Gol (50%)",
+                "prob": 11,
+                "probStr": "10,8%",
+                "quota": "9.50",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Record dell'intera giornata: esce circa 1 volta su 9 secondo i gol per tempo."
+              }
+            }
+          },
+          {
+            "id": "ata-int",
+            "label": "Atalanta - Inter",
+            "bgGradient": "from-[#081a3d] via-[#090d16] to-[#071d42]",
+            "casa": {
+              "sigla": "ATA",
+              "nome": "Atalanta",
+              "rank": "17-20 gol",
+              "colBox": "bg-blue-700/20 text-blue-400 border-blue-600"
+            },
+            "ospite": {
+              "sigla": "INT",
+              "nome": "Inter",
+              "rank": "28-13 gol",
+              "colBox": "bg-blue-600/20 text-blue-400 border-blue-500"
+            },
+            "data": "Domenica 22 Nov · 20:45",
+            "giornata": "Serie A · 12ª Giornata",
+            "golC": "1.21",
+            "golO": "2.10",
+            "barC": "37%",
+            "barO": "63%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "57%",
+                "centerLbl": "Segno 2",
+                "seg1": {
+                  "p": 0.21,
+                  "col": "#06b6d4",
+                  "nome": "1: 21%"
+                },
+                "seg2": {
+                  "p": 0.23,
+                  "col": "#f59e0b",
+                  "nome": "X: 23%"
+                },
+                "seg3": {
+                  "p": 0.57,
+                  "col": "#f43f5e",
+                  "nome": "2: 57%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "63%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.63,
+                  "col": "#10b981",
+                  "nome": "Gol: 63%"
+                },
+                "seg2": {
+                  "p": 0.37,
+                  "col": "#64748b",
+                  "nome": "No Gol: 37%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "64%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.64,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 64%"
+                },
+                "seg2": {
+                  "p": 0.36,
+                  "col": "#3b82f6",
+                  "nome": "Under: 36%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "1.21 vs 2.10",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.37,
+                  "col": "#0ea5e9",
+                  "nome": "Atalanta: 37% (1.21)"
+                },
+                "seg2": {
+                  "p": 0.63,
+                  "col": "#d97706",
+                  "nome": "Inter: 63% (2.10)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Valore Insufficiente (-0,3%)",
+            "qEqua": "1.64",
+            "qReale": "1.64",
+            "spiegazione": "Il 2 a 1.64 ha valore neutro/negativo (-0,3%): servirebbe almeno 1.69 per coprire l'aggio del bookmaker.",
+            "analisi": "L'Inter vanta il miglior xG della lega (28.8 fatti, 10.8 subiti). L'Atalanta in casa ha concesso 11 gol in 6 match, compreso il clamoroso 0-3 col Parma.",
+            "rischio": "L'Atalanta a Bergamo nei big match storicamente alza vertiginosamente il baricentro.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Doppia Chance 12",
+                "alt": "Over 1.5 (85%)",
+                "prob": 79,
+                "probStr": "79%",
+                "quota": "1.30",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "3.5 gol attesi totali: partita a trazione offensiva totale senza mezze misure."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "Inter Over 1.5 Gol",
+                "alt": "Gol + Over 2.5 (56%)",
+                "prob": 67,
+                "probStr": "67%",
+                "quota": "1.54",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "L'Inter realizza 2.5 gol medi a partita; la Dea concede quasi 2 gol a gara in casa."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "2 + Gol",
+                "alt": "Ris. Esatto 1-2 (10%)",
+                "prob": 35,
+                "probStr": "35%",
+                "quota": "2.99",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "1-2 è il risultato più probabile del modello Poisson Dixon-Coles."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "GG 1° Tempo + GG 2° Tempo",
+                "alt": "Lautaro Marcatore",
+                "prob": 9,
+                "probStr": "9,4%",
+                "quota": "10.50",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Esce circa 1 volta su 11: scontro ad altissima intensità nei due tempi."
+              }
+            }
+          },
+          {
+            "id": "mon-fio",
+            "label": "Monza - Fiorentina",
+            "bgGradient": "from-[#3a0d18] via-[#090d16] to-[#250d38]",
+            "casa": {
+              "sigla": "MON",
+              "nome": "Monza",
+              "rank": "17-25 gol",
+              "colBox": "bg-rose-600/20 text-rose-400 border-rose-500"
+            },
+            "ospite": {
+              "sigla": "FIO",
+              "nome": "Fiorentina",
+              "rank": "17-25 gol",
+              "colBox": "bg-purple-600/20 text-purple-400 border-purple-500"
+            },
+            "data": "Lunedì 23 Nov · 20:45",
+            "giornata": "Serie A · 12ª Giornata",
+            "golC": "1.24",
+            "golO": "1.53",
+            "barC": "45%",
+            "barO": "55%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "43%",
+                "centerLbl": "Segno 2",
+                "seg1": {
+                  "p": 0.3,
+                  "col": "#06b6d4",
+                  "nome": "1: 30%"
+                },
+                "seg2": {
+                  "p": 0.28,
+                  "col": "#f59e0b",
+                  "nome": "X: 28%"
+                },
+                "seg3": {
+                  "p": 0.43,
+                  "col": "#f43f5e",
+                  "nome": "2: 43%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "57%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.57,
+                  "col": "#10b981",
+                  "nome": "Gol: 57%"
+                },
+                "seg2": {
+                  "p": 0.43,
+                  "col": "#64748b",
+                  "nome": "No Gol: 43%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "52%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.52,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 52%"
+                },
+                "seg2": {
+                  "p": 0.48,
+                  "col": "#3b82f6",
+                  "nome": "Under: 48%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "1.24 vs 1.53",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.45,
+                  "col": "#0ea5e9",
+                  "nome": "Monza: 45% (1.24)"
+                },
+                "seg2": {
+                  "p": 0.55,
+                  "col": "#d97706",
+                  "nome": "Fiorentina: 55% (1.53)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "+4,1%",
+            "mercato": "NO BET · Valore Sotto Soglia (+4,1% vs +5%)",
+            "qEqua": "3.23",
+            "qReale": "3.40",
+            "spiegazione": "L'1 a 3.40 offre valore del +4,1%, ma tra 2.50 e 5 la regola impone soglia minima +5% (servirebbe 3.43).",
+            "analisi": "Entrambe le formazioni hanno segnato 17 reti e subite 25 in 11 gare. I dati vedono il Monza al 41% contro il 28% del mercato (xG brianzoli in netta parità).",
+            "rischio": "La Fiorentina è reduce da impegni infrasettimanali ma vanta individualità superiori.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Under 4.5 Gol",
+                "alt": "1X (57%)",
+                "prob": 79,
+                "probStr": "79%",
+                "quota": "1.30",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Con 3.1 gol attesi, la soglia Under 4.5 copre quasi 4 volte su 5."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "Gol (Entrambe segnano)",
+                "alt": "Over 2.5 (61%)",
+                "prob": 63,
+                "probStr": "63%",
+                "quota": "1.63",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "Entrambe segnano 1.5 gol e ne subiscono 2.3 a match: gol altamente probabile."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "Segno 1 @ 3.40",
+                "alt": "Ris. Esatto 2-1 (7%)",
+                "prob": 31,
+                "probStr": "31%",
+                "quota": "3.40",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "Valore matematico reale +4,1%. Con quota a 3.43 diventa giocabile al 100%."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "GG 1° Tempo + GG 2° Tempo",
+                "alt": "Multigol 2-4 (74%)",
+                "prob": 7,
+                "probStr": "7,0%",
+                "quota": "13.00",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Alta frequenza di reti nei due tempi per due difese fragili."
+              }
+            }
+          }
+        ]
+      },
+      "13": {
+        "label": "13ª Giornata (27-30 Nov 2026)",
+        "dataFine": "2026-11-30T23:59:59",
+        "partite": [
+          {
+            "id": "ven-bol",
+            "label": "Venezia - Bologna",
+            "bgGradient": "from-[#081d38] via-[#090d16] to-[#1e293b]",
+            "casa": {
+              "sigla": "VEN",
+              "nome": "Venezia",
+              "rank": "8-21 gol",
+              "colBox": "bg-emerald-600/20 text-emerald-400 border-emerald-500"
+            },
+            "ospite": {
+              "sigla": "BOL",
+              "nome": "Bologna",
+              "rank": "16-14 gol",
+              "colBox": "bg-rose-700/20 text-rose-400 border-rose-600"
+            },
+            "data": "Venerdì 27 Nov · 20:45",
+            "giornata": "Serie A · 13ª Giornata",
+            "golC": "1.14",
+            "golO": "1.84",
+            "barC": "38%",
+            "barO": "62%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "53%",
+                "centerLbl": "Segno 2",
+                "seg1": {
+                  "p": 0.22,
+                  "col": "#06b6d4",
+                  "nome": "1: 22%"
+                },
+                "seg2": {
+                  "p": 0.25,
+                  "col": "#f59e0b",
+                  "nome": "X: 25%"
+                },
+                "seg3": {
+                  "p": 0.53,
+                  "col": "#f43f5e",
+                  "nome": "2: 53%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "58%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.58,
+                  "col": "#10b981",
+                  "nome": "Gol: 58%"
+                },
+                "seg2": {
+                  "p": 0.42,
+                  "col": "#64748b",
+                  "nome": "No Gol: 42%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "57%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.57,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 57%"
+                },
+                "seg2": {
+                  "p": 0.43,
+                  "col": "#3b82f6",
+                  "nome": "Under: 43%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "1.14 vs 1.84",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.38,
+                  "col": "#0ea5e9",
+                  "nome": "Venezia: 38% (1.14)"
+                },
+                "seg2": {
+                  "p": 0.62,
+                  "col": "#d97706",
+                  "nome": "Bologna: 62% (1.84)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Nessun Edge Sufficiente",
+            "qEqua": "—",
+            "qReale": "—",
+            "spiegazione": "Nessuna quota disponibile offre margine di valore matematico atteso (+3% min). Nessuna scommessa consigliata.",
+            "analisi": "Dati verificati su 11 gare disputate. xG attesi: Venezia 1.14 vs Bologna 1.84. Il modello stima 1X2 al 22% - 25% - 53%.",
+            "rischio": "Varianza statistica e possibili assenze dell'ultimo minuto post-sosta nazionali.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Over 1.5 Gol",
+                "alt": "1X (47%)",
+                "prob": 72,
+                "probStr": "72%",
+                "quota": "1.25",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Selezione ad alta frequenza statistica per copertura."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "2 + Over 1.5",
+                "alt": "Gol (GG)",
+                "prob": 45,
+                "probStr": "45%",
+                "quota": "1.75",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "Combina l'esito più probabile con la produzione di reti attese."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "2 + Gol",
+                "alt": "Ris. Esatto",
+                "prob": 31,
+                "probStr": "31%",
+                "quota": "3.20",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "Moltiplicatore elevato coerente con la griglia dei punteggi esatti."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol 2-4",
+                "alt": "Extra di giornata",
+                "prob": 74,
+                "probStr": "74%",
+                "quota": "1.55",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Intervallo gol statisticamente confermato."
+              }
+            }
+          },
+          {
+            "id": "fro-par",
+            "label": "Frosinone - Parma",
+            "bgGradient": "from-[#081d38] via-[#090d16] to-[#1e293b]",
+            "casa": {
+              "sigla": "FRO",
+              "nome": "Frosinone",
+              "rank": "24-15 gol",
+              "colBox": "bg-yellow-500/20 text-yellow-400 border-yellow-500"
+            },
+            "ospite": {
+              "sigla": "PAR",
+              "nome": "Parma",
+              "rank": "9-17 gol",
+              "colBox": "bg-amber-500/20 text-amber-400 border-amber-500"
+            },
+            "data": "Sabato 28 Nov · 15:00",
+            "giornata": "Serie A · 13ª Giornata",
+            "golC": "2.13",
+            "golO": "1.04",
+            "barC": "67%",
+            "barO": "33%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "61%",
+                "centerLbl": "Segno 1",
+                "seg1": {
+                  "p": 0.61,
+                  "col": "#06b6d4",
+                  "nome": "1: 61%"
+                },
+                "seg2": {
+                  "p": 0.22,
+                  "col": "#f59e0b",
+                  "nome": "X: 22%"
+                },
+                "seg3": {
+                  "p": 0.17,
+                  "col": "#f43f5e",
+                  "nome": "2: 17%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "58%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.58,
+                  "col": "#10b981",
+                  "nome": "Gol: 58%"
+                },
+                "seg2": {
+                  "p": 0.42,
+                  "col": "#64748b",
+                  "nome": "No Gol: 42%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "62%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.62,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 62%"
+                },
+                "seg2": {
+                  "p": 0.38,
+                  "col": "#3b82f6",
+                  "nome": "Under: 38%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "2.13 vs 1.04",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.67,
+                  "col": "#0ea5e9",
+                  "nome": "Frosinone: 67% (2.13)"
+                },
+                "seg2": {
+                  "p": 0.33,
+                  "col": "#d97706",
+                  "nome": "Parma: 33% (1.04)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Nessun Edge Sufficiente",
+            "qEqua": "—",
+            "qReale": "—",
+            "spiegazione": "Nessuna quota disponibile offre margine di valore matematico atteso (+3% min). Nessuna scommessa consigliata.",
+            "analisi": "Dati verificati su 11 gare disputate. xG attesi: Frosinone 2.13 vs Parma 1.04. Il modello stima 1X2 al 61% - 22% - 17%.",
+            "rischio": "Varianza statistica e possibili assenze dell'ultimo minuto post-sosta nazionali.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Over 1.5 Gol",
+                "alt": "1X (83%)",
+                "prob": 77,
+                "probStr": "77%",
+                "quota": "1.25",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Selezione ad alta frequenza statistica per copertura."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "1 + Over 1.5",
+                "alt": "Gol (GG)",
+                "prob": 52,
+                "probStr": "52%",
+                "quota": "1.75",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "Combina l'esito più probabile con la produzione di reti attese."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "1 + Gol",
+                "alt": "Ris. Esatto",
+                "prob": 36,
+                "probStr": "36%",
+                "quota": "3.20",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "Moltiplicatore elevato coerente con la griglia dei punteggi esatti."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol 2-4",
+                "alt": "Extra di giornata",
+                "prob": 74,
+                "probStr": "74%",
+                "quota": "1.55",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Intervallo gol statisticamente confermato."
+              }
+            }
+          },
+          {
+            "id": "tor-laz",
+            "label": "Torino - Lazio",
+            "bgGradient": "from-[#081d38] via-[#090d16] to-[#1e293b]",
+            "casa": {
+              "sigla": "TOR",
+              "nome": "Torino",
+              "rank": "15-17 gol",
+              "colBox": "bg-amber-800/20 text-amber-400 border-amber-700"
+            },
+            "ospite": {
+              "sigla": "LAZ",
+              "nome": "Lazio",
+              "rank": "25-9 gol",
+              "colBox": "bg-sky-400/20 text-sky-300 border-sky-400"
+            },
+            "data": "Sabato 28 Nov · 18:00",
+            "giornata": "Serie A · 13ª Giornata",
+            "golC": "1.01",
+            "golO": "1.66",
+            "barC": "38%",
+            "barO": "62%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "51%",
+                "centerLbl": "Segno 2",
+                "seg1": {
+                  "p": 0.22,
+                  "col": "#06b6d4",
+                  "nome": "1: 22%"
+                },
+                "seg2": {
+                  "p": 0.27,
+                  "col": "#f59e0b",
+                  "nome": "X: 27%"
+                },
+                "seg3": {
+                  "p": 0.51,
+                  "col": "#f43f5e",
+                  "nome": "2: 51%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "53%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.53,
+                  "col": "#10b981",
+                  "nome": "Gol: 53%"
+                },
+                "seg2": {
+                  "p": 0.47,
+                  "col": "#64748b",
+                  "nome": "No Gol: 47%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "50%",
+                "centerLbl": "Under 2.5",
+                "seg1": {
+                  "p": 0.5,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 50%"
+                },
+                "seg2": {
+                  "p": 0.5,
+                  "col": "#3b82f6",
+                  "nome": "Under: 50%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "1.01 vs 1.66",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.38,
+                  "col": "#0ea5e9",
+                  "nome": "Torino: 38% (1.01)"
+                },
+                "seg2": {
+                  "p": 0.62,
+                  "col": "#d97706",
+                  "nome": "Lazio: 62% (1.66)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Nessun Edge Sufficiente",
+            "qEqua": "—",
+            "qReale": "—",
+            "spiegazione": "Nessuna quota disponibile offre margine di valore matematico atteso (+3% min). Nessuna scommessa consigliata.",
+            "analisi": "Dati verificati su 11 gare disputate. xG attesi: Torino 1.01 vs Lazio 1.66. Il modello stima 1X2 al 22% - 27% - 51%.",
+            "rischio": "Varianza statistica e possibili assenze dell'ultimo minuto post-sosta nazionali.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Over 1.5 Gol",
+                "alt": "1X (49%)",
+                "prob": 65,
+                "probStr": "65%",
+                "quota": "1.25",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Selezione ad alta frequenza statistica per copertura."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "2 + Over 1.5",
+                "alt": "Gol (GG)",
+                "prob": 44,
+                "probStr": "44%",
+                "quota": "1.75",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "Combina l'esito più probabile con la produzione di reti attese."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "2 + Gol",
+                "alt": "Ris. Esatto",
+                "prob": 27,
+                "probStr": "27%",
+                "quota": "3.20",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "Moltiplicatore elevato coerente con la griglia dei punteggi esatti."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol 2-4",
+                "alt": "Extra di giornata",
+                "prob": 74,
+                "probStr": "74%",
+                "quota": "1.55",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Intervallo gol statisticamente confermato."
+              }
+            }
+          },
+          {
+            "id": "int-gen",
+            "label": "Inter - Genoa",
+            "bgGradient": "from-[#081d38] via-[#090d16] to-[#1e293b]",
+            "casa": {
+              "sigla": "INT",
+              "nome": "Inter",
+              "rank": "28-13 gol",
+              "colBox": "bg-blue-600/20 text-blue-400 border-blue-500"
+            },
+            "ospite": {
+              "sigla": "GEN",
+              "nome": "Genoa",
+              "rank": "11-16 gol",
+              "colBox": "bg-red-800/20 text-red-400 border-red-700"
+            },
+            "data": "Sabato 28 Nov · 20:45",
+            "giornata": "Serie A · 13ª Giornata",
+            "golC": "2.17",
+            "golO": "0.79",
+            "barC": "73%",
+            "barO": "27%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "68%",
+                "centerLbl": "Segno 1",
+                "seg1": {
+                  "p": 0.68,
+                  "col": "#06b6d4",
+                  "nome": "1: 68%"
+                },
+                "seg2": {
+                  "p": 0.2,
+                  "col": "#f59e0b",
+                  "nome": "X: 20%"
+                },
+                "seg3": {
+                  "p": 0.11,
+                  "col": "#f43f5e",
+                  "nome": "2: 11%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "49%",
+                "centerLbl": "No Gol",
+                "seg1": {
+                  "p": 0.49,
+                  "col": "#10b981",
+                  "nome": "Gol: 49%"
+                },
+                "seg2": {
+                  "p": 0.51,
+                  "col": "#64748b",
+                  "nome": "No Gol: 51%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "57%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.57,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 57%"
+                },
+                "seg2": {
+                  "p": 0.43,
+                  "col": "#3b82f6",
+                  "nome": "Under: 43%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "2.17 vs 0.79",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.73,
+                  "col": "#0ea5e9",
+                  "nome": "Inter: 73% (2.17)"
+                },
+                "seg2": {
+                  "p": 0.27,
+                  "col": "#d97706",
+                  "nome": "Genoa: 27% (0.79)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Nessun Edge Sufficiente",
+            "qEqua": "—",
+            "qReale": "—",
+            "spiegazione": "Nessuna quota disponibile offre margine di valore matematico atteso (+3% min). Nessuna scommessa consigliata.",
+            "analisi": "Dati verificati su 11 gare disputate. xG attesi: Inter 2.17 vs Genoa 0.79. Il modello stima 1X2 al 68% - 20% - 11%.",
+            "rischio": "Varianza statistica e possibili assenze dell'ultimo minuto post-sosta nazionali.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Over 1.5 Gol",
+                "alt": "1X (89%)",
+                "prob": 72,
+                "probStr": "72%",
+                "quota": "1.25",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Selezione ad alta frequenza statistica per copertura."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "1 + Over 1.5",
+                "alt": "Gol (GG)",
+                "prob": 58,
+                "probStr": "58%",
+                "quota": "1.75",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "Combina l'esito più probabile con la produzione di reti attese."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "1 + Gol",
+                "alt": "Ris. Esatto",
+                "prob": 34,
+                "probStr": "34%",
+                "quota": "3.20",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "Moltiplicatore elevato coerente con la griglia dei punteggi esatti."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol 2-4",
+                "alt": "Extra di giornata",
+                "prob": 74,
+                "probStr": "74%",
+                "quota": "1.55",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Intervallo gol statisticamente confermato."
+              }
+            }
+          },
+          {
+            "id": "udi-fio",
+            "label": "Udinese - Fiorentina",
+            "bgGradient": "from-[#081d38] via-[#090d16] to-[#1e293b]",
+            "casa": {
+              "sigla": "UDI",
+              "nome": "Udinese",
+              "rank": "12-25 gol",
+              "colBox": "bg-slate-700/30 text-slate-200 border-slate-500"
+            },
+            "ospite": {
+              "sigla": "FIO",
+              "nome": "Fiorentina",
+              "rank": "17-25 gol",
+              "colBox": "bg-purple-600/20 text-purple-400 border-purple-500"
+            },
+            "data": "Domenica 29 Nov · 12:30",
+            "giornata": "Serie A · 13ª Giornata",
+            "golC": "1.44",
+            "golO": "2.05",
+            "barC": "41%",
+            "barO": "59%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "51%",
+                "centerLbl": "Segno 2",
+                "seg1": {
+                  "p": 0.26,
+                  "col": "#06b6d4",
+                  "nome": "1: 26%"
+                },
+                "seg2": {
+                  "p": 0.23,
+                  "col": "#f59e0b",
+                  "nome": "X: 23%"
+                },
+                "seg3": {
+                  "p": 0.51,
+                  "col": "#f43f5e",
+                  "nome": "2: 51%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "67%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.67,
+                  "col": "#10b981",
+                  "nome": "Gol: 67%"
+                },
+                "seg2": {
+                  "p": 0.33,
+                  "col": "#64748b",
+                  "nome": "No Gol: 33%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "68%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.68,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 68%"
+                },
+                "seg2": {
+                  "p": 0.32,
+                  "col": "#3b82f6",
+                  "nome": "Under: 32%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "1.44 vs 2.05",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.41,
+                  "col": "#0ea5e9",
+                  "nome": "Udinese: 41% (1.44)"
+                },
+                "seg2": {
+                  "p": 0.59,
+                  "col": "#d97706",
+                  "nome": "Fiorentina: 59% (2.05)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Nessun Edge Sufficiente",
+            "qEqua": "—",
+            "qReale": "—",
+            "spiegazione": "Nessuna quota disponibile offre margine di valore matematico atteso (+3% min). Nessuna scommessa consigliata.",
+            "analisi": "Dati verificati su 11 gare disputate. xG attesi: Udinese 1.44 vs Fiorentina 2.05. Il modello stima 1X2 al 26% - 23% - 51%.",
+            "rischio": "Varianza statistica e possibili assenze dell'ultimo minuto post-sosta nazionali.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Over 1.5 Gol",
+                "alt": "1X (49%)",
+                "prob": 83,
+                "probStr": "83%",
+                "quota": "1.25",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Selezione ad alta frequenza statistica per copertura."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "2 + Over 1.5",
+                "alt": "Gol (GG)",
+                "prob": 43,
+                "probStr": "43%",
+                "quota": "1.75",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "Combina l'esito più probabile con la produzione di reti attese."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "2 + Gol",
+                "alt": "Ris. Esatto",
+                "prob": 34,
+                "probStr": "34%",
+                "quota": "3.20",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "Moltiplicatore elevato coerente con la griglia dei punteggi esatti."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol 2-4",
+                "alt": "Extra di giornata",
+                "prob": 74,
+                "probStr": "74%",
+                "quota": "1.55",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Intervallo gol statisticamente confermato."
+              }
+            }
+          },
+          {
+            "id": "sas-nap",
+            "label": "Sassuolo - Napoli",
+            "bgGradient": "from-[#0a2e18] via-[#090d16] to-[#3a0a14]",
+            "casa": {
+              "sigla": "SAS",
+              "nome": "Sassuolo",
+              "rank": "16-29 gol",
+              "colBox": "bg-emerald-700/20 text-emerald-300 border-emerald-600"
+            },
+            "ospite": {
+              "sigla": "NAP",
+              "nome": "Napoli",
+              "rank": "18-14 gol",
+              "colBox": "bg-sky-500/20 text-sky-400 border-sky-400"
+            },
+            "data": "Domenica 29 Nov · 15:00",
+            "giornata": "Serie A · 13ª Giornata",
+            "golC": "1.22",
+            "golO": "2.21",
+            "barC": "36%",
+            "barO": "64%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "59%",
+                "centerLbl": "Segno 2",
+                "seg1": {
+                  "p": 0.19,
+                  "col": "#06b6d4",
+                  "nome": "1: 19%"
+                },
+                "seg2": {
+                  "p": 0.22,
+                  "col": "#f59e0b",
+                  "nome": "X: 22%"
+                },
+                "seg3": {
+                  "p": 0.59,
+                  "col": "#f43f5e",
+                  "nome": "2: 59%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "64%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.64,
+                  "col": "#10b981",
+                  "nome": "Gol: 64%"
+                },
+                "seg2": {
+                  "p": 0.36,
+                  "col": "#64748b",
+                  "nome": "No Gol: 36%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "67%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.67,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 67%"
+                },
+                "seg2": {
+                  "p": 0.33,
+                  "col": "#3b82f6",
+                  "nome": "Under: 33%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "1.22 vs 2.21",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.36,
+                  "col": "#0ea5e9",
+                  "nome": "Sassuolo: 36% (1.22)"
+                },
+                "seg2": {
+                  "p": 0.64,
+                  "col": "#d97706",
+                  "nome": "Napoli: 64% (2.21)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Nessun Edge Sufficiente",
+            "qEqua": "—",
+            "qReale": "—",
+            "spiegazione": "Nessuna quota disponibile offre margine di valore matematico atteso (+3% min). Nessuna scommessa consigliata.",
+            "analisi": "Dati verificati su 11 gare disputate. xG attesi: Sassuolo 1.22 vs Napoli 2.21. Il modello stima 1X2 al 19% - 22% - 59%.",
+            "rischio": "Varianza statistica e possibili assenze dell'ultimo minuto post-sosta nazionali.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Over 1.5 Gol",
+                "alt": "1X (41%)",
+                "prob": 82,
+                "probStr": "82%",
+                "quota": "1.25",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Selezione ad alta frequenza statistica per copertura."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "2 + Over 1.5",
+                "alt": "Gol (GG)",
+                "prob": 50,
+                "probStr": "50%",
+                "quota": "1.75",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "Combina l'esito più probabile con la produzione di reti attese."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "2 + Gol",
+                "alt": "Ris. Esatto",
+                "prob": 38,
+                "probStr": "38%",
+                "quota": "3.20",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "Moltiplicatore elevato coerente con la griglia dei punteggi esatti."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol 2-4",
+                "alt": "Extra di giornata",
+                "prob": 74,
+                "probStr": "74%",
+                "quota": "1.55",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Intervallo gol statisticamente confermato."
+              }
+            }
+          },
+          {
+            "id": "rom-mon",
+            "label": "Roma - Monza",
+            "bgGradient": "from-[#081d38] via-[#090d16] to-[#1e293b]",
+            "casa": {
+              "sigla": "ROM",
+              "nome": "Roma",
+              "rank": "31-10 gol",
+              "colBox": "bg-amber-600/20 text-amber-500 border-amber-600"
+            },
+            "ospite": {
+              "sigla": "MON",
+              "nome": "Monza",
+              "rank": "17-25 gol",
+              "colBox": "bg-rose-600/20 text-rose-400 border-rose-500"
+            },
+            "data": "Domenica 29 Nov · 18:00",
+            "giornata": "Serie A · 13ª Giornata",
+            "golC": "2.68",
+            "golO": "1.19",
+            "barC": "69%",
+            "barO": "31%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "68%",
+                "centerLbl": "Segno 1",
+                "seg1": {
+                  "p": 0.68,
+                  "col": "#06b6d4",
+                  "nome": "1: 68%"
+                },
+                "seg2": {
+                  "p": 0.18,
+                  "col": "#f59e0b",
+                  "nome": "X: 18%"
+                },
+                "seg3": {
+                  "p": 0.14,
+                  "col": "#f43f5e",
+                  "nome": "2: 14%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "65%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.65,
+                  "col": "#10b981",
+                  "nome": "Gol: 65%"
+                },
+                "seg2": {
+                  "p": 0.35,
+                  "col": "#64748b",
+                  "nome": "No Gol: 35%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "74%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.74,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 74%"
+                },
+                "seg2": {
+                  "p": 0.26,
+                  "col": "#3b82f6",
+                  "nome": "Under: 26%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "2.68 vs 1.19",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.69,
+                  "col": "#0ea5e9",
+                  "nome": "Roma: 69% (2.68)"
+                },
+                "seg2": {
+                  "p": 0.31,
+                  "col": "#d97706",
+                  "nome": "Monza: 31% (1.19)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Nessun Edge Sufficiente",
+            "qEqua": "—",
+            "qReale": "—",
+            "spiegazione": "Nessuna quota disponibile offre margine di valore matematico atteso (+3% min). Nessuna scommessa consigliata.",
+            "analisi": "Dati verificati su 11 gare disputate. xG attesi: Roma 2.68 vs Monza 1.19. Il modello stima 1X2 al 68% - 18% - 14%.",
+            "rischio": "Varianza statistica e possibili assenze dell'ultimo minuto post-sosta nazionali.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Over 1.5 Gol",
+                "alt": "1X (86%)",
+                "prob": 85,
+                "probStr": "85%",
+                "quota": "1.25",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Selezione ad alta frequenza statistica per copertura."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "1 + Over 1.5",
+                "alt": "Gol (GG)",
+                "prob": 58,
+                "probStr": "58%",
+                "quota": "1.75",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "Combina l'esito più probabile con la produzione di reti attese."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "1 + Gol",
+                "alt": "Ris. Esatto",
+                "prob": 45,
+                "probStr": "45%",
+                "quota": "3.20",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "Moltiplicatore elevato coerente con la griglia dei punteggi esatti."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol 2-4",
+                "alt": "Extra di giornata",
+                "prob": 74,
+                "probStr": "74%",
+                "quota": "1.55",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Intervallo gol statisticamente confermato."
+              }
+            }
+          },
+          {
+            "id": "com-juv",
+            "label": "Como - Juventus",
+            "bgGradient": "from-[#082347] via-[#090d16] to-[#3a0a10]",
+            "casa": {
+              "sigla": "COM",
+              "nome": "Como",
+              "rank": "18-10 gol",
+              "colBox": "bg-blue-600/20 text-blue-400 border-blue-400"
+            },
+            "ospite": {
+              "sigla": "JUV",
+              "nome": "Juventus",
+              "rank": "15-12 gol",
+              "colBox": "bg-slate-700/30 text-slate-100 border-slate-400"
+            },
+            "data": "Domenica 29 Nov · 20:45",
+            "giornata": "Serie A · 13ª Giornata",
+            "golC": "1.12",
+            "golO": "1.11",
+            "barC": "50%",
+            "barO": "50%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "34%",
+                "centerLbl": "Segno 1",
+                "seg1": {
+                  "p": 0.34,
+                  "col": "#06b6d4",
+                  "nome": "1: 34%"
+                },
+                "seg2": {
+                  "p": 0.32,
+                  "col": "#f59e0b",
+                  "nome": "X: 32%"
+                },
+                "seg3": {
+                  "p": 0.34,
+                  "col": "#f43f5e",
+                  "nome": "2: 34%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "47%",
+                "centerLbl": "No Gol",
+                "seg1": {
+                  "p": 0.47,
+                  "col": "#10b981",
+                  "nome": "Gol: 47%"
+                },
+                "seg2": {
+                  "p": 0.53,
+                  "col": "#64748b",
+                  "nome": "No Gol: 53%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "39%",
+                "centerLbl": "Under 2.5",
+                "seg1": {
+                  "p": 0.39,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 39%"
+                },
+                "seg2": {
+                  "p": 0.61,
+                  "col": "#3b82f6",
+                  "nome": "Under: 61%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "1.12 vs 1.11",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.5,
+                  "col": "#0ea5e9",
+                  "nome": "Como: 50% (1.12)"
+                },
+                "seg2": {
+                  "p": 0.5,
+                  "col": "#d97706",
+                  "nome": "Juventus: 50% (1.11)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Nessun Edge Sufficiente",
+            "qEqua": "—",
+            "qReale": "—",
+            "spiegazione": "Nessuna quota disponibile offre margine di valore matematico atteso (+3% min). Nessuna scommessa consigliata.",
+            "analisi": "Dati verificati su 11 gare disputate. xG attesi: Como 1.12 vs Juventus 1.11. Il modello stima 1X2 al 34% - 32% - 34%.",
+            "rischio": "Varianza statistica e possibili assenze dell'ultimo minuto post-sosta nazionali.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Over 1.5 Gol",
+                "alt": "1X (66%)",
+                "prob": 54,
+                "probStr": "54%",
+                "quota": "1.25",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Selezione ad alta frequenza statistica per copertura."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "1 + Over 1.5",
+                "alt": "Gol (GG)",
+                "prob": 29,
+                "probStr": "29%",
+                "quota": "1.75",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "Combina l'esito più probabile con la produzione di reti attese."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "1 + Gol",
+                "alt": "Ris. Esatto",
+                "prob": 16,
+                "probStr": "16%",
+                "quota": "3.20",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "Moltiplicatore elevato coerente con la griglia dei punteggi esatti."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol 2-4",
+                "alt": "Extra di giornata",
+                "prob": 74,
+                "probStr": "74%",
+                "quota": "1.55",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Intervallo gol statisticamente confermato."
+              }
+            }
+          },
+          {
+            "id": "lec-ata",
+            "label": "Lecce - Atalanta",
+            "bgGradient": "from-[#081d38] via-[#090d16] to-[#1e293b]",
+            "casa": {
+              "sigla": "LEC",
+              "nome": "Lecce",
+              "rank": "12-22 gol",
+              "colBox": "bg-yellow-500/20 text-yellow-400 border-yellow-500"
+            },
+            "ospite": {
+              "sigla": "ATA",
+              "nome": "Atalanta",
+              "rank": "17-20 gol",
+              "colBox": "bg-blue-700/20 text-blue-400 border-blue-600"
+            },
+            "data": "Lunedì 30 Nov · 18:30",
+            "giornata": "Serie A · 13ª Giornata",
+            "golC": "1.50",
+            "golO": "1.74",
+            "barC": "46%",
+            "barO": "54%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "43%",
+                "centerLbl": "Segno 2",
+                "seg1": {
+                  "p": 0.32,
+                  "col": "#06b6d4",
+                  "nome": "1: 32%"
+                },
+                "seg2": {
+                  "p": 0.25,
+                  "col": "#f59e0b",
+                  "nome": "X: 25%"
+                },
+                "seg3": {
+                  "p": 0.43,
+                  "col": "#f43f5e",
+                  "nome": "2: 43%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "65%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.65,
+                  "col": "#10b981",
+                  "nome": "Gol: 65%"
+                },
+                "seg2": {
+                  "p": 0.35,
+                  "col": "#64748b",
+                  "nome": "No Gol: 35%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "63%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.63,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 63%"
+                },
+                "seg2": {
+                  "p": 0.37,
+                  "col": "#3b82f6",
+                  "nome": "Under: 37%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "1.50 vs 1.74",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.46,
+                  "col": "#0ea5e9",
+                  "nome": "Lecce: 46% (1.50)"
+                },
+                "seg2": {
+                  "p": 0.54,
+                  "col": "#d97706",
+                  "nome": "Atalanta: 54% (1.74)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Nessun Edge Sufficiente",
+            "qEqua": "—",
+            "qReale": "—",
+            "spiegazione": "Nessuna quota disponibile offre margine di valore matematico atteso (+3% min). Nessuna scommessa consigliata.",
+            "analisi": "Dati verificati su 11 gare disputate. xG attesi: Lecce 1.50 vs Atalanta 1.74. Il modello stima 1X2 al 32% - 25% - 43%.",
+            "rischio": "Varianza statistica e possibili assenze dell'ultimo minuto post-sosta nazionali.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Over 1.5 Gol",
+                "alt": "1X (57%)",
+                "prob": 78,
+                "probStr": "78%",
+                "quota": "1.25",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Selezione ad alta frequenza statistica per copertura."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "2 + Over 1.5",
+                "alt": "Gol (GG)",
+                "prob": 36,
+                "probStr": "36%",
+                "quota": "1.75",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "Combina l'esito più probabile con la produzione di reti attese."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "2 + Gol",
+                "alt": "Ris. Esatto",
+                "prob": 28,
+                "probStr": "28%",
+                "quota": "3.20",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "Moltiplicatore elevato coerente con la griglia dei punteggi esatti."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol 2-4",
+                "alt": "Extra di giornata",
+                "prob": 74,
+                "probStr": "74%",
+                "quota": "1.55",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Intervallo gol statisticamente confermato."
+              }
+            }
+          },
+          {
+            "id": "cag-mil",
+            "label": "Cagliari - Milan",
+            "bgGradient": "from-[#081d38] via-[#090d16] to-[#1e293b]",
+            "casa": {
+              "sigla": "CAG",
+              "nome": "Cagliari",
+              "rank": "10-15 gol",
+              "colBox": "bg-red-700/20 text-red-400 border-red-600"
+            },
+            "ospite": {
+              "sigla": "MIL",
+              "nome": "Milan",
+              "rank": "23-13 gol",
+              "colBox": "bg-red-600/20 text-red-400 border-red-500"
+            },
+            "data": "Lunedì 30 Nov · 20:45",
+            "giornata": "Serie A · 13ª Giornata",
+            "golC": "1.03",
+            "golO": "1.80",
+            "barC": "36%",
+            "barO": "64%",
+            "fasi": {
+              "1": {
+                "label": "Fase 1: 1X2",
+                "centerVal": "54%",
+                "centerLbl": "Segno 2",
+                "seg1": {
+                  "p": 0.2,
+                  "col": "#06b6d4",
+                  "nome": "1: 20%"
+                },
+                "seg2": {
+                  "p": 0.25,
+                  "col": "#f59e0b",
+                  "nome": "X: 25%"
+                },
+                "seg3": {
+                  "p": 0.54,
+                  "col": "#f43f5e",
+                  "nome": "2: 54%"
+                }
+              },
+              "2": {
+                "label": "Fase 2: GG / NG",
+                "centerVal": "55%",
+                "centerLbl": "Gol (GG)",
+                "seg1": {
+                  "p": 0.55,
+                  "col": "#10b981",
+                  "nome": "Gol: 55%"
+                },
+                "seg2": {
+                  "p": 0.45,
+                  "col": "#64748b",
+                  "nome": "No Gol: 45%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "3": {
+                "label": "Fase 3: Under / Over 2.5",
+                "centerVal": "54%",
+                "centerLbl": "Over 2.5",
+                "seg1": {
+                  "p": 0.54,
+                  "col": "#8b5cf6",
+                  "nome": "Over: 54%"
+                },
+                "seg2": {
+                  "p": 0.46,
+                  "col": "#3b82f6",
+                  "nome": "Under: 46%"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              },
+              "4": {
+                "label": "Fase 4: xG per Squadra",
+                "centerVal": "1.03 vs 1.80",
+                "centerLbl": "Volume xG",
+                "seg1": {
+                  "p": 0.36,
+                  "col": "#0ea5e9",
+                  "nome": "Cagliari: 36% (1.03)"
+                },
+                "seg2": {
+                  "p": 0.64,
+                  "col": "#d97706",
+                  "nome": "Milan: 64% (1.80)"
+                },
+                "seg3": {
+                  "p": 0.0,
+                  "col": "transparent",
+                  "nome": ""
+                }
+              }
+            },
+            "isValore": false,
+            "evBadge": "0,0%",
+            "mercato": "NO BET · Nessun Edge Sufficiente",
+            "qEqua": "—",
+            "qReale": "—",
+            "spiegazione": "Nessuna quota disponibile offre margine di valore matematico atteso (+3% min). Nessuna scommessa consigliata.",
+            "analisi": "Dati verificati su 11 gare disputate. xG attesi: Cagliari 1.03 vs Milan 1.80. Il modello stima 1X2 al 20% - 25% - 54%.",
+            "rischio": "Varianza statistica e possibili assenze dell'ultimo minuto post-sosta nazionali.",
+            "pronosticiExtra": {
+              "1": {
+                "tipo": "ALTA PROBABILITÀ (BASE)",
+                "icona": "🛡️",
+                "mercato": "Over 1.5 Gol",
+                "alt": "1X (46%)",
+                "prob": 69,
+                "probStr": "69%",
+                "quota": "1.25",
+                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
+                "barCol": "from-emerald-500 to-teal-400",
+                "desc": "Selezione ad alta frequenza statistica per copertura."
+              },
+              "2": {
+                "tipo": "MIGLIOR COMBO",
+                "icona": "⚡",
+                "mercato": "2 + Over 1.5",
+                "alt": "Gol (GG)",
+                "prob": 46,
+                "probStr": "46%",
+                "quota": "1.75",
+                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
+                "barCol": "from-cyan-500 to-blue-500",
+                "desc": "Combina l'esito più probabile con la produzione di reti attese."
+              },
+              "3": {
+                "tipo": "PRONOSTICO HARD",
+                "icona": "🎯",
+                "mercato": "2 + Gol",
+                "alt": "Ris. Esatto",
+                "prob": 30,
+                "probStr": "30%",
+                "quota": "3.20",
+                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
+                "barCol": "from-rose-500 to-amber-500",
+                "desc": "Moltiplicatore elevato coerente con la griglia dei punteggi esatti."
+              },
+              "4": {
+                "tipo": "PRONOSTICO EXTRA",
+                "icona": "🔮",
+                "mercato": "Multigol 2-4",
+                "alt": "Extra di giornata",
+                "prob": 74,
+                "probStr": "74%",
+                "quota": "1.55",
+                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
+                "barCol": "from-purple-500 to-indigo-500",
+                "desc": "Intervallo gol statisticamente confermato."
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

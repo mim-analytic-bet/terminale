@@ -1,0 +1,1 @@
+Script vecchi che scrivevano a mano partite, quote, forma o commenti. NON usarli: la dashboard si genera solo con aggiorna_dashboard.py da dati reali.
