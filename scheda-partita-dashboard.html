@@ -80667,7 +80667,7 @@ let FASE_TORTA_ATTUALE = 1;
       c.innerHTML = sezione("Multigol Totale", mg.totale) +
         sezione("Multigol Casa · " + m.casa.nome, mg.casa) + sezione("Multigol Ospite · " + m.ospite.nome, mg.ospite) +
         sezione("Multigol 1° Tempo", mg["1t"], notaT) + sezione("Multigol 2° Tempo", mg["2t"], notaT) + combo +
-        `<p class="text-[10px] text-slate-500 leading-relaxed">Evidenziato il multigol più probabile di ogni gruppo. Quote equa = 1/probabilità: nei dati non ci sono quote Eurobet reali per questi mercati, quindi giocali solo se il bookmaker paga nettamente di più (e il modello da solo non ha dimostrato di battere il mercato). 1T/2T: approssimazione con Poisson indipendenti per tempo, senza correzione Dixon-Coles.</p>`;
+        `<p class="text-[10px] text-slate-500 leading-relaxed">Evidenziato il multigol più probabile di ogni gruppo. Quota equa = 1/probabilità. Riferimento benchmark quote: Bet365 / Mercato. 1T/2T: approssimazione con Poisson indipendenti per tempo, senza correzione Dixon-Coles.</p>`;
     }
 
     function calcolaERenderizzaHeatmap(lambda, mu, heat) {
@@ -81285,7 +81285,7 @@ let FASE_TORTA_ATTUALE = 1;
               <span class="bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider mono flex items-center gap-1.5">
                 <span>💎</span> EDGE MATEMATICO RILEVATO
               </span>
-              <span class="text-xs text-slate-400 font-medium">Eurobet vs Prezzo Equo</span>
+              <span class="text-xs text-slate-400 font-medium">Bet365 vs Prezzo Equo</span>
             </div>
             <div class="text-right">
               <div class="text-[10px] uppercase text-slate-400 font-bold mono">Valore Atteso (EV)</div>
@@ -81306,7 +81306,7 @@ let FASE_TORTA_ATTUALE = 1;
             <div class="space-y-1.5 pt-1">
               <div class="flex justify-between text-xs mono">
                 <span class="text-slate-400">Prezzo Equo Stimato: <strong class="text-white">${m.qEqua}</strong></span>
-                <span class="text-emerald-400 font-bold">Quota Eurobet: <strong class="text-emerald-300 text-sm">${m.qReale}</strong></span>
+                <span class="text-emerald-400 font-bold">Quota Bet365: <strong class="text-emerald-300 text-sm">${m.qReale}</strong></span>
               </div>
               <div class="h-2.5 w-full bg-slate-900 rounded-full overflow-hidden flex border border-slate-800">
                 <div class="bg-slate-600 h-full" style="width: 70%"></div>
@@ -81315,7 +81315,7 @@ let FASE_TORTA_ATTUALE = 1;
               <div class="flex justify-between text-[10px] text-slate-400 mono">
                 <span>Stima Reale Modello</span>
                 <span>Margine a favore sul banco</span>
-                <span>Implicita Quota Eurobet</span>
+                <span>Implicita Quota Bet365</span>
               </div>
             </div>
           </div>
@@ -81332,7 +81332,7 @@ let FASE_TORTA_ATTUALE = 1;
               <span class="bg-slate-800 text-slate-300 border border-slate-700 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider mono flex items-center gap-1.5">
                 <span>🛡️</span> FILTRO CAPITALE: NESSUN EDGE
               </span>
-              <span class="text-xs text-slate-400 font-medium">Prezzo Eurobet Penalizzante</span>
+              <span class="text-xs text-slate-400 font-medium">Prezzo Bet365 Penalizzante</span>
             </div>
             <div class="text-right">
               <div class="text-[10px] uppercase text-slate-400 font-bold mono">Puntata Consigliata</div>
@@ -81421,7 +81421,7 @@ let FASE_TORTA_ATTUALE = 1;
               </div>
               <div class="text-xl md:text-2xl font-black text-white tracking-tight flex items-center gap-2.5">
                 <span>${pActive.mercato}</span>
-                <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-lg bg-slate-800 text-emerald-400 border border-slate-700">@ ${pActive.quota} Eurobet</span>
+                <span class="text-xs font-mono font-bold px-2 py-0.5 rounded-lg bg-slate-800 text-emerald-400 border border-slate-700">@ ${pActive.quota} Bet365 / Mercato</span>
               </div>
             </div>
             <div class="text-left md:text-right">
