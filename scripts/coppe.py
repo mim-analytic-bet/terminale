@@ -2,7 +2,7 @@
 """Champions League in MODALITA' OSSERVAZIONE: elabora partite future con il modello Elo europeo (coppe_modello.py),
 tiene la memoria delle previsioni (dati/coppe/previsioni_CL.csv) e misura il track record vero (solo previsioni fatte PRIMA del calcio d'inizio).
 Nessun dato inventato: squadre senza rating affidabile vengono escluse e segnalate."""
-import csv, difflib, json, math, os, re, unicodedata, datetime as dt
+import collections, csv, difflib, json, math, os, re, unicodedata, datetime as dt
 import coppe_modello as CM
 
 BASE = CM.BASE
@@ -33,15 +33,25 @@ def norm(x):
 
 
 def abbina(nome, candidati, soglia=0.86, alias=None):
-    """Restituisce il candidato piu' simile (o None). Esatto dopo normalizzazione, poi alias, poi similarita'."""
+    """Restituisce il candidato piu' simile (o None). Esatto dopo normalizzazione, poi alias, poi similarita'.
+    DETERMINISTICO: i candidati vengono ordinati (prima l'ordine dipendeva da insiemi di stringhe, che cambia a ogni esecuzione)."""
     n = norm(nome); n = (alias or {}).get(n, n); mappa = {}
-    for c in candidati: mappa.setdefault(norm(c), c)
+    for c in sorted(candidati): mappa.setdefault(norm(c), c)
     if n in mappa: return mappa[n]
-    for k, c in mappa.items():
+    for k, c in sorted(mappa.items()):
         if len(n) >= 5 and (n in k or k in n) and min(len(n), len(k)) >= 5: return c
-    best = max(mappa, key=lambda k: difflib.SequenceMatcher(None, n, k).ratio(), default=None)
+    best = max(sorted(mappa), key=lambda k: difflib.SequenceMatcher(None, n, k).ratio(), default=None)
     if best and difflib.SequenceMatcher(None, n, best).ratio() >= soglia: return mappa[best]
     return None
+
+
+def unifica_storico(storico):
+    """Lo storico openfootball scrive lo stesso club in due modi (es. 'Juventus' e 'Juventus FC'): ognuno avrebbe un rating Elo separato
+    e l'abbinamento sceglieva a caso. Qui i nomi con la stessa forma normalizzata diventano un solo club (nome piu' frequente)."""
+    cnt = collections.Counter(x for m in storico for x in (m["casa"], m["ospite"])); gruppi = {}
+    for n in sorted(cnt): gruppi.setdefault(norm(n), []).append(n)
+    canon = {x: sorted(v, key=lambda y: (-cnt[y], len(y), y))[0] for v in gruppi.values() for x in v}
+    return [dict(m, casa=canon[m["casa"]], ospite=canon[m["ospite"]]) for m in storico]
 
 
 def risultato90(m):
@@ -99,7 +109,7 @@ def elabora(oggi, forma_naz=None, avvisi=None, comp="cl"):
     avvisi = avvisi if avvisi is not None else []; NOME = NOMI[comp]; LIVE, LOG, MEM = percorsi(comp)
     if not os.path.exists(LIVE): avvisi.append(f"{NOME}: dati live non ancora scaricati (serve la chiave API della fonte)"); return None
     live = json.load(open(LIVE, encoding="utf-8")); partite = live["matches"]
-    storico = CM.leggi_storico(); note = {m["casa"] for m in storico} | {m["ospite"] for m in storico}
+    storico = unifica_storico(CM.leggi_storico()); note = {m["casa"] for m in storico} | {m["ospite"] for m in storico}
     mem = carica_mem(MEM); P = dict(CM.PARAMS0); log = carica_log(LOG); w_dom, n_real = adatta_w(log, P, mem, avvisi); mem["w_dom"] = w_dom
     # 1) risultati live conclusi -> aggiorno rating in ordine cronologico (memoria del modello)
     mappa_nome = {}
