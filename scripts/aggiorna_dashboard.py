@@ -141,11 +141,24 @@ def heat(g, k=4):
     return {"k": k, "c": [[round(x, 5) for x in r] for r in c], "top": [[i, j, round(p, 5)] for p, i, j in top]}
 
 
-def pron(m, tipo, icona, bc, br, desc, alt=None):
+def pron(m, tipo, icona, bc, br, desc, alt=None, qm=None):
     p = round(m["prob_modello"] * 100)
-    return {"tipo": tipo, "icona": icona, "mercato": m["mercato"], "alt": alt or "-", "prob": p, "probStr": f"{p}%",
-            "quota": f"{m['quota_equa']:.2f}", "qEqua": f"{m['quota_equa']:.2f}", "badgeCol": bc, "barCol": br,
-            "desc": f"{desc} Quota equa {m['quota_equa']:.2f}: gioca solo se il bookmaker paga almeno {m['quota_minima']:.2f}."}
+    merc = m["mercato"]
+    q_reale = None
+    if qm and merc in qm:
+        try: q_reale = float(qm[merc])
+        except (ValueError, TypeError): pass
+    if q_reale is not None and q_reale > 1.0:
+        quota_effettiva = q_reale
+        desc_quota = f"Quota reale Bet365: {quota_effettiva:.2f}"
+    else:
+        quota_effettiva = max(1.01, round(m["quota_equa"] / 1.075, 2))
+        desc_quota = f"Quota stimata banco (aggio 7.5%): {quota_effettiva:.2f}"
+
+    return {"tipo": tipo, "icona": icona, "mercato": merc, "alt": alt or "-", "prob": p, "probStr": f"{p}%",
+            "quota": f"{quota_effettiva:.2f}", "qEqua": f"{m['quota_equa']:.2f}", "qReale": f"{quota_effettiva:.2f}",
+            "badgeCol": bc, "barCol": br,
+            "desc": f"{desc} {desc_quota} (Quota equa pura: {m['quota_equa']:.2f})."}
 
 # ---- assenze/orari da API-Football (dati/assenze.json, scritto da scripts/assenze.py) ----
 # ---- Mercati multigol (totale, casa, ospite, 1T/2T, combo) dalla STESSA matrice del modello ----
@@ -266,13 +279,15 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
     br = {1: "from-emerald-500 to-teal-400", 2: "from-cyan-500 to-blue-500", 3: "from-rose-500 to-amber-500", 4: "from-purple-500 to-indigo-500"}
     a, bb, c = seleziona_livelli(dq)
     pe = {}
-    if a: pe["1"] = pron(a[0], "ALTA PROBABILITÀ (BASE)", "🛡️", bc[1], br[1], "Mercato a probabilità più alta secondo il modello.", f"{a[1]['mercato']} ({round(a[1]['prob_modello']*100)}%)" if len(a) > 1 else None)
-    if bb: pe["2"] = pron(bb[0], "EQUILIBRATO", "⚡", bc[2], br[2], "Miglior rapporto probabilità/quota del fascio medio.", f"{bb[1]['mercato']} ({round(bb[1]['prob_modello']*100)}%)" if len(bb) > 1 else None)
-    if c: pe["3"] = pron(c[0], "PRONOSTICO HARD", "🎯", bc[3], br[3], "Più rischioso, probabilità più bassa.", f"{c[1]['mercato']} ({round(c[1]['prob_modello']*100)}%)" if len(c) > 1 else None)
+    if a: pe["1"] = pron(a[0], "ALTA PROBABILITÀ (BASE)", "🛡️", bc[1], br[1], "Mercato a probabilità più alta secondo il modello.", f"{a[1]['mercato']} ({round(a[1]['prob_modello']*100)}%)" if len(a) > 1 else None, qm=b365)
+    if bb: pe["2"] = pron(bb[0], "EQUILIBRATO", "⚡", bc[2], br[2], "Miglior rapporto probabilità/quota del fascio medio.", f"{bb[1]['mercato']} ({round(bb[1]['prob_modello']*100)}%)" if len(bb) > 1 else None, qm=b365)
+    if c: pe["3"] = pron(c[0], "PRONOSTICO HARD", "🎯", bc[3], br[3], "Più rischioso, probabilità più bassa.", f"{c[1]['mercato']} ({round(c[1]['prob_modello']*100)}%)" if len(c) > 1 else None, qm=b365)
     s, ps = r["punteggi_top"][0]
+    q_esatto_banco = max(1.10, round((1 / ps) / 1.15, 2))
     pe["4"] = {"tipo": "PRONOSTICO EXTRA", "icona": "🔮", "mercato": f"Risultato esatto {s}", "alt": f"{r['punteggi_top'][1][0]} ({round(r['punteggi_top'][1][1]*100)}%)",
-               "prob": round(ps * 100), "probStr": f"{round(ps*100)}%", "quota": f"{1/ps:.2f}", "qEqua": f"{1/ps:.2f}", "badgeCol": bc[4], "barCol": br[4],
-               "desc": "Punteggio più probabile per il modello Dixon-Coles."}
+               "prob": round(ps * 100), "probStr": f"{round(ps*100)}%", "quota": f"{q_esatto_banco:.2f}", "qEqua": f"{1/ps:.2f}", "qReale": f"{q_esatto_banco:.2f}",
+               "badgeCol": bc[4], "barCol": br[4],
+               "desc": f"Punteggio più probabile Dixon-Coles (Quota stimata banco: {q_esatto_banco:.2f}, equa pura: {1/ps:.2f})."}
     cc, oc = cl[casa], cl[osp]
     fcs, fos = forma(partite, casa), forma(partite, osp)
     # data
@@ -371,8 +386,10 @@ def costruisci_partita_coppa(rec, squadre, track, NC="Champions", NL="Champions 
     if bb: pe["2"] = pron(bb[0], "EQUILIBRATO", "⚡", bc[2], br[2], "Fascia media del modello Elo europeo (non validato).", alt(bb))
     if c: pe["3"] = pron(c[0], "PRONOSTICO HARD", "🎯", bc[3], br[3], "Più rischioso, probabilità più bassa.", alt(c))
     flat = sorted(((M[i][j], i, j) for i in range(n) for j in range(n)), reverse=True)[:2]
+    q_es_coppa = max(1.10, round((1 / flat[0][0]) / 1.15, 2))
     pe["4"] = {"tipo": "PRONOSTICO EXTRA", "icona": "🔮", "mercato": f"Risultato esatto {flat[0][1]}-{flat[0][2]}", "alt": f"{flat[1][1]}-{flat[1][2]} ({round(flat[1][0]*100)}%)", "prob": round(flat[0][0] * 100),
-               "probStr": f"{round(flat[0][0]*100)}%", "quota": f"{1/flat[0][0]:.2f}", "qEqua": f"{1/flat[0][0]:.2f}", "badgeCol": bc[4], "barCol": br[4], "desc": "Punteggio più probabile (90 minuti)."}
+               "probStr": f"{round(flat[0][0]*100)}%", "quota": f"{q_es_coppa:.2f}", "qEqua": f"{1/flat[0][0]:.2f}", "qReale": f"{q_es_coppa:.2f}", "badgeCol": bc[4], "barCol": br[4],
+               "desc": f"Punteggio più probabile 90 min (Quota stimata banco: {q_es_coppa:.2f}, equa pura: {1/flat[0][0]:.2f})."}
     g = dt.date.fromisoformat(rec["giorno"]); data = f"{GIORNI[g.weekday()]} {g.day} {MESI[g.month]}" + (f" · {rec['ora']}" if rec.get("ora") else " · orario da confermare")
     def riga_eu(e): return f"in {NC} quest'anno {e[0]}V {e[1]}N {e[2]}P, gol {e[3]}-{e[4]}" if e else f"in {NC} quest'anno: nessuna partita giocata"
     def riga_naz(dn): return (f"in {dn['campionato']} {dn['summary5']} nelle ultime 5 (xG diff {dn['xgd5']:+.2f})" if dn else "forma nazionale non disponibile (campionato fuori dai 5 seguiti)")
