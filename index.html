@@ -18790,8 +18790,13 @@ let FASE_TORTA_ATTUALE = 1;
   select{font-size:16px!important}
   [class*="rounded-3xl"]{padding:14px!important}
   #box-comparatore-quote{overflow-x:auto;-webkit-overflow-scrolling:touch}
-  #strip-partite-turno{scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-  #strip-partite-turno>*{scroll-snap-align:start;flex:0 0 78%}
+  #strip-partite-turno{scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scroll-padding-left:0}
+  #strip-partite-turno>*{scroll-snap-align:start;flex:0 0 auto!important;width:212px!important;min-width:212px!important;box-sizing:border-box}
+  div:has(>#strip-partite-turno)>div:first-child{flex-direction:column!important;align-items:flex-start!important;gap:4px!important}
+  body.neon header,header{padding-right:56px!important}
+  header h1{flex-wrap:wrap;row-gap:4px}
+  #btn-neon{width:34px;height:34px;padding:0!important;font-size:0!important;display:flex;align-items:center;justify-content:center;top:14px!important;right:14px!important}
+  #btn-neon::before{content:"\2726";font-size:16px;letter-spacing:0}
   .sb-fissa{flex-wrap:nowrap!important;overflow-x:auto;white-space:nowrap;gap:14px!important;padding:6px 10px calc(6px + env(safe-area-inset-bottom))!important;scrollbar-width:none}
   .sb-fissa::-webkit-scrollbar{display:none}
   #nav-mobile{display:flex;position:fixed;left:8px;right:8px;bottom:calc(34px + env(safe-area-inset-bottom));z-index:60;gap:4px;padding:6px;border-radius:20px;background:rgba(8,12,28,.82);border:1px solid rgba(129,140,248,.3);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 10px 30px -8px rgba(0,0,0,.6)}
