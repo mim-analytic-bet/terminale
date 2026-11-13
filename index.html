@@ -18783,7 +18783,10 @@ let FASE_TORTA_ATTUALE = 1;
 
 <style id="mobile">/*MOBILE*/
 #nav-mobile{display:none}
+#strip-partite-turno .truncate{max-width:none!important;flex:1 1 0;min-width:0}
+#strip-partite-turno>*:last-child{margin-right:0}
 @media (max-width:768px){
+  #strip-partite-turno{margin-left:-14px;margin-right:-14px;padding:10px 14px 12px!important}
   body{padding:8px!important;padding-bottom:calc(112px + env(safe-area-inset-bottom))!important}
   body.neon header{padding:8px 10px!important;border-radius:14px}
   select,button,summary{min-height:44px}
