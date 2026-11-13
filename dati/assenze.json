@@ -1,0 +1,41 @@
+{
+ "aggiornato": "2026-11-13T04:40+00:00",
+ "fonte": "football-data.org",
+ "stato": "ok",
+ "errori": [],
+ "partite": [
+  {
+   "id": 564748,
+   "lega": "liga",
+   "casa": "Athletic Club",
+   "ospite": "RCD Espanyol de Barcelona",
+   "giorno": "2026-11-20",
+   "ora": "21:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 565859,
+   "lega": "bundesliga",
+   "casa": "FC Bayern München",
+   "ospite": "1. FC Köln",
+   "giorno": "2026-11-20",
+   "ora": "20:30",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 559622,
+   "lega": "ligue1",
+   "casa": "ES Troyes AC",
+   "ospite": "Le Havre AC",
+   "giorno": "2026-11-20",
+   "ora": "20:45",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  }
+ ]
+}
