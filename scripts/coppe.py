@@ -19,7 +19,7 @@ ALIAS = {"paris saint germain": "paris sg", "internazionale milano": "inter", "c
          "borussia dortmund": "dortmund", "bayer leverkusen": "leverkusen", "manchester city": "man city", "manchester united": "man united", "tottenham hotspur": "tottenham",
          "newcastle united": "newcastle", "athletic club": "ath bilbao", "eintracht frankfurt": "ein frankfurt", "olympique marseille": "marseille", "olympique lyonnais": "lyon",
          "ac milan": "milan", "borussia monchengladbach": "m gladbach", "real sociedad": "sociedad", "rb leipzig": "rb leipzig", "ssc napoli": "napoli", "as monaco": "monaco",
-         "atalanta bc": "atalanta", "ac fiorentina": "fiorentina", "aston villa": "aston villa", "nottingham forest": "nott m forest", "rayo vallecano": "vallecano", "real betis": "betis"}
+         "atalanta bc": "atalanta", "ac fiorentina": "fiorentina", "aston villa": "aston villa", "nottingham forest": "nott m forest", "rayo vallecano": "vallecano", "real betis": "betis", "como 1907": "como"}
 
 
 ALIAS_EU = {"lask linz": "lask", "aek": "aek athen", "olympiacos": "olympiakos piraeus", "sparta prague": "sparta praha"}

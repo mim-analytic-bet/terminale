@@ -306,12 +306,70 @@ def costruisci_partita_coppa(rec, squadre, track, NC="Champions", NL="Champions 
         "isValore": False, "evBadge": "", "mercato": f"Miglior stima del modello: {qe['mercato']} ({qe['probStr']})", "qEqua": qe.get("qEqua", ""), "qReale": "", "spiegazione": spieg, "quoteMercato": None,
         "analisi": analisi, "rischio": rischio, "assenti": assenti, "osservazione": track, "pronosticiExtra": pe}
 
-def blocco_coppe(archivi, oggi, avvisi, comp="cl"):
+def _slug(n):
+    n = unicodedata.normalize("NFKD", n).encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[^a-z0-9]+", "_", n).strip("_") or "squadra"
+
+
+def _distintivo(nome):
+    """Distintivo PROVVISORIO (scudo con iniziali) per le squadre senza stemma ufficiale. Ritorna (percorso relativo, [col1, col2])."""
+    import colorsys
+    from PIL import Image, ImageDraw, ImageFont
+    h = int(hashlib.md5(nome.encode()).hexdigest()[:6], 16)
+    c1 = tuple(int(255 * x) for x in colorsys.hsv_to_rgb((h % 360) / 360, 0.62, 0.62)); c2 = tuple(int(255 * x) for x in colorsys.hsv_to_rgb(((h % 360) + 35) / 360, 0.55, 0.88))
+    rel = f"./assets/loghi/prov_{_slug(nome)}.png"; dest = os.path.join(BASE, rel.lstrip("./"))
+    if not os.path.exists(dest):
+        S = 256; im = Image.new("RGBA", (S, S), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+        scudo = [(28, 20), (228, 20), (228, 130), (128, 238), (28, 130)]
+        d.polygon(scudo, fill=c1 + (255,)); d.polygon([(46, 38), (210, 38), (210, 124), (128, 214), (46, 124)], fill=c2 + (255,))
+        parole = [w for w in re.split(r"[\s\-/]+", nome) if w and not w.isdigit() and w.lower() not in ("fc", "sc", "ac", "as", "sk", "fk", "de", "da", "del", "club", "pae", "nk", "rc")]
+        ini = ("".join(w[0] for w in parole[:3]) if len(parole) > 1 else (parole[0][:3] if parole else nome[:3])).upper()
+        font = None
+        for fp in ("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "DejaVuSans-Bold.ttf", "/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf"):
+            try: font = ImageFont.truetype(fp, 84 if len(ini) < 3 else 68); break
+            except Exception: pass
+        if font is None:
+            try: font = ImageFont.load_default(size=72)
+            except Exception: font = ImageFont.load_default()
+        d.text((128, 100), ini, fill=(15, 23, 42, 255), font=font, anchor="mm")
+        im.save(dest)
+    return rel, ["#%02x%02x%02x" % c1, "#%02x%02x%02x" % c2]
+
+
+def assicura_stemmi(pro, loghi, avvisi):
+    """Ogni squadra delle coppe DEVE avere uno stemma: 1) PNG manuale assets/loghi/<slug>.png, 2) stemma ufficiale scaricato (dati/stemmi_coppe.json),
+    3) distintivo provvisorio generato. Aggiorna loghi e COLORI. Ritorna True se ha aggiunto qualcosa."""
+    try: uff = json.load(open(os.path.join(BASE, "dati", "stemmi_coppe.json"), encoding="utf-8"))
+    except Exception: uff = {}
+    import coppe as CP
+    uff_n = {CP.norm(k): v for k, v in uff.items()}
+    nomi = sorted({m[k]["nome"] for c in pro.values() for t in c["turni"].values() for m in t["partite"] for k in ("casa", "ospite")} - set(loghi))
+    prov = []; agg = False
+    for n in nomi:
+        man = f"./assets/loghi/{_slug(n)}.png"; u = uff.get(n) or uff_n.get(CP.norm(n))
+        if os.path.exists(os.path.join(BASE, man.lstrip("./"))): loghi[n] = man
+        elif u and os.path.exists(os.path.join(BASE, u["file"].lstrip("./"))):
+            loghi[n] = u["file"]
+            if u.get("colori"): COLORI[n] = u["colori"]
+            elif u["file"].endswith(".png"):
+                try: c = CS.dominanti(os.path.join(BASE, u["file"].lstrip("./"))); COLORI[n] = c or COLORI.get(n, NEUTRO)
+                except Exception: pass
+        else:
+            rel, col = _distintivo(n); loghi[n] = rel; COLORI[n] = col; prov.append(n)
+        agg = True
+    if prov: avvisi.append("Stemma PROVVISORIO (distintivo con iniziali, manca lo stemma ufficiale): " + ", ".join(prov) + " - metti il PNG in assets/loghi/<nome_squadra>.png per sostituirlo")
+    return agg
+
+
+def blocco_coppe(archivi, oggi, avvisi, comp="cl", cache=None):
     """Ritorna il blocco DATA_PRO['champions'] oppure None."""
     import coppe as CP
     f, squadre = _forma_naz_factory(archivi)
     NC = CP.NOMI[comp]; NL = "Champions League" if comp == "cl" else "Europa League"
-    r = CP.elabora(oggi, f, avvisi, comp)
+    if cache is not None and comp in cache: r = cache[comp]
+    else:
+        r = CP.elabora(oggi, f, avvisi, comp)
+        if cache is not None: cache[comp] = r
     if not r or not r["turni"]: return None
     turni = {}
     for tk, t in sorted(r["turni"].items()):
@@ -396,6 +454,7 @@ def main():
     if not os.path.exists(bk): shutil.copy(HTML, bk)
     global COLORI
     la, lb, loghi = parsa_blocco(s, "LOGHI_SQUADRE")
+    for _k in [k for k, v in loghi.items() if "/prov_" in v or "/coppe_" in v]: del loghi[_k]  # stemmi di coppa: rivalutati a ogni giro (provvisorio -> ufficiale appena disponibile)
     for nm_, f_ in NUOVI_LOGHI.items():
         if os.path.exists(os.path.join(BASE, "assets", "loghi", f_ + ".png")): loghi[nm_] = f"./assets/loghi/{f_}.png"
     s = s[:la] + json.dumps(loghi, ensure_ascii=False, indent=2) + s[lb:]
@@ -461,14 +520,23 @@ def main():
     track["totale"] = TR.riepilogo(tutte_righe); track["live"] = TR.riepilogo_live(log)
     track["apprendimento"] = {"w": mem.get("w"), "a": mem.get("a"), "storia": mem.get("storia", [])[-5:]}
     track["aggiornato"] = dt.datetime.now().strftime("%d/%m/%Y %H:%M")
-    for _comp, _chiave, _nome in (("cl", "champions", "Champions League"), ("el", "europa", "Europa League")):
-        try:
-            _ch = blocco_coppe(archivi, oggi, avvisi, _comp)
-            if _ch: pro[_chiave] = _ch; rapporto.append(f"{_nome} (osservazione): {sum(len(t['partite']) for t in _ch['turni'].values())} partite in {len(_ch['turni'])} turni")
-            else: pro.pop(_chiave, None)
-        except Exception as _e:
-            pro.pop(_chiave, None); avvisi.append(f"{_nome}: errore nell'elaborazione ({_e})")
+    def _coppe(cache):
+        for _comp, _chiave, _nome in (("cl", "champions", "Champions League"), ("el", "europa", "Europa League")):
+            try:
+                _ch = blocco_coppe(archivi, oggi, avvisi if cache is not None and not cache.get("_2") else [], _comp, cache)
+                if _ch: pro[_chiave] = _ch
+                else: pro.pop(_chiave, None)
+            except Exception as _e:
+                pro.pop(_chiave, None); avvisi.append(f"{_nome}: errore nell'elaborazione ({_e})")
+    _cache = {}; _coppe(_cache)
+    try:
+        if assicura_stemmi(pro, loghi, avvisi): _cache["_2"] = True; _coppe(_cache)  # secondo passaggio: i colori dei nuovi stemmi entrano nelle schede
+    except Exception as _e:
+        avvisi.append(f"Stemmi coppe: errore ({_e})")
+    for _chiave, _nome in (("champions", "Champions League"), ("europa", "Europa League")):
+        if _chiave in pro: rapporto.append(f"{_nome} (osservazione): {sum(len(t['partite']) for t in pro[_chiave]['turni'].values())} partite in {len(pro[_chiave]['turni'])} turni")
     s = s[:a] + json.dumps(pro, ensure_ascii=False, indent=2) + s[b:]
+    la, lb, _vecchi = parsa_blocco(s, "LOGHI_SQUADRE"); s = s[:la] + json.dumps(loghi, ensure_ascii=False, indent=2) + s[lb:]
     a, b, forma_d = parsa_blocco(s, "DATA_FORMA"); forma_d.update(nuove_forme)
     s = s[:a] + json.dumps(forma_d, ensure_ascii=False, indent=2) + s[b:]
     senza = sorted({m[k]["nome"] for c in pro.values() for t in c["turni"].values() for m in t["partite"] for k in ("casa", "ospite")} - set(loghi))
