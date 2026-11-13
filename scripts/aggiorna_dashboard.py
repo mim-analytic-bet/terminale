@@ -120,6 +120,10 @@ def assenze_per(casa, osp, giorno):
     if _ASS is None:
         try: _ASS = json.load(open(os.path.join(BASE, "dati", "assenze.json"), encoding="utf-8"))
         except Exception: _ASS = {"partite": []}
+        try:  # assenze inserite a mano (ricerca web il giorno prima): hanno la precedenza
+            man = json.load(open(os.path.join(BASE, "dati", "assenze_manuali.json"), encoding="utf-8")).get("partite", [])
+            _ASS["partite"] = [x for x in _ASS.get("partite", []) if not any(_sim(x["casa"], m["casa"]) >= .8 and _sim(x["ospite"], m["ospite"]) >= .8 and x["giorno"] == m["giorno"] for m in man)] + man
+        except Exception: pass
     best, bs = None, 0
     for p in _ASS.get("partite", []):
         if giorno and p.get("giorno") and abs((dt.date.fromisoformat(p["giorno"]) - dt.date.fromisoformat(giorno)).days) > 1: continue
@@ -191,7 +195,7 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
               + "Puntata consigliata 0 € finché non emerge un edge verificato: nei test il modello da solo non batte il mercato, quindi nessuna giocata è forzata.")
     _ta = testo_assenze(rec_api, casa, osp)
     if _ta:
-        _rischio = (f"Assenze e squalificati segnalati (API-Football, controllo del {rec_api['controllato'][:16].replace('T', ' ')} UTC): {_ta}. "
+        _rischio = (f"Assenze e squalificati segnalati (fonti web, controllo del {rec_api['controllato'][:16].replace('T', ' ')} UTC): {_ta}. "
                     "Il modello NON le usa nel calcolo e le formazioni probabili non sono incluse: verifica le ufficiali prima di giocare.")
     else:
         _rischio = "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare."

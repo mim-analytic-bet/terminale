@@ -1,54 +1,24 @@
 #!/usr/bin/env python3
-"""Scarica orari ufficiali e assenze/squalifiche da API-Football (piano gratuito, 100 richieste/giorno).
-Scrive dati/assenze.json. Non fa nulla senza la chiave API_FOOTBALL_KEY e non rompe mai l'aggiornamento:
-in caso di errore tiene i dati precedenti e annota il motivo nel file.
-- orari: finestra di 7 giorni (1 chiamata per campionato)
-- assenze: solo per le partite che iniziano entro 36 ore (1 chiamata a partita), rinfrescate al massimo ogni 8 ore
+"""Scarica gli orari ufficiali dei prossimi 7 giorni da football-data.org (piano gratuito, 10 richieste/minuto)
+e scrive dati/assenze.json (usato dal generatore per compilare gli orari mancanti).
+Le assenze/squalifiche NON sono nel piano gratuito: si inseriscono a mano in dati/assenze_manuali.json.
+Senza la chiave FOOTBALL_DATA_KEY non fa nulla; in caso di errore tiene i dati precedenti e annota il motivo. Non blocca mai l'aggiornamento.
 """
-import json, os, sys, time, urllib.request, urllib.parse, datetime as dt
+import json, os, sys, time, urllib.request, datetime as dt
 from zoneinfo import ZoneInfo
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(BASE, "dati", "assenze.json")
-API = "https://v3.football.api-sports.io"
-LEGHE = {"serie-a": 135, "premier": 39, "liga": 140, "bundesliga": 78, "ligue1": 61}
+API = "https://api.football-data.org/v4/competitions"
+LEGHE = {"serie-a": "SA", "premier": "PL", "liga": "PD", "bundesliga": "BL1", "ligue1": "FL1"}
 ROMA = ZoneInfo("Europe/Rome")
-FINESTRA_ORARI_GG, FINESTRA_ASSENZE_ORE, RINFRESCA_ORE, MAX_RICHIESTE, PAUSA = 7, 36, 8, 80, 6.5
-chiave = os.environ.get("API_FOOTBALL_KEY", "").strip()
+chiave = os.environ.get("FOOTBALL_DATA_KEY", "").strip()
 adesso = dt.datetime.now(dt.timezone.utc)
-stato = {"rimaste": None, "usate": 0}
-
-
-class ErroreApi(Exception):
-    pass
-
-
-def chiama(percorso, **params):
-    if stato["usate"] >= MAX_RICHIESTE:
-        raise ErroreApi("limite di richieste per esecuzione raggiunto")
-    if stato["rimaste"] is not None and stato["rimaste"] <= 3:
-        raise ErroreApi("richieste giornaliere quasi esaurite")
-    req = urllib.request.Request(f"{API}/{percorso}?{urllib.parse.urlencode(params)}", headers={"x-apisports-key": chiave})
-    try:
-        with urllib.request.urlopen(req, timeout=30) as r:
-            corpo = json.load(r)
-            rim = r.headers.get("x-ratelimit-requests-remaining")
-            if rim and rim.isdigit(): stato["rimaste"] = int(rim)
-    except Exception as e:
-        raise ErroreApi(f"{percorso}: {e}")
-    stato["usate"] += 1
-    time.sleep(PAUSA)  # piano gratuito: max ~10 richieste al minuto
-    err = corpo.get("errors")
-    if err:
-        raise ErroreApi(json.dumps(err, ensure_ascii=False)[:300])
-    return corpo.get("response") or []
 
 
 def carica():
-    try:
-        return json.load(open(OUT, encoding="utf-8"))
-    except Exception:
-        return {"partite": []}
+    try: return json.load(open(OUT, encoding="utf-8"))
+    except Exception: return {"partite": []}
 
 
 def salva(d):
@@ -58,54 +28,35 @@ def salva(d):
 
 def main():
     vecchio = carica()
-    out = {"aggiornato": adesso.isoformat(timespec="minutes"), "stato": "ok", "errori": [], "partite": []}
     if not chiave:
-        vecchio.update({"stato": "senza_chiave"}); salva(vecchio); print("assenze: chiave API_FOOTBALL_KEY assente, salto"); return
-    stagione = adesso.year if adesso.month >= 7 else adesso.year - 1
-    precedenti = {p["id"]: p for p in vecchio.get("partite", [])}
-    oggi = adesso.astimezone(ROMA).date()
-    fine = oggi + dt.timedelta(days=FINESTRA_ORARI_GG)
-    for lega, lid in LEGHE.items():
+        print("orari: chiave FOOTBALL_DATA_KEY assente, salto"); return
+    out = {"aggiornato": adesso.isoformat(timespec="minutes"), "fonte": "football-data.org", "stato": "ok", "errori": [], "partite": []}
+    oggi = adesso.astimezone(ROMA).date(); fine = oggi + dt.timedelta(days=7)
+    for lega, cod in LEGHE.items():
+        req = urllib.request.Request(f"{API}/{cod}/matches?dateFrom={oggi}&dateTo={fine}", headers={"X-Auth-Token": chiave})
         try:
-            fx = chiama("fixtures", league=lid, season=stagione, **{"from": oggi.isoformat(), "to": fine.isoformat()})
-        except ErroreApi as e:
-            out["errori"].append(f"{lega}: {e}")
-            out["partite"] += [p for p in vecchio.get("partite", []) if p.get("lega") == lega]  # tengo i dati precedenti
-            continue
-        for f in fx:
-            fid = f["fixture"]["id"]; inizio = dt.datetime.fromisoformat(f["fixture"]["date"]).astimezone(ROMA)
-            nsl = f["fixture"]["status"]["short"]
-            p = {"id": fid, "lega": lega, "casa": f["teams"]["home"]["name"], "ospite": f["teams"]["away"]["name"],
-                 "giorno": inizio.date().isoformat(), "ora": inizio.strftime("%H:%M") if nsl == "NS" else None, "stato": nsl,
-                 "assenze": None, "controllato": None}
-            pv = precedenti.get(fid)
-            if pv: p["assenze"], p["controllato"] = pv.get("assenze"), pv.get("controllato")
-            ore_al_via = (inizio - adesso).total_seconds() / 3600
-            vecchio_ok = p["controllato"] and (adesso - dt.datetime.fromisoformat(p["controllato"])).total_seconds() < RINFRESCA_ORE * 3600
-            if 0 <= ore_al_via <= FINESTRA_ASSENZE_ORE and nsl == "NS" and not vecchio_ok:
-                try:
-                    inj = chiama("injuries", fixture=fid)
-                    ass = {"casa": [], "ospite": []}
-                    for i in inj:
-                        lato = "casa" if i["team"]["id"] == f["teams"]["home"]["id"] else "ospite"
-                        ass[lato].append({"nome": i["player"].get("name"), "tipo": i["player"].get("type"), "motivo": i["player"].get("reason")})
-                    p["assenze"], p["controllato"] = ass, adesso.isoformat(timespec="minutes")
-                except ErroreApi as e:
-                    out["errori"].append(f"{p['casa']}-{p['ospite']}: {e}")
-            out["partite"].append(p)
-    if out["errori"]:
-        out["stato"] = "parziale" if out["partite"] else "errore"
-    out["richieste_rimaste"] = stato["rimaste"]
-    if not out["partite"] and vecchio.get("partite"):  # nulla di nuovo: non cancello il vecchio
-        out["partite"] = vecchio["partite"]
+            with urllib.request.urlopen(req, timeout=30) as r: corpo = json.load(r)
+        except Exception as e:
+            msg = str(e)
+            if hasattr(e, "read"):
+                try: msg += " " + e.read().decode()[:200]
+                except Exception: pass
+            out["errori"].append(f"{lega}: {msg}")
+            out["partite"] += [p for p in vecchio.get("partite", []) if p.get("lega") == lega]
+            time.sleep(7); continue
+        for m in corpo.get("matches", []):
+            inizio = dt.datetime.fromisoformat(m["utcDate"].replace("Z", "+00:00")).astimezone(ROMA)
+            out["partite"].append({"id": m["id"], "lega": lega, "casa": m["homeTeam"].get("name") or m["homeTeam"].get("shortName"),
+                                   "ospite": m["awayTeam"].get("name") or m["awayTeam"].get("shortName"), "giorno": inizio.date().isoformat(),
+                                   "ora": inizio.strftime("%H:%M") if m.get("status") == "TIMED" else None, "stato": m.get("status"), "assenze": None, "controllato": None})
+        time.sleep(7)  # 10 richieste/minuto nel piano gratuito
+    if out["errori"]: out["stato"] = "parziale" if out["partite"] else "errore"
     salva(out)
-    n_ass = sum(1 for p in out["partite"] if p.get("assenze") is not None)
-    print(f"assenze: {len(out['partite'])} partite, {n_ass} con assenze controllate, richieste usate {stato['usate']}, stato {out['stato']}")
-    for e in out["errori"][:5]: print("AVVISO assenze:", e)
+    print(f"orari: {len(out['partite'])} partite, con orario {sum(1 for p in out['partite'] if p['ora'])}, stato {out['stato']}")
+    for e in out["errori"][:5]: print("AVVISO orari:", e)
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except Exception as e:  # mai bloccare l'aggiornamento
-        print("AVVISO assenze: errore imprevisto", e); sys.exit(0)
+    try: main()
+    except Exception as e:
+        print("AVVISO orari: errore imprevisto", e); sys.exit(0)
