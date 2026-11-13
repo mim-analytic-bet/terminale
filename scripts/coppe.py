@@ -22,7 +22,8 @@ ALIAS = {"paris saint germain": "paris sg", "internazionale milano": "inter", "c
          "atalanta bc": "atalanta", "ac fiorentina": "fiorentina", "aston villa": "aston villa", "nottingham forest": "nott m forest", "rayo vallecano": "vallecano", "real betis": "betis"}
 
 
-ALIAS_EU = {"lask linz": "lask", "aek": "aek athen"}
+ALIAS_EU = {"lask linz": "lask", "aek": "aek athen", "olympiacos": "olympiakos piraeus", "sparta prague": "sparta praha"}
+NUOVI_EU = {"celta vigo", "lillestrom"}  # club senza storico europeo recente nel dataset (confermati a mano)
 
 
 def norm(x):
@@ -106,6 +107,7 @@ def elabora(oggi, forma_naz=None, avvisi=None, comp="cl"):
     def nome_storico(n):
         if n not in mappa_nome:
             c = abbina(n, note, alias=ALIAS_EU)
+            if c is None and norm(n) in NUOVI_EU: c = n; nuovi.add(n)
             if c is None:  # nessuna somiglianza con nessuno storico: club mai visto in Europa -> rating iniziale, segnalato (non inventato)
                 k = norm(n)
                 if max((difflib.SequenceMatcher(None, k, norm(x)).ratio() for x in note), default=0) < 0.6: c = n; nuovi.add(n)
