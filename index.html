@@ -2,7 +2,10 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#070a18">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Quant Terminal">
   <title>Football Quant Terminal · Pro Analytics</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -124,12 +127,6 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 
       <div class="flex flex-wrap items-center gap-2 text-xs mono">
         <div id="status-data-badge" class="hidden sm:flex"></div>
-        <div class="bg-slate-900/90 border border-slate-800 rounded-xl px-3.5 py-1.5 flex items-center gap-2 shadow-sm">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="text-slate-400">Bankroll:</span>
-          <strong class="text-white">100 €</strong>
-          <span class="text-slate-500 text-[10px]">(2€ flat)</span>
-        </div>
       </div>
     </header>
 
@@ -2520,7 +2517,7 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
     "p": 4,
     "gf": 10,
     "gs": 11,
-    "xg_f_avg": 1.24,
+    "xg_f_avg": 1.23,
     "xg_s_avg": 1.2,
     "cs_perc": 40,
     "bts_perc": 30
@@ -3384,7 +3381,7 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
     "p": 2,
     "gf": 31,
     "gs": 10,
-    "xg_f_avg": 2.47,
+    "xg_f_avg": 2.46,
     "xg_s_avg": 0.94,
     "cs_perc": 33,
     "bts_perc": 58
@@ -4681,7 +4678,7 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
     "gf": 17,
     "gs": 30,
     "xg_f_avg": 1.42,
-    "xg_s_avg": 2.22,
+    "xg_s_avg": 2.23,
     "cs_perc": 0,
     "bts_perc": 67
   },
@@ -7345,7 +7342,7 @@ body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
     "gf": 12,
     "gs": 19,
     "xg_f_avg": 1.38,
-    "xg_s_avg": 1.95,
+    "xg_s_avg": 1.94,
     "cs_perc": 0,
     "bts_perc": 80
   }
@@ -7355,8 +7352,8 @@ let FASE_TORTA_ATTUALE = 1;
     let TIMER_TORTA = null;
     let PARTITA_CORRENTE = null;
 
-    /*META*/const DATA_META = {"aggiornato": "2026-11-13T06:02", "dati_fino": {"serie-a": "2026-11-08", "premier": "2026-11-08", "liga": "2026-11-08", "bundesliga": "2026-11-08", "ligue1": "2026-11-08"}, "avvisi": ["Premier League (Inghilterra): 11ª Giornata ha date da verificare", "LaLiga (Spagna): 13ª Giornata ha partite con giorno/orario da confermare", "Bundesliga (Germania): 10ª Giornata ha partite con giorno/orario da confermare"]};/*ENDMETA*/
-    /*TRACK*/const DATA_TRACK = {"leghe": {"Serie A": {"n": 50, "brier_modello": 0.5375, "hit_1x2": 62.0, "brier_mercato": 0.5093, "brier_modello_su_stesse": 0.5375, "n_mercato": 50, "calibrazione": [{"fascia": "0-20%", "n": 17, "previsto": 13.8, "reale": 5.9}, {"fascia": "20-35%", "n": 80, "previsto": 26.8, "reale": 22.5}, {"fascia": "35-50%", "n": 57, "previsto": 43.5, "reale": 52.6}, {"fascia": "50-65%", "n": 61, "previsto": 57.3, "reale": 60.7}, {"fascia": "65-80%", "n": 35, "previsto": 69.2, "reale": 68.6}], "value_giocate": 59, "value_roi": -9.1}, "Premier League": {"n": 40, "brier_modello": 0.605, "hit_1x2": 50.0, "brier_mercato": 0.5672, "brier_modello_su_stesse": 0.605, "n_mercato": 40, "calibrazione": [{"fascia": "0-20%", "n": 8, "previsto": 16.0, "reale": 0.0}, {"fascia": "20-35%", "n": 71, "previsto": 27.8, "reale": 28.2}, {"fascia": "35-50%", "n": 51, "previsto": 43.5, "reale": 37.3}, {"fascia": "50-65%", "n": 58, "previsto": 57.7, "reale": 43.1}, {"fascia": "65-80%", "n": 12, "previsto": 69.7, "reale": 41.7}], "value_giocate": 49, "value_roi": -17.4}, "LaLiga": {"n": 58, "brier_modello": 0.5843, "hit_1x2": 51.7, "brier_mercato": 0.527, "brier_modello_su_stesse": 0.5843, "n_mercato": 58, "calibrazione": [{"fascia": "0-20%", "n": 25, "previsto": 15.0, "reale": 16.0}, {"fascia": "20-35%", "n": 93, "previsto": 27.8, "reale": 28.0}, {"fascia": "35-50%", "n": 70, "previsto": 42.4, "reale": 37.1}, {"fascia": "50-65%", "n": 76, "previsto": 56.7, "reale": 64.5}, {"fascia": "65-80%", "n": 25, "previsto": 70.8, "reale": 64.0}, {"fascia": "80-100%", "n": 1, "previsto": 86.5, "reale": 100.0}], "value_giocate": 69, "value_roi": -56.4}, "Bundesliga": {"n": 27, "brier_modello": 0.5969, "hit_1x2": 55.6, "brier_mercato": 0.5501, "brier_modello_su_stesse": 0.5969, "n_mercato": 27, "calibrazione": [{"fascia": "0-20%", "n": 22, "previsto": 13.5, "reale": 22.7}, {"fascia": "20-35%", "n": 30, "previsto": 25.3, "reale": 20.0}, {"fascia": "35-50%", "n": 14, "previsto": 43.1, "reale": 42.9}, {"fascia": "50-65%", "n": 32, "previsto": 57.4, "reale": 65.6}, {"fascia": "65-80%", "n": 33, "previsto": 71.6, "reale": 60.6}, {"fascia": "80-100%", "n": 4, "previsto": 83.0, "reale": 75.0}], "value_giocate": 33, "value_roi": -1.2}, "Ligue 1": {"n": 36, "brier_modello": 0.5702, "hit_1x2": 47.2, "brier_mercato": 0.5286, "brier_modello_su_stesse": 0.5702, "n_mercato": 36, "calibrazione": [{"fascia": "0-20%", "n": 7, "previsto": 14.9, "reale": 14.3}, {"fascia": "20-35%", "n": 60, "previsto": 26.6, "reale": 23.3}, {"fascia": "35-50%", "n": 38, "previsto": 41.4, "reale": 39.5}, {"fascia": "50-65%", "n": 48, "previsto": 58.3, "reale": 52.1}, {"fascia": "65-80%", "n": 27, "previsto": 70.6, "reale": 70.4}], "value_giocate": 48, "value_roi": -30.5}}, "totale": {"n": 211, "brier_modello": 0.5764, "hit_1x2": 53.6, "brier_mercato": 0.5337, "brier_modello_su_stesse": 0.5764, "n_mercato": 211, "calibrazione": [{"fascia": "0-20%", "n": 79, "previsto": 14.4, "reale": 13.9}, {"fascia": "20-35%", "n": 334, "previsto": 27.1, "reale": 25.1}, {"fascia": "35-50%", "n": 230, "previsto": 42.8, "reale": 41.7}, {"fascia": "50-65%", "n": 275, "previsto": 57.4, "reale": 57.1}, {"fascia": "65-80%", "n": 132, "previsto": 70.4, "reale": 63.6}, {"fascia": "80-100%", "n": 5, "previsto": 83.7, "reale": 80.0}], "value_giocate": 258, "value_roi": -26.3}, "live": {"registrate": 58, "valutate": 0}, "apprendimento": {"w": 1.0, "a": 0.0, "storia": [{"data": "2026-11-13", "casi_backtest": 211, "casi_live": 0, "w": 1.0, "perdita_senza_apprendimento": 1.067, "perdita_con_apprendimento": 1.067, "guadagno_pct": 0.21, "peso_dati_vs_mercato": 0.0, "brier_mercato_puro": 0.5337, "brier_misto_appreso": 0.5337}]}, "aggiornato": "13/11/2026 06:02"};/*ENDTRACK*/
+    /*META*/const DATA_META = {"aggiornato": "2026-11-13T07:00", "dati_fino": {"serie-a": "2026-11-08", "premier": "2026-11-08", "liga": "2026-11-08", "bundesliga": "2026-11-08", "ligue1": "2026-11-08"}, "avvisi": ["Premier League (Inghilterra): 11ª Giornata ha date da verificare", "LaLiga (Spagna): 13ª Giornata ha partite con giorno/orario da confermare", "Bundesliga (Germania): 10ª Giornata ha partite con giorno/orario da confermare"]};/*ENDMETA*/
+    /*TRACK*/const DATA_TRACK = {"leghe": {"Serie A": {"n": 50, "brier_modello": 0.5375, "hit_1x2": 62.0, "brier_mercato": 0.5093, "brier_modello_su_stesse": 0.5375, "n_mercato": 50, "calibrazione": [{"fascia": "0-20%", "n": 17, "previsto": 13.8, "reale": 5.9}, {"fascia": "20-35%", "n": 80, "previsto": 26.8, "reale": 22.5}, {"fascia": "35-50%", "n": 57, "previsto": 43.5, "reale": 52.6}, {"fascia": "50-65%", "n": 61, "previsto": 57.3, "reale": 60.7}, {"fascia": "65-80%", "n": 35, "previsto": 69.2, "reale": 68.6}], "value_giocate": 59, "value_roi": -9.1}, "Premier League": {"n": 40, "brier_modello": 0.605, "hit_1x2": 50.0, "brier_mercato": 0.5672, "brier_modello_su_stesse": 0.605, "n_mercato": 40, "calibrazione": [{"fascia": "0-20%", "n": 8, "previsto": 16.0, "reale": 0.0}, {"fascia": "20-35%", "n": 71, "previsto": 27.8, "reale": 28.2}, {"fascia": "35-50%", "n": 51, "previsto": 43.5, "reale": 37.3}, {"fascia": "50-65%", "n": 58, "previsto": 57.7, "reale": 43.1}, {"fascia": "65-80%", "n": 12, "previsto": 69.7, "reale": 41.7}], "value_giocate": 49, "value_roi": -17.4}, "LaLiga": {"n": 58, "brier_modello": 0.5843, "hit_1x2": 51.7, "brier_mercato": 0.527, "brier_modello_su_stesse": 0.5843, "n_mercato": 58, "calibrazione": [{"fascia": "0-20%", "n": 25, "previsto": 15.0, "reale": 16.0}, {"fascia": "20-35%", "n": 93, "previsto": 27.8, "reale": 28.0}, {"fascia": "35-50%", "n": 70, "previsto": 42.4, "reale": 37.1}, {"fascia": "50-65%", "n": 76, "previsto": 56.7, "reale": 64.5}, {"fascia": "65-80%", "n": 25, "previsto": 70.8, "reale": 64.0}, {"fascia": "80-100%", "n": 1, "previsto": 86.5, "reale": 100.0}], "value_giocate": 69, "value_roi": -56.4}, "Bundesliga": {"n": 27, "brier_modello": 0.5969, "hit_1x2": 55.6, "brier_mercato": 0.5501, "brier_modello_su_stesse": 0.5969, "n_mercato": 27, "calibrazione": [{"fascia": "0-20%", "n": 22, "previsto": 13.5, "reale": 22.7}, {"fascia": "20-35%", "n": 30, "previsto": 25.3, "reale": 20.0}, {"fascia": "35-50%", "n": 14, "previsto": 43.1, "reale": 42.9}, {"fascia": "50-65%", "n": 32, "previsto": 57.4, "reale": 65.6}, {"fascia": "65-80%", "n": 33, "previsto": 71.6, "reale": 60.6}, {"fascia": "80-100%", "n": 4, "previsto": 83.0, "reale": 75.0}], "value_giocate": 33, "value_roi": -1.2}, "Ligue 1": {"n": 36, "brier_modello": 0.5702, "hit_1x2": 47.2, "brier_mercato": 0.5286, "brier_modello_su_stesse": 0.5702, "n_mercato": 36, "calibrazione": [{"fascia": "0-20%", "n": 7, "previsto": 14.9, "reale": 14.3}, {"fascia": "20-35%", "n": 60, "previsto": 26.6, "reale": 23.3}, {"fascia": "35-50%", "n": 38, "previsto": 41.4, "reale": 39.5}, {"fascia": "50-65%", "n": 48, "previsto": 58.3, "reale": 52.1}, {"fascia": "65-80%", "n": 27, "previsto": 70.6, "reale": 70.4}], "value_giocate": 48, "value_roi": -30.5}}, "totale": {"n": 211, "brier_modello": 0.5764, "hit_1x2": 53.6, "brier_mercato": 0.5337, "brier_modello_su_stesse": 0.5764, "n_mercato": 211, "calibrazione": [{"fascia": "0-20%", "n": 79, "previsto": 14.4, "reale": 13.9}, {"fascia": "20-35%", "n": 334, "previsto": 27.1, "reale": 25.1}, {"fascia": "35-50%", "n": 230, "previsto": 42.8, "reale": 41.7}, {"fascia": "50-65%", "n": 275, "previsto": 57.4, "reale": 57.1}, {"fascia": "65-80%", "n": 132, "previsto": 70.4, "reale": 63.6}, {"fascia": "80-100%", "n": 5, "previsto": 83.7, "reale": 80.0}], "value_giocate": 258, "value_roi": -26.3}, "live": {"registrate": 58, "valutate": 0}, "apprendimento": {"w": 1.0, "a": 0.0, "storia": [{"data": "2026-11-13", "casi_backtest": 211, "casi_live": 0, "w": 1.0, "perdita_senza_apprendimento": 1.067, "perdita_con_apprendimento": 1.067, "guadagno_pct": 0.21, "peso_dati_vs_mercato": 0.0, "brier_mercato_puro": 0.5337, "brier_misto_appreso": 0.5337}]}, "aggiornato": "13/11/2026 07:00"};/*ENDTRACK*/
     const DATA_PRO = {
   "serie-a": {
     "nome": "Serie A (Italia)",
@@ -7488,6 +7485,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Como: 4V 0N 1P nelle ultime 5, xG diff +2.19, 18 gol fatti e 10 subiti in 11 gare. Cagliari: 1V 0N 4P nelle ultime 5, xG diff -2.24, 10 fatti e 15 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -7666,6 +7664,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Lazio: 4V 1N 0P nelle ultime 5, xG diff +2.13, 25 gol fatti e 9 subiti in 11 gare. Lecce: 1V 1N 3P nelle ultime 5, xG diff +0.34, 12 fatti e 22 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -7844,6 +7843,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Parma: 1V 1N 3P nelle ultime 5, xG diff -5.66, 9 gol fatti e 17 subiti in 11 gare. Roma: 4V 1N 0P nelle ultime 5, xG diff +5.02, 31 fatti e 10 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -8022,6 +8022,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Napoli: 1V 2N 2P nelle ultime 5, xG diff +3.75, 18 gol fatti e 14 subiti in 11 gare. Torino: 2V 1N 2P nelle ultime 5, xG diff -1.14, 15 fatti e 17 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -8200,6 +8201,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Juventus: 2V 1N 2P nelle ultime 5, xG diff +1.24, 15 gol fatti e 12 subiti in 11 gare. Venezia: 2V 0N 3P nelle ultime 5, xG diff -1.43, 8 fatti e 21 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -8378,6 +8380,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Bologna: 4V 0N 1P nelle ultime 5, xG diff +1.59, 16 gol fatti e 14 subiti in 11 gare. Udinese: 0V 1N 4P nelle ultime 5, xG diff -7.20, 12 fatti e 25 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -8556,6 +8559,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Sassuolo: 0V 0N 5P nelle ultime 5, xG diff -9.83, 16 gol fatti e 29 subiti in 11 gare. Genoa: 3V 0N 2P nelle ultime 5, xG diff -2.08, 11 fatti e 16 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -8734,6 +8738,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Milan: 4V 0N 1P nelle ultime 5, xG diff +2.01, 23 gol fatti e 13 subiti in 11 gare. Frosinone: 3V 1N 1P nelle ultime 5, xG diff +2.20, 24 fatti e 15 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -8912,6 +8917,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Atalanta: 1V 2N 2P nelle ultime 5, xG diff +3.04, 17 gol fatti e 20 subiti in 11 gare. Inter: 4V 0N 1P nelle ultime 5, xG diff +8.47, 28 fatti e 13 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -9090,6 +9096,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Monza: 1V 0N 4P nelle ultime 5, xG diff -1.84, 17 gol fatti e 25 subiti in 11 gare. Fiorentina: 1V 2N 2P nelle ultime 5, xG diff -0.56, 17 fatti e 25 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -9274,6 +9281,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Venezia: 2V 0N 3P nelle ultime 5, xG diff -1.43, 8 gol fatti e 21 subiti in 11 gare. Bologna: 4V 0N 1P nelle ultime 5, xG diff +1.59, 16 fatti e 14 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -9452,6 +9460,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Frosinone: 3V 1N 1P nelle ultime 5, xG diff +2.20, 24 gol fatti e 15 subiti in 11 gare. Parma: 1V 1N 3P nelle ultime 5, xG diff -5.66, 9 fatti e 17 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -9630,6 +9639,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Torino: 2V 1N 2P nelle ultime 5, xG diff -1.14, 15 gol fatti e 17 subiti in 11 gare. Lazio: 4V 1N 0P nelle ultime 5, xG diff +2.13, 25 fatti e 9 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -9808,6 +9818,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Inter: 4V 0N 1P nelle ultime 5, xG diff +8.47, 28 gol fatti e 13 subiti in 11 gare. Genoa: 3V 0N 2P nelle ultime 5, xG diff -2.08, 11 fatti e 16 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -9986,6 +9997,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Udinese: 0V 1N 4P nelle ultime 5, xG diff -7.20, 12 gol fatti e 25 subiti in 11 gare. Fiorentina: 1V 2N 2P nelle ultime 5, xG diff -0.56, 17 fatti e 25 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -10164,6 +10176,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Sassuolo: 0V 0N 5P nelle ultime 5, xG diff -9.83, 16 gol fatti e 29 subiti in 11 gare. Napoli: 1V 2N 2P nelle ultime 5, xG diff +3.75, 18 fatti e 14 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -10342,6 +10355,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Roma: 4V 1N 0P nelle ultime 5, xG diff +5.02, 31 gol fatti e 10 subiti in 11 gare. Monza: 1V 0N 4P nelle ultime 5, xG diff -1.84, 17 fatti e 25 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -10520,6 +10534,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Como: 4V 0N 1P nelle ultime 5, xG diff +2.19, 18 gol fatti e 10 subiti in 11 gare. Juventus: 2V 1N 2P nelle ultime 5, xG diff +1.24, 15 fatti e 12 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -10698,6 +10713,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Lecce: 1V 1N 3P nelle ultime 5, xG diff +0.34, 12 gol fatti e 22 subiti in 11 gare. Atalanta: 1V 2N 2P nelle ultime 5, xG diff +3.04, 17 fatti e 20 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -10876,6 +10892,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Cagliari: 1V 0N 4P nelle ultime 5, xG diff -2.24, 10 gol fatti e 15 subiti in 11 gare. Milan: 4V 0N 1P nelle ultime 5, xG diff +2.01, 23 fatti e 13 subiti in 11. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -11065,6 +11082,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Bournemouth: 4V 0N 1P nelle ultime 5, xG diff +6.97, 16 gol fatti e 14 subiti in 10 gare. Nottingham Forest: 1V 1N 3P nelle ultime 5, xG diff +2.24, 9 fatti e 13 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -11243,6 +11261,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Aston Villa: 2V 3N 0P nelle ultime 5, xG diff -0.23, 14 gol fatti e 17 subiti in 10 gare. Sunderland: 1V 1N 3P nelle ultime 5, xG diff -1.93, 8 fatti e 17 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -11421,6 +11440,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Chelsea: 3V 0N 2P nelle ultime 5, xG diff +0.53, 19 gol fatti e 16 subiti in 10 gare. Leeds: 1V 2N 2P nelle ultime 5, xG diff -0.63, 10 fatti e 8 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -11599,6 +11619,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Coventry: 2V 0N 3P nelle ultime 5, xG diff -1.85, 10 gol fatti e 19 subiti in 10 gare. Crystal Palace: 1V 0N 4P nelle ultime 5, xG diff -4.90, 10 fatti e 24 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -11777,6 +11798,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Tottenham: 3V 1N 1P nelle ultime 5, xG diff +3.23, 10 gol fatti e 11 subiti in 10 gare. Ipswich: 1V 2N 2P nelle ultime 5, xG diff -5.07, 15 fatti e 20 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -11955,6 +11977,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Manchester City: 2V 0N 3P nelle ultime 5, xG diff +4.51, 21 gol fatti e 13 subiti in 10 gare. Fulham: 2V 2N 1P nelle ultime 5, xG diff +1.89, 10 fatti e 12 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -12133,6 +12156,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Newcastle: 1V 1N 3P nelle ultime 5, xG diff -1.05, 13 gol fatti e 16 subiti in 10 gare. Arsenal: 5V 0N 0P nelle ultime 5, xG diff +4.09, 15 fatti e 5 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -12311,6 +12335,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Hull: 0V 3N 2P nelle ultime 5, xG diff -2.92, 11 gol fatti e 11 subiti in 10 gare. Brighton: 4V 0N 1P nelle ultime 5, xG diff +2.92, 26 fatti e 7 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -12489,6 +12514,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Liverpool: 3V 0N 2P nelle ultime 5, xG diff +0.43, 14 gol fatti e 10 subiti in 10 gare. Manchester United: 0V 3N 2P nelle ultime 5, xG diff -3.38, 14 fatti e 19 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -12667,6 +12693,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Brentford: 1V 2N 2P nelle ultime 5, xG diff -3.73, 16 gol fatti e 11 subiti in 10 gare. Everton: 2V 1N 2P nelle ultime 5, xG diff -1.12, 12 fatti e 10 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -12856,6 +12883,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Real Madrid: 5V 0N 0P nelle ultime 5, xG diff +7.67, 31 gol fatti e 10 subiti in 12 gare. Celta: 1V 3N 1P nelle ultime 5, xG diff +2.39, 10 fatti e 10 subiti in 12. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -13034,6 +13062,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Sevilla: 1V 2N 2P nelle ultime 5, xG diff -0.33, 17 gol fatti e 19 subiti in 12 gare. Betis: 3V 1N 1P nelle ultime 5, xG diff +1.06, 20 fatti e 15 subiti in 12. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -13212,6 +13241,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Getafe: 1V 1N 3P nelle ultime 5, xG diff -4.31, 8 gol fatti e 18 subiti in 12 gare. Atlético Madrid: 4V 0N 1P nelle ultime 5, xG diff +0.81, 23 fatti e 10 subiti in 12. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -13390,6 +13420,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Levante: 1V 2N 2P nelle ultime 5, xG diff -4.09, 16 gol fatti e 21 subiti in 12 gare. Elche: 1V 2N 2P nelle ultime 5, xG diff -1.36, 14 fatti e 20 subiti in 12. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -13568,6 +13599,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Rayo Vallecano: 1V 2N 2P nelle ultime 5, xG diff +0.41, 15 gol fatti e 21 subiti in 11 gare. Valencia: 1V 2N 2P nelle ultime 5, xG diff -1.54, 8 fatti e 20 subiti in 12. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -13649,7 +13681,7 @@ let FASE_TORTA_ATTUALE = 1;
               "rank": "13° · 12 pt",
               "colBox": "bg-violet-500/20 text-violet-400 border-violet-400"
             },
-            "data": "21-22 Nov · giorno e orario da confermare",
+            "data": "Venerdì 20 Nov · 21:00",
             "giornata": "LaLiga · 13ª Giornata",
             "golC": "1.46",
             "golO": "0.79",
@@ -13746,6 +13778,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Athletic Club: 2V 2N 1P nelle ultime 5, xG diff +2.99, 15 gol fatti e 11 subiti in 11 gare. Espanyol: 1V 2N 2P nelle ultime 5, xG diff -2.50, 13 fatti e 14 subiti in 12. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -13924,6 +13957,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Barcelona: 4V 0N 1P nelle ultime 5, xG diff +5.34, 48 gol fatti e 13 subiti in 12 gare. Villarreal: 2V 1N 2P nelle ultime 5, xG diff +3.76, 17 fatti e 15 subiti in 12. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -14102,6 +14136,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Osasuna: 1V 1N 3P nelle ultime 5, xG diff -0.83, 12 gol fatti e 23 subiti in 12 gare. Málaga: 0V 2N 3P nelle ultime 5, xG diff -3.66, 9 fatti e 23 subiti in 12. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -14280,6 +14315,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Alavés: 0V 2N 3P nelle ultime 5, xG diff -3.09, 15 gol fatti e 17 subiti in 12 gare. Deportivo: 1V 2N 2P nelle ultime 5, xG diff +1.98, 15 fatti e 14 subiti in 12. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -14458,6 +14494,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Racing Santander: 2V 1N 2P nelle ultime 5, xG diff -4.24, 17 gol fatti e 30 subiti in 12 gare. Real Sociedad: 4V 0N 1P nelle ultime 5, xG diff +0.60, 21 fatti e 20 subiti in 12. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -14647,6 +14684,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Bayern Monaco: 3V 2N 0P nelle ultime 5, xG diff +13.01, 29 gol fatti e 9 subiti in 9 gare. Colonia: 1V 2N 2P nelle ultime 5, xG diff +0.02, 10 fatti e 14 subiti in 9. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -14825,6 +14863,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Union Berlin: 1V 3N 1P nelle ultime 5, xG diff -2.80, 7 gol fatti e 21 subiti in 9 gare. RB Leipzig: 4V 0N 1P nelle ultime 5, xG diff +5.45, 27 fatti e 13 subiti in 9. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -15003,6 +15042,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Bayer Leverkusen: 3V 0N 2P nelle ultime 5, xG diff -4.20, 20 gol fatti e 17 subiti in 9 gare. Paderborn: 1V 3N 1P nelle ultime 5, xG diff -1.51, 8 fatti e 11 subiti in 9. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -15181,6 +15221,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Elversberg: 2V 0N 3P nelle ultime 5, xG diff -3.68, 17 gol fatti e 18 subiti in 9 gare. Freiburg: 3V 0N 2P nelle ultime 5, xG diff +0.73, 20 fatti e 10 subiti in 9. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -15359,6 +15400,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Werder Brema: 2V 2N 1P nelle ultime 5, xG diff +2.68, 17 gol fatti e 15 subiti in 9 gare. Amburgo: 3V 0N 2P nelle ultime 5, xG diff -2.18, 10 fatti e 20 subiti in 9. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -15537,6 +15579,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Mönchengladbach: 1V 1N 3P nelle ultime 5, xG diff -0.15, 12 gol fatti e 25 subiti in 9 gare. Borussia Dortmund: 2V 3N 0P nelle ultime 5, xG diff -1.18, 16 fatti e 7 subiti in 9. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -15715,6 +15758,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Schalke 04: 0V 1N 4P nelle ultime 5, xG diff -5.44, 5 gol fatti e 11 subiti in 9 gare. Stoccarda: 3V 0N 2P nelle ultime 5, xG diff +0.37, 15 fatti e 15 subiti in 9. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -15893,6 +15937,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Hoffenheim: 3V 0N 2P nelle ultime 5, xG diff +2.94, 16 gol fatti e 17 subiti in 9 gare. Eintracht Francoforte: 2V 1N 2P nelle ultime 5, xG diff -1.79, 15 fatti e 20 subiti in 9. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -16071,6 +16116,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Magonza: 1V 0N 4P nelle ultime 5, xG diff -0.29, 18 gol fatti e 19 subiti in 9 gare. Augsburg: 0V 2N 3P nelle ultime 5, xG diff -1.98, 20 fatti e 20 subiti in 9. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -16260,6 +16306,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Troyes: 1V 1N 3P nelle ultime 5, xG diff -0.47, 7 gol fatti e 17 subiti in 10 gare. Le Havre: 0V 0N 5P nelle ultime 5, xG diff -2.28, 9 fatti e 22 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -16438,6 +16485,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Nice: 4V 0N 1P nelle ultime 5, xG diff +0.79, 15 gol fatti e 12 subiti in 10 gare. Paris Saint-Germain: 5V 0N 0P nelle ultime 5, xG diff +7.66, 22 fatti e 10 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -16616,6 +16664,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Lille: 3V 2N 0P nelle ultime 5, xG diff -0.05, 14 gol fatti e 7 subiti in 10 gare. Lione: 2V 0N 3P nelle ultime 5, xG diff -0.27, 15 fatti e 9 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -16794,6 +16843,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Lens: 3V 0N 2P nelle ultime 5, xG diff -0.37, 17 gol fatti e 15 subiti in 10 gare. Toulouse: 2V 2N 1P nelle ultime 5, xG diff +2.61, 15 fatti e 14 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -16972,6 +17022,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Monaco: 0V 3N 2P nelle ultime 5, xG diff -1.77, 13 gol fatti e 11 subiti in 10 gare. Auxerre: 1V 1N 3P nelle ultime 5, xG diff -1.85, 13 fatti e 24 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -17150,6 +17201,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Strasbourg: 1V 0N 4P nelle ultime 5, xG diff -0.95, 18 gol fatti e 22 subiti in 10 gare. Brest: 3V 1N 1P nelle ultime 5, xG diff +3.80, 18 fatti e 12 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -17328,6 +17380,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Paris FC: 3V 0N 2P nelle ultime 5, xG diff +1.48, 17 gol fatti e 10 subiti in 10 gare. Angers: 0V 1N 4P nelle ultime 5, xG diff -6.12, 9 fatti e 19 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -17506,6 +17559,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Lorient: 3V 1N 1P nelle ultime 5, xG diff +2.14, 9 gol fatti e 8 subiti in 10 gare. Rennes: 2V 0N 3P nelle ultime 5, xG diff +1.90, 21 fatti e 21 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -17684,6 +17738,7 @@ let FASE_TORTA_ATTUALE = 1;
             "quoteMercato": null,
             "analisi": "Marsiglia: 5V 0N 0P nelle ultime 5, xG diff -1.29, 22 gol fatti e 14 subiti in 10 gare. Le Mans: 0V 2N 3P nelle ultime 5, xG diff -4.96, 12 fatti e 19 subiti in 10. (Dati football-data.co.uk)",
             "rischio": "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare. Nessuna quota di mercato disponibile per questa partita nei dati.",
+            "assenti": null,
             "pronosticiExtra": {
               "1": {
                 "tipo": "ALTA PROBABILITÀ (BASE)",
@@ -18689,10 +18744,16 @@ let FASE_TORTA_ATTUALE = 1;
             <span>Catena Logica dell'Analista (Numeri Verificati)</span>
           </div>
           <p>${m.analisi}</p>
-          <div class="p-2.5 rounded-xl bg-rose-950/30 border border-rose-900/40 text-[11px] text-rose-300 flex items-center gap-2">
+          ${m.assenti ? `<div class="p-3 rounded-xl bg-slate-900 border border-slate-700 text-[11px] text-slate-300 space-y-2">
+            <div class="font-bold text-amber-300">🩹 Assenti e squalificati <span class="font-normal text-slate-500">· verificato ${m.assenti.controllato} UTC (${m.assenti.fonte})</span></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              ${[["casa", m.casa.nome], ["ospite", m.ospite.nome]].map(([k, n]) => `<div><div class="font-semibold text-white">${n}</div>${m.assenti[k].length ? m.assenti[k].map(a => `<div>• ${a.nome} <span class="text-slate-500">(${a.motivo || "n.d."}${a.tipo === "Questionable" ? ", in dubbio" : ""})</span></div>`).join("") : '<div class="text-slate-500">Nessuna assenza segnalata</div>'}</div>`).join("")}
+            </div>
+            <div class="text-slate-500">${m.rischio}</div>
+          </div>` : `<div class="p-2.5 rounded-xl bg-rose-950/30 border border-rose-900/40 text-[11px] text-rose-300 flex items-center gap-2">
             <span>⚠️</span>
             <span><strong>Fattore di Rischio:</strong> ${m.rischio}</span>
-          </div>
+          </div>`}
         </div>
       `;
     }
