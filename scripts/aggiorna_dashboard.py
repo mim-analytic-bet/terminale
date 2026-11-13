@@ -253,7 +253,7 @@ def _nome_vis(api_name, sn, squadre):
     if c: return nome(c)
     return re.sub(r"\s+(FC|CF|SK|FK|AFC)$", "", re.sub(r"^(FC|AFC|SK|FK)\s+", "", sn or api_name)).strip()
 
-def costruisci_partita_coppa(rec, squadre, track):
+def costruisci_partita_coppa(rec, squadre, track, NC="Champions", NL="Champions League"):
     M = rec["M"]; n = len(M); p1, px, p2 = rec["p"]; gc, go = rec["lh"], rec["la"]
     pg = 1 - sum(M[0][j] for j in range(n)) - sum(M[i][0] for i in range(n)) + M[0][0]
     def over(x): return 1 - sum(M[i][j] for i in range(n) for j in range(n) if i + j <= x)
@@ -272,11 +272,11 @@ def costruisci_partita_coppa(rec, squadre, track):
     pe["4"] = {"tipo": "PRONOSTICO EXTRA", "icona": "🔮", "mercato": f"Risultato esatto {flat[0][1]}-{flat[0][2]}", "alt": f"{flat[1][1]}-{flat[1][2]} ({round(flat[1][0]*100)}%)", "prob": round(flat[0][0] * 100),
                "probStr": f"{round(flat[0][0]*100)}%", "quota": f"{1/flat[0][0]:.2f}", "qEqua": f"{1/flat[0][0]:.2f}", "badgeCol": bc[4], "barCol": br[4], "desc": "Punteggio più probabile (90 minuti)."}
     g = dt.date.fromisoformat(rec["giorno"]); data = f"{GIORNI[g.weekday()]} {g.day} {MESI[g.month]}" + (f" · {rec['ora']}" if rec.get("ora") else " · orario da confermare")
-    def riga_eu(e): return f"in Champions quest'anno {e[0]}V {e[1]}N {e[2]}P, gol {e[3]}-{e[4]}" if e else "in Champions quest'anno: nessuna partita giocata"
+    def riga_eu(e): return f"in {NC} quest'anno {e[0]}V {e[1]}N {e[2]}P, gol {e[3]}-{e[4]}" if e else f"in {NC} quest'anno: nessuna partita giocata"
     def riga_naz(dn): return (f"in {dn['campionato']} {dn['summary5']} nelle ultime 5 (xG diff {dn['xgd5']:+.2f})" if dn else "forma nazionale non disponibile (campionato fuori dai 5 seguiti)")
-    analisi = (f"{casa}: Elo europeo {rec['rh']:.0f}" + (f" ({rec['pos_h']}ª tra le squadre della Champions)" if rec.get("pos_h") else "") + f"; {riga_eu(rec['eu_h'])}; {riga_naz(rec['naz_h'])}. "
+    analisi = (f"{casa}: Elo europeo {rec['rh']:.0f}" + (f" ({rec['pos_h']}ª tra le squadre in {NC})" if rec.get("pos_h") else "") + f"; {riga_eu(rec['eu_h'])}; {riga_naz(rec['naz_h'])}. "
                f"{osp}: Elo europeo {rec['ra']:.0f}" + (f" ({rec['pos_a']}ª)" if rec.get("pos_a") else "") + f"; {riga_eu(rec['eu_a'])}; {riga_naz(rec['naz_a'])}. "
-               f"Correzione forma nazionale applicata: {rec['agg_h']:+.0f} / {rec['agg_a']:+.0f} punti Elo (peso {rec['w_dom']:.2f}, ricalibrato sui risultati). (Dati: openfootball, football-data.org)")
+               f"Correzione forma nazionale applicata: {rec['agg_h']:+.0f} / {rec['agg_a']:+.0f} punti Elo (peso {rec['w_dom']:.2f}, ricalibrato sui risultati). (Dati: openfootball, " + ("football-data.org" if NC == "Champions" else "API Ninjas") + ")")
     qe = (pe.get("1") or pe.get("2") or pe.get("3") or pe["4"]); 
     spieg = (f"Stime del modello (90 minuti) — 1: {round(p1*100)}% · X: {round(px*100)}% · 2: {round(p2*100)}% · Gol: {round(pg*100)}% · Over 2.5: {round(po*100)}%. Attesa gol: {casa} {gc:.2f} – {osp} {go:.2f}. "
              f"Quote di mercato non disponibili per le coppe. Puntata consigliata 0 € finché il modello non è validato sulle previsioni reali.")
@@ -291,7 +291,7 @@ def costruisci_partita_coppa(rec, squadre, track):
         "colori": {"casa": coppia(COLORI.get(casa, NEUTRO)), "ospite": coppia(COLORI.get(osp, NEUTRO))},
         "casa": {"sigla": sigla(casa), "nome": casa, "rank": f"Elo {rec['rh']:.0f}" + (f" · {rec['pos_h']}°" if rec.get("pos_h") else ""), "colBox": colore(casa)},
         "ospite": {"sigla": sigla(osp), "nome": osp, "rank": f"Elo {rec['ra']:.0f}" + (f" · {rec['pos_a']}°" if rec.get("pos_a") else ""), "colBox": colore(osp)},
-        "data": data, "giornata": f"Champions League · {rec['etichetta']}",
+        "data": data, "giornata": f"{NL} · {rec['etichetta']}",
         "golC": f"{gc:.2f}", "golO": f"{go:.2f}", "barC": f"{round(100*gc/(gc+go))}%", "barO": f"{100-round(100*gc/(gc+go))}%",
         "fasi": {
             "1": {"label": "Fase 1: 1X2", "centerVal": f"{round(max(p1,px,p2)*100)}%", "centerLbl": "Segno " + ("1" if p1 >= max(px, p2) else "X" if px >= p2 else "2"),
@@ -305,19 +305,20 @@ def costruisci_partita_coppa(rec, squadre, track):
         "isValore": False, "evBadge": "", "mercato": f"Miglior stima del modello: {qe['mercato']} ({qe['probStr']})", "qEqua": qe.get("qEqua", ""), "qReale": "", "spiegazione": spieg, "quoteMercato": None,
         "analisi": analisi, "rischio": rischio, "assenti": assenti, "osservazione": track, "pronosticiExtra": pe}
 
-def blocco_coppe(archivi, oggi, avvisi):
+def blocco_coppe(archivi, oggi, avvisi, comp="cl"):
     """Ritorna il blocco DATA_PRO['champions'] oppure None."""
     import coppe as CP
     f, squadre = _forma_naz_factory(archivi)
-    r = CP.elabora(oggi, f, avvisi)
+    NC = CP.NOMI[comp]; NL = "Champions League" if comp == "cl" else "Europa League"
+    r = CP.elabora(oggi, f, avvisi, comp)
     if not r or not r["turni"]: return None
     turni = {}
     for tk, t in sorted(r["turni"].items()):
         giorni = sorted(x["giorno"] for x in t["partite"]); d1, d2 = dt.date.fromisoformat(giorni[0]), dt.date.fromisoformat(giorni[-1])
         fin = f"{d1.day}-{d2.day} {MESI[d2.month]}" if d1.month == d2.month else f"{d1.day} {MESI[d1.month]}-{d2.day} {MESI[d2.month]}"
-        turni[str(tk)] = {"label": f"{t['etichetta']} ({fin} {d2.year})", "dataFine": giorni[-1] + "T23:59:59", "partite": [costruisci_partita_coppa(x, squadre, r["track"]) for x in t["partite"]]}
-        if any(not x.get("ora") for x in t["partite"]): avvisi.append(f"Champions: {t['etichetta']} ha partite con orario da confermare")
-    return {"nome": "Champions League (Europa)", "osservazione": True, "turni": turni, "track": r["track"]}
+        turni[str(tk)] = {"label": f"{t['etichetta']} ({fin} {d2.year})", "dataFine": giorni[-1] + "T23:59:59", "partite": [costruisci_partita_coppa(x, squadre, r["track"], NC, NL) for x in t["partite"]]}
+        if any(not x.get("ora") for x in t["partite"]): avvisi.append(f"{NC}: {t['etichetta']} ha partite con orario da confermare")
+    return {"nome": NL, "osservazione": True, "turni": turni, "track": r["track"]}
 
 PANNELLO = r'''<!--/*TRACKPANEL*/--><script>
 (function(){try{var T=DATA_TRACK,t=T.totale,L=T.live;
@@ -459,12 +460,13 @@ def main():
     track["totale"] = TR.riepilogo(tutte_righe); track["live"] = TR.riepilogo_live(log)
     track["apprendimento"] = {"w": mem.get("w"), "a": mem.get("a"), "storia": mem.get("storia", [])[-5:]}
     track["aggiornato"] = dt.datetime.now().strftime("%d/%m/%Y %H:%M")
-    try:
-        _ch = blocco_coppe(archivi, oggi, avvisi)
-        if _ch: pro["champions"] = _ch; rapporto.append(f"Champions League (osservazione): {sum(len(t['partite']) for t in _ch['turni'].values())} partite in {len(_ch['turni'])} turni")
-        else: pro.pop("champions", None)
-    except Exception as _e:
-        pro.pop("champions", None); avvisi.append(f"Champions: errore nell'elaborazione ({_e})")
+    for _comp, _chiave, _nome in (("cl", "champions", "Champions League"), ("el", "europa", "Europa League")):
+        try:
+            _ch = blocco_coppe(archivi, oggi, avvisi, _comp)
+            if _ch: pro[_chiave] = _ch; rapporto.append(f"{_nome} (osservazione): {sum(len(t['partite']) for t in _ch['turni'].values())} partite in {len(_ch['turni'])} turni")
+            else: pro.pop(_chiave, None)
+        except Exception as _e:
+            pro.pop(_chiave, None); avvisi.append(f"{_nome}: errore nell'elaborazione ({_e})")
     s = s[:a] + json.dumps(pro, ensure_ascii=False, indent=2) + s[b:]
     a, b, forma_d = parsa_blocco(s, "DATA_FORMA"); forma_d.update(nuove_forme)
     s = s[:a] + json.dumps(forma_d, ensure_ascii=False, indent=2) + s[b:]
