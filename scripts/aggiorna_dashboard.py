@@ -314,25 +314,28 @@ def _slug(n):
 def _distintivo(nome):
     """Distintivo PROVVISORIO (scudo con iniziali) per le squadre senza stemma ufficiale. Ritorna (percorso relativo, [col1, col2])."""
     import colorsys
-    from PIL import Image, ImageDraw, ImageFont
     h = int(hashlib.md5(nome.encode()).hexdigest()[:6], 16)
     c1 = tuple(int(255 * x) for x in colorsys.hsv_to_rgb((h % 360) / 360, 0.62, 0.62)); c2 = tuple(int(255 * x) for x in colorsys.hsv_to_rgb(((h % 360) + 35) / 360, 0.55, 0.88))
     rel = f"./assets/loghi/prov_{_slug(nome)}.png"; dest = os.path.join(BASE, rel.lstrip("./"))
     if not os.path.exists(dest):
-        S = 256; im = Image.new("RGBA", (S, S), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-        scudo = [(28, 20), (228, 20), (228, 130), (128, 238), (28, 130)]
-        d.polygon(scudo, fill=c1 + (255,)); d.polygon([(46, 38), (210, 38), (210, 124), (128, 214), (46, 124)], fill=c2 + (255,))
-        parole = [w for w in re.split(r"[\s\-/]+", nome) if w and not w.isdigit() and w.lower() not in ("fc", "sc", "ac", "as", "sk", "fk", "de", "da", "del", "club", "pae", "nk", "rc")]
-        ini = ("".join(w[0] for w in parole[:3]) if len(parole) > 1 else (parole[0][:3] if parole else nome[:3])).upper()
-        font = None
-        for fp in ("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "DejaVuSans-Bold.ttf", "/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf"):
-            try: font = ImageFont.truetype(fp, 84 if len(ini) < 3 else 68); break
-            except Exception: pass
-        if font is None:
-            try: font = ImageFont.load_default(size=72)
-            except Exception: font = ImageFont.load_default()
-        d.text((128, 100), ini, fill=(15, 23, 42, 255), font=font, anchor="mm")
-        im.save(dest)
+        try:
+            from PIL import Image, ImageDraw, ImageFont
+            S = 256; im = Image.new("RGBA", (S, S), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+            scudo = [(28, 20), (228, 20), (228, 130), (128, 238), (28, 130)]
+            d.polygon(scudo, fill=c1 + (255,)); d.polygon([(46, 38), (210, 38), (210, 124), (128, 214), (46, 124)], fill=c2 + (255,))
+            parole = [w for w in re.split(r"[\s\-/]+", nome) if w and not w.isdigit() and w.lower() not in ("fc", "sc", "ac", "as", "sk", "fk", "de", "da", "del", "club", "pae", "nk", "rc")]
+            ini = ("".join(w[0] for w in parole[:3]) if len(parole) > 1 else (parole[0][:3] if parole else nome[:3])).upper()
+            font = None
+            for fp in ("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "DejaVuSans-Bold.ttf", "/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf"):
+                try: font = ImageFont.truetype(fp, 84 if len(ini) < 3 else 68); break
+                except Exception: pass
+            if font is None:
+                try: font = ImageFont.load_default(size=72)
+                except Exception: font = ImageFont.load_default()
+            d.text((128, 100), ini, fill=(15, 23, 42, 255), font=font, anchor="mm")
+            im.save(dest)
+        except Exception:
+            pass
     return rel, ["#%02x%02x%02x" % c1, "#%02x%02x%02x" % c2]
 
 
