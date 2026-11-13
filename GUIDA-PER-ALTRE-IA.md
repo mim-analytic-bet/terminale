@@ -44,3 +44,8 @@ Repo: https://github.com/mim-analytic-bet/terminale  ·  Sito: https://mim-analy
 - Se NON hai accesso al repo, non dire di aver aggiornato o pubblicato nulla. Consegna a Domenico solo il contenuto completo del file da modificare e le istruzioni per incollarlo (GitHub > file > matita > Commit changes), poi "Actions > Aggiorna dashboard > Run workflow". Non usare PUBBLICA-GITHUB.command (carica la copia locale vecchia e cancella il lavoro recente).
 - Controlli assenze: giovedi' sera (partite di venerdi' e sabato) e sabato mattina (domenica e lunedi'). Il lunedi' si aggiorna `dati/calendario.json` con il nuovo turno e si tolgono le partite gia' giocate.
 - In `assenze_manuali.json` restano solo partite future; il `controllato` e' la data/ora UTC reale del controllo.
+
+## Modulo coppe europee (Champions League, modalità osservazione)
+- `scripts/scarica_coppe.py` (football-data.org, stessa chiave `FOOTBALL_DATA_KEY`) scrive `dati/coppe/CL_live.json`; `scripts/coppe.py` + `coppe_modello.py` calcolano un modello **Elo europeo** (storico openfootball in `dati/coppe/storico_europa.csv`), correzione con la forma nel campionato nazionale, memoria in `dati/coppe/memoria_coppe.json`, log previsioni pre-partita in `dati/coppe/previsioni_CL.csv` e track record reale (Brier vs Elo puro vs frequenze).
+- Il generatore aggiunge `DATA_PRO["champions"]` con `osservazione: true`: modello NON validato, puntata sempre 0 €, escluso da Doppia/TRI-BET/combo (lo script COMBO salta le chiavi con `osservazione`). Se mancano i dati live la voce sparisce dal menu.
+- Non toccare né cancellare `memoria_coppe.json` e `previsioni_CL.csv`: sono la memoria del modello. Europa League, Conference, Mondiali, Europei, Nations League: non ancora implementati.
