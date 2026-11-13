@@ -901,5 +901,173 @@
    "#ffffff"
   ],
   "firma": "v2-90381"
+ },
+ "AZ Alkmaar": {
+  "colori": [
+   "#db0021",
+   "#1a171b"
+  ],
+  "firma": "v2-18435"
+ },
+ "Anderlecht": {
+  "colori": [
+   "#faac68",
+   "#5f308f"
+  ],
+  "firma": "v2-58816"
+ },
+ "Ararat-Armenia": {
+  "colori": [
+   "#ffffff",
+   "#8c8c8c"
+  ],
+  "firma": "v2-27211"
+ },
+ "Benfica": {
+  "colori": [
+   "#e1b504",
+   "#365e60"
+  ],
+  "firma": "v2-78670"
+ },
+ "Besiktas": {
+  "colori": [
+   "#e30c19",
+   "#000000"
+  ],
+  "firma": "v2-38842"
+ },
+ "Celtic": {
+  "colori": [
+   "#009b48",
+   "#fdfefe"
+  ],
+  "firma": "v2-68032"
+ },
+ "Dinamo Zagreb": {
+  "colori": [
+   "#aa965d",
+   "#00509f"
+  ],
+  "firma": "v2-26565"
+ },
+ "Ferencvaros": {
+  "colori": [
+   "#0a7340",
+   "#b59530"
+  ],
+  "firma": "v2-49507"
+ },
+ "Hapoel Be'er": {
+  "colori": [
+   "#db1c30",
+   "#780f1a"
+  ],
+  "firma": "v2-29205"
+ },
+ "Jagiellonia Bialystok": {
+  "colori": [
+   "#fff400",
+   "#d81921"
+  ],
+  "firma": "v2-44000"
+ },
+ "Lech Poznan": {
+  "colori": [
+   "#1d4e9e",
+   "#ffffff"
+  ],
+  "firma": "v2-33936"
+ },
+ "Levski Sofia": {
+  "colori": [
+   "#28348a",
+   "#fabb33"
+  ],
+  "firma": "v2-3169"
+ },
+ "NEC Nijmegen": {
+  "colori": [
+   "#dc413a",
+   "#329973"
+  ],
+  "firma": "v2-49370"
+ },
+ "NK Celje": {
+  "colori": [
+   "#031b5b",
+   "#ffffff"
+  ],
+  "firma": "v2-43321"
+ },
+ "OFI Crete": {
+  "colori": [
+   "#000000",
+   "#000000"
+  ],
+  "firma": "v2-21277"
+ },
+ "Olympiacos": {
+  "colori": [
+   "#e21920",
+   "#ffffff"
+  ],
+  "firma": "v2-79077"
+ },
+ "Omonia Nicosia": {
+  "colori": [
+   "#006b37",
+   "#ffffff"
+  ],
+  "firma": "v2-58731"
+ },
+ "RB Salzburg": {
+  "colori": [
+   "#e41449",
+   "#fbd826"
+  ],
+  "firma": "v2-43432"
+ },
+ "Sparta Prague": {
+  "colori": [
+   "#cead5a",
+   "#9f2721"
+  ],
+  "firma": "v2-27638"
+ },
+ "Stade Rennais": {
+  "colori": [
+   "#e23227",
+   "#000000"
+  ],
+  "firma": "v2-13984"
+ },
+ "Sturm Graz": {
+  "colori": [
+   "#000000",
+   "#000000"
+  ],
+  "firma": "v2-24847"
+ },
+ "Torreense": {
+  "colori": [
+   "#621d2d",
+   "#0e446e"
+  ],
+  "firma": "v2-80779"
+ },
+ "Union St.-Gilloise": {
+  "colori": [
+   "#215ba4",
+   "#ffdc03"
+  ],
+  "firma": "v2-43860"
+ },
+ "Viktoria Plzen": {
+  "colori": [
+   "#ae0013",
+   "#01006c"
+  ],
+  "firma": "v2-53334"
  }
 }

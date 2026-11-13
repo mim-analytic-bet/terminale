@@ -11,7 +11,7 @@ os.makedirs(LOGHI_DIR, exist_ok=True)
 HEADERS = {
     "User-Agent": "AntigravityBot/1.0 (calcio-terminale-official@gmail.com)"
 }
-CTX = ssl._create_unverified_context()
+CTX = ssl.create_default_context()  # verifica TLS attiva (non disabilitarla)
 
 MAPPATURA = {
     "az_alkmaar": "AZ_Alkmaar",
