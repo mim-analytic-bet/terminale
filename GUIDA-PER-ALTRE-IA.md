@@ -38,3 +38,9 @@ Repo: https://github.com/mim-analytic-bet/terminale  ·  Sito: https://mim-analy
 - Il repo viene modificato anche dal bot (3 aggiornamenti al giorno) e da altre IA. Prima di QUALSIASI modifica: `git pull --rebase`. Mai caricare copie locali vecchie di `scripts/`, `scheda-partita-dashboard.html`, `index.html`.
 - Parti che non vanno rimosse: la chiamata a `scripts/assenze.py` in `scripts/aggiorna_tutto.sh`; le funzioni `assenze_per`/`testo_assenze` in `scripts/aggiorna_dashboard.py`; il riquadro "Assenti e squalificati" nell'HTML; il workflow `.github/workflows/aggiorna.yml` con il secret `FOOTBALL_DATA_KEY`.
 - Dopo ogni modifica: `python3 scripts/aggiorna_dashboard.py` e controllare che finisca con "Dashboard aggiornata".
+
+## Ruoli e cadenza (aggiornato)
+- Normalmente il lavoro lo fa Claude, che ha accesso al repo e pubblica da solo. Questa guida serve se Claude non e' disponibile: in quel caso Domenico fa i passaggi su GitHub a mano.
+- Se NON hai accesso al repo, non dire di aver aggiornato o pubblicato nulla. Consegna a Domenico solo il contenuto completo del file da modificare e le istruzioni per incollarlo (GitHub > file > matita > Commit changes), poi "Actions > Aggiorna dashboard > Run workflow". Non usare PUBBLICA-GITHUB.command (carica la copia locale vecchia e cancella il lavoro recente).
+- Controlli assenze: giovedi' sera (partite di venerdi' e sabato) e sabato mattina (domenica e lunedi'). Il lunedi' si aggiorna `dati/calendario.json` con il nuovo turno e si tolgono le partite gia' giocate.
+- In `assenze_manuali.json` restano solo partite future; il `controllato` e' la data/ora UTC reale del controllo.
