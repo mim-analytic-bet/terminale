@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scarica gli orari ufficiali dei prossimi 7 giorni da football-data.org (piano gratuito, 10 richieste/minuto)
+"""Scarica gli orari ufficiali dei prossimi 10 giorni da football-data.org (piano gratuito, 10 richieste/minuto)
 e scrive dati/assenze.json (usato dal generatore per compilare gli orari mancanti).
 Le assenze/squalifiche NON sono nel piano gratuito: si inseriscono a mano in dati/assenze_manuali.json.
 Senza la chiave FOOTBALL_DATA_KEY non fa nulla; in caso di errore tiene i dati precedenti e annota il motivo. Non blocca mai l'aggiornamento.
@@ -31,7 +31,7 @@ def main():
     if not chiave:
         print("orari: chiave FOOTBALL_DATA_KEY assente, salto"); return
     out = {"aggiornato": adesso.isoformat(timespec="minutes"), "fonte": "football-data.org", "stato": "ok", "errori": [], "partite": []}
-    oggi = adesso.astimezone(ROMA).date(); fine = oggi + dt.timedelta(days=7)
+    oggi = adesso.astimezone(ROMA).date(); fine = oggi + dt.timedelta(days=10)
     for lega, cod in LEGHE.items():
         req = urllib.request.Request(f"{API}/{cod}/matches?dateFrom={oggi}&dateTo={fine}", headers={"X-Auth-Token": chiave})
         try:
