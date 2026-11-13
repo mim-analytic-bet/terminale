@@ -21,7 +21,7 @@ jobs:
       - run: pip install numpy pillow
       - name: Scarica dati e rigenera
         env:
-          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
         run: bash scripts/aggiorna_tutto.sh
       - name: Controllo download
         run: |
