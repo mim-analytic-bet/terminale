@@ -350,7 +350,13 @@ def assicura_stemmi(pro, loghi, avvisi):
     prov = []; agg = False
     for n in nomi:
         man = f"./assets/loghi/{_slug(n)}.png"; u = uff.get(n) or uff_n.get(CP.norm(n))
-        if os.path.exists(os.path.join(BASE, man.lstrip("./"))): loghi[n] = man
+        if os.path.exists(os.path.join(BASE, man.lstrip("./"))):
+            loghi[n] = man
+            if n not in COLORI:
+                try:
+                    c = CS.dominanti(os.path.join(BASE, man.lstrip("./")))
+                    if c: COLORI[n] = c
+                except Exception: pass
         elif u and os.path.exists(os.path.join(BASE, u["file"].lstrip("./"))):
             loghi[n] = u["file"]
             if u.get("colori"): COLORI[n] = u["colori"]
