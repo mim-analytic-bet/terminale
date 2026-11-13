@@ -135,3 +135,26 @@ AVVISO: Premier League (Inghilterra): 11ª Giornata ha date da verificare
 AVVISO: LaLiga (Spagna): 13ª Giornata ha partite con giorno/orario da confermare
 AVVISO: Bundesliga (Germania): 10ª Giornata ha partite con giorno/orario da confermare
 Dashboard aggiornata: /home/runner/work/terminale/terminale/scheda-partita-dashboard.html
+=== 13/11/2026 15:36 stagione 2627 ===
+ok dati/I1.csv
+ok dati/E0.csv
+ok dati/SP1.csv
+ok dati/D1.csv
+ok dati/F1.csv
+ok dati/fixtures.csv
+orari: 48 partite, con orario 48, stato ok
+coppe: CL 2026: 144 partite scaricate
+AVVISO coppe: download Europa League fallito: HTTP Error 400: Bad Request {"error": "The limit parameter is for premium subscribers only."}
+Serie A (Italia): 20 partite in 2 giornate, dati fino al 08/11/2026 (110 gare)
+Premier League (Inghilterra): 10 partite in 1 giornate, dati fino al 08/11/2026 (100 gare)
+LaLiga (Spagna): 10 partite in 1 giornate, dati fino al 08/11/2026 (119 gare)
+Bundesliga (Germania): 9 partite in 1 giornate, dati fino al 08/11/2026 (81 gare)
+Ligue 1 (Francia): 9 partite in 1 giornate, dati fino al 08/11/2026 (90 gare)
+Champions League (osservazione): 61 partite in 4 turni
+AVVISO: Premier League (Inghilterra): 11ª Giornata ha date da verificare
+AVVISO: LaLiga (Spagna): 13ª Giornata ha partite con giorno/orario da confermare
+AVVISO: Bundesliga (Germania): 10ª Giornata ha partite con giorno/orario da confermare
+AVVISO: Champions: rating non affidabile (nome squadra non riconosciuto), partite escluse per: Como 1907, LASK Linz, PAE AEK
+AVVISO: Europa League: dati live non ancora scaricati (serve la chiave API della fonte)
+AVVISO: Stemma mancante (colori neutri): Bodø/Glimt, Club Brugge, Fenerbahçe, Feyenoord, Galatasaray, PSV, Porto, RC Lens, Sabah, Shaktar, Sl. Bratislava, Slavia Praha, Sporting CP, Viking - aggiungi il PNG in assets/loghi
+Dashboard aggiornata: /home/runner/work/terminale/terminale/scheda-partita-dashboard.html
