@@ -33,3 +33,8 @@ Repo: https://github.com/mim-analytic-bet/terminale  ·  Sito: https://mim-analy
 - Mai dati sintetici, mai quote inventate: se mancano, scriverlo.
 - Non incollare né chiedere chiavi API in chat; stanno nei secret di GitHub.
 - Il modello non va ritoccato per le assenze finché non ci sono ≥100 previsioni verificate.
+
+## ATTENZIONE: non sovrascrivere il lavoro altrui
+- Il repo viene modificato anche dal bot (3 aggiornamenti al giorno) e da altre IA. Prima di QUALSIASI modifica: `git pull --rebase`. Mai caricare copie locali vecchie di `scripts/`, `scheda-partita-dashboard.html`, `index.html`.
+- Parti che non vanno rimosse: la chiamata a `scripts/assenze.py` in `scripts/aggiorna_tutto.sh`; le funzioni `assenze_per`/`testo_assenze` in `scripts/aggiorna_dashboard.py`; il riquadro "Assenti e squalificati" nell'HTML; il workflow `.github/workflows/aggiorna.yml` con il secret `FOOTBALL_DATA_KEY`.
+- Dopo ogni modifica: `python3 scripts/aggiorna_dashboard.py` e controllare che finisca con "Dashboard aggiornata".
