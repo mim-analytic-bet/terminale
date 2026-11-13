@@ -194,9 +194,11 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
               + ((f"Quote di riferimento ({mq['fonte']}): " + " · ".join(f"{k} {mq[k]}" for k in ('1','X','2') if k in mq) + ". ") if mq else "Quote di mercato non disponibili per questa partita. ")
               + "Puntata consigliata 0 € finché non emerge un edge verificato: nei test il modello da solo non batte il mercato, quindi nessuna giocata è forzata.")
     _ta = testo_assenze(rec_api, casa, osp)
+    _assenti = None
     if _ta:
-        _rischio = (f"Assenze e squalificati segnalati (fonti web, controllo del {rec_api['controllato'][:16].replace('T', ' ')} UTC): {_ta}. "
-                    "Il modello NON le usa nel calcolo e le formazioni probabili non sono incluse: verifica le ufficiali prima di giocare.")
+        _assenti = {"casa": rec_api["assenze"]["casa"], "ospite": rec_api["assenze"]["ospite"], "controllato": (rec_api.get("controllato") or "")[:16].replace("T", " "),
+                    "fonte": rec_api.get("fonte") or "ricerca web"}
+        _rischio = "Assenze e squalificati verificati (vedi riquadro). Le formazioni probabili non sono incluse e le assenze NON entrano nel calcolo del modello: controlla le ufficiali prima di giocare."
     else:
         _rischio = "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare."
     _rischio += "" if mq else " Nessuna quota di mercato disponibile per questa partita nei dati."
@@ -226,7 +228,7 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
         "spiegazione": _spieg, "quoteMercato": mq,
         "analisi": (f"{nome(casa)}: {fcs['summary5']} nelle ultime 5, xG diff {fcs['tot_xg_diff_5']:+.2f}, {fcs['gf']} gol fatti e {fcs['gs']} subiti in {fcs['tot_partite']} gare. "
                     f"{nome(osp)}: {fos['summary5']} nelle ultime 5, xG diff {fos['tot_xg_diff_5']:+.2f}, {fos['gf']} fatti e {fos['gs']} subiti in {fos['tot_partite']}. (Dati football-data.co.uk)"),
-        "rischio": _rischio,
+        "rischio": _rischio, "assenti": _assenti,
         "pronosticiExtra": pe}, fcs, fos
 
 PANNELLO = r'''<!--/*TRACKPANEL*/--><script>
