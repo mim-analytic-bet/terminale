@@ -1,0 +1,24 @@
+{
+ "fonte": "openfootball/champions-league (risultati reali)",
+ "parametri": {
+  "ha": 65.0,
+  "k": 0.0042,
+  "mu": 2.75,
+  "K": 36.0,
+  "Kq": 12.0,
+  "carry": 0.95,
+  "init": 1400.0,
+  "rho": 0.08
+ },
+ "test_da": "2023-07-01",
+ "n_test": 503,
+ "brier_modello": 0.5653,
+ "brier_frequenze_base": 0.616,
+ "hit_1x2": 0.553,
+ "frequenze_base_1X2": [
+  0.467,
+  0.211,
+  0.323
+ ],
+ "note": "Walk-forward: ogni partita prevista prima di vederla; parametri tarati solo su dati precedenti al 2023-07. Non confrontato con le quote (non disponibili per le coppe)."
+}

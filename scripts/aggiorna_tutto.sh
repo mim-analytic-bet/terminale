@@ -11,6 +11,7 @@ for L in I1 E0 SP1 D1 F1; do scarica "https://www.football-data.co.uk/mmz4281/$S
 scarica "https://www.football-data.co.uk/fixtures.csv" "dati/fixtures.csv"
 PY=$(command -v python3 || echo /usr/bin/python3)
 "$PY" scripts/assenze.py >> "$LOG" 2>&1 || true
+"$PY" scripts/scarica_coppe.py >> "$LOG" 2>&1 || true
 OUT=$("$PY" scripts/aggiorna_dashboard.py 2>&1); RC=$?
 echo "$OUT" >> "$LOG"
 if [ $RC -ne 0 ]; then MSG="Errore nella generazione della dashboard (vedi dati/aggiornamento.log)"
