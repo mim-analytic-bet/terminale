@@ -1,0 +1,270 @@
+{
+ "Club Brugge KV": {
+  "file": "./assets/loghi/coppe_club_brugge.png",
+  "colori": null
+ },
+ "Club Brugge": {
+  "file": "./assets/loghi/coppe_club_brugge.png",
+  "colori": null
+ },
+ "Aston Villa FC": {
+  "file": "./assets/loghi/coppe_aston_villa.png",
+  "colori": null
+ },
+ "Aston Villa": {
+  "file": "./assets/loghi/coppe_aston_villa.png",
+  "colori": null
+ },
+ "PAE AEK": {
+  "file": "./assets/loghi/coppe_pae_aek.png",
+  "colori": null
+ },
+ "LASK Linz": {
+  "file": "./assets/loghi/coppe_lask.png",
+  "colori": null
+ },
+ "LASK": {
+  "file": "./assets/loghi/coppe_lask.png",
+  "colori": null
+ },
+ "Real Madrid": {
+  "file": "./assets/loghi/coppe_real_madrid.png",
+  "colori": null
+ },
+ "Real Madrid CF": {
+  "file": "./assets/loghi/coppe_real_madrid.png",
+  "colori": null
+ },
+ "FC Internazionale Milano": {
+  "file": "./assets/loghi/coppe_inter.png",
+  "colori": null
+ },
+ "Inter": {
+  "file": "./assets/loghi/coppe_inter.png",
+  "colori": null
+ },
+ "FC Porto": {
+  "file": "./assets/loghi/coppe_porto.png",
+  "colori": null
+ },
+ "Porto": {
+  "file": "./assets/loghi/coppe_porto.png",
+  "colori": null
+ },
+ "Man City": {
+  "file": "./assets/loghi/coppe_man_city.png",
+  "colori": null
+ },
+ "Manchester City FC": {
+  "file": "./assets/loghi/coppe_man_city.png",
+  "colori": null
+ },
+ "Borussia Dortmund": {
+  "file": "./assets/loghi/coppe_dortmund.png",
+  "colori": null
+ },
+ "Dortmund": {
+  "file": "./assets/loghi/coppe_dortmund.png",
+  "colori": null
+ },
+ "Villarreal": {
+  "file": "./assets/loghi/coppe_villarreal.png",
+  "colori": null
+ },
+ "Villarreal CF": {
+  "file": "./assets/loghi/coppe_villarreal.png",
+  "colori": null
+ },
+ "Lille": {
+  "file": "./assets/loghi/coppe_lille.png",
+  "colori": null
+ },
+ "Lille OSC": {
+  "file": "./assets/loghi/coppe_lille.png",
+  "colori": null
+ },
+ "Real Betis": {
+  "file": "./assets/loghi/coppe_real_betis.png",
+  "colori": null
+ },
+ "Real Betis Balompié": {
+  "file": "./assets/loghi/coppe_real_betis.png",
+  "colori": null
+ },
+ "Barça": {
+  "file": "./assets/loghi/coppe_barca.png",
+  "colori": null
+ },
+ "FC Barcelona": {
+  "file": "./assets/loghi/coppe_barca.png",
+  "colori": null
+ },
+ "Feyenoord Rotterdam": {
+  "file": "./assets/loghi/coppe_feyenoord.png",
+  "colori": null
+ },
+ "Feyenoord": {
+  "file": "./assets/loghi/coppe_feyenoord.png",
+  "colori": null
+ },
+ "VfB Stuttgart": {
+  "file": "./assets/loghi/coppe_stuttgart.png",
+  "colori": null
+ },
+ "Stuttgart": {
+  "file": "./assets/loghi/coppe_stuttgart.png",
+  "colori": null
+ },
+ "Viking": {
+  "file": "./assets/loghi/coppe_viking.png",
+  "colori": null
+ },
+ "Viking FK": {
+  "file": "./assets/loghi/coppe_viking.png",
+  "colori": null
+ },
+ "Liverpool FC": {
+  "file": "./assets/loghi/coppe_liverpool.png",
+  "colori": null
+ },
+ "Liverpool": {
+  "file": "./assets/loghi/coppe_liverpool.png",
+  "colori": null
+ },
+ "Atleti": {
+  "file": "./assets/loghi/coppe_atleti.png",
+  "colori": null
+ },
+ "Club Atlético de Madrid": {
+  "file": "./assets/loghi/coppe_atleti.png",
+  "colori": null
+ },
+ "PSG": {
+  "file": "./assets/loghi/coppe_psg.png",
+  "colori": null
+ },
+ "Paris Saint-Germain FC": {
+  "file": "./assets/loghi/coppe_psg.png",
+  "colori": null
+ },
+ "ŠK Slovan Bratislava": {
+  "file": "./assets/loghi/coppe_sl_bratislava.png",
+  "colori": null
+ },
+ "Sl. Bratislava": {
+  "file": "./assets/loghi/coppe_sl_bratislava.png",
+  "colori": null
+ },
+ "Napoli": {
+  "file": "./assets/loghi/coppe_napoli.png",
+  "colori": null
+ },
+ "SSC Napoli": {
+  "file": "./assets/loghi/coppe_napoli.png",
+  "colori": null
+ },
+ "Arsenal FC": {
+  "file": "./assets/loghi/coppe_arsenal.png",
+  "colori": null
+ },
+ "Arsenal": {
+  "file": "./assets/loghi/coppe_arsenal.png",
+  "colori": null
+ },
+ "Sporting CP": {
+  "file": "./assets/loghi/coppe_sporting_cp.png",
+  "colori": null
+ },
+ "Sporting Clube de Portugal": {
+  "file": "./assets/loghi/coppe_sporting_cp.png",
+  "colori": null
+ },
+ "Galatasaray": {
+  "file": "./assets/loghi/coppe_galatasaray.png",
+  "colori": null
+ },
+ "Galatasaray SK": {
+  "file": "./assets/loghi/coppe_galatasaray.png",
+  "colori": null
+ },
+ "Fenerbahçe SK": {
+  "file": "./assets/loghi/coppe_fenerbahce.png",
+  "colori": null
+ },
+ "Fenerbahçe": {
+  "file": "./assets/loghi/coppe_fenerbahce.png",
+  "colori": null
+ },
+ "AS Roma": {
+  "file": "./assets/loghi/coppe_roma.png",
+  "colori": null
+ },
+ "Roma": {
+  "file": "./assets/loghi/coppe_roma.png",
+  "colori": null
+ },
+ "PSV": {
+  "file": "./assets/loghi/coppe_psv.png",
+  "colori": null
+ },
+ "FK Shakhtar Donetsk": {
+  "file": "./assets/loghi/coppe_shaktar.png",
+  "colori": null
+ },
+ "Shaktar": {
+  "file": "./assets/loghi/coppe_shaktar.png",
+  "colori": null
+ },
+ "Bayern": {
+  "file": "./assets/loghi/coppe_bayern.png",
+  "colori": null
+ },
+ "FC Bayern München": {
+  "file": "./assets/loghi/coppe_bayern.png",
+  "colori": null
+ },
+ "Bodø/Glimt": {
+  "file": "./assets/loghi/coppe_bod_glimt.png",
+  "colori": null
+ },
+ "FK Bodø/Glimt": {
+  "file": "./assets/loghi/coppe_bod_glimt.png",
+  "colori": null
+ },
+ "Manchester United FC": {
+  "file": "./assets/loghi/coppe_man_united.png",
+  "colori": null
+ },
+ "Man United": {
+  "file": "./assets/loghi/coppe_man_united.png",
+  "colori": null
+ },
+ "Sabah FK": {
+  "file": "./assets/loghi/coppe_sabah_fk.png",
+  "colori": null
+ },
+ "Como 1907": {
+  "file": "./assets/loghi/coppe_como_1907.png",
+  "colori": null
+ },
+ "RB Leipzig": {
+  "file": "./assets/loghi/coppe_rb_leipzig.png",
+  "colori": null
+ },
+ "Slavia Praha": {
+  "file": "./assets/loghi/coppe_slavia_praha.png",
+  "colori": null
+ },
+ "SK Slavia Praha": {
+  "file": "./assets/loghi/coppe_slavia_praha.png",
+  "colori": null
+ },
+ "Racing Club de Lens": {
+  "file": "./assets/loghi/coppe_rc_lens.png",
+  "colori": null
+ },
+ "RC Lens": {
+  "file": "./assets/loghi/coppe_rc_lens.png",
+  "colori": null
+ }
+}

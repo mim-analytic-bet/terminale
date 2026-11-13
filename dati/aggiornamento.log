@@ -181,3 +181,26 @@ AVVISO: Bundesliga (Germania): 10ª Giornata ha partite con giorno/orario da con
 AVVISO: Europa League: rating non affidabile (nome squadra non riconosciuto), partite escluse per: Celta Vigo, Lillestrom, Olympiacos, Sparta Prague
 AVVISO: Stemma mancante (colori neutri): Anderlecht, Ararat-Armenia, Benfica, Besiktas, Bodø/Glimt, Celtic, Club Brugge, Como 1907, Dinamo Zagreb, Fenerbahçe, Ferencvaros, Feyenoord, Galatasaray, Hapoel Be'er, Jagiellonia Bialystok, LASK, Lech Poznan, Levski Sofia, NEC Nijmegen, NK Celje, OFI Crete, Omonia Nicosia, PAE AEK, PSV, Porto, RB Salzburg, RC Lens, Sabah, Shaktar, Sl. Bratislava, Slavia Praha, Sporting CP, Stade Rennais, Sturm Graz, Torreense, Union St.-Gilloise, Viking, Viktoria Plzen - aggiungi il PNG in assets/loghi
 Dashboard aggiornata: /home/runner/work/terminale/terminale/scheda-partita-dashboard.html
+=== 13/11/2026 15:45 stagione 2627 ===
+ok dati/I1.csv
+ok dati/E0.csv
+ok dati/SP1.csv
+ok dati/D1.csv
+ok dati/F1.csv
+ok dati/fixtures.csv
+orari: 48 partite, con orario 48, stato ok
+coppe: CL 2026: 144 partite scaricate
+coppe: EL 2026: 90 partite in archivio (6 giorni interrogati)
+stemmi: 36 scaricati, 0 falliti, 67 in archivio
+Serie A (Italia): 20 partite in 2 giornate, dati fino al 08/11/2026 (110 gare)
+Premier League (Inghilterra): 10 partite in 1 giornate, dati fino al 08/11/2026 (100 gare)
+LaLiga (Spagna): 10 partite in 1 giornate, dati fino al 08/11/2026 (119 gare)
+Bundesliga (Germania): 9 partite in 1 giornate, dati fino al 08/11/2026 (81 gare)
+Ligue 1 (Francia): 9 partite in 1 giornate, dati fino al 08/11/2026 (90 gare)
+Champions League (osservazione): 72 partite in 4 turni
+Europa League (osservazione): 18 partite in 1 turni
+AVVISO: Premier League (Inghilterra): 11ª Giornata ha date da verificare
+AVVISO: LaLiga (Spagna): 13ª Giornata ha partite con giorno/orario da confermare
+AVVISO: Bundesliga (Germania): 10ª Giornata ha partite con giorno/orario da confermare
+AVVISO: Stemma PROVVISORIO (distintivo con iniziali, manca lo stemma ufficiale): AZ Alkmaar, Anderlecht, Ararat-Armenia, Benfica, Besiktas, Celtic, Dinamo Zagreb, Ferencvaros, Hapoel Be'er, Jagiellonia Bialystok, Lech Poznan, Levski Sofia, NEC Nijmegen, NK Celje, OFI Crete, Olympiacos, Omonia Nicosia, RB Salzburg, Sparta Prague, Stade Rennais, Sturm Graz, Torreense, Union St.-Gilloise, Viktoria Plzen - metti il PNG in assets/loghi/<nome_squadra>.png per sostituirlo
+Dashboard aggiornata: /home/runner/work/terminale/terminale/scheda-partita-dashboard.html
