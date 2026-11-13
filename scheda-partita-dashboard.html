@@ -100763,8 +100763,7 @@ var MK=[["1","1",function(m){return m.fasi[1].seg1.p}],["2","2",function(m){retu
 ["Over 2,5","Over 2,5",function(m){return m.fasi[3].seg1.p}],["Under 2,5","Under 2,5",function(m){return m.fasi[3].seg2.p}],
 ["Gol","Gol",function(m){return m.fasi[2].seg1.p}],["No Gol","No Gol",function(m){return m.fasi[2].seg2.p}]];
 
-function qm(m,k){var q=m.quoteMercato;if(!q)return null;if(q[k])return +q[k];
- if(k==="1X"&&q["1"]&&q["X"])return 1/(1/q["1"]+1/q["X"]);if(k==="X2"&&q["2"]&&q["X"])return 1/(1/q["2"]+1/q["X"]);return null;}
+function qm(m,k){var q=m.quoteMercato;if(!q)return null;if(q[k])return +q[k];return null;}   // SOLO quote realmente quotate dal bookmaker: niente doppie chance ricostruite, niente quote eque
 
 function parsaDataPartita(strData, dataFineTurno) {
   var mesi = { "Gen": 0, "Feb": 1, "Mar": 2, "Apr": 3, "Mag": 4, "Giu": 5, "Lug": 6, "Ago": 7, "Set": 8, "Ott": 9, "Nov": 10, "Dic": 11 };
@@ -100838,7 +100837,8 @@ bloccoPartite.forEach(function(item){
     var p = x[2](m);
     if (!(p > 0.05 && p < 0.97)) return;
     var r = qm(m, x[0]);
-    var q = r || (1 / p);
+    if (!r) return;   // Doppia e Tri-Bet usano SOLO mercati con quota reale (mai la quota equa del modello)
+    var q = r;
     C.push({
       id: item.comp + item.turno + m.id,
       lbl: m.label,
@@ -100871,7 +100871,7 @@ function scheda(legs,etichetta){
   '<div class="flex justify-between mono"><span class="text-slate-400">Prob. modello'+(legs.length>1?' (eventi indipendenti)':'')+'</span><span class="font-black text-white">'+Math.round(p*100)+'%</span></div>';
 }
 
-var nota='<div class="mt-2 text-[10px] text-slate-500 leading-snug">Quote "equa" = 1/probabilità del modello: su Eurobet gioca solo se il prezzo reale è almeno pari. Nessuna garanzia di edge: giocata a scopo informativo.</div>';
+var nota='<div class="mt-2 text-[10px] text-slate-500 leading-snug">Quote Bet365 reali (prezzo di confronto, non Eurobet: controlla il prezzo prima di giocare). Nessuna garanzia di edge: giocata a scopo informativo.</div>';
 var P1=coppie(1.55,1.70).map(function(o){return scheda(o,"Doppia")});
 var P2=coppie(1.80,2.00).slice(0,2).map(function(o){return scheda(o,"Tri-Bet · doppia")});
 var sing=C.filter(function(c){return c.q>=3.5}).sort(function(a,b){return b.p-a.p});var seenL={};
@@ -100881,7 +100881,7 @@ if(sing[1]&&P2.length<3)P2.push(scheda([sing[1]],"Tri-Bet · singola ≥ 3,50"))
 
 function ruota(i,P){
   var corpo=document.getElementById("corpo-combo-"+i),dots=document.getElementById("dots-combo-"+i);if(!corpo)return;
-  if(!P.length){corpo.innerHTML='<div class="text-slate-400">'+(isCoppaBlock?'Prossimo blocco: coppe europee, in modalit\u00e0 osservazione (modello non validato, puntata 0 \u20ac): nessuna combinazione proposta. Vedi le singole partite nel menu.':'Nessuna combinazione nel range per il prossimo evento ('+etichettaFinestra+').')+'</div>';return;}
+  if(!P.length){corpo.innerHTML='<div class="text-slate-400">'+(isCoppaBlock?'Prossimo blocco: coppe europee, in modalit\u00e0 osservazione (modello non validato, puntata 0 \u20ac): nessuna combinazione proposta. Vedi le singole partite nel menu.':'Nessuna combinazione: servono quote reali Bet365 dentro il range per il prossimo evento ('+etichettaFinestra+').')+'</div>';return;}
   var k=0,tm;function show(n){k=(n+P.length)%P.length;corpo.style.opacity=0;setTimeout(function(){corpo.innerHTML=P[k]+nota;corpo.style.opacity=1;},150);
    dots.innerHTML=P.map(function(_,j){return '<button data-j="'+j+'" style="width:8px;height:8px;border-radius:9999px;border:0;background:'+(j===k?'#22d3ee':'#475569')+'"></button>'}).join('');
    [].forEach.call(dots.querySelectorAll("button"),function(b){b.onclick=function(){clearInterval(tm);show(+b.getAttribute("data-j"));tm=setInterval(function(){show(k+1)},6000)}});}
