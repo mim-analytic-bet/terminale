@@ -134,7 +134,7 @@ new_agg_replace = '''function mostraToastSlip(msg) {
       lines.push("");
       lines.push(`Moltiplicatore Totale: ${molt.toFixed(2)}`);
       lines.push("Puntata consigliata: 2.00 € (su cassa 100 €)");
-      lines.push("Generato da: https://domypititto-ops.github.io/terminale/");
+      lines.push("Generato da: https://mim-analytic-bet.github.io/terminale/");
 
       const txt = lines.join("\\n");
       navigator.clipboard.writeText(txt).then(() => {
