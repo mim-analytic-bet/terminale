@@ -460,3 +460,72 @@ AVVISO: LaLiga (Spagna): 14ª Giornata ha partite con giorno/orario da confermar
 AVVISO: LaLiga (Spagna): 14ª Giornata ha date da verificare
 AVVISO: Bundesliga (Germania): 10ª Giornata ha partite con giorno/orario da confermare
 Dashboard aggiornata: /home/runner/work/terminale/terminale/scheda-partita-dashboard.html
+=== 14/11/2026 13:44 stagione 2627 ===
+ok dati/I1.csv
+ok dati/E0.csv
+ok dati/SP1.csv
+ok dati/D1.csv
+ok dati/F1.csv
+ok dati/fixtures.csv
+orari: 48 partite, con orario 48, stato ok
+coppe: CL 2026: 144 partite scaricate
+coppe: EL 2026: 90 partite in archivio (6 giorni interrogati)
+calendario aperto: serie-a 2026-27: 380 partite in 38 giornate
+calendario aperto: premier 2026-27: 380 partite in 38 giornate
+calendario aperto: liga 2026-27: 380 partite in 38 giornate
+calendario aperto: bundesliga 2026-27: 306 partite in 34 giornate
+calendario aperto: ligue1 2026-27: 306 partite in 34 giornate
+stemmi: 0 scaricati, 0 falliti, 67 in archivio
+=== Scarico stemmi ufficiali Europa League (24 squadre) ===
+[OK ESISTE] az_alkmaar.png (18435 bytes)
+[OK ESISTE] anderlecht.png (58816 bytes)
+[OK ESISTE] ararat_armenia.png (27211 bytes)
+[OK ESISTE] benfica.png (78670 bytes)
+[OK ESISTE] besiktas.png (38842 bytes)
+[OK ESISTE] celtic.png (68032 bytes)
+[OK ESISTE] dinamo_zagreb.png (26565 bytes)
+[OK ESISTE] ferencvaros.png (49507 bytes)
+[OK ESISTE] hapoel_be_er.png (29205 bytes)
+[OK ESISTE] jagiellonia_bialystok.png (44000 bytes)
+[OK ESISTE] lech_poznan.png (33936 bytes)
+[OK ESISTE] levski_sofia.png (3169 bytes)
+[OK ESISTE] nec_nijmegen.png (49370 bytes)
+[OK ESISTE] nk_celje.png (43321 bytes)
+[OK ESISTE] ofi_crete.png (21277 bytes)
+[OK ESISTE] olympiacos.png (79077 bytes)
+[OK ESISTE] omonia_nicosia.png (58731 bytes)
+[OK ESISTE] rb_salzburg.png (43432 bytes)
+[OK ESISTE] sparta_prague.png (27638 bytes)
+[OK ESISTE] stade_rennais.png (13984 bytes)
+[OK ESISTE] sturm_graz.png (24847 bytes)
+[OK ESISTE] torreense.png (80779 bytes)
+[OK ESISTE] union_st_gilloise.png (43860 bytes)
+[OK ESISTE] viktoria_plzen.png (53334 bytes)
+
+Risultato: 24 / 24 stemmi ufficiali pronti su disco.
+Serie A (Italia): CONFRONTO calendario giornata 12 Sassuolo-Genoa: manuale 2026-11-22 15:00 | openfootball 2026-11-22 12:30
+Serie A (Italia): CONFRONTO calendario giornata 12 Milan-Frosinone: manuale 2026-11-22 18:00 | openfootball 2026-11-22 15:00
+Serie A (Italia): CONFRONTO calendario giornata 12 Bologna-Udinese: manuale 2026-11-22 15:00 | openfootball 2026-11-22 18:00
+Serie A (Italia): CONFRONTO calendario giornata 12 Monza-Fiorentina: manuale 2026-11-23 20:45 | openfootball 2026-11-23 18:30
+Serie A (Italia): CONFRONTO calendario giornata 12 Juventus-Venezia: manuale 2026-11-22 12:30 | openfootball 2026-11-23 20:45
+Serie A (Italia): 20 partite in 2 giornate, dati fino al 08/11/2026 (110 gare)
+Premier League (Inghilterra): 10 partite aggiunte dal calendario aperto (solo abbinamenti; giorno/ora da confermare)
+Premier League (Inghilterra): 20 partite in 2 giornate, dati fino al 08/11/2026 (100 gare)
+LaLiga (Spagna): 10 partite aggiunte dal calendario aperto (solo abbinamenti; giorno/ora da confermare)
+LaLiga (Spagna): 20 partite in 2 giornate, dati fino al 08/11/2026 (119 gare)
+Bundesliga (Germania): CONFRONTO calendario giornata 10 M'gladbach-Dortmund: manuale None None | openfootball 2026-11-21 15:30
+Bundesliga (Germania): CONFRONTO calendario giornata 10 Schalke 04-Stuttgart: manuale None None | openfootball 2026-11-21 18:30
+Bundesliga (Germania): 11 partite aggiunte dal calendario aperto (solo abbinamenti; giorno/ora da confermare)
+Bundesliga (Germania): 20 partite in 2 giornate, dati fino al 08/11/2026 (81 gare)
+Ligue 1 (Francia): 9 partite aggiunte dal calendario aperto (solo abbinamenti; giorno/ora da confermare)
+Ligue 1 (Francia): 18 partite in 2 giornate, dati fino al 08/11/2026 (90 gare)
+Champions League (osservazione): 72 partite in 4 turni
+Europa League (osservazione): 18 partite in 1 turni
+AVVISO: Premier League (Inghilterra): 11ª Giornata ha date da verificare
+AVVISO: Premier League (Inghilterra): 12ª Giornata ha partite con giorno/orario da confermare
+AVVISO: Premier League (Inghilterra): 12ª Giornata ha date da verificare
+AVVISO: LaLiga (Spagna): 13ª Giornata ha partite con giorno/orario da confermare
+AVVISO: LaLiga (Spagna): 14ª Giornata ha partite con giorno/orario da confermare
+AVVISO: LaLiga (Spagna): 14ª Giornata ha date da verificare
+AVVISO: Bundesliga (Germania): 10ª Giornata ha partite con giorno/orario da confermare
+Dashboard aggiornata: /home/runner/work/terminale/terminale/scheda-partita-dashboard.html
