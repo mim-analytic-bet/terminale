@@ -100857,9 +100857,12 @@ bloccoPartite.forEach(function(item){
 });
 
 function inr(c,a,b){return c.q>=a&&c.q<=b}
-function coppie(a,b){
-  var L=C.filter(function(c){return inr(c,a,b)}),out=[];
-  for(var i=0;i<L.length;i++)for(var j=i+1;j<L.length;j++)if(L[i].id!==L[j].id&&L[i].lbl!==L[j].lbl)out.push([L[i],L[j]]);
+function coppie(a,b,minRealiComb){
+  // minRealiComb (solo Focus Doppia): se ENTRAMBE le righe hanno quota reale Bet365, vale solo quota combinata >= minRealiComb (niente range per riga); altrimenti entrambe le righe devono stare in [a,b]
+  var L=C.filter(function(c){return inr(c,a,b)||(minRealiComb&&c.tipo==='reale')}),out=[];
+  for(var i=0;i<L.length;i++)for(var j=i+1;j<L.length;j++)if(L[i].id!==L[j].id&&L[i].lbl!==L[j].lbl){
+    var ok=(inr(L[i],a,b)&&inr(L[j],a,b))||(minRealiComb&&L[i].tipo==='reale'&&L[j].tipo==='reale'&&L[i].q*L[j].q>=minRealiComb);
+    if(ok)out.push([L[i],L[j]]);}
   out.sort(function(x,y){var wx=PESO_Q[x[0].tipo]+PESO_Q[x[1].tipo],wy=PESO_Q[y[0].tipo]+PESO_Q[y[1].tipo];if(wx!==wy)return wx-wy;return y[0].p*y[1].p-x[0].p*x[1].p});
   var usati={},sel=[];out.forEach(function(o){if(sel.length>=3)return;if(usati[o[0].lbl]||usati[o[1].lbl])return;usati[o[0].lbl]=usati[o[1].lbl]=1;sel.push(o)});return sel;
 }
@@ -100877,7 +100880,7 @@ function scheda(legs,etichetta){
 }
 
 var nota='';   // la nota e' ora dentro scheda(): dipende dal tipo di quota delle righe
-var P1=coppie(1.55,1.70).map(function(o){return scheda(o,"Doppia")});
+var P1=coppie(1.65,1.80,1.98).map(function(o){return scheda(o,"Doppia")});
 var P2=coppie(1.80,2.00).slice(0,2).map(function(o){return scheda(o,"Tri-Bet · doppia")});
 var sing=C.filter(function(c){return c.q>=3.5}).sort(function(a,b){if(PESO_Q[a.tipo]!==PESO_Q[b.tipo])return PESO_Q[a.tipo]-PESO_Q[b.tipo];return b.p-a.p});var seenL={};
 sing=sing.filter(function(c){if(seenL[c.lbl])return false;seenL[c.lbl]=1;return true});
