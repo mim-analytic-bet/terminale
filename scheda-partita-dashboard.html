@@ -7371,8 +7371,8 @@ let FASE_TORTA_ATTUALE = 1;
     let TIMER_TORTA = null;
     let PARTITA_CORRENTE = null;
 
-    /*META*/const DATA_META = {"aggiornato": "2026-11-14T07:50", "dati_fino": {"serie-a": "2026-11-08", "premier": "2026-11-08", "liga": "2026-11-08", "bundesliga": "2026-11-08", "ligue1": "2026-11-08"}, "avvisi": ["Premier League (Inghilterra): 11ª Giornata ha date da verificare", "Premier League (Inghilterra): 12ª Giornata ha partite con giorno/orario da confermare", "Premier League (Inghilterra): 12ª Giornata ha date da verificare", "LaLiga (Spagna): 13ª Giornata ha partite con giorno/orario da confermare", "LaLiga (Spagna): 14ª Giornata ha partite con giorno/orario da confermare", "LaLiga (Spagna): 14ª Giornata ha date da verificare", "Bundesliga (Germania): 10ª Giornata ha partite con giorno/orario da confermare"]};/*ENDMETA*/
-    /*TRACK*/const DATA_TRACK = {"leghe": {"Serie A": {"n": 50, "brier_modello": 0.5375, "hit_1x2": 62.0, "brier_mercato": 0.5093, "brier_modello_su_stesse": 0.5375, "n_mercato": 50, "calibrazione": [{"fascia": "0-20%", "n": 17, "previsto": 13.8, "reale": 5.9}, {"fascia": "20-35%", "n": 80, "previsto": 26.8, "reale": 22.5}, {"fascia": "35-50%", "n": 57, "previsto": 43.5, "reale": 52.6}, {"fascia": "50-65%", "n": 61, "previsto": 57.3, "reale": 60.7}, {"fascia": "65-80%", "n": 35, "previsto": 69.2, "reale": 68.6}], "value_giocate": 59, "value_roi": -9.1}, "Premier League": {"n": 40, "brier_modello": 0.605, "hit_1x2": 50.0, "brier_mercato": 0.5672, "brier_modello_su_stesse": 0.605, "n_mercato": 40, "calibrazione": [{"fascia": "0-20%", "n": 8, "previsto": 16.0, "reale": 0.0}, {"fascia": "20-35%", "n": 71, "previsto": 27.8, "reale": 28.2}, {"fascia": "35-50%", "n": 51, "previsto": 43.5, "reale": 37.3}, {"fascia": "50-65%", "n": 58, "previsto": 57.7, "reale": 43.1}, {"fascia": "65-80%", "n": 12, "previsto": 69.7, "reale": 41.7}], "value_giocate": 49, "value_roi": -17.4}, "LaLiga": {"n": 58, "brier_modello": 0.5843, "hit_1x2": 51.7, "brier_mercato": 0.527, "brier_modello_su_stesse": 0.5843, "n_mercato": 58, "calibrazione": [{"fascia": "0-20%", "n": 25, "previsto": 15.0, "reale": 16.0}, {"fascia": "20-35%", "n": 93, "previsto": 27.8, "reale": 28.0}, {"fascia": "35-50%", "n": 70, "previsto": 42.4, "reale": 37.1}, {"fascia": "50-65%", "n": 76, "previsto": 56.7, "reale": 64.5}, {"fascia": "65-80%", "n": 25, "previsto": 70.8, "reale": 64.0}, {"fascia": "80-100%", "n": 1, "previsto": 86.5, "reale": 100.0}], "value_giocate": 69, "value_roi": -56.4}, "Bundesliga": {"n": 27, "brier_modello": 0.5969, "hit_1x2": 55.6, "brier_mercato": 0.5501, "brier_modello_su_stesse": 0.5969, "n_mercato": 27, "calibrazione": [{"fascia": "0-20%", "n": 22, "previsto": 13.5, "reale": 22.7}, {"fascia": "20-35%", "n": 30, "previsto": 25.3, "reale": 20.0}, {"fascia": "35-50%", "n": 14, "previsto": 43.1, "reale": 42.9}, {"fascia": "50-65%", "n": 32, "previsto": 57.4, "reale": 65.6}, {"fascia": "65-80%", "n": 33, "previsto": 71.6, "reale": 60.6}, {"fascia": "80-100%", "n": 4, "previsto": 83.0, "reale": 75.0}], "value_giocate": 33, "value_roi": -1.2}, "Ligue 1": {"n": 36, "brier_modello": 0.5702, "hit_1x2": 47.2, "brier_mercato": 0.5286, "brier_modello_su_stesse": 0.5702, "n_mercato": 36, "calibrazione": [{"fascia": "0-20%", "n": 7, "previsto": 14.9, "reale": 14.3}, {"fascia": "20-35%", "n": 60, "previsto": 26.6, "reale": 23.3}, {"fascia": "35-50%", "n": 38, "previsto": 41.4, "reale": 39.5}, {"fascia": "50-65%", "n": 48, "previsto": 58.3, "reale": 52.1}, {"fascia": "65-80%", "n": 27, "previsto": 70.6, "reale": 70.4}], "value_giocate": 48, "value_roi": -30.5}}, "totale": {"n": 211, "brier_modello": 0.5764, "hit_1x2": 53.6, "brier_mercato": 0.5337, "brier_modello_su_stesse": 0.5764, "n_mercato": 211, "calibrazione": [{"fascia": "0-20%", "n": 79, "previsto": 14.4, "reale": 13.9}, {"fascia": "20-35%", "n": 334, "previsto": 27.1, "reale": 25.1}, {"fascia": "35-50%", "n": 230, "previsto": 42.8, "reale": 41.7}, {"fascia": "50-65%", "n": 275, "previsto": 57.4, "reale": 57.1}, {"fascia": "65-80%", "n": 132, "previsto": 70.4, "reale": 63.6}, {"fascia": "80-100%", "n": 5, "previsto": 83.7, "reale": 80.0}], "value_giocate": 258, "value_roi": -26.3}, "live": {"registrate": 58, "valutate": 0}, "apprendimento": {"w": 1.0, "a": 0.0, "storia": [{"data": "2026-11-13", "casi_backtest": 211, "casi_live": 0, "w": 1.0, "perdita_senza_apprendimento": 1.067, "perdita_con_apprendimento": 1.067, "guadagno_pct": 0.21, "peso_dati_vs_mercato": 0.0, "brier_mercato_puro": 0.5337, "brier_misto_appreso": 0.5337}]}, "aggiornato": "14/11/2026 07:50"};/*ENDTRACK*/
+    /*META*/const DATA_META = {"aggiornato": "2026-11-14T13:45", "dati_fino": {"serie-a": "2026-11-08", "premier": "2026-11-08", "liga": "2026-11-08", "bundesliga": "2026-11-08", "ligue1": "2026-11-08"}, "avvisi": ["Premier League (Inghilterra): 11ª Giornata ha date da verificare", "Premier League (Inghilterra): 12ª Giornata ha partite con giorno/orario da confermare", "Premier League (Inghilterra): 12ª Giornata ha date da verificare", "LaLiga (Spagna): 13ª Giornata ha partite con giorno/orario da confermare", "LaLiga (Spagna): 14ª Giornata ha partite con giorno/orario da confermare", "LaLiga (Spagna): 14ª Giornata ha date da verificare", "Bundesliga (Germania): 10ª Giornata ha partite con giorno/orario da confermare"]};/*ENDMETA*/
+    /*TRACK*/const DATA_TRACK = {"leghe": {"Serie A": {"n": 50, "brier_modello": 0.5375, "hit_1x2": 62.0, "brier_mercato": 0.5093, "brier_modello_su_stesse": 0.5375, "n_mercato": 50, "calibrazione": [{"fascia": "0-20%", "n": 17, "previsto": 13.8, "reale": 5.9}, {"fascia": "20-35%", "n": 80, "previsto": 26.8, "reale": 22.5}, {"fascia": "35-50%", "n": 57, "previsto": 43.5, "reale": 52.6}, {"fascia": "50-65%", "n": 61, "previsto": 57.3, "reale": 60.7}, {"fascia": "65-80%", "n": 35, "previsto": 69.2, "reale": 68.6}], "value_giocate": 59, "value_roi": -9.1}, "Premier League": {"n": 40, "brier_modello": 0.605, "hit_1x2": 50.0, "brier_mercato": 0.5672, "brier_modello_su_stesse": 0.605, "n_mercato": 40, "calibrazione": [{"fascia": "0-20%", "n": 8, "previsto": 16.0, "reale": 0.0}, {"fascia": "20-35%", "n": 71, "previsto": 27.8, "reale": 28.2}, {"fascia": "35-50%", "n": 51, "previsto": 43.5, "reale": 37.3}, {"fascia": "50-65%", "n": 58, "previsto": 57.7, "reale": 43.1}, {"fascia": "65-80%", "n": 12, "previsto": 69.7, "reale": 41.7}], "value_giocate": 49, "value_roi": -17.4}, "LaLiga": {"n": 58, "brier_modello": 0.5843, "hit_1x2": 51.7, "brier_mercato": 0.527, "brier_modello_su_stesse": 0.5843, "n_mercato": 58, "calibrazione": [{"fascia": "0-20%", "n": 25, "previsto": 15.0, "reale": 16.0}, {"fascia": "20-35%", "n": 93, "previsto": 27.8, "reale": 28.0}, {"fascia": "35-50%", "n": 70, "previsto": 42.4, "reale": 37.1}, {"fascia": "50-65%", "n": 76, "previsto": 56.7, "reale": 64.5}, {"fascia": "65-80%", "n": 25, "previsto": 70.8, "reale": 64.0}, {"fascia": "80-100%", "n": 1, "previsto": 86.5, "reale": 100.0}], "value_giocate": 69, "value_roi": -56.4}, "Bundesliga": {"n": 27, "brier_modello": 0.5969, "hit_1x2": 55.6, "brier_mercato": 0.5501, "brier_modello_su_stesse": 0.5969, "n_mercato": 27, "calibrazione": [{"fascia": "0-20%", "n": 22, "previsto": 13.5, "reale": 22.7}, {"fascia": "20-35%", "n": 30, "previsto": 25.3, "reale": 20.0}, {"fascia": "35-50%", "n": 14, "previsto": 43.1, "reale": 42.9}, {"fascia": "50-65%", "n": 32, "previsto": 57.4, "reale": 65.6}, {"fascia": "65-80%", "n": 33, "previsto": 71.6, "reale": 60.6}, {"fascia": "80-100%", "n": 4, "previsto": 83.0, "reale": 75.0}], "value_giocate": 33, "value_roi": -1.2}, "Ligue 1": {"n": 36, "brier_modello": 0.5702, "hit_1x2": 47.2, "brier_mercato": 0.5286, "brier_modello_su_stesse": 0.5702, "n_mercato": 36, "calibrazione": [{"fascia": "0-20%", "n": 7, "previsto": 14.9, "reale": 14.3}, {"fascia": "20-35%", "n": 60, "previsto": 26.6, "reale": 23.3}, {"fascia": "35-50%", "n": 38, "previsto": 41.4, "reale": 39.5}, {"fascia": "50-65%", "n": 48, "previsto": 58.3, "reale": 52.1}, {"fascia": "65-80%", "n": 27, "previsto": 70.6, "reale": 70.4}], "value_giocate": 48, "value_roi": -30.5}}, "totale": {"n": 211, "brier_modello": 0.5764, "hit_1x2": 53.6, "brier_mercato": 0.5337, "brier_modello_su_stesse": 0.5764, "n_mercato": 211, "calibrazione": [{"fascia": "0-20%", "n": 79, "previsto": 14.4, "reale": 13.9}, {"fascia": "20-35%", "n": 334, "previsto": 27.1, "reale": 25.1}, {"fascia": "35-50%", "n": 230, "previsto": 42.8, "reale": 41.7}, {"fascia": "50-65%", "n": 275, "previsto": 57.4, "reale": 57.1}, {"fascia": "65-80%", "n": 132, "previsto": 70.4, "reale": 63.6}, {"fascia": "80-100%", "n": 5, "previsto": 83.7, "reale": 80.0}], "value_giocate": 258, "value_roi": -26.3}, "live": {"registrate": 58, "valutate": 0}, "apprendimento": {"w": 1.0, "a": 0.0, "storia": [{"data": "2026-11-13", "casi_backtest": 211, "casi_live": 0, "w": 1.0, "perdita_senza_apprendimento": 1.067, "perdita_con_apprendimento": 1.067, "guadagno_pct": 0.21, "peso_dati_vs_mercato": 0.0, "brier_mercato_puro": 0.5337, "brier_misto_appreso": 0.5337}]}, "aggiornato": "14/11/2026 13:45"};/*ENDTRACK*/
     const DATA_PRO = {
   "serie-a": {
     "nome": "Serie A (Italia)",
@@ -54359,7 +54359,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -54860,7 +54860,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -55361,7 +55361,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -55862,7 +55862,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -56363,7 +56363,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -56864,7 +56864,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -57365,7 +57365,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -57866,7 +57866,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -58367,7 +58367,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -58868,7 +58868,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -59369,7 +59369,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -59870,7 +59870,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -60371,7 +60371,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -60872,7 +60872,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -61373,7 +61373,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -61874,7 +61874,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -62375,7 +62375,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -62876,7 +62876,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -63383,7 +63383,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -63884,7 +63884,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -64385,7 +64385,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -64886,7 +64886,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -65387,7 +65387,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -65888,7 +65888,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -66389,7 +66389,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -66890,7 +66890,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -67391,7 +67391,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -67892,7 +67892,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -68393,7 +68393,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -68894,7 +68894,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -69395,7 +69395,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -69896,7 +69896,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -70397,7 +70397,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -70898,7 +70898,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -71399,7 +71399,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -71900,7 +71900,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -72407,7 +72407,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -72908,7 +72908,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -73409,7 +73409,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -73910,7 +73910,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -74411,7 +74411,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -74912,7 +74912,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -75413,7 +75413,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -75914,7 +75914,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -76415,7 +76415,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -76916,7 +76916,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -77417,7 +77417,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -77918,7 +77918,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -78419,7 +78419,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -78920,7 +78920,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -79421,7 +79421,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -79922,7 +79922,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -80423,7 +80423,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -80924,7 +80924,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -81431,7 +81431,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -81932,7 +81932,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -82433,7 +82433,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -82934,7 +82934,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -83435,7 +83435,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -83936,7 +83936,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -84437,7 +84437,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -84938,7 +84938,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -85439,7 +85439,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -85940,7 +85940,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -86441,7 +86441,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -86942,7 +86942,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -87443,7 +87443,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -87944,7 +87944,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -88445,7 +88445,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -88946,7 +88946,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -89447,7 +89447,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -89948,7 +89948,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 72,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -90328,7 +90328,7 @@ let FASE_TORTA_ATTUALE = 1;
       },
       "w_dom": 0.25,
       "aperte": 72,
-      "aggiornato": "14/11/2026 07:50"
+      "aggiornato": "14/11/2026 13:45"
     }
   },
   "europa": {
@@ -90485,7 +90485,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -90986,7 +90986,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -91487,7 +91487,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -91988,7 +91988,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -92489,7 +92489,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -92990,7 +92990,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -93491,7 +93491,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -93992,7 +93992,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -94493,7 +94493,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -94994,7 +94994,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -95495,7 +95495,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -95996,7 +95996,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -96497,7 +96497,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -96998,7 +96998,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -97499,7 +97499,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -98000,7 +98000,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -98501,7 +98501,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -99002,7 +99002,7 @@ let FASE_TORTA_ATTUALE = 1;
               },
               "w_dom": 0.25,
               "aperte": 18,
-              "aggiornato": "14/11/2026 07:50"
+              "aggiornato": "14/11/2026 13:45"
             },
             "heat": {
               "k": 4,
@@ -99382,7 +99382,7 @@ let FASE_TORTA_ATTUALE = 1;
       },
       "w_dom": 0.25,
       "aperte": 18,
-      "aggiornato": "14/11/2026 07:50"
+      "aggiornato": "14/11/2026 13:45"
     }
   }
 };
