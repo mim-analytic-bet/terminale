@@ -100763,7 +100763,10 @@ var MK=[["1","1",function(m){return m.fasi[1].seg1.p}],["2","2",function(m){retu
 ["Over 2,5","Over 2,5",function(m){return m.fasi[3].seg1.p}],["Under 2,5","Under 2,5",function(m){return m.fasi[3].seg2.p}],
 ["Gol","Gol",function(m){return m.fasi[2].seg1.p}],["No Gol","No Gol",function(m){return m.fasi[2].seg2.p}]];
 
-function qm(m,k){var q=m.quoteMercato;if(!q)return null;if(q[k])return +q[k];return null;}   // SOLO quote realmente quotate dal bookmaker: niente doppie chance ricostruite, niente quote eque
+function qm(m,k){var q=m.quoteMercato;if(!q)return null;if(q[k])return +q[k];
+ if(k==="1X"&&q["1"]&&q["X"])return 1/(1/q["1"]+1/q["X"]);if(k==="X2"&&q["2"]&&q["X"])return 1/(1/q["2"]+1/q["X"]);return null;}
+function tipoQ(m,k){var q=m.quoteMercato;if(q&&q[k])return "reale";if(q&&(k==="1X"||k==="X2")&&q["X"]&&q[k==="1X"?"1":"2"])return "derivata";return "equa";}
+var PESO_Q={"reale":0,"derivata":1,"equa":2};
 
 function parsaDataPartita(strData, dataFineTurno) {
   var mesi = { "Gen": 0, "Feb": 1, "Mar": 2, "Apr": 3, "Mag": 4, "Giu": 5, "Lug": 6, "Ago": 7, "Set": 8, "Ott": 9, "Nov": 10, "Dic": 11 };
@@ -100837,8 +100840,8 @@ bloccoPartite.forEach(function(item){
     var p = x[2](m);
     if (!(p > 0.05 && p < 0.97)) return;
     var r = qm(m, x[0]);
-    if (!r) return;   // Doppia e Tri-Bet usano SOLO mercati con quota reale (mai la quota equa del modello)
-    var q = r;
+    var q = r || (1 / p);
+    var tipo = tipoQ(m, x[0]);
     C.push({
       id: item.comp + item.turno + m.id,
       lbl: m.label,
@@ -100847,7 +100850,8 @@ bloccoPartite.forEach(function(item){
       mer: x[1],
       p: p,
       q: q,
-      ref: !!r
+      ref: !!r,
+      tipo: tipo
     });
   });
 });
@@ -100856,32 +100860,33 @@ function inr(c,a,b){return c.q>=a&&c.q<=b}
 function coppie(a,b){
   var L=C.filter(function(c){return inr(c,a,b)}),out=[];
   for(var i=0;i<L.length;i++)for(var j=i+1;j<L.length;j++)if(L[i].id!==L[j].id&&L[i].lbl!==L[j].lbl)out.push([L[i],L[j]]);
-  out.sort(function(x,y){return y[0].p*y[1].p-x[0].p*x[1].p});
+  out.sort(function(x,y){var wx=PESO_Q[x[0].tipo]+PESO_Q[x[1].tipo],wy=PESO_Q[y[0].tipo]+PESO_Q[y[1].tipo];if(wx!==wy)return wx-wy;return y[0].p*y[1].p-x[0].p*x[1].p});
   var usati={},sel=[];out.forEach(function(o){if(sel.length>=3)return;if(usati[o[0].lbl]||usati[o[1].lbl])return;usati[o[0].lbl]=usati[o[1].lbl]=1;sel.push(o)});return sel;
 }
 
 function riga(c){
-  return '<div class="flex justify-between items-center gap-2 py-1.5 border-b border-slate-800/70"><div><div class="font-bold text-white text-xs">'+c.lbl+'</div><div class="text-[10px] text-slate-400 mono">'+c.data+' · <span class="text-cyan-400">'+c.compNome+'</span></div></div><div class="text-right"><div class="font-black text-cyan-300">'+c.mer+'</div><div class="text-[10px] mono text-slate-400">@ '+c.q.toFixed(2)+(c.ref?' rif.':' equa')+' · '+Math.round(c.p*100)+'%</div></div></div>';
+  return '<div class="flex justify-between items-center gap-2 py-1.5 border-b border-slate-800/70"><div><div class="font-bold text-white text-xs">'+c.lbl+'</div><div class="text-[10px] text-slate-400 mono">'+c.data+' · <span class="text-cyan-400">'+c.compNome+'</span></div></div><div class="text-right"><div class="font-black text-cyan-300">'+c.mer+'</div><div class="text-[10px] mono text-slate-400">@ '+c.q.toFixed(2)+(c.tipo==='reale'?'':c.tipo==='derivata'?' da 1X2':' equa')+' · '+Math.round(c.p*100)+'%</div></div></div>';
 }
 
 function scheda(legs,etichetta){
   var q=1,p=1;legs.forEach(function(c){q*=c.q;p*=c.p});
   return '<div class="text-[10px] uppercase mono text-amber-300 mb-1 flex justify-between items-center"><span>'+etichetta+'</span><span class="text-[9px] text-slate-400 bg-slate-800 px-2 py-0.5 rounded-full mono">'+etichettaFinestra+'</span></div>'+legs.map(riga).join('')+
   '<div class="flex justify-between mt-2 mono"><span class="text-slate-400">Quota '+(legs.length>1?'combinata':'singola')+'</span><span class="font-black text-white">'+q.toFixed(2)+'</span></div>'+
-  '<div class="flex justify-between mono"><span class="text-slate-400">Prob. modello'+(legs.length>1?' (eventi indipendenti)':'')+'</span><span class="font-black text-white">'+Math.round(p*100)+'%</span></div>';
+  '<div class="flex justify-between mono"><span class="text-slate-400">Prob. modello'+(legs.length>1?' (eventi indipendenti)':'')+'</span><span class="font-black text-white">'+Math.round(p*100)+'%</span></div>'+
+  '<div class="mt-2 text-[10px] text-slate-500 leading-snug">'+(legs.every(function(c){return c.tipo==='reale'})?'Quote Bet365 reali.':'Quote Bet365 reali, tranne dove indicato: &laquo;da 1X2&raquo; = ricavata dalle quote 1X2 Bet365; &laquo;equa&raquo; = 1/probabilit\u00e0 del modello, non una quota Bet365 (controlla il prezzo prima di giocare).')+'</div>';
 }
 
-var nota='<div class="mt-2 text-[10px] text-slate-500 leading-snug">Quote Bet365 reali (prezzo di confronto, non Eurobet: controlla il prezzo prima di giocare). Nessuna garanzia di edge: giocata a scopo informativo.</div>';
+var nota='';   // la nota e' ora dentro scheda(): dipende dal tipo di quota delle righe
 var P1=coppie(1.55,1.70).map(function(o){return scheda(o,"Doppia")});
 var P2=coppie(1.80,2.00).slice(0,2).map(function(o){return scheda(o,"Tri-Bet · doppia")});
-var sing=C.filter(function(c){return c.q>=3.5}).sort(function(a,b){return b.p-a.p});var seenL={};
+var sing=C.filter(function(c){return c.q>=3.5}).sort(function(a,b){if(PESO_Q[a.tipo]!==PESO_Q[b.tipo])return PESO_Q[a.tipo]-PESO_Q[b.tipo];return b.p-a.p});var seenL={};
 sing=sing.filter(function(c){if(seenL[c.lbl])return false;seenL[c.lbl]=1;return true});
 if(sing[0])P2.push(scheda([sing[0]],"Tri-Bet · singola ≥ 3,50"));
 if(sing[1]&&P2.length<3)P2.push(scheda([sing[1]],"Tri-Bet · singola ≥ 3,50"));
 
 function ruota(i,P){
   var corpo=document.getElementById("corpo-combo-"+i),dots=document.getElementById("dots-combo-"+i);if(!corpo)return;
-  if(!P.length){corpo.innerHTML='<div class="text-slate-400">'+(isCoppaBlock?'Prossimo blocco: coppe europee, in modalit\u00e0 osservazione (modello non validato, puntata 0 \u20ac): nessuna combinazione proposta. Vedi le singole partite nel menu.':'Nessuna combinazione: servono quote reali Bet365 dentro il range per il prossimo evento ('+etichettaFinestra+').')+'</div>';return;}
+  if(!P.length){corpo.innerHTML='<div class="text-slate-400">'+(isCoppaBlock?'Prossimo blocco: coppe europee, in modalit\u00e0 osservazione (modello non validato, puntata 0 \u20ac): nessuna combinazione proposta. Vedi le singole partite nel menu.':'Nessuna combinazione nel range per il prossimo evento ('+etichettaFinestra+').')+'</div>';return;}
   var k=0,tm;function show(n){k=(n+P.length)%P.length;corpo.style.opacity=0;setTimeout(function(){corpo.innerHTML=P[k]+nota;corpo.style.opacity=1;},150);
    dots.innerHTML=P.map(function(_,j){return '<button data-j="'+j+'" style="width:8px;height:8px;border-radius:9999px;border:0;background:'+(j===k?'#22d3ee':'#475569')+'"></button>'}).join('');
    [].forEach.call(dots.querySelectorAll("button"),function(b){b.onclick=function(){clearInterval(tm);show(+b.getAttribute("data-j"));tm=setInterval(function(){show(k+1)},6000)}});}
