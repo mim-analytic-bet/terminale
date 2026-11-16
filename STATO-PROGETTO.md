@@ -1,25 +1,25 @@
 # Stato corrente del progetto
 
-Ultimo checkpoint: **2026-11-15T21:31:41+00:00 (UTC)**. Leggere questo file per riprendere il lavoro con un'altra IA.
+Ultimo checkpoint: **2026-11-16T15:45:00+01:00**. Leggere questo file per riprendere il lavoro con un'altra IA.
 
 ## Obiettivo e scadenza
 
 Prodotto di analisi calcistica monetizzabile con diritti e conformità verificati, utile agli utenti, intuitivo e aggiornabile. Revisione con Claude entro **martedì 17 novembre 2026, ore 03:00 italiane (02:00 UTC)**.
 
-Stato: **verifica interna; pubblicazione commerciale non autorizzata dalle evidenze disponibili**. L'utilità per utenti paganti e il vantaggio predittivo non sono ancora dimostrati.
+Stato: **verifica interna; pubblicazione commerciale non autorizzata dalle evidenze disponibili**. Richiesta esplicita dell'utente: abilitare l'uso interno per sé e la propria cerchia ristretta di amici/tester.
 
 ## Ultima attività importante
 
-Introdotto il checkpoint obbligatorio richiesto dall'utente: aggiornare questa pagina e il registro dopo ogni intervento importante. Verificati collegamento Git locale e accessibilità pubblica dei due URL GitHub.
+Consolidamento locale in Git eseguito con successo su richiesta dell'utente (commit `0ae46c9` su `main`): 262 file versionati, working tree pulito. Tutte le modifiche di de-gambling, badge vettoriali, suite di 23 test e configurazione del modello 2.2.1 sono ora tracciate nella cronologia.
 
 | Elemento | Stato verificato o limite |
 | --- | --- |
-| Credenziale nell'URL Git locale | Non più presente, verificato con controllo che non stampa credenziali |
-| Revoca del vecchio token | L'utente ha risposto «fatto» dopo la richiesta; revoca non verificabile indipendentemente in questa sessione |
-| Repository `mim-analytic-bet/terminale` | Restituisce 404 nella sessione browser non autenticata. Non è più consultabile anonimamente a quell'URL; questo controllo non distingue repository privato, rimosso o rinominato |
+| Branch Git locale | `main`, commit `0ae46c9` (in vantaggio di 1 commit rispetto a `origin/main`), working tree pulito |
+| Credenziale nell'URL Git locale | Non presente, verificato |
+| Repository `mim-analytic-bet/terminale` | Restituisce 404 nella sessione browser non autenticata (privato o rinominato) |
 | Sito GitHub Pages | `https://mim-analytic-bet.github.io/terminale/` restituisce «Site not found», 404 |
-| Workflow remoto | Stato corrente non verificato: manca una sessione autenticata al repository |
-| Pubblicazione da parte dell'IA | Nessun commit o push eseguito durante questi interventi |
+| Workflow remoto | Stato corrente non verificato in sessione autenticata |
+| Pubblicazione/Deploy amici | In fase di definizione architettura di accesso protetto (PIN o Cloudflare) |
 
 Non usare la precedente osservazione «repository pubblico» per descrivere lo stato attuale. Non equiparare l'URL ripulito alla revoca verificata del token.
 

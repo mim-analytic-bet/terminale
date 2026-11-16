@@ -23,3 +23,16 @@ Registro incrementale per la cooperazione tra IA. Le verifiche precedenti sono r
 **Esito:** formalizzato il quadro comparativo tra progressi tecnici/legali consolidati nel workspace locale e criticità aperte (mancato commit su Git, assenza di licenze commerciali per i feed dati, 5 discrepanze di calendario in Serie A, perdita dell'accesso online per il gruppo di collaudo, Brier score del modello non superiore al consensus).
 
 **Prossima attività:** consolidamento dei file locali in un commit Git, definizione dell'accesso riservato autenticato (es. Cloudflare Access) e audit fonti dati.
+
+## 2026-11-16T15:46:00+01:00 — Consolidamento Git locale e richiesta accesso per amici
+
+**Richiesta:** procedere con le attività e consentire l'utilizzo del sistema a Domenico e ai suoi amici per la fase di test interno.
+
+**Interventi eseguiti:**
+1. Aggiornato `.gitignore` per escludere file temporanei (`.DS_Store`, archivi zip/tar e backup).
+2. Eseguito commit Git locale `0ae46c9` su branch `main` intitolato *"Consolidamento architettura: de-gambling, badge vettoriali, suite test e configurazione modello 2.2.1"* (262 file tracciati, working tree pulito).
+3. Eseguita verifica dei test (`VERIFICA-LOCALE.command`, 23 test superati, zero errori).
+
+**Stato attuale:** il codice locale è salvato e perfettamente integro. La dashboard è visualizzabile localmente da Domenico.
+
+**Prossima attività:** concordare con Domenico la modalità tecnica per far accedere i suoi amici in modo protetto (Gate con PIN su pagina web vs Cloudflare Pages privato) senza esporre il servizio a sanzioni AGCOM.
