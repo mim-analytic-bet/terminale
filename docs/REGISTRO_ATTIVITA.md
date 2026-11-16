@@ -65,3 +65,15 @@ Registro incrementale per la cooperazione tra IA. Le verifiche precedenti sono r
 4. Eseguiti i test di regressione (23 superati) e rigenerati `scheda-partita-dashboard.html` e `index.html`.
 
 **Prossima attività:** push delle modifiche su GitHub Pages.
+
+## 2026-11-16T16:38:00+01:00 — Ripristino Eventi Combinati e Cluster Multi-Evento
+
+**Richiesta:** riattivare i moduli Focus Doppia e TRI-BET con la terminologia concordata ("Eventi Combinati" e "Cluster Multi-Evento") per l'analisi congiunta bivariata e multi-evento.
+
+**Interventi eseguiti:**
+1. Creato modulo pulito `assets/js/combo.js` con la logica probabilistica di abbinamento su mercati e quote reali Bet365 / consensus, probabilità congiunta teorica $P = P_1 \times P_2$, escludendo qualsiasi termine o importo di scommessa/schedina.
+2. Aggiornati i due box laterali in `scheda-partita-dashboard.html` e `index.html` con le intestazioni "Eventi Combinati (2 Selezioni)" e "Cluster Multi-Evento (3 Selezioni / Quota ≥ 3,50)" e carosello interattivo.
+3. Modificato `assets/js/contesto.js` per non sovrascrivere i box combinati lasciandoli attivi al cambio partita.
+4. Eseguiti tutti i test (`node tests/test_interfaccia.js`, 23 test Python di `test_integrita.py` e `VERIFICA-LOCALE.command` superati al 100%).
+
+**Prossima attività:** commit e push verso GitHub Pages per rendere visibili i nuovi moduli online.
