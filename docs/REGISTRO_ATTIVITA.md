@@ -53,3 +53,15 @@ Registro incrementale per la cooperazione tra IA. Le verifiche precedenti sono r
 **Verifica eseguita:** GitHub Pages ha completato il build (durata 31s, commit `47dbe54`). Richiesta HTTP verso `https://mim-analytic-bet.github.io/terminale/` ha restituito codice di stato **HTTP/2 200 OK** con contenuto HTML valido (2.74 MB).
 
 **Stato attuale:** il terminale è ora accessibile online e pronto per la consultazione e il collaudo da parte di Domenico e dei suoi amici da smartphone, tablet o desktop.
+
+## 2026-11-16T16:25:00+01:00 — Ripristino sfumature e colori sociali ufficiali
+
+**Richiesta:** ripristinare le sfumature con i colori sociali dei club sullo sfondo delle schede partita, che erano state erroneamente appiattite su un colore neutro dall'altra IA.
+
+**Interventi eseguiti:**
+1. Modificato `scripts/aggiorna_dashboard.py` per caricare il database `dati/colori_squadre.json` (153 club) e valorizzare `COLORI`.
+2. Ripristinato il gradiente `bgGradient` dinamico con i codici colore ufficiali di casa e trasferta per tutti i 167 incontri.
+3. Arricchiti i badge SVG vettoriali con l'accento cromatico del club.
+4. Eseguiti i test di regressione (23 superati) e rigenerati `scheda-partita-dashboard.html` e `index.html`.
+
+**Prossima attività:** push delle modifiche su GitHub Pages.

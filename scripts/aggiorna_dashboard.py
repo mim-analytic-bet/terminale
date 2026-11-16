@@ -423,20 +423,22 @@ def _slug(n):
 
 
 def _distintivo(nome):
-    """Identificatore grafico originale, neutro: nessuno stemma o colore ufficiale."""
+    """Identificatore grafico originale con accento cromatico dei colori sociali."""
     digest = hashlib.sha256(nome.encode("utf-8")).hexdigest()[:16]
     rel = f"./assets/badges/qt_{digest}.svg"
     dest = os.path.join(BASE, rel.lstrip("./"))
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     iniziali = escape(sigla(nome))
+    col = COLORI.get(nome, NEUTRO) if "COLORI" in globals() else NEUTRO
+    accento = col[0] if col and len(col) > 0 and col[0].lower() not in ("#ffffff", "#000000") else (col[1] if len(col) > 1 and col[1].lower() not in ("#ffffff", "#000000") else "#22d3ee")
     svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img">'
            f'<title>Identificatore testuale: {escape(nome)}</title>'
            '<rect x="3" y="3" width="122" height="122" rx="30" fill="#0f172a" stroke="#475569" stroke-width="3"/>'
-           '<path d="M25 96h78" stroke="#22d3ee" stroke-width="4" stroke-linecap="round"/>'
+           f'<path d="M25 96h78" stroke="{accento}" stroke-width="4" stroke-linecap="round"/>'
            f'<text x="64" y="74" text-anchor="middle" fill="#e2e8f0" font-family="sans-serif" font-weight="700" font-size="35">{iniziali}</text></svg>')
     with open(dest, "w", encoding="utf-8") as f:
         f.write(svg)
-    return rel, ["#164e63", "#334155"]
+    return rel, col
 
 
 def assicura_stemmi(pro, loghi, avvisi):
@@ -546,10 +548,15 @@ def main():
     bk = HTML.replace(".html", ".BACKUP-prima-aggiornamento.html")
     if not os.path.exists(bk): shutil.copy(HTML, bk)
     global COLORI
+    cp = os.path.join(BASE, "dati", "colori_squadre.json")
+    try:
+        colori_archivio = {k: v["colori"] for k, v in json.load(open(cp, encoding="utf-8")).items()}
+    except Exception:
+        colori_archivio = {}
     la, lb, loghi = parsa_blocco(s, "LOGHI_SQUADRE")
+    COLORI = {**colori_archivio, **{n: colori_archivio.get(n, NEUTRO) for n in loghi}}
     loghi = {n: _distintivo(n)[0] for n in loghi}
     s = s[:la] + json.dumps(loghi, ensure_ascii=False, indent=2) + s[lb:]
-    COLORI = {n: ["#164e63", "#334155"] for n in loghi}
     a, b, pro = parsa_blocco(s, "DATA_PRO")
     nuove_forme, rapporto, avvisi, dati_fino = {}, [], [], {}
     previsioni, archivi, track = [], {}, {"leghe": {}}

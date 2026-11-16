@@ -1,5 +1,5 @@
 {
-  "verificato_utc": "2026-11-16T14:59:43+00:00",
+  "verificato_utc": "2026-11-16T15:25:10+00:00",
   "stato": "verifica_interna",
   "errori_tecnici": [],
   "config_id": "baseline-effettiva-2026-11-15-v1",
@@ -148,12 +148,12 @@
     "stemmi_terzi: piano e autorizzazione non documentati"
   ],
   "sha256_registri": {
-    "dati/storico_live.csv": "98cf3341c1c7badcc169dad0c35b1bc7f7af429fae8d7a4e8efa5cb935a1ff4c",
+    "dati/storico_live.csv": "77a8f956baaf5b1ad942c148d8f0c99d636374ec8a828b5874f140e370ae2380",
     "dati/memoria_modello.json": "45b47c9f85f78f06d4c0bbc07b43f1704441293b55c68028e2290de7f6ddd8f1",
-    "dati/coppe/previsioni_CL.csv": "d549eea5af0d1d3379f4c2d98bdbdfab3bc4b775b6239ee76798ca1e5c988791",
-    "dati/coppe/previsioni_EL.csv": "4619c4c1a1f4b3ea7291ebd4119cd8ea537469e35d0abee7036126531b172219",
-    "dati/coppe/memoria_coppe.json": "a5d5dd34d3bdb1ac3985f322985553dcae82f80df3bae8aea4904e5f5a7e7e98",
-    "dati/coppe/memoria_coppe_EL.json": "a5d5dd34d3bdb1ac3985f322985553dcae82f80df3bae8aea4904e5f5a7e7e98",
+    "dati/coppe/previsioni_CL.csv": "57389a8dfde4d3496a5da523888b426b70968a5d3273d492f9453adccf7752e6",
+    "dati/coppe/previsioni_EL.csv": "32c9b23fbcee07f56b8154f26ca7b25942235a2c65a244ef84e76f3c75e3c4c3",
+    "dati/coppe/memoria_coppe.json": "9b6cb23ac332762d4c349eb34116fd47e89f9d815f7829986ece9361d20a8d8e",
+    "dati/coppe/memoria_coppe_EL.json": "9b6cb23ac332762d4c349eb34116fd47e89f9d815f7829986ece9361d20a8d8e",
     "storico-pronostici.csv": "f121c502baf462291f6e47bcee340c8e9891df7f5f680a6cf0959e4601fe3ed5"
   },
   "nota": "I controlli tecnici non provano autenticità dei risultati, calendario ufficiale, autorizzazioni o validità predittiva."
