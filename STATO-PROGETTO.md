@@ -14,12 +14,11 @@ Consolidamento locale in Git eseguito con successo su richiesta dell'utente (com
 
 | Elemento | Stato verificato o limite |
 | --- | --- |
-| Branch Git locale | `main`, commit `0ae46c9` (in vantaggio di 1 commit rispetto a `origin/main`), working tree pulito |
+| Branch Git locale | `main`, commit `e0c20d7` in perfetto sync con `origin/main` |
 | Credenziale nell'URL Git locale | Non presente, verificato |
-| Repository `mim-analytic-bet/terminale` | Restituisce 404 nella sessione browser non autenticata (privato o rinominato) |
-| Sito GitHub Pages | `https://mim-analytic-bet.github.io/terminale/` restituisce «Site not found», 404 |
-| Workflow remoto | Stato corrente non verificato in sessione autenticata |
-| Pubblicazione/Deploy amici | In fase di definizione architettura di accesso protetto (PIN o Cloudflare) |
+| Repository `mim-analytic-bet/terminale` | Reso **Pubblico** su GitHub dall'utente il 16/11/2026 |
+| Push verso remoto | Eseguito con successo (commit `e0c20d7` su `origin/main`) |
+| Sito GitHub Pages | `https://mim-analytic-bet.github.io/terminale/` (in attesa di conferma ramo `main` su Settings > Pages) |
 
 Non usare la precedente osservazione «repository pubblico» per descrivere lo stato attuale. Non equiparare l'URL ripulito alla revoca verificata del token.
 
