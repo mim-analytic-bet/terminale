@@ -3,3 +3,9 @@ dati/launchd.err
 __pycache__/
 *.pyc
 scheda-partita-dashboard.BACKUP-*.html
+.DS_Store
+*.zip
+*.tgz
+*.skill
+*.BACKUP-*
+analisi-scommesse-calcio-workspace/

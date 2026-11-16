@@ -1,0 +1,160 @@
+{
+  "verificato_utc": "2026-11-16T14:41:25+00:00",
+  "stato": "verifica_interna",
+  "errori_tecnici": [],
+  "config_id": "baseline-effettiva-2026-11-15-v1",
+  "versione_modello": "2.2.1",
+  "anteprima": true,
+  "competizioni": {
+    "serie-a": {
+      "partite": 20,
+      "con_quote": 0,
+      "turni": [
+        "12",
+        "13"
+      ]
+    },
+    "premier": {
+      "partite": 20,
+      "con_quote": 0,
+      "turni": [
+        "11",
+        "12"
+      ]
+    },
+    "liga": {
+      "partite": 10,
+      "con_quote": 0,
+      "turni": [
+        "14"
+      ]
+    },
+    "bundesliga": {
+      "partite": 9,
+      "con_quote": 0,
+      "turni": [
+        "11"
+      ]
+    },
+    "ligue1": {
+      "partite": 18,
+      "con_quote": 0,
+      "turni": [
+        "11",
+        "12"
+      ]
+    },
+    "champions": {
+      "partite": 72,
+      "con_quote": 0,
+      "turni": [
+        "5",
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    "europa": {
+      "partite": 18,
+      "con_quote": 0,
+      "turni": [
+        "1"
+      ]
+    }
+  },
+  "partite_totali": 167,
+  "dati_fino": {
+    "serie-a": "2026-11-08",
+    "premier": "2026-11-08",
+    "liga": "2026-11-08",
+    "bundesliga": "2026-11-08",
+    "ligue1": "2026-11-08"
+  },
+  "avvisi": [
+    "Versione di verifica interna: diritti delle fonti e calendario ufficiale da verificare; condivisione e vendita non abilitate.",
+    "Premier League (Inghilterra): 11ª Giornata ha date da verificare",
+    "Premier League (Inghilterra): 12ª Giornata ha partite con giorno/orario da confermare",
+    "Premier League (Inghilterra): 12ª Giornata ha date da verificare",
+    "LaLiga (Spagna): 13ª Giornata esclusa per conflitto nel calendario: Data/orario non valido: Vallecano / Valencia; Data/orario non valido: Ath Bilbao / Espanol; Data/orario non valido: Barcelona / Villarreal; Data/orario non valido: Osasuna / Malaga; Data/orario non valido: Alaves / La Coruna; Data/orario non valido: Santander / Sociedad",
+    "LaLiga (Spagna): 14ª Giornata ha partite con giorno/orario da confermare",
+    "LaLiga (Spagna): 14ª Giornata ha date da verificare",
+    "Bundesliga (Germania): 10ª Giornata esclusa per conflitto nel calendario: Data/orario non valido: M'gladbach / Dortmund; Data/orario non valido: Schalke 04 / Stuttgart; Data/orario non valido: Hoffenheim / Ein Frankfurt; Data/orario non valido: Mainz / Augsburg; Club ripetuti nello stesso turno: Augsburg, Ein Frankfurt, Hoffenheim, Mainz"
+  ],
+  "backtest_solo_dati": {
+    "n": 211,
+    "brier_modello": 0.5764,
+    "hit_1x2": 53.6,
+    "brier_mercato": 0.5337,
+    "brier_modello_su_stesse": 0.5764,
+    "n_mercato": 211,
+    "calibrazione": [
+      {
+        "fascia": "0-20%",
+        "n": 79,
+        "previsto": 14.4,
+        "reale": 13.9
+      },
+      {
+        "fascia": "20-35%",
+        "n": 334,
+        "previsto": 27.1,
+        "reale": 25.1
+      },
+      {
+        "fascia": "35-50%",
+        "n": 230,
+        "previsto": 42.8,
+        "reale": 41.7
+      },
+      {
+        "fascia": "50-65%",
+        "n": 275,
+        "previsto": 57.4,
+        "reale": 57.1
+      },
+      {
+        "fascia": "65-80%",
+        "n": 132,
+        "previsto": 70.4,
+        "reale": 63.6
+      },
+      {
+        "fascia": "80-100%",
+        "n": 5,
+        "previsto": 83.7,
+        "reale": 80.0
+      }
+    ],
+    "value_giocate": 258,
+    "value_roi": -26.3
+  },
+  "registro_live": {
+    "registrate": 58,
+    "valutate": 0,
+    "senza_prova_temporale": 58
+  },
+  "impedimenti_condivisione": [
+    "football_data_uk: piano e autorizzazione non documentati",
+    "football_data_org: piano e autorizzazione non documentati",
+    "api_ninjas: piano e autorizzazione non documentati",
+    "openfootball: piano e autorizzazione non documentati",
+    "stemmi_terzi: piano e autorizzazione non documentati"
+  ],
+  "impedimenti_commerciali": [
+    "football_data_uk: piano e autorizzazione non documentati",
+    "football_data_org: piano e autorizzazione non documentati",
+    "api_ninjas: piano e autorizzazione non documentati",
+    "openfootball: piano e autorizzazione non documentati",
+    "stemmi_terzi: piano e autorizzazione non documentati"
+  ],
+  "sha256_registri": {
+    "dati/storico_live.csv": "98cf3341c1c7badcc169dad0c35b1bc7f7af429fae8d7a4e8efa5cb935a1ff4c",
+    "dati/memoria_modello.json": "45b47c9f85f78f06d4c0bbc07b43f1704441293b55c68028e2290de7f6ddd8f1",
+    "dati/coppe/previsioni_CL.csv": "d549eea5af0d1d3379f4c2d98bdbdfab3bc4b775b6239ee76798ca1e5c988791",
+    "dati/coppe/previsioni_EL.csv": "4619c4c1a1f4b3ea7291ebd4119cd8ea537469e35d0abee7036126531b172219",
+    "dati/coppe/memoria_coppe.json": "a5d5dd34d3bdb1ac3985f322985553dcae82f80df3bae8aea4904e5f5a7e7e98",
+    "dati/coppe/memoria_coppe_EL.json": "a5d5dd34d3bdb1ac3985f322985553dcae82f80df3bae8aea4904e5f5a7e7e98",
+    "storico-pronostici.csv": "f121c502baf462291f6e47bcee340c8e9891df7f5f680a6cf0959e4601fe3ed5"
+  },
+  "nota": "I controlli tecnici non provano autenticità dei risultati, calendario ufficiale, autorizzazioni o validità predittiva."
+}

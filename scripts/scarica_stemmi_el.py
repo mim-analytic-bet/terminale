@@ -76,6 +76,10 @@ def scarica_file(url, dest_path):
         return len(dati)
 
 def main():
+    from verifica_fonti import impedimenti, DEFAULT
+    problemi = impedimenti(json.loads(DEFAULT.read_text()), "download", ["stemmi_terzi"])
+    if problemi:
+        raise SystemExit("BLOCCO FONTI: " + "; ".join(problemi))
     print(f"=== Scarico stemmi ufficiali Europa League ({len(MAPPATURA)} squadre) ===")
     ok = 0
     for slug, wiki_page in MAPPATURA.items():

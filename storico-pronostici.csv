@@ -1,0 +1,14 @@
+data;campionato;giornata;partita;posizione;mercato;esito;quota;quota_chiusura;tipo_quota;prob_stimata;prob_mercato;valore;versione_modello;risultato_finale;risultato;puntata;profitto
+2026-11-21;Serie A;12;Como - Cagliari;SICURA;1X2;1;1,33;;comparatore;69,3;72,4;-7,8;2.1;;;;
+2026-11-21;Serie A;12;Lazio - Lecce;SICURA;Under/Over 4,5;Under 4,5;;;da quotare;75,7;;;2.1;;;;
+2026-11-21;Serie A;12;Parma - Roma;SICURA;1X2;2;1,32;;comparatore;73,2;72,8;-3,4;2.1;;;;
+2026-11-21;Serie A;12;Napoli - Torino;SICURA;Chance mix;1 oppure Over 2,5;;;da quotare;79,3;;;2.1;;;;
+2026-11-22;Serie A;12;Juventus - Venezia;SICURA;Under/Over 4,5;Under 4,5;;;da quotare;77,5;;;2.1;;;;
+2026-11-22;Serie A;12;Bologna - Udinese;SICURA;Under/Over 1,5;Over 1,5;;;da quotare;78,0;;;2.1;;;;
+2026-11-22;Serie A;12;Sassuolo - Genoa;SICURA;Under/Over 1,5;Over 1,5;;;da quotare;74,7;;;2.1;;;;
+2026-11-22;Serie A;12;Milan - Frosinone;SICURA;Doppia chance;12;;;da quotare;79,3;;;2.1;;;;
+2026-11-22;Serie A;12;Atalanta - Inter;SICURA;Doppia chance;12;;;da quotare;79,1;;;2.1;;;;
+2026-11-23;Serie A;12;Monza - Fiorentina;SICURA;Under/Over 4,5;Under 4,5;;;da quotare;79,1;;;2.1;;;;
+2026-11-22;Serie A;12;Milan - Frosinone;EXTRA;GG 1T + GG 2T;Sì;;;da quotare;10,8;;;2.1;;;;
+2026-11-22;Serie A;12;Atalanta - Inter;EXTRA;GG 1T + GG 2T;Sì;;;da quotare;9,4;;;2.1;;;;
+2026-11-23;Serie A;12;Monza - Fiorentina;EXTRA;GG 1T + GG 2T;Sì;;;da quotare;7,0;;;2.1;;;;

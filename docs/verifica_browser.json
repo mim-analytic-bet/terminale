@@ -1,0 +1,30 @@
+{
+  "verificato_utc": "2026-11-15T21:17:51+00:00",
+  "modalita": "osservazioni dell’anteprima locale nel browser",
+  "pagina_sha256": "050941e332f0e376eedf27c9a262b3ca25732d666b16b3f63aa0e730f2a78b31",
+  "competizioni_verificate": [
+    "serie-a",
+    "premier",
+    "liga",
+    "bundesliga",
+    "ligue1",
+    "champions",
+    "europa"
+  ],
+  "viewport_verificati": [
+    {
+      "larghezza": 390,
+      "scroll_pagina": 390
+    },
+    {
+      "larghezza": 1280,
+      "scroll_pagina": 1280
+    }
+  ],
+  "immagini_non_caricate": 0,
+  "nuovi_errori_javascript_osservati": 0,
+  "selezione_da_tastiera_verificata": true,
+  "grafico_e_lettura_indipendenti": true,
+  "avviso_backtest_europa_league_verificato": true,
+  "nota": "Verifica circoscritta alle interazioni descritte, non audit completo di accessibilità, sicurezza, conformità o validità dei dati."
+}

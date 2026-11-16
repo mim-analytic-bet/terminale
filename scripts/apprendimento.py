@@ -68,6 +68,6 @@ def ricalibra(r, d, w):
         p = mod.prob(g, n)
         if p < 0.05: continue
         qe = 1 / p; s = mod.soglia_valore(qe)
-        dq.append({"mercato": n, "prob_modello": p, "quota_equa": qe, "quota_minima": (1 + s) / p})
+        dq.append({"mercato": n, "prob_modello": p, "quota_equa": qe, "quota_minima": mod.quota_minima(p)})
     r["da_quotare"] = dq
     return r

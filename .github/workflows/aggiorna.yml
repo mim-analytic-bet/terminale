@@ -1,10 +1,12 @@
 name: Aggiorna dashboard
 on:
-  schedule:
-    - cron: "0 7 * * *"
-    - cron: "0 13 * * *"
-    - cron: "30 22 * * *"
+  # Cadenza sospesa durante la verifica delle licenze: nessun nuovo download periodico.
   workflow_dispatch:
+    inputs:
+      pubblica:
+        description: "Pubblica solo con autorizzazioni documentate per la condivisione"
+        type: boolean
+        default: false
 permissions:
   contents: write
 concurrency:
@@ -18,7 +20,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install numpy pillow
+      - name: Verifica autorizzazioni prima della rete
+        run: python3 scripts/verifica_fonti.py --operazione download
       - name: Scarica dati e rigenera
         env:
           FOOTBALL_DATA_KEY: ${{ secrets.FOOTBALL_DATA_KEY }}
@@ -28,10 +31,12 @@ jobs:
         run: |
           if tail -40 dati/aggiornamento.log | grep -q "FALLITO"; then echo "::warning::Alcuni download non sono riusciti (vedi dati/aggiornamento.log)"; fi
       - name: Pubblica
+        if: ${{ inputs.pubblica }}
         run: |
+          python3 scripts/verifica_fonti.py --operazione condivisione
           cp scheda-partita-dashboard.html index.html
           git config user.name "aggiornamento-automatico"
           git config user.email "actions@users.noreply.github.com"
-          git add -A
+          git add -- index.html scheda-partita-dashboard.html dati/ assets/js/ assets/css/ assets/badges/
           git diff --cached --quiet || git commit -m "Aggiornamento automatico $(date -u +%Y-%m-%dT%H:%MZ)"
           git push

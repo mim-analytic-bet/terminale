@@ -16,7 +16,7 @@ import re
 import sys
 
 # ---------------------------------------------------------------- PARAMETRI
-VERSIONE_MODELLO = "2.2"
+VERSIONE_MODELLO = "2.2.1"
 K_SHRINK = 3            # peso, in partite, della media di campionato
 K_SHRINK_SEDE = 6       # come sopra, solo se mancano i dati totali e si usano quelli per sede
 PESO_XG = 0.6           # se ci sono xG: 60% xG + 40% gol reali
@@ -48,6 +48,16 @@ def soglia_valore(q):
     if q <= 5.0:
         return 0.05
     return 0.08
+
+
+def quota_minima(probabilita):
+    """Prezzo teorico sui centesimi, arrotondato per eccesso e coerente tra fasce."""
+    if not math.isfinite(probabilita) or not 0 < probabilita <= 1:
+        raise ValueError("La probabilità deve essere finita e compresa tra 0 e 1.")
+    for limite, soglia in ((2.50, 0.03), (5.0, 0.05), (math.inf, 0.08)):
+        prezzo = (1 + soglia) / probabilita
+        if prezzo <= limite:
+            return math.ceil(prezzo * 100 - 1e-9) / 100
 
 
 # ---------------------------------------------------------------- MODELLO
@@ -315,6 +325,7 @@ def analizza(d):
     pm_rif = prob_mercato(rif) if rif else {}
     pm_ancora = pm_rif if all(k in pm_rif for k in ("1", "x", "2")) else pm
     ancora_ok = (pm_ancora is pm_rif and pm_rif) or quota_reale
+    ancora_completa = bool(ancora_ok and all(k in pm_ancora for k in ("1", "x", "2")))
 
     # Stima finale: se ci sono le quote 1X2 reali, i gol attesi sono una media fissa
     # (in scala logaritmica) tra quelli dei dati (peso PESO_DATI) e quelli impliciti
@@ -322,7 +333,7 @@ def analizza(d):
     # (rosa, storico, assenze note); i dati servono a trovare dove il mercato sbaglia.
     disaccordo_1x2 = None
     lambda_mkt = None
-    if ancora_ok and all(k in pm_ancora for k in ("1", "x", "2")):
+    if ancora_completa:
         pm_a = pm_ancora
         lambda_mkt = lambda_mercato(pm_a)
         dev = {k: base_dati[k.upper()] - pm_a[k][0] for k in ("1", "x", "2")}
@@ -364,6 +375,8 @@ def analizza(d):
             stato = "SENZA QUOTA REALE"
         elif not dati_ok:
             stato = "DATI INSUFFICIENTI"
+        elif not ancora_completa:
+            stato = "SENZA RIFERIMENTO 1X2 REALE"
         elif speciale and not t["dati_per_tempo_reali"]:
             stato = "DATI PER TEMPO MANCANTI"
         elif disaccordo_1x2:
@@ -377,14 +390,15 @@ def analizza(d):
         # Valore di prezzo: la quota Eurobet contro la probabilità del consenso
         p_r = pm_rif.get(norm(nome), (None, None))[0]
         valore_prezzo = p_r * q - 1 if p_r else None
-        if quota_reale and p_r and valore_prezzo >= soglia and abs(p - p_r) <= SOGLIA_ANOMALIA \
-                and not (speciale and not t["dati_per_tempo_reali"]) and (disaccordo_1x2 or valore >= 0):
+        if quota_reale and dati_ok and ancora_completa and not disaccordo_1x2 \
+                and not anomalia and p_r and valore_prezzo >= soglia and valore >= 0 \
+                and not (speciale and not t["dati_per_tempo_reali"]):
             stato = "GIOCABILE (modello e prezzo)" if stato == "GIOCABILE" else "GIOCABILE (prezzo)"
         elif stato == "GIOCABILE":
             stato = "GIOCABILE (modello)"
         valutazioni.append({
             "mercato": nome, "quota": q, "prob_modello": p, "prob_mercato": p_m, "metodo_margine": metodo,
-            "valore": valore, "soglia": soglia, "quota_minima": (1 + soglia) / p if p > 0 else None,
+            "valore": valore, "soglia": soglia, "quota_minima": quota_minima(p) if p > 0 else None,
             "scarto": scarto, "stato": stato, "prob_riferimento": p_r, "valore_prezzo": valore_prezzo,
             "quota_equa_riferimento": 1 / p_r if p_r else None,
         })
@@ -414,7 +428,7 @@ def analizza(d):
             continue
         q_eq = 1 / p
         s = soglia_valore(q_eq)
-        da_quotare.append({"mercato": n, "prob_modello": p, "quota_equa": q_eq, "quota_minima": (1 + s) / p})
+        da_quotare.append({"mercato": n, "prob_modello": p, "quota_equa": q_eq, "quota_minima": quota_minima(p)})
 
     return {
         "versione_modello": VERSIONE_MODELLO, "partita": d.get("partita", ""),

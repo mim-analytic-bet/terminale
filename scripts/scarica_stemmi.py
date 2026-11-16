@@ -65,6 +65,10 @@ def main():
         print(f"AVVISO scarica_stemmi_el: {e_el}")
 
 
+from verifica_fonti import impedimenti, DEFAULT
+problemi = impedimenti(json.loads(DEFAULT.read_text()), "download", ["stemmi_terzi"])
+if problemi:
+    raise SystemExit("BLOCCO FONTI: " + "; ".join(problemi))
 try: main()
 except Exception as e: print("AVVISO stemmi: errore generale:", e)
 sys.exit(0)

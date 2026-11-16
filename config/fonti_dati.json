@@ -1,0 +1,48 @@
+{
+  "versione": 1,
+  "verifica_pubblica_il": "2026-11-15",
+  "stato_progetto": "verifica_interna",
+  "nota": "Le condizioni pubbliche non dimostrano il piano acquistato o l'autorizzazione del prodotto concreto. I permessi restano bloccati fino alla documentazione; non è un certificato legale.",
+  "fonti": {
+    "football_data_uk": {
+      "nome": "Football-data.co.uk",
+      "termini": "https://football-data.co.uk/contact.php",
+      "piano_verificato": false,
+      "rilievo": "Policy personale/accademica; massimo due download automatici settimanali; uso commerciale non autorizzato dalla policy esaminata.",
+      "permessi": {"download": false, "condivisione": false, "commerciale": false, "addestramento": false},
+      "evidenze": []
+    },
+    "football_data_org": {
+      "nome": "Football-data.org",
+      "termini": "https://www.football-data.org/about",
+      "piano_verificato": false,
+      "rilievo": "Verificare piano/applicazione, attribuzione e conservazione. I diritti sugli stemmi sono separati; non si presume un divieto generale di commercio per tutti i piani gratuiti.",
+      "permessi": {"download": false, "condivisione": false, "commerciale": false, "addestramento": false},
+      "evidenze": []
+    },
+    "api_ninjas": {
+      "nome": "API Ninjas",
+      "termini": "https://api-ninjas.com/tos",
+      "piano_verificato": false,
+      "rilievo": "Il piano Free vieta uso commerciale e condivisione dell'output con terzi. Il piano effettivo e gli usi ammessi non sono verificati.",
+      "permessi": {"download": false, "condivisione": false, "commerciale": false, "addestramento": false},
+      "evidenze": []
+    },
+    "openfootball": {
+      "nome": "Openfootball",
+      "termini": "https://github.com/openfootball",
+      "piano_verificato": false,
+      "rilievo": "Il codice dichiara CC0: documentare i repository esatti, la licenza e i contenuti effettivamente usati.",
+      "permessi": {"download": false, "condivisione": false, "commerciale": false, "addestramento": false},
+      "evidenze": []
+    },
+    "stemmi_terzi": {
+      "nome": "Stemmi dei club e risorse grafiche di terzi",
+      "termini": "https://www.football-data.org/about",
+      "piano_verificato": false,
+      "rilievo": "Nessun fascicolo di permessi verificato. I downloader usano football-data.org e Wikipedia; serve una verifica separata delle singole risorse.",
+      "permessi": {"download": false, "condivisione": false, "commerciale": false, "addestramento": false},
+      "evidenze": []
+    }
+  }
+}

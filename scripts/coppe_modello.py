@@ -12,9 +12,10 @@ MAXG = 10
 
 def leggi_storico(path=STORICO):
     out = []
-    for r in csv.DictReader(open(path, encoding="utf-8")):
-        out.append({"data": dt.date.fromisoformat(r["data"]), "comp": r["comp"], "casa": r["casa"], "ospite": r["ospite"],
-                    "gc": int(r["gc"]), "go": int(r["go"]), "neutro": int(r.get("neutro") or 0)})
+    with open(path, encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            out.append({"data": dt.date.fromisoformat(r["data"]), "comp": r["comp"], "casa": r["casa"], "ospite": r["ospite"],
+                        "gc": int(r["gc"]), "go": int(r["go"]), "neutro": int(r.get("neutro") or 0)})
     out.sort(key=lambda m: m["data"])
     return out
 

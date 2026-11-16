@@ -74,31 +74,50 @@ def riepilogo(righe):
 
 # ---------- registro live ----------
 CAMPI = ["lega", "casa", "ospite", "giorno", "registrata", "versione", "lh", "la", "mc", "mt", "p1", "pX", "p2", "pOver25", "pGol",
-         "q1", "qX", "q2", "qOver25", "gc", "go", "stato"]
+         "q1", "qX", "q2", "qOver25", "gc", "go", "stato", "inizio_utc", "config_id", "schema"]
+
+def prova_temporale(r):
+    """Prova dell'ordine temporale registrato, non dell'autenticità del calendario."""
+    try:
+        registrata = dt.datetime.fromisoformat(r["registrata"])
+        inizio = dt.datetime.fromisoformat(r["inizio_utc"])
+        return bool(r.get("config_id")) and registrata.tzinfo is not None and inizio.tzinfo is not None and registrata < inizio
+    except (ValueError, TypeError, KeyError):
+        return False
 
 def leggi_log(path):
     if not os.path.exists(path): return []
-    return list(csv.DictReader(open(path, encoding="utf-8")))
+    with open(path, encoding="utf-8") as f:
+        return list(csv.DictReader(f))
 
-def aggiorna_live(path, previsioni, archivi):
+def aggiorna_live(path, previsioni, archivi, config_id=None, adesso=None):
     """previsioni: lista dict (lega, casa, ospite, giorno, p1.., q..); archivi: {lega: partite CSV}."""
-    log = leggi_log(path); chiavi = {(r["lega"], r["casa"], r["ospite"]) for r in log}
-    oggi = dt.date.today().isoformat()
+    log = leggi_log(path); chiavi = {(r["lega"], r["casa"], r["ospite"], r["giorno"]) for r in log}
+    adesso = adesso or dt.datetime.now(dt.timezone.utc)
+    if adesso.tzinfo is None: raise ValueError("L'orario del registro deve avere un fuso")
+    config_id = config_id or __import__("configurazione_modello").carica()["id"]
     for p in previsioni:
-        if (p["lega"], p["casa"], p["ospite"]) in chiavi: continue
-        log.append({**{c: "" for c in CAMPI}, **p, "registrata": oggi, "versione": mod.VERSIONE_MODELLO, "stato": "aperta"})
+        chiave = (p["lega"], p["casa"], p["ospite"], p["giorno"])
+        if chiave in chiavi: continue
+        try:
+            inizio = dt.datetime.fromisoformat(p["inizio_utc"])
+            if inizio.tzinfo is None or inizio <= adesso: continue
+        except (KeyError, TypeError, ValueError): continue
+        log.append({**{c: "" for c in CAMPI}, **p, "registrata": adesso.isoformat(timespec="seconds"),
+                    "versione": mod.VERSIONE_MODELLO, "config_id": config_id, "schema": "2", "stato": "aperta"})
+        chiavi.add(chiave)
     for r in log:
         if r["stato"] == "valutata": continue
         for g in archivi.get(r["lega"], []):
-            if g["casa"] == r["casa"] and g["ospite"] == r["ospite"] and g["data"].isoformat() >= r["registrata"][:10]:
+            if g["casa"] == r["casa"] and g["ospite"] == r["ospite"] and g["data"].isoformat() == r["giorno"]:
                 r["gc"], r["go"], r["stato"] = g["gc"], g["go"], "valutata"; break
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=CAMPI); w.writeheader(); w.writerows(log)
     return log
 
 def riepilogo_live(log):
-    val = [r for r in log if r["stato"] == "valutata"]
-    out = {"registrate": len(log), "valutate": len(val)}
+    val = [r for r in log if r["stato"] == "valutata" and prova_temporale(r)]
+    out = {"registrate": len(log), "valutate": len(val), "senza_prova_temporale": sum(not prova_temporale(r) for r in log)}
     if val:
         def fl(x): return float(x)
         hit = 0; br = 0.0

@@ -3,6 +3,7 @@
 # https://mim-analytic-bet.github.io/terminale/
 DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$DIR" || exit 1
+python3 scripts/verifica_fonti.py --operazione condivisione || exit 2
 
 echo "========================================================"
 echo "   PUBBLICAZIONE SITO: mim-analytic-bet.github.io/terminale"
@@ -13,7 +14,7 @@ echo
 cp scheda-partita-dashboard.html index.html
 
 # 2. Aggiunge i file web necessari per GitHub Pages
-git add index.html scheda-partita-dashboard.html dati/ assets/ scripts/ risultati.csv 2>/dev/null
+git add -- index.html scheda-partita-dashboard.html assets/js/ assets/css/ assets/badges/ || exit 1
 
 # 3. Commit con data e orario (se ci sono modifiche)
 DATA_STR=$(date '+%d/%m/%Y %H:%M')

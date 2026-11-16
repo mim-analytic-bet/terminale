@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: podio-con-quote
+expected_outcome: |
+  Per ogni partita: dati con fonti, output del modello fisso (gol attesi da dati e da quote, probabilità con margine tolto), podio di massimo tre giocate solo con valore sopra soglia e senza anomalie, oppure NO BET motivato con quote minime; SICURA per partita e multipla delle sicure con quota, probabilità e valore totali; storico salvato.

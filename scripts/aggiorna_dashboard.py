@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Ricostruisce i 4 campionati esteri della dashboard SOLO da dati reali.
-Fonti: dati/E0|SP1|D1|F1.csv (risultati+xG), dati/fixtures.csv (quote, se la partita c'e'),
-dati/calendario.json (abbinamenti ufficiali). Nessun testo scritto a mano, nessuna quota inventata.
-Uso:  python3 scripts/aggiorna_dashboard.py            (dalla cartella scommesse)
+"""Ricostruisce la dashboard dai file locali di risultati, quote e calendario.
+La provenienza e i diritti dei dati richiedono verifica separata. I gol attesi
+sono stime del modello, non xG osservati forniti dai CSV.
+Uso interno senza alterare i registri: --anteprima.
 """
 import csv, json, os, sys, shutil, re, datetime as dt, hashlib
+from html import escape
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(BASE, "analisi-scommesse-calcio", "scripts"))
 sys.path.insert(0, os.path.join(BASE, "scripts"))
@@ -12,18 +13,14 @@ import prepara_partita as pp
 import modello as mod
 import track_record as TR
 import apprendimento as AP
-import colori_squadre as CS
 import calendario_aperto as CA
+import configurazione_modello as CFG
+import integrita_calendario as IC
 W_APP = 1.0
+ANTEPRIMA = False
 RAW = {}
 COLORI = {}
 NEUTRO = ["#1e3a5f", "#334155"]
-NUOVI_LOGHI = {"Leeds": "leeds", "Sunderland": "sunderland", "Hull": "hull_city", "Coventry": "coventry_city", "Elche": "elche", "Levante": "levante",
-    "Deportivo": "deportivo", "Racing Santander": "racing_santander", "Málaga": "malaga", "Elversberg": "elversberg", "Paderborn": "paderborn",
-    "Amburgo": "hamburger_sv", "Colonia": "koln", "Schalke 04": "schalke_04", "Troyes": "troyes", "Paris FC": "paris_fc", "Le Mans": "le_mans", "Lorient": "lorient",
-    "Atlético Madrid": "atletico_madrid", "Athletic Club": "athletic_bilbao", "Betis": "real_betis", "Celta": "celta_vigo", "Alavés": "alaves",
-    "Bayern Monaco": "bayern_munchen", "Eintracht Francoforte": "eintracht_frankfurt", "Mönchengladbach": "borussia_monchengladbach",
-    "Werder Brema": "werder_bremen", "Stoccarda": "stuttgart", "Magonza": "mainz", "Lione": "lyon", "Marsiglia": "marseille"}
 
 HTML = os.path.join(BASE, "scheda-partita-dashboard.html")
 LEGHE = {"serie-a": "I1", "premier": "E0", "liga": "SP1", "bundesliga": "D1", "ligue1": "F1"}
@@ -151,10 +148,10 @@ def pron(m, tipo, icona, bc, br, desc, alt=None, qm=None):
         except (ValueError, TypeError): pass
     out = {"tipo": tipo, "icona": icona, "mercato": m["mercato"], "alt": alt or "-", "prob": p, "probStr": f"{p}%",
            "quota": f"{m['quota_equa']:.2f}", "qEqua": f"{m['quota_equa']:.2f}", "badgeCol": bc, "barCol": br,
-           "desc": f"{desc} Quota equa {m['quota_equa']:.2f}: gioca solo se il bookmaker paga almeno {m['quota_minima']:.2f}."}
+           "desc": f"{desc} Quota equa {m['quota_equa']:.2f}; soglia teorica del modello {m['quota_minima']:.2f}."}
     if q_reale is not None and q_reale > 1.0:
         out["quota"] = f"{q_reale:.2f}"; out["qReale"] = f"{q_reale:.2f}"
-        out["desc"] = f"{desc} Quota Bet365 (prezzo di confronto, non Eurobet): {q_reale:.2f}. Quota equa {m['quota_equa']:.2f}: gioca solo se il bookmaker paga almeno {m['quota_minima']:.2f}."
+        out["desc"] = f"{desc} Quota rilevata Bet365: {q_reale:.2f}. Quota equa {m['quota_equa']:.2f}; soglia teorica del modello {m['quota_minima']:.2f}."
     return out
 
 # ---- assenze/orari da API-Football (dati/assenze.json, scritto da scripts/assenze.py) ----
@@ -276,11 +273,11 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
     br = {1: "from-emerald-500 to-teal-400", 2: "from-cyan-500 to-blue-500", 3: "from-rose-500 to-amber-500", 4: "from-purple-500 to-indigo-500"}
     a, bb, c = seleziona_livelli(dq)
     pe = {}
-    if a: pe["1"] = pron(a[0], "ALTA PROBABILITÀ (BASE)", "🛡️", bc[1], br[1], "Mercato a probabilità più alta secondo il modello.", f"{a[1]['mercato']} ({round(a[1]['prob_modello']*100)}%)" if len(a) > 1 else None, qm=b365)
-    if bb: pe["2"] = pron(bb[0], "EQUILIBRATO", "⚡", bc[2], br[2], "Miglior rapporto probabilità/quota del fascio medio.", f"{bb[1]['mercato']} ({round(bb[1]['prob_modello']*100)}%)" if len(bb) > 1 else None, qm=b365)
-    if c: pe["3"] = pron(c[0], "PRONOSTICO HARD", "🎯", bc[3], br[3], "Più rischioso, probabilità più bassa.", f"{c[1]['mercato']} ({round(c[1]['prob_modello']*100)}%)" if len(c) > 1 else None, qm=b365)
+    if a: pe["1"] = pron(a[0], "ESITO FREQUENTE", "🛡️", bc[1], br[1], "Mercato a probabilità più alta secondo il modello.", f"{a[1]['mercato']} ({round(a[1]['prob_modello']*100)}%)" if len(a) > 1 else None, qm=b365)
+    if bb: pe["2"] = pron(bb[0], "EQUILIBRATO", "⚡", bc[2], br[2], "Esito nella fascia intermedia di probabilità del modello.", f"{bb[1]['mercato']} ({round(bb[1]['prob_modello']*100)}%)" if len(bb) > 1 else None, qm=b365)
+    if c: pe["3"] = pron(c[0], "ESITO MENO FREQUENTE", "🎯", bc[3], br[3], "Più rischioso, probabilità più bassa.", f"{c[1]['mercato']} ({round(c[1]['prob_modello']*100)}%)" if len(c) > 1 else None, qm=b365)
     s, ps = r["punteggi_top"][0]
-    pe["4"] = {"tipo": "PRONOSTICO EXTRA", "icona": "🔮", "mercato": f"Risultato esatto {s}", "alt": f"{r['punteggi_top'][1][0]} ({round(r['punteggi_top'][1][1]*100)}%)",
+    pe["4"] = {"tipo": "PUNTEGGIO TEORICO", "icona": "🔮", "mercato": f"Risultato esatto {s}", "alt": f"{r['punteggi_top'][1][0]} ({round(r['punteggi_top'][1][1]*100)}%)",
                "prob": round(ps * 100), "probStr": f"{round(ps*100)}%", "quota": f"{1/ps:.2f}", "qEqua": f"{1/ps:.2f}",
                "badgeCol": bc[4], "barCol": br[4],
                "desc": "Punteggio più probabile per il modello Dixon-Coles."}
@@ -302,17 +299,17 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
     _qe = _t1.get("qEqua", "")
     _spieg = (f"Stime del modello — 1: {round(p1*100)}% · X: {round(px*100)}% · 2: {round(p2*100)}% · Gol: {round(pg*100)}% · Over 2.5: {round(po*100)}%. "
               f"Attesa gol (xG modello): {nome(casa)} {gc:.2f} – {nome(osp)} {go:.2f}. "
-              + (f"Quota equa {_qe}: giocala solo se il bookmaker paga almeno quel prezzo con margine. " if _qe else "")
+              + (f"Quota equa teorica {_qe}. " if _qe else "")
               + ((f"Quote di riferimento ({mq['fonte']}): " + " · ".join(f"{k} {mq[k]}" for k in ('1','X','2') if k in mq) + ". ") if mq else "Quote di mercato non disponibili per questa partita. ")
-              + "Puntata consigliata 0 € finché non emerge un edge verificato: nei test il modello da solo non batte il mercato, quindi nessuna giocata è forzata.")
+              + "Il modello non ha dimostrato un vantaggio sul mercato nei test disponibili. Questa scheda descrive stime teoriche.")
     _ta = testo_assenze(rec_api, casa, osp)
     _assenti = None
     if _ta:
         _assenti = {"casa": rec_api["assenze"]["casa"], "ospite": rec_api["assenze"]["ospite"], "controllato": (rec_api.get("controllato") or "")[:16].replace("T", " "),
                     "fonte": rec_api.get("fonte") or "ricerca web"}
-        _rischio = "Assenze e squalificati verificati (vedi riquadro). Le formazioni probabili non sono incluse e le assenze NON entrano nel calcolo del modello: controlla le ufficiali prima di giocare."
+        _rischio = "Assenze e squalificati riportati dalla fonte (vedi riquadro). Le formazioni probabili non sono incluse e le assenze NON entrano nel calcolo del modello."
     else:
-        _rischio = "Assenze, squalifiche e formazioni NON verificate: il modello usa solo risultati e xG. Controlla le ufficiali prima di giocare."
+        _rischio = "Assenze, squalifiche e formazioni NON verificate: queste informazioni non entrano nella stima. Le stime di gol attesi sono ricavate dai dati storici, non da un feed xG osservato."
     _rischio += "" if mq else " Nessuna quota di mercato disponibile per questa partita nei dati."
     return {
         "id": (sigla(casa) + "-" + sigla(osp)).lower(), "label": f"{nome(casa)} - {nome(osp)}",
@@ -378,11 +375,11 @@ def costruisci_partita_coppa(rec, squadre, track, NC="Champions", NL="Champions 
     br = {1: "from-emerald-500 to-teal-400", 2: "from-cyan-500 to-blue-500", 3: "from-rose-500 to-amber-500", 4: "from-purple-500 to-indigo-500"}
     a, bb, c = seleziona_livelli(dq); pe = {}
     alt = lambda l: f"{l[1]['mercato']} ({round(l[1]['prob_modello']*100)}%)" if len(l) > 1 else None
-    if a: pe["1"] = pron(a[0], "ALTA PROBABILITÀ (BASE)", "🛡️", bc[1], br[1], "Mercato a probabilità più alta secondo il modello (non validato).", alt(a))
+    if a: pe["1"] = pron(a[0], "ESITO FREQUENTE", "🛡️", bc[1], br[1], "Mercato a probabilità più alta secondo il modello (non validato).", alt(a))
     if bb: pe["2"] = pron(bb[0], "EQUILIBRATO", "⚡", bc[2], br[2], "Fascia media del modello Elo europeo (non validato).", alt(bb))
-    if c: pe["3"] = pron(c[0], "PRONOSTICO HARD", "🎯", bc[3], br[3], "Più rischioso, probabilità più bassa.", alt(c))
+    if c: pe["3"] = pron(c[0], "ESITO MENO FREQUENTE", "🎯", bc[3], br[3], "Più rischioso, probabilità più bassa.", alt(c))
     flat = sorted(((M[i][j], i, j) for i in range(n) for j in range(n)), reverse=True)[:2]
-    pe["4"] = {"tipo": "PRONOSTICO EXTRA", "icona": "🔮", "mercato": f"Risultato esatto {flat[0][1]}-{flat[0][2]}", "alt": f"{flat[1][1]}-{flat[1][2]} ({round(flat[1][0]*100)}%)", "prob": round(flat[0][0] * 100),
+    pe["4"] = {"tipo": "PUNTEGGIO TEORICO", "icona": "🔮", "mercato": f"Risultato esatto {flat[0][1]}-{flat[0][2]}", "alt": f"{flat[1][1]}-{flat[1][2]} ({round(flat[1][0]*100)}%)", "prob": round(flat[0][0] * 100),
                "probStr": f"{round(flat[0][0]*100)}%", "quota": f"{1/flat[0][0]:.2f}", "qEqua": f"{1/flat[0][0]:.2f}", "badgeCol": bc[4], "barCol": br[4],
                "desc": "Punteggio più probabile (90 minuti)."}
     g = dt.date.fromisoformat(rec["giorno"]); data = f"{GIORNI[g.weekday()]} {g.day} {MESI[g.month]}" + (f" · {rec['ora']}" if rec.get("ora") else " · orario da confermare")
@@ -394,7 +391,7 @@ def costruisci_partita_coppa(rec, squadre, track, NC="Champions", NL="Champions 
                f"Correzione forma nazionale applicata: {rec['agg_h']:+.0f} / {rec['agg_a']:+.0f} punti Elo (peso {rec['w_dom']:.2f}, ricalibrato sui risultati). (Dati: openfootball, " + ("football-data.org" if NC == "Champions" else "API Ninjas") + ")")
     qe = (pe.get("1") or pe.get("2") or pe.get("3") or pe["4"]); 
     spieg = (f"Stime del modello (90 minuti) — 1: {round(p1*100)}% · X: {round(px*100)}% · 2: {round(p2*100)}% · Gol: {round(pg*100)}% · Over 2.5: {round(po*100)}%. Attesa gol: {casa} {gc:.2f} – {osp} {go:.2f}. "
-             f"Quote di mercato non disponibili per le coppe. Puntata consigliata 0 € finché il modello non è validato sulle previsioni reali.")
+             f"Quote di mercato non disponibili per le coppe. Modello in osservazione: valutazione sulle previsioni registrate prima degli incontri ancora da completare.")
     ass = assenze_per(rec["casa_api"], rec["ospite_api"], rec["giorno"]); ta = testo_assenze(ass, casa, osp); assenti = None
     rischio = "MODALITÀ OSSERVAZIONE: modello Elo europeo non ancora validato sulle previsioni reali. Assenze, squalifiche e formazioni NON verificate."
     if ta:
@@ -426,62 +423,28 @@ def _slug(n):
 
 
 def _distintivo(nome):
-    """Distintivo PROVVISORIO (scudo con iniziali) per le squadre senza stemma ufficiale. Ritorna (percorso relativo, [col1, col2])."""
-    import colorsys
-    h = int(hashlib.md5(nome.encode()).hexdigest()[:6], 16)
-    c1 = tuple(int(255 * x) for x in colorsys.hsv_to_rgb((h % 360) / 360, 0.62, 0.62)); c2 = tuple(int(255 * x) for x in colorsys.hsv_to_rgb(((h % 360) + 35) / 360, 0.55, 0.88))
-    rel = f"./assets/loghi/prov_{_slug(nome)}.png"; dest = os.path.join(BASE, rel.lstrip("./"))
-    if not os.path.exists(dest):
-        try:
-            from PIL import Image, ImageDraw, ImageFont
-            S = 256; im = Image.new("RGBA", (S, S), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
-            scudo = [(28, 20), (228, 20), (228, 130), (128, 238), (28, 130)]
-            d.polygon(scudo, fill=c1 + (255,)); d.polygon([(46, 38), (210, 38), (210, 124), (128, 214), (46, 124)], fill=c2 + (255,))
-            parole = [w for w in re.split(r"[\s\-/]+", nome) if w and not w.isdigit() and w.lower() not in ("fc", "sc", "ac", "as", "sk", "fk", "de", "da", "del", "club", "pae", "nk", "rc")]
-            ini = ("".join(w[0] for w in parole[:3]) if len(parole) > 1 else (parole[0][:3] if parole else nome[:3])).upper()
-            font = None
-            for fp in ("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "DejaVuSans-Bold.ttf", "/usr/share/fonts/dejavu/DejaVuSans-Bold.ttf"):
-                try: font = ImageFont.truetype(fp, 84 if len(ini) < 3 else 68); break
-                except Exception: pass
-            if font is None:
-                try: font = ImageFont.load_default(size=72)
-                except Exception: font = ImageFont.load_default()
-            d.text((128, 100), ini, fill=(15, 23, 42, 255), font=font, anchor="mm")
-            im.save(dest)
-        except Exception:
-            pass
-    return rel, ["#%02x%02x%02x" % c1, "#%02x%02x%02x" % c2]
+    """Identificatore grafico originale, neutro: nessuno stemma o colore ufficiale."""
+    digest = hashlib.sha256(nome.encode("utf-8")).hexdigest()[:16]
+    rel = f"./assets/badges/qt_{digest}.svg"
+    dest = os.path.join(BASE, rel.lstrip("./"))
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    iniziali = escape(sigla(nome))
+    svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img">'
+           f'<title>Identificatore testuale: {escape(nome)}</title>'
+           '<rect x="3" y="3" width="122" height="122" rx="30" fill="#0f172a" stroke="#475569" stroke-width="3"/>'
+           '<path d="M25 96h78" stroke="#22d3ee" stroke-width="4" stroke-linecap="round"/>'
+           f'<text x="64" y="74" text-anchor="middle" fill="#e2e8f0" font-family="sans-serif" font-weight="700" font-size="35">{iniziali}</text></svg>')
+    with open(dest, "w", encoding="utf-8") as f:
+        f.write(svg)
+    return rel, ["#164e63", "#334155"]
 
 
 def assicura_stemmi(pro, loghi, avvisi):
-    """Ogni squadra delle coppe DEVE avere uno stemma: 1) PNG manuale assets/loghi/<slug>.png, 2) stemma ufficiale scaricato (dati/stemmi_coppe.json),
-    3) distintivo provvisorio generato. Aggiorna loghi e COLORI. Ritorna True se ha aggiunto qualcosa."""
-    try: uff = json.load(open(os.path.join(BASE, "dati", "stemmi_coppe.json"), encoding="utf-8"))
-    except Exception: uff = {}
-    import coppe as CP
-    uff_n = {CP.norm(k): v for k, v in uff.items()}
+    """Usa solo identificatori originali per i nomi presenti nella vista."""
     nomi = sorted({m[k]["nome"] for c in pro.values() for t in c["turni"].values() for m in t["partite"] for k in ("casa", "ospite")} - set(loghi))
-    prov = []; agg = False
     for n in nomi:
-        man = f"./assets/loghi/{_slug(n)}.png"; u = uff.get(n) or uff_n.get(CP.norm(n))
-        if os.path.exists(os.path.join(BASE, man.lstrip("./"))):
-            loghi[n] = man
-            if n not in COLORI:
-                try:
-                    c = CS.dominanti(os.path.join(BASE, man.lstrip("./")))
-                    if c: COLORI[n] = c
-                except Exception: pass
-        elif u and os.path.exists(os.path.join(BASE, u["file"].lstrip("./"))):
-            loghi[n] = u["file"]
-            if u.get("colori"): COLORI[n] = u["colori"]
-            elif u["file"].endswith(".png"):
-                try: c = CS.dominanti(os.path.join(BASE, u["file"].lstrip("./"))); COLORI[n] = c or COLORI.get(n, NEUTRO)
-                except Exception: pass
-        else:
-            rel, col = _distintivo(n); loghi[n] = rel; COLORI[n] = col; prov.append(n)
-        agg = True
-    if prov: avvisi.append("Stemma PROVVISORIO (distintivo con iniziali, manca lo stemma ufficiale): " + ", ".join(prov) + " - metti il PNG in assets/loghi/<nome_squadra>.png per sostituirlo")
-    return agg
+        loghi[n], COLORI[n] = _distintivo(n)
+    return bool(nomi)
 
 
 def blocco_coppe(archivi, oggi, avvisi, comp="cl", cache=None):
@@ -491,7 +454,7 @@ def blocco_coppe(archivi, oggi, avvisi, comp="cl", cache=None):
     NC = CP.NOMI[comp]; NL = "Champions League" if comp == "cl" else "Europa League"
     if cache is not None and comp in cache: r = cache[comp]
     else:
-        r = CP.elabora(oggi, f, avvisi, comp)
+        r = CP.elabora(oggi, f, avvisi, comp, scrivi=not ANTEPRIMA)
         if cache is not None: cache[comp] = r
     if not r or not r["turni"]: return None
     turni = {}
@@ -572,7 +535,9 @@ def turni_automatici(partite, fixtures, oggi):
     return out
 
 def main():
-    oggi = dt.datetime.now().date()
+    global ANTEPRIMA
+    ANTEPRIMA = "--anteprima" in sys.argv
+    oggi = dt.datetime.now(IC.FUSO).date()
     cal = json.load(open(os.path.join(BASE, "dati", "calendario.json"), encoding="utf-8"))
     fix = os.path.join(BASE, "dati", "fixtures.csv")
     global CAL_APERTO
@@ -582,15 +547,9 @@ def main():
     if not os.path.exists(bk): shutil.copy(HTML, bk)
     global COLORI
     la, lb, loghi = parsa_blocco(s, "LOGHI_SQUADRE")
-    for _k in [k for k, v in loghi.items() if "/prov_" in v or "/coppe_" in v]: del loghi[_k]  # stemmi di coppa: rivalutati a ogni giro (provvisorio -> ufficiale appena disponibile)
-    for nm_, f_ in NUOVI_LOGHI.items():
-        if os.path.exists(os.path.join(BASE, "assets", "loghi", f_ + ".png")): loghi[nm_] = f"./assets/loghi/{f_}.png"
+    loghi = {n: _distintivo(n)[0] for n in loghi}
     s = s[:la] + json.dumps(loghi, ensure_ascii=False, indent=2) + s[lb:]
-    try:
-        COLORI, _man = CS.aggiorna(loghi, BASE, os.path.join(BASE, "dati", "colori_squadre.json"))
-    except Exception as ex_:
-        cp = os.path.join(BASE, "dati", "colori_squadre.json")
-        COLORI = {k: v["colori"] for k, v in json.load(open(cp)).items()} if os.path.exists(cp) else {}
+    COLORI = {n: ["#164e63", "#334155"] for n in loghi}
     a, b, pro = parsa_blocco(s, "DATA_PRO")
     nuove_forme, rapporto, avvisi, dati_fino = {}, [], [], {}
     previsioni, archivi, track = [], {}, {"leghe": {}}
@@ -598,9 +557,13 @@ def main():
     global W_APP
     live_path = os.path.join(BASE, "dati", "storico_live.csv"); mem_path = os.path.join(BASE, "dati", "memoria_modello.json")
     bt = {k: TR.backtest(pp.leggi(file_dati(c))) for k, c in LEGHE.items() if os.path.exists(file_dati(c))}
-    mem = AP.impara([r for v in bt.values() for r in v], AP.righe_live(TR.leggi_log(live_path)), mem_path)
-    W_APP = mem.get("w", 1.0)
-    if "a" in mem: mod.PESO_DATI = mem["a"]
+    # I risultati possono accumularsi; i parametri operativi non si riottimizzano.
+    configurazione = CFG.carica()
+    if configurazione["versione_engine"] != mod.VERSIONE_MODELLO:
+        raise ValueError("Versione del motore diversa dalla configurazione congelata")
+    mem = {"w": configurazione["fiducia_gol"], "a": configurazione["peso_dati"], "storia": []}
+    W_APP = mem["w"]
+    mod.PESO_DATI = mem["a"]
     for key, cod in LEGHE.items():
         nm = (cal.get(key) or {}).get("nome") or {"serie-a": "Serie A (Italia)"}.get(key, key)
         if not os.path.exists(file_dati(cod)):
@@ -639,6 +602,13 @@ def main():
             if aggiunte: rapporto.append(f"{nm}: {aggiunte} partite aggiunte dal calendario aperto (solo abbinamenti; giorno/ora da confermare)")
         turni = {}
         for tk, t in sorted(turni_src.items(), key=lambda kv: int(kv[0])):
+            errori = IC.errori_turno(t["partite"], set(cl))
+            if errori:
+                avvisi.append(f"{nm}: {t['giornata']} esclusa per conflitto nel calendario: " + "; ".join(errori))
+                continue
+            t = dict(t, partite=[e for e in t["partite"] if IC.futura(e)])
+            if not t["partite"]:
+                continue
             giorni = [e["giorno"] for e in t["partite"] if e.get("giorno")]
             fine = t.get("dataFine") or (max(giorni) if giorni else None)
             if not fine or dt.date.fromisoformat(fine[:10]) < oggi: continue
@@ -648,7 +618,8 @@ def main():
                 lista.append(m); nuove_forme[nome(e["casa"])] = f1; nuove_forme[nome(e["ospite"])] = f2
                 fs = m["fasi"]; q = m.get("quoteMercato") or {}
                 if e.get("_of") and not q.get("1"): continue   # abbinamento solo da calendario aperto e senza quote: non entra nel registro pre-partita (sarebbe una previsione senza ancora di mercato)
-                previsioni.append({"lega": key, "casa": e["casa"], "ospite": e["ospite"], "giorno": e.get("giorno") or "", "p1": fs["1"]["seg1"]["p"], "pX": fs["1"]["seg2"]["p"], "p2": fs["1"]["seg3"]["p"],
+                inizio_utc = dt.datetime.fromisoformat(e["giorno"] + "T" + e["ora"]).replace(tzinfo=IC.FUSO).astimezone(dt.timezone.utc).isoformat() if e.get("ora") else ""
+                previsioni.append({"lega": key, "casa": e["casa"], "ospite": e["ospite"], "giorno": e.get("giorno") or "", "inizio_utc": inizio_utc, "p1": fs["1"]["seg1"]["p"], "pX": fs["1"]["seg2"]["p"], "p2": fs["1"]["seg3"]["p"],
                                    "pOver25": fs["3"]["seg1"]["p"], "pGol": fs["2"]["seg1"]["p"], "lh": RAW[(e["casa"], e["ospite"])][0], "la": RAW[(e["casa"], e["ospite"])][1], "mc": RAW[(e["casa"], e["ospite"])][2], "mt": RAW[(e["casa"], e["ospite"])][3], "q1": q.get("1", ""), "qX": q.get("X", ""), "q2": q.get("2", ""), "qOver25": q.get("Over 2,5", "")})
             if giorni:
                 d1, d2 = dt.date.fromisoformat(min(giorni)), dt.date.fromisoformat(max(giorni))
@@ -661,13 +632,13 @@ def main():
                 avvisi.append(f"{nm}: {t['giornata']} ha date da verificare")
         if not turni:
             avvisi.append(f"{nm}: nessuna giornata futura (aggiungi il turno in dati/calendario.json o scarica fixtures.csv aggiornato)")
-            if key in pro: pass
+            pro.pop(key, None)  # mai conservare una vecchia giornata come se fosse futura/valida
         else:
             pro[key] = {"nome": nm, "turni": turni}
         rapporto.append(f"{nm}: {sum(len(t['partite']) for t in turni.values())} partite in {len(turni)} giornate, dati fino al {ultima:%d/%m/%Y} ({len(partite)} gare)")
-    log = TR.aggiorna_live(live_path, previsioni, archivi)
+    log = TR.leggi_log(live_path) if ANTEPRIMA else TR.aggiorna_live(live_path, previsioni, archivi, configurazione["id"])
     track["totale"] = TR.riepilogo(tutte_righe); track["live"] = TR.riepilogo_live(log)
-    track["apprendimento"] = {"w": mem.get("w"), "a": mem.get("a"), "storia": mem.get("storia", [])[-5:]}
+    track["apprendimento"] = {"w": mem["w"], "a": mem["a"], "storia": [], "modalita": "congelata", "config_id": configurazione["id"]}
     track["aggiornato"] = dt.datetime.now().strftime("%d/%m/%Y %H:%M")
     def _coppe(cache):
         for _comp, _chiave, _nome in (("cl", "champions", "Champions League"), ("el", "europa", "Europa League")):
@@ -690,7 +661,9 @@ def main():
     s = s[:a] + json.dumps(forma_d, ensure_ascii=False, indent=2) + s[b:]
     senza = sorted({m[k]["nome"] for c in pro.values() for t in c["turni"].values() for m in t["partite"] for k in ("casa", "ospite")} - set(loghi))
     if senza: avvisi.append("Stemma mancante (colori neutri): " + ", ".join(senza) + " - aggiungi il PNG in assets/loghi")
-    meta = {"aggiornato": dt.datetime.now().isoformat(timespec="minutes"), "dati_fino": dati_fino, "avvisi": avvisi}
+    avvisi.insert(0, "Versione di verifica interna: diritti delle fonti e calendario ufficiale da verificare; condivisione e vendita non abilitate.")
+    meta = {"aggiornato": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"), "dati_fino": dati_fino, "avvisi": avvisi,
+            "config_id": configurazione["id"], "versione_modello": mod.VERSIONE_MODELLO, "parametri_congelati": True, "anteprima": ANTEPRIMA, "fonti_verificate": False}
     blocco = "/*META*/const DATA_META = " + json.dumps(meta, ensure_ascii=False) + ";/*ENDMETA*/\n    "
     if "/*META*/" in s:
         s = re.sub(r"/\*META\*/.*?/\*ENDMETA\*/\n    ", lambda m: blocco, s, count=1, flags=re.S)

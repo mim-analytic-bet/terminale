@@ -1,0 +1,10 @@
+{
+  "id": "baseline-effettiva-2026-11-15-v1",
+  "versione_engine": "2.2.1",
+  "peso_dati": 0.0,
+  "fiducia_gol": 1.0,
+  "peso_forma_coppe": 0.25,
+  "apprendimento_automatico": false,
+  "origine": "Congelamento dei pesi effettivi della memoria locale precedente; non è una nuova taratura né una validazione del modello.",
+  "stato": "verifica_interna"
+}

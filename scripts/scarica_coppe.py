@@ -98,5 +98,9 @@ def europa():
     except Exception as e: print("AVVISO coppe: download Europa League fallito:", e)
 
 
+from verifica_fonti import impedimenti, DEFAULT
+problemi = impedimenti(json.loads(DEFAULT.read_text()), "download", ["football_data_org", "api_ninjas"])
+if problemi:
+    raise SystemExit("BLOCCO FONTI: " + "; ".join(problemi))
 champions(); europa()
 sys.exit(0)

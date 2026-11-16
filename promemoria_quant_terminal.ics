@@ -1,0 +1,33 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Quant Terminal PRO//Promemoria Routine//IT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+
+BEGIN:VEVENT
+SUMMARY:Quant Terminal PRO - Aggiornamento Calendario (Lunedì)
+DESCRIPTION:Verifica e inserisci le date e gli orari del nuovo turno dei 5 campionati in dati/calendario.json.
+DTSTART:20261116T100000
+RRULE:FREQ=WEEKLY;BYDAY=MO
+DURATION:PT15M
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Quant Terminal PRO: Aggiorna calendario.json
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+SUMMARY:Quant Terminal PRO - Routine Assenze (Giovedì)
+DESCRIPTION:Routine giorno prima: ricerca infortuni e squalifiche per le partite entro 36 ore e aggiornamento dati/assenze_manuali.json.
+DTSTART:20261119T090000
+RRULE:FREQ=WEEKLY;BYDAY=TH
+DURATION:PT15M
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Quant Terminal PRO: Routine Assenze Giovedì
+TRIGGER:-PT15M
+END:VALARM
+END:VEVENT
+
+END:VCALENDAR

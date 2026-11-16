@@ -1,3 +1,24 @@
+# Stato operativo al 15 novembre 2026
+
+Questa sezione sostituisce le indicazioni operative storiche riportate più sotto.
+
+- Prodotto in verifica interna: nessuna dichiarazione di conformità legale o vantaggio predittivo dimostrato.
+- Leggere prima `STATO-PROGETTO.md` e `docs/REGISTRO_ATTIVITA.md`, poi i rapporti di verifica. Aggiornare il checkpoint dopo ogni attività importante (richiesta esplicita dell’utente).
+- Ricostruzione senza rete e senza modificare i registri: `python3 -B scripts/aggiorna_dashboard.py --anteprima`. Verifica: `bash VERIFICA-LOCALE.command`.
+- I diritti delle fonti sono documentati in `config/fonti_dati.json`: attualmente tutti gli impieghi esterni restano bloccati. Il piano API effettivo non è stato documentato.
+- Scheduler e pubblicazione sono sospesi nelle modifiche LOCALI. Ultimo controllo anonimo: repository e sito Pages restituiscono 404. Lo stato del workflow remoto non è verificato; nessun push eseguito dall’IA.
+- Parametri congelati in `config/modello_produzione.json`: nessun riaddestramento automatico durante la generazione. Conservare registri e vecchie probabilità.
+- Moduli di puntata, Kelly, schedina e selezioni automatiche multi-evento sospesi. I relativi riquadri ospitano metodo, disponibilità dei dati e confronto storico.
+- La vista usa identificatori SVG originali in `assets/badges/`. I vecchi stemmi restano nei file storici: non sono stati rimossi dal repository remoto o da eventuali copie pubblicate.
+- Le righe storiche prive di timestamp e configurazione non vanno trasformate retroattivamente in previsioni temporalmente provate.
+- Accesso GitHub: verificata la rimozione della credenziale dall’URL remoto locale dopo l’intervento dell’utente. Revoca del vecchio token non verificata indipendentemente. Non copiare credenziali nei messaggi.
+
+---
+
+## Archivio delle indicazioni precedenti
+
+Le indicazioni seguenti descrivono versioni precedenti, comprese affermazioni sui diritti e sugli automatismi che NON devono essere usate per autorizzare la versione attuale.
+
 # Quant Terminal PRO – guida per un'altra IA (Gemini o simili)
 
 Dashboard di analisi calcio con SOLI dati reali: Serie A, Premier, LaLiga, Bundesliga, Ligue 1. Utente: Domenico (italiano). Riferimento primario automatico Bet365 (confrontabile e giocabile su Eurobet o concessionari ADM), budget 100 €/mese. Rispondere sempre in italiano, senza assecondare: se un dato manca, dirlo.

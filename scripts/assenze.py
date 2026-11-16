@@ -27,6 +27,10 @@ def salva(d):
 
 
 def main():
+    from verifica_fonti import impedimenti, DEFAULT
+    problemi = impedimenti(json.loads(DEFAULT.read_text()), "download", ["football_data_org"])
+    if problemi:
+        raise SystemExit("BLOCCO FONTI: " + "; ".join(problemi))
     vecchio = carica()
     if not chiave:
         print("orari: chiave FOOTBALL_DATA_KEY assente, salto"); return

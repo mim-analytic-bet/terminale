@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: verifica-giornata
+expected_outcome: |
+  Recupera i risultati finali delle quattro partite con fonte, segna ogni pronostico come indovinato o sbagliato, aggiorna lo storico, dà la tabella partita per partita, il riepilogo per livello confrontato con le probabilità stimate e un commento concreto su cosa ha funzionato e cosa no.
+context:
+  scaffold_script: place-files.sh

@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: giornata-intera-serie-a
+expected_outcome: |
+  Trova il programma completo della prossima giornata, analizza tutte le partite con i tre livelli, ciascuno con percentuale e analisi tracciabile ai dati citati; tabellone riassuntivo in apertura; in chiusura classifica delle sicure con multipla consigliata, migliori medie, hard più motivate e partite da evitare.

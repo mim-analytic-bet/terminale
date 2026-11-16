@@ -106,6 +106,10 @@ def parsa(testo):
 
 
 def scarica(stagione=None):
+    from verifica_fonti import impedimenti, DEFAULT
+    problemi = impedimenti(json.loads(DEFAULT.read_text()), "download", ["openfootball"])
+    if problemi:
+        raise SystemExit("BLOCCO FONTI: " + "; ".join(problemi))
     oggi = dt.date.today(); y = stagione or (oggi.year if oggi.month >= 7 else oggi.year - 1); S = f"{y}-{str(y + 1)[2:]}"
     out = {"scaricato": dt.datetime.now(dt.timezone.utc).isoformat(timespec="minutes"), "stagione": S, "fonte": "openfootball (CC0)", "leghe": {}}
     for key, (repo, path, _) in FONTI.items():
