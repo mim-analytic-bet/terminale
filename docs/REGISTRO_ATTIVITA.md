@@ -47,3 +47,9 @@ Registro incrementale per la cooperazione tra IA. Le verifiche precedenti sono r
 3. Repository locale e remoto ora perfettamente sincronizzati e puliti.
 
 **Prossima attività:** salvataggio del ramo `main` nella scheda Settings > Pages su GitHub per avviare la pubblicazione live del sito.
+
+## 2026-11-16T16:15:00+01:00 — Sito Live e Pubblicato con Successo
+
+**Verifica eseguita:** GitHub Pages ha completato il build (durata 31s, commit `47dbe54`). Richiesta HTTP verso `https://mim-analytic-bet.github.io/terminale/` ha restituito codice di stato **HTTP/2 200 OK** con contenuto HTML valido (2.74 MB).
+
+**Stato attuale:** il terminale è ora accessibile online e pronto per la consultazione e il collaudo da parte di Domenico e dei suoi amici da smartphone, tablet o desktop.
