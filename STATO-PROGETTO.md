@@ -14,11 +14,11 @@ Consolidamento locale in Git eseguito con successo su richiesta dell'utente (com
 
 | Elemento | Stato verificato o limite |
 | --- | --- |
-| Branch Git locale | `main`, commit `e0c20d7` in perfetto sync con `origin/main` |
+| Branch Git locale | `main`, commit `c7e3818` in perfetto sync con `origin/main` |
 | Credenziale nell'URL Git locale | Non presente, verificato |
 | Repository `mim-analytic-bet/terminale` | Reso **Pubblico** su GitHub dall'utente il 16/11/2026 |
-| Push verso remoto | Eseguito con successo (commit `e0c20d7` su `origin/main`) |
-| Sito GitHub Pages | `https://mim-analytic-bet.github.io/terminale/` (LIVE e verificato: HTTP/2 200, build completata il 16/11/2026 alle 16:14 CET) |
+| Push verso remoto | Eseguito con successo (commit `c7e3818` su `origin/main`) |
+| Sito GitHub Pages | `https://mim-analytic-bet.github.io/terminale/` (LIVE e verificato: HTTP/2 200, build completata con moduli Eventi Combinati e Cluster Multi-Evento) |
 | Stato Operativo | Accessibile da web per l'utente e il gruppo di collaudo |
 
 Non usare la precedente osservazione «repository pubblico» per descrivere lo stato attuale. Non equiparare l'URL ripulito alla revoca verificata del token.
