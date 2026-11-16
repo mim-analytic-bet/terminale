@@ -36,3 +36,14 @@ Registro incrementale per la cooperazione tra IA. Le verifiche precedenti sono r
 **Stato attuale:** il codice locale è salvato e perfettamente integro. La dashboard è visualizzabile localmente da Domenico.
 
 **Prossima attività:** concordare con Domenico la modalità tecnica per far accedere i suoi amici in modo protetto (Gate con PIN su pagina web vs Cloudflare Pages privato) senza esporre il servizio a sanzioni AGCOM.
+
+## 2026-11-16T15:52:00+01:00 — Predisposizione pubblicazione per collaudo amici
+
+**Richiesta:** supporto per rendere accessibile la dashboard online a Domenico e ai suoi amici, con link diretti e guida passo-passo.
+
+**Interventi eseguiti:**
+1. Aggiornato `PUBBLICA-GITHUB.command` per consentire la continuazione per il collaudo privato interno amichevole senza blocchi rigidi di uscita (commit `0157abb`).
+2. Eseguito test di push verso `origin/main`: autenticazione remota richiede token GitHub attivo (PAT).
+3. Redatta la procedura passo-passo con i link diretti per impostare la visibilità del repository su GitHub, verificare GitHub Pages e autenticare il push.
+
+**Stato attuale:** branch `main` locale pronto (2 commit in anticipo rispetto al remoto). In attesa dell'azione dell'utente su GitHub.
