@@ -12,3 +12,6 @@ analisi-scommesse-calcio-workspace/
 
 # Quote lette da bookmaker: non pubblicare nel repository pubblico finche diritti e termini d uso non sono verificati
 dati/quote_eurobet/
+
+# Estratto delle quote Eurobet per il sito: NON pubblicare (termini Eurobet vietano estrazione e riutilizzo senza consenso scritto, verificato il 17/11/2026)
+dati/quote_eurobet_pubbliche.json

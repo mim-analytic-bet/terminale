@@ -17,6 +17,8 @@ import calendario_aperto as CA
 import configurazione_modello as CFG
 import integrita_calendario as IC
 import registro_proposte as RP
+import quote_eurobet_lettura as QE
+EUROBET = QE.carica()   # quote Eurobet lette dal browser (solo i mercati pubblicabili); {} se il file manca
 W_APP = 1.0
 ANTEPRIMA = False
 RAW = {}
@@ -139,7 +141,7 @@ def heat(g, k=4):
     return {"k": k, "c": [[round(x, 5) for x in r] for r in c], "top": [[i, j, round(p, 5)] for p, i, j in top]}
 
 
-def pron(m, tipo, icona, bc, br, desc, alt=None, qm=None):
+def pron(m, tipo, icona, bc, br, desc, alt=None, qm=None, src='Bet365'):
     """Livello di pronostico. Se Bet365 quota davvero quel mercato (1X2, Over/Under 2,5) mostra quella quota REALE come prezzo di confronto;
     altrimenti mostra solo la quota equa del modello. Nessuna quota di bookmaker viene mai stimata o inventata (aggio, margini): regola del progetto."""
     p = round(m["prob_modello"] * 100)
@@ -152,7 +154,7 @@ def pron(m, tipo, icona, bc, br, desc, alt=None, qm=None):
            "desc": f"{desc} Quota equa {m['quota_equa']:.2f}; soglia teorica del modello {m['quota_minima']:.2f}."}
     if q_reale is not None and q_reale > 1.0:
         out["quota"] = f"{q_reale:.2f}"; out["qReale"] = f"{q_reale:.2f}"
-        out["desc"] = f"{desc} Quota rilevata Bet365: {q_reale:.2f}. Quota equa {m['quota_equa']:.2f}; soglia teorica del modello {m['quota_minima']:.2f}."
+        out["desc"] = f"{desc} Quota rilevata {src}: {q_reale:.2f}. Quota equa {m['quota_equa']:.2f}; soglia teorica del modello {m['quota_minima']:.2f}."
     return out
 
 # ---- assenze/orari da API-Football (dati/assenze.json, scritto da scripts/assenze.py) ----
@@ -263,6 +265,10 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
         b365 = pp.quote_bet365(fixtures, casa, osp)                                    # prezzo mostrato come confronto
     except SystemExit:
         pass
+    # Quote Eurobet lette dal browser: SOLO prezzo di gioco mostrato (decisione del 17/11: opzione 1). Non entrano nel modello, nelle soglie,
+    # nella selezione delle proposte ne' in quoteMercato (che guida combo.js): modello e proposte restano quelli di prima.
+    eb = EUROBET.get((casa, osp, e.get("giorno")))
+    if eb and not QE.completo(eb["quote"]): eb = None
     r = mod.analizza(d)
     RAW[(casa, osp)] = (r["gol_attesi"]["casa"], r["gol_attesi"]["trasferta"], d["lega"]["media_gol_casa"], d["lega"]["media_gol_trasferta"])
     r = AP.ricalibra(r, d, W_APP)
@@ -274,9 +280,9 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
     br = {1: "from-emerald-500 to-teal-400", 2: "from-cyan-500 to-blue-500", 3: "from-rose-500 to-amber-500", 4: "from-purple-500 to-indigo-500"}
     a, bb, c = seleziona_livelli(dq)
     pe = {}
-    if a: pe["1"] = pron(a[0], "ESITO FREQUENTE", "🛡️", bc[1], br[1], "Mercato a probabilità più alta secondo il modello.", f"{a[1]['mercato']} ({round(a[1]['prob_modello']*100)}%)" if len(a) > 1 else None, qm=b365)
-    if bb: pe["2"] = pron(bb[0], "EQUILIBRATO", "⚡", bc[2], br[2], "Esito nella fascia intermedia di probabilità del modello.", f"{bb[1]['mercato']} ({round(bb[1]['prob_modello']*100)}%)" if len(bb) > 1 else None, qm=b365)
-    if c: pe["3"] = pron(c[0], "ESITO MENO FREQUENTE", "🎯", bc[3], br[3], "Più rischioso, probabilità più bassa.", f"{c[1]['mercato']} ({round(c[1]['prob_modello']*100)}%)" if len(c) > 1 else None, qm=b365)
+    if a: pe["1"] = pron(a[0], "ESITO FREQUENTE", "🛡️", bc[1], br[1], "Mercato a probabilità più alta secondo il modello.", f"{a[1]['mercato']} ({round(a[1]['prob_modello']*100)}%)" if len(a) > 1 else None, qm=(b365 or (eb and eb['quote'])), src=('Bet365' if b365 else 'Eurobet'))
+    if bb: pe["2"] = pron(bb[0], "EQUILIBRATO", "⚡", bc[2], br[2], "Esito nella fascia intermedia di probabilità del modello.", f"{bb[1]['mercato']} ({round(bb[1]['prob_modello']*100)}%)" if len(bb) > 1 else None, qm=(b365 or (eb and eb['quote'])), src=('Bet365' if b365 else 'Eurobet'))
+    if c: pe["3"] = pron(c[0], "ESITO MENO FREQUENTE", "🎯", bc[3], br[3], "Più rischioso, probabilità più bassa.", f"{c[1]['mercato']} ({round(c[1]['prob_modello']*100)}%)" if len(c) > 1 else None, qm=(b365 or (eb and eb['quote'])), src=('Bet365' if b365 else 'Eurobet'))
     s, ps = r["punteggi_top"][0]
     pe["4"] = {"tipo": "PUNTEGGIO TEORICO", "icona": "🔮", "mercato": f"Risultato esatto {s}", "alt": f"{r['punteggi_top'][1][0]} ({round(r['punteggi_top'][1][1]*100)}%)",
                "prob": round(ps * 100), "probStr": f"{round(ps*100)}%", "quota": f"{1/ps:.2f}", "qEqua": f"{1/ps:.2f}",
@@ -301,7 +307,8 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
     _spieg = (f"Stime del modello — 1: {round(p1*100)}% · X: {round(px*100)}% · 2: {round(p2*100)}% · Gol: {round(pg*100)}% · Over 2.5: {round(po*100)}%. "
               f"Attesa gol (xG modello): {nome(casa)} {gc:.2f} – {nome(osp)} {go:.2f}. "
               + (f"Quota equa teorica {_qe}. " if _qe else "")
-              + ((f"Quote di riferimento ({mq['fonte']}): " + " · ".join(f"{k} {mq[k]}" for k in ('1','X','2') if k in mq) + ". ") if mq else "Quote di mercato non disponibili per questa partita. ")
+              + (f"Quote Eurobet lette il {eb['letto_utc'][:16].replace('T', ' ')} UTC (solo prezzo di gioco, non entrano nel modello): " + " · ".join(f"{k} {eb['quote'][k]:.2f}" for k in ('1','X','2','Over 2,5','Under 2,5','Gol','No Gol') if k in eb['quote']) + ". " if eb else "")
+              + ((f"Quote di riferimento ({mq['fonte']}): " + " · ".join(f"{k} {mq[k]}" for k in ('1','X','2') if k in mq) + ". ") if mq else ("Quote football-data non disponibili per questa partita. " if eb else "Quote di mercato non disponibili per questa partita. "))
               + "Il modello non ha dimostrato un vantaggio sul mercato nei test disponibili. Questa scheda descrive stime teoriche.")
     _ta = testo_assenze(rec_api, casa, osp)
     _assenti = None
@@ -311,7 +318,7 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
         _rischio = "Assenze e squalificati riportati dalla fonte (vedi riquadro). Le formazioni probabili non sono incluse e le assenze NON entrano nel calcolo del modello."
     else:
         _rischio = "Assenze, squalifiche e formazioni NON verificate: queste informazioni non entrano nella stima. Le stime di gol attesi sono ricavate dai dati storici, non da un feed xG osservato."
-    _rischio += "" if mq else " Nessuna quota di mercato disponibile per questa partita nei dati."
+    _rischio += "" if mq else (" Nessuna quota football-data per questa partita: il modello usa solo i dati storici (la quota Eurobet mostrata e' solo prezzo di gioco)." if eb else " Nessuna quota di mercato disponibile per questa partita nei dati.")
     return {
         "id": (sigla(casa) + "-" + sigla(osp)).lower(), "label": f"{nome(casa)} - {nome(osp)}",
         "bgGradient": f"from-[{coppia(COLORI.get(nome(casa), NEUTRO))[0]}] via-[#090d16] to-[{coppia(COLORI.get(nome(osp), NEUTRO))[0]}]",
