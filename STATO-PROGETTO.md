@@ -1,6 +1,6 @@
 # Stato corrente del progetto
 
-Ultimo checkpoint: **2026-11-17T12:57:00+01:00**. Leggere questo file per riprendere il lavoro con un'altra IA.
+Ultimo checkpoint: **2026-11-17T14:55:00+01:00**. Leggere questo file per riprendere il lavoro con un'altra IA.
 
 ## Obiettivo e scadenza
 
@@ -11,6 +11,9 @@ Stato: **verifica interna; pubblicazione commerciale non autorizzata dalle evide
 ## Aggiornamento del 17/11/2026 (collaudo ristretto)
 
 Decisione di Domenico: prima la macchina operativa, gli aspetti legali dopo; progetto visibile solo a lui e a 3 persone fidate. Fatto (dettagli in `docs/REGISTRO_ATTIVITA.md`): autorizzazione interna documentata in `config/fonti_dati.json` solo per il download, con limite di 2 scarichi a settimana (lunedì e giovedì) da football-data.co.uk; calendari del primo weekend verificati su fonti ufficiali (Serie A 12, Premier 11, LaLiga 13, Bundesliga 10); testi delle combinazioni corretti; 30 test superati. **Non risolto:** diritti delle fonti, visibilità pubblica di repository e sito, `fixtures.csv` senza le 5 leghe, prima esecuzione remota dopo le modifiche (giovedì 19/11), peso dei dati nel modello (0,0 nel collaudo; evidenza nel registro).
+
+### Prova quote Eurobet (17/11/2026, pomeriggio)
+Letta la Serie A giornata 12 da Eurobet (10 partite, mercati attuali) e salvata in `dati/quote_eurobet/serie-a_g12.txt`; procedura in `docs/PROCEDURA_QUOTE_EUROBET.md`. **Non integrata** nel modello, nelle soglie o nel registro. Decisione aperta di Domenico: ruolo di Eurobet (prezzo di gioco oppure anche riferimento del modello). Prossimi passi concordati: registro delle proposte con prova temporale e sezione di affidabilita' nella dashboard (calibrazione per fascia, non solo percentuale di successo).
 
 ## Ultima attività importante
 

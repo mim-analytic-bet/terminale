@@ -96,3 +96,20 @@ Registro incrementale per la cooperazione tra IA. Le verifiche precedenti sono r
 **Limiti e blocchi:** il workflow GitHub non e' stato eseguito dopo queste modifiche (primo controllo: esecuzione automatica del giovedi 19/11); non verificato che le esecuzioni remote precedenti siano fallite; `fixtures.csv` non contiene ancora le 5 leghe; repository e sito restano pubblici (decisione sulla visibilita' e verifica legale rinviate); la pagina non e' stata guardata in un browser da mobile; la policy di football-data.co.uk non e' stata letta alla fonte.
 
 **Prossima attivita':** giovedi 19/11 (cron delle 07:00 UTC) controllare scarico, `fixtures.csv` con le 5 leghe, quote e registrazione delle previsioni con `inizio_utc`; poi aggiornare Premier 12 e LaLiga 14 quando le leghe confermano gli orari.
+
+## 2026-11-17T14:55:00+01:00 — Prova di lettura delle quote Eurobet, Serie A giornata 12
+
+**Richiesta (dichiarazione dell'utente):** valutare il caricamento del palinsesto Eurobet prima di ogni giornata; mercati: quelli attuali; Eurobet come libro su cui si gioca. Domenico ha aperto il sito Eurobet nel browser collegato e ha autorizzato la lettura.
+
+**Eseguito:** letti da Claude, con il browser collegato, 10 partite su 10 della giornata 12 (21-23/11), tra le 13:44 e le 13:50 UTC del 17/11/2026. Mercati: 1X2, Under/Over 2.5, Gol/No Gol, linee Under/Over 0.5-7.5, doppia chance, multigol totale, casa e ospite (48-50 righe per partita). Salvate in `dati/quote_eurobet/serie-a_g12.txt` con `scripts/salva_quote_eurobet.py`; procedura in `docs/PROCEDURA_QUOTE_EUROBET.md`.
+
+**Verifiche eseguite:** per ogni partita il codice di controllo calcolato nel browser coincide con quello ricalcolato dallo script sul file salvato (nessuna alterazione di trascrizione); una seconda lettura di Como-Cagliari a distanza di minuti ha dato lo stesso codice. Margini del bookmaker plausibili: 1X2 tra 5,9% e 7,3%, Under/Over tra 8,0% e 9,3%, Gol/No Gol tra 8,4% e 9,4%. Gli orari di tutte le 10 partite coincidono con `dati/calendario.json`.
+
+**Anomalia registrata, non corretta:** Como-Cagliari, doppia chance 1X a 1,03 e X2 a 3,20, lontane dai valori impliciti dall'1X2 (circa 1,12 e 3,66). Il valore e' stato letto due volte in modo identico: e' il prezzo mostrato da Eurobet.
+
+**Limiti:** una sola giornata, una sola lega; nessuna integrazione nel modello, nelle soglie o nel registro delle previsioni; termini d'uso di Eurobet non verificati; tabella dei nomi delle squadre non ancora scritta; la prima lettura di Parma-Roma ha avuto un caricamento incompleto ed e' stata scartata e rifatta.
+
+**Decisioni aperte (di Domenico):** se usare Eurobet solo come prezzo di gioco, con la probabilita' ancorata al mercato piu' efficiente (proposta di Claude), o anche come riferimento del modello.
+
+**Prossima attivita':** registro delle proposte (letture del modello, Eventi Combinati, Cluster) con prova temporale; sezione di affidabilita' nella dashboard.
+
