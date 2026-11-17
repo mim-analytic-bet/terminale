@@ -9,6 +9,7 @@ Principi (stessi del registro delle partite, scripts/track_record.py):
 Le proposte NON implicano puntate o consigli di gioco: sono eventi che il modello segnala e di cui si misura l'affidabilita'.
 """
 import csv, datetime as dt, hashlib, json, os, subprocess
+from zoneinfo import ZoneInfo
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CLI = os.path.join(BASE, "scripts", "proposte_cli.js")
@@ -128,13 +129,32 @@ def categoria_quota(r):
     return "equa" if "equa" in tipi else ("derivata" if "derivata" in tipi else "reale")
 
 
+MIN_CAMPIONE = 30                 # sotto questa numerosita' la dashboard mostra solo conteggi, mai percentuali (soglia di prudenza indicativa, non statistica)
+TRAGUARDI = [30, 100, 400, 1600]  # tappe della barra di avanzamento (indicative: ~1.600 proposte per distinguere un +5% di resa dal caso con quote ~2)
+FASCE = [(0.0, 0.2, "meno del 20%"), (0.2, 0.3, "20-30%"), (0.3, 0.4, "30-40%"), (0.4, 1.01, "40% o piu'")]
+
+
+def _settimana(r):
+    """Lunedi' (ora italiana) della settimana in cui comincia la prima partita della proposta."""
+    d = dt.datetime.fromisoformat(r["inizio_utc"]).astimezone(ZoneInfo("Europe/Rome")).date()
+    return (d - dt.timedelta(days=d.weekday())).isoformat()
+
+
 def riepilogo(righe):
     """Conteggi per la dashboard, per tipo di proposta e per categoria di quota (reale / derivata / equa), separati.
-    Nessuna percentuale di successo qui: la soglia di campione minimo e' decisa da chi mostra i dati ('dati insufficienti')."""
-    out = {"registrate": len(righe), "valutate": 0, "per_tipo": {}}
+    Nessuna percentuale sotto MIN_CAMPIONE: la dashboard mostra 'dati insufficienti'.
+    Le fasce di probabilita' confrontano il previsto con il reale dentro la stessa fascia: un evento al 17% si giudica contro il 17%, non contro il 50%."""
+    out = {"registrate": len(righe), "valutate": 0, "per_tipo": {}, "settimane": {}, "fasce": [], "min_campione": MIN_CAMPIONE, "traguardi": TRAGUARDI}
+    fasce = [{"fascia": nome, "n": 0, "vinte": 0, "prev": 0.0} for _, _, nome in FASCE]
     for r in righe:
         valutata = r["stato"] == "valutata"
-        if valutata: out["valutate"] += 1
+        w = out["settimane"].setdefault(_settimana(r), {"registrate": 0, "valutate": 0})
+        w["registrate"] += 1
+        if valutata:
+            out["valutate"] += 1; w["valutate"] += 1
+            p = float(r["prob"]); y = 1 if r["esito"] == "V" else 0
+            for (a, b, _), f in zip(FASCE, fasce):
+                if a <= p < b: f["n"] += 1; f["vinte"] += y; f["prev"] += p; break
         for chiave in (r["cod"], "quota:" + categoria_quota(r)):
             t = out["per_tipo"].setdefault(chiave, {"registrate": 0, "valutate": 0, "vinte": 0, "prob_media": 0.0, "somma_brier": 0.0})
             t["registrate"] += 1
@@ -147,4 +167,8 @@ def riepilogo(righe):
         t["prob_media"] = round(t["prob_media"] / n, 4) if n else None
         t["brier"] = round(t["somma_brier"] / n, 4) if n else None
         del t["somma_brier"]
+    for f in fasce:
+        n = f["n"]
+        out["fasce"].append({"fascia": f["fascia"], "n": n, "previsto": round(100 * f["prev"] / n, 1) if n else None, "reale": round(100 * f["vinte"] / n, 1) if n else None})
+    out["settimane"] = dict(sorted(out["settimane"].items()))
     return out

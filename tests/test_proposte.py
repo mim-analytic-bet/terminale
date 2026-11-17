@@ -92,12 +92,23 @@ class TestProposte(unittest.TestCase):
         self.assertEqual(RP.riepilogo(righe)["valutate"], len(righe))
 
     def test_riepilogo_separa_quote_equa_e_reale(self):
-        base = {"cod": "P1", "n_gambe": "2", "stato": "valutata", "esito": "V", "prob": "0.36", "g1_tipo": "reale", "g2_tipo": "reale"}
+        base = {"cod": "P1", "n_gambe": "2", "stato": "valutata", "esito": "V", "prob": "0.36", "g1_tipo": "reale", "g2_tipo": "reale", "inizio_utc": "2026-11-21T14:00:00+00:00"}
         righe = [dict(base), {**base, "g2_tipo": "equa", "esito": "P"}, {**base, "g2_tipo": "derivata", "stato": "aperta", "esito": ""}]
         r = RP.riepilogo(righe)["per_tipo"]
         self.assertEqual(r["quota:reale"]["valutate"], 1); self.assertEqual(r["quota:equa"]["vinte"], 0)
         self.assertEqual(r["quota:derivata"]["registrate"], 1); self.assertIsNone(r["quota:derivata"]["brier"])
         self.assertEqual(r["P1"]["registrate"], 3)
+
+    def test_riepilogo_settimane_e_fasce(self):
+        base = {"cod": "P1", "n_gambe": "1", "stato": "valutata", "esito": "V", "prob": "0.17", "g1_tipo": "equa", "inizio_utc": "2026-11-21T14:00:00+00:00"}
+        righe = [dict(base), {**base, "esito": "P", "prob": "0.55"}, {**base, "stato": "aperta", "esito": "", "inizio_utc": "2026-11-28T14:00:00+00:00"}]
+        r = RP.riepilogo(righe)
+        self.assertEqual(r["settimane"]["2026-11-16"], {"registrate": 2, "valutate": 2})
+        self.assertEqual(r["settimane"]["2026-11-23"], {"registrate": 1, "valutate": 0})
+        f = {x["fascia"]: x for x in r["fasce"]}
+        self.assertEqual(f["meno del 20%"]["n"], 1); self.assertEqual(f["meno del 20%"]["reale"], 100.0)
+        self.assertEqual(f["40% o piu'"]["n"], 1); self.assertEqual(f["40% o piu'"]["reale"], 0.0)
+        self.assertEqual(r["min_campione"], RP.MIN_CAMPIONE)
 
     def test_senza_risultato_resta_aperta(self):
         ps = self.proposte(); RP.aggiorna(self.path, ps, {}, "cfg", "2.2", ADESSO)

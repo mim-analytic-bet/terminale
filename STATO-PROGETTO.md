@@ -18,6 +18,9 @@ Letta la Serie A giornata 12 da Eurobet (10 partite, mercati attuali) e salvata 
 ### Registro delle proposte (17/11/2026, 16:30)
 Pubblicato e verificato nel workflow #24 (17/11, 6 proposte registrate, tutte con quota equa): `dati/proposte_live.csv`, `scripts/registro_proposte.py`, `scripts/proposte_cli.js`, `combo.js` rifattorizzato con output identico. Dettagli e limiti in `docs/REGISTRO_ATTIVITA.md`. Prossimo passo: sezione grafica di affidabilità.
 
+### Sezione grafica di affidabilità (17/11/2026, 16:00)
+Il pannello "Affidabilità delle proposte" (barra di avanzamento settimanale, tabelle per gruppo, quota e fascia) è nella pagina; soglie e tappe indicative (mie scelte). Dettagli in `docs/REGISTRO_ATTIVITA.md`.
+
 ## Ultima attività importante
 
 Consolidamento locale in Git eseguito con successo su richiesta dell'utente (commit `0ae46c9` su `main`): 262 file versionati, working tree pulito. Tutte le modifiche di de-gambling, badge vettoriali, suite di 23 test e configurazione del modello 2.2.1 sono ora tracciate nella cronologia.

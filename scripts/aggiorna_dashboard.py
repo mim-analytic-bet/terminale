@@ -487,6 +487,31 @@ box.innerHTML='<summary style="cursor:pointer;font-weight:800;text-transform:upp
 (document.querySelector('body > div')||document.body).appendChild(box);}catch(e){}})();
 </script>'''
 
+PANNELLO_PROP = r'''<!--/*PROPPANEL*/--><script>
+(function(){try{var P=DATA_TRACK.proposte;if(!P)return;
+var box=document.createElement('details');box.open=true;box.style.cssText='margin:24px auto 8px;max-width:1100px;padding:0 16px;font:12px ui-monospace,monospace;color:#cbd5e1';
+var NOMI={P1:'Eventi Combinati (2 selezioni)',P2:'Cluster 1,80\u20132,00',P2S:'Cluster singola \u2265 3,50','quota:reale':'Quota Bet365 reale','quota:derivata':'Quota ricavata da 1X2','quota:equa':'Quota equa (1/probabilit\u00e0 del modello)'};
+var MIN=P.min_campione,TR=P.traguardi,v=P.valutate;
+var next=TR.filter(function(x){return x>v})[0]||TR[TR.length-1];var prev=TR.filter(function(x){return x<=v}).pop()||0;
+var pct=Math.min(100,100*v/TR[TR.length-1]);var pctTappa=Math.min(100,100*(v-prev)/(next-prev));
+var ticks='<div style="display:flex;justify-content:space-between;margin-top:6px">'+TR.map(function(x){var ok=v>=x;return '<span style="font-size:10px;padding:2px 8px;border-radius:9999px;'+(ok?'background:#0e7490;color:#fff':'background:#1e293b;color:#94a3b8')+'">'+(ok?'\u2713 ':'')+x+'</span>'}).join('')+'</div>';
+var ws=Object.keys(P.settimane).slice(-8);var mx=Math.max.apply(null,ws.map(function(k){return P.settimane[k].registrate}).concat([1]));
+var col=ws.map(function(k){var w=P.settimane[k],d=k.split('-');return '<div style="flex:1;text-align:center"><div style="height:64px;display:flex;align-items:flex-end;justify-content:center;gap:3px"><div title="registrate" style="width:12px;height:'+Math.max(3,64*w.registrate/mx)+'px;background:#334155;border-radius:3px 3px 0 0"></div><div title="valutate" style="width:12px;height:'+(w.valutate?Math.max(3,64*w.valutate/mx):0)+'px;background:linear-gradient(#22d3ee,#0ea5e9);border-radius:3px 3px 0 0"></div></div><div style="font-size:10px;color:#94a3b8;margin-top:4px">'+d[2]+'/'+d[1]+'</div><div style="font-size:10px">'+w.registrate+' / '+w.valutate+'</div></div>'}).join('');
+function r(a,h){return '<tr>'+a.map(function(x){return '<td style="padding:4px 10px;border-bottom:1px solid #1e293b;'+(h?'color:#94a3b8':'')+'">'+x+'</td>'}).join('')+'</tr>'}
+function ins(t){return '<span style="color:#fbbf24">dati insufficienti</span>'}
+var righe=Object.keys(P.per_tipo).sort().map(function(k){var t=P.per_tipo[k];var ok=t.valutate>=MIN;return r([NOMI[k]||k,t.registrate,t.valutate,ok?Math.round(100*t.vinte/t.valutate)+'%':ins(),ok?Math.round(100*t.prob_media)+'%':ins(),ok?t.brier:ins()])}).join('');
+var fasce=P.fasce.map(function(f){var ok=f.n>=MIN;return r([f.fascia,f.n,ok?f.previsto+'%':ins(),ok?f.reale+'%':ins()])}).join('');
+box.innerHTML='<summary style="cursor:pointer;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#fff;padding:10px 0">\ud83d\udcc8 Affidabilit\u00e0 delle proposte (cresce settimana dopo settimana)</summary>'+
+'<div style="background:#0f172a;border:1px solid #1e293b;border-radius:16px;padding:16px;line-height:1.5">'+
+'<p style="margin:0 0 6px">Proposte valutate: <b style="color:#fff;font-size:16px">'+v+'</b> su '+P.registrate+' registrate \u00b7 prossima tappa <b>'+next+'</b> (barra = avanzamento verso la tappa: '+Math.round(pctTappa)+'%)</p>'+
+'<div style="height:14px;background:#1e293b;border-radius:9999px;margin:8px 0 4px"><div style="width:'+pctTappa+'%;height:100%;background:linear-gradient(90deg,#22d3ee,#6366f1);border-radius:9999px;min-width:'+(v?'6px':'0')+'"></div></div><div style="margin-bottom:18px">'+ticks+'</div>'+
+'<div style="display:flex;gap:6px;margin:6px 0 4px">'+col+'</div><div style="font-size:10px;color:#94a3b8;margin-bottom:8px">Per settimana (data della prima partita): barra grigia = registrate, barra azzurra = valutate. Sotto ogni colonna: registrate / valutate.</div>'+
+'<table style="width:100%;border-collapse:collapse;margin:10px 0">'+r(['Gruppo','Registrate','Valutate','Riuscite','Probabilit\u00e0 media prevista','Brier'],1)+righe+'</table>'+
+'<table style="width:100%;border-collapse:collapse;margin:10px 0">'+r(['Fascia di probabilit\u00e0 della proposta','Casi valutati','Previsto','Reale'],1)+fasce+'</table>'+
+'<p style="border-top:1px solid #1e293b;padding-top:8px;color:#94a3b8">Come leggere: una proposta con probabilit\u00e0 bassa (quota alta) non pu\u00f2 essere giudicata come una ad alta probabilit\u00e0. Per questo il confronto \u00e8 fatto per fascia: dentro ogni fascia si confronta la frequenza reale con la probabilit\u00e0 prevista, e il Brier punisce poco una proposta al 17% che non riesce e molto una al 60%. Sotto '+MIN+' casi non mostriamo percentuali (\u00abdati insufficienti\u00bb). Le proposte con quota equa sono la lettura del modello, non una quota Bet365 reale, e restano separate da quelle a quota reale. Le tappe della barra sono indicative. Le proposte sono eventi segnalati dal modello: non sono consigli di puntata.</p></div>';
+(document.querySelector('body > div')||document.body).appendChild(box);}catch(e){}})();
+</script>'''
+
 def parsa_blocco(s, nome_const):
     i = s.index(f"const {nome_const} = ") + len(f"const {nome_const} = ")
     j, depth, ins, esc = i, 0, False, False
@@ -691,6 +716,8 @@ def main():
     else: s = s.replace("const DATA_PRO = ", blk + "const DATA_PRO = ", 1)
     if "/*TRACKPANEL*/" not in s:
         s = s.replace("</body>", PANNELLO + "\n</body>", 1)
+    if "/*PROPPANEL*/" not in s:
+        s = s.replace("</body>", PANNELLO_PROP + "\n</body>", 1)
     if "/*STATUSBAR*/" not in s:
         barra = """<!--/*STATUSBAR*/--><script>
 (function(){try{var M=DATA_META,el=document.createElement('div');
