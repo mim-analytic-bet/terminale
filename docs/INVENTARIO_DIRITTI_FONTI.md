@@ -17,3 +17,6 @@ Non e' un parere legale. "Verificato" = letto sul testo dei termini in questa da
 - GitHub Pages e' pubblico per impostazione predefinita, anche con repo privato; l'accesso ristretto richiede GitHub Enterprise Cloud (fonte: documentazione GitHub, letta il 17/11). Con un account gratuito la pagina e' raggiungibile da chiunque abbia il link.
 - Il collaudo "a quattro" quindi non e' garantito dal solo hosting: oggi e' una questione di non diffondere il link, non di controllo di accesso.
 - Opzioni da decidere: (a) tenere il link riservato e accettare il rischio residuo nel collaudo; (b) passare a un hosting con accesso protetto; (c) distribuire il file ai tester senza sito pubblico.
+
+## Decisione del 17/11/2026 (Domenico)
+Collaudo con opzione A: link riservato a Domenico e 3 tester, sito invariato. Rischio residuo accettato: nessun controllo di accesso reale (GitHub Pages pubblico). Da rivalutare quando i tester superano i quattro o si apre la fase legale (opzione B: hosting con accesso protetto).

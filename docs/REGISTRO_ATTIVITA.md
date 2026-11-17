@@ -170,3 +170,6 @@ Letta la pagina "Termini e condizioni" di Eurobet (eurobet.it/guida/index.html).
 
 ## 2026-11-17 — Inventario diritti e delimitazione del collaudo
 Creato `docs/INVENTARIO_DIRITTI_FONTI.md`: Eurobet vietato; football-data.org richiede dicitura di attribuzione; The Odds API consente la visualizzazione in siti anche commerciali (piano gratuito non chiarito); API-Football non leggibile oggi; football-data.co.uk e api-ninjas non riletti (da config). Verificato che GitHub Pages e' pubblico per impostazione predefinita: l'accesso ristretto richiede Enterprise Cloud. Non verificata la visibilita' attuale del repo (API bloccata dal proxy). Nessuna modifica a modello, soglie o selezione.
+
+## 2026-11-17 — Decisione collaudo
+Domenico sceglie l'opzione A (link riservato, 4 persone). Pubblicati i commit `b4674a7` e `7f98a41` (codice e inventario, nessun dato Eurobet). Aperte: riscrittura cronologia git (`40c44f7` con quote Eurobet), fonte di quote con licenza (The Odds API: da chiedere se il piano gratuito consente la visualizzazione), quota inserita a mano (non ancora richiesta).
