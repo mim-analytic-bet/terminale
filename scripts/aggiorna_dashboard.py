@@ -294,7 +294,7 @@ def costruisci_partita(lega, cod, partite, cl, e, turno_lbl, fixtures):
     if rif:
         q, fonte = rif; mq = dict(q); mq["fonte"] = fonte
         if b365:
-            mq = dict(b365); mq["fonte"] = "Bet365 (prezzo di confronto, non Eurobet)"
+            mq = dict(b365); mq["fonte"] = "Bet365 (prezzo di confronto, non del bookmaker)"
     _t1 = pe.get("1") or pe.get("2") or pe.get("3") or pe.get("4") or {}
     _merc = f"Miglior stima del modello: {_t1.get('mercato','n.d.')} ({_t1.get('probStr','n.d.')})"
     _qe = _t1.get("qEqua", "")

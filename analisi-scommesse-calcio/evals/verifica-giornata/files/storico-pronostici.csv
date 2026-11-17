@@ -1,13 +1,13 @@
 data;campionato;giornata;partita;livello;mercato;esito;quota;tipo_quota;prob_stimata;risultato_finale;risultato;puntata;profitto
-2026-11-07;Serie A;11;Inter - Como;SICURA;doppia chance;1X;1,28;Eurobet;80;;;;
-2026-11-07;Serie A;11;Inter - Como;MEDIA;Under/Over;Over 2,5;1,85;Eurobet;54;;;2;
+2026-11-07;Serie A;11;Inter - Como;SICURA;doppia chance;1X;1,25;indicativa;80;;;;
+2026-11-07;Serie A;11;Inter - Como;MEDIA;Under/Over;Over 2,5;1,85;indicativa;54;;;2;
 2026-11-07;Serie A;11;Inter - Como;HARD;risultato esatto;2-0;7,50;indicativa;12;;;;
-2026-11-08;Serie A;11;Napoli - Lazio;SICURA;Under/Over;Over 1,5;1,30;Eurobet;77;;;2;
-2026-11-08;Serie A;11;Napoli - Lazio;MEDIA;Gol/No Gol;Gol;1,85;Eurobet;55;;;;
+2026-11-08;Serie A;11;Napoli - Lazio;SICURA;Under/Over;Over 1,5;1,30;indicativa;77;;;2;
+2026-11-08;Serie A;11;Napoli - Lazio;MEDIA;Gol/No Gol;Gol;1,82;indicativa;55;;;;
 2026-11-08;Serie A;11;Napoli - Lazio;HARD;combo;1 + Over 2,5;3,60;indicativa;27;;;;
-2026-11-07;Serie A;11;Parma - Bologna;SICURA;doppia chance;X2;1,30;Eurobet;76;;;2;
-2026-11-07;Serie A;11;Parma - Bologna;MEDIA;1X2;2;2,00;Eurobet;50;;;;
+2026-11-07;Serie A;11;Parma - Bologna;SICURA;doppia chance;X2;1,32;indicativa;76;;;2;
+2026-11-07;Serie A;11;Parma - Bologna;MEDIA;1X2;2;2,00;indicativa;50;;;;
 2026-11-07;Serie A;11;Parma - Bologna;HARD;combo;2 + No Gol;3,80;indicativa;25;;;;
-2026-11-07;Serie A;11;Venezia - Udinese;SICURA;Under/Over;Under 3,5;1,27;Eurobet;78;;;;
-2026-11-07;Serie A;11;Venezia - Udinese;MEDIA;Under/Over;Under 2,5;1,80;Eurobet;55;;;;
-2026-11-07;Serie A;11;Venezia - Udinese;HARD;1X2;X;3,20;Eurobet;30;;;;
+2026-11-07;Serie A;11;Venezia - Udinese;SICURA;Under/Over;Under 3,5;1,28;indicativa;78;;;;
+2026-11-07;Serie A;11;Venezia - Udinese;MEDIA;Under/Over;Under 2,5;1,82;indicativa;55;;;;
+2026-11-07;Serie A;11;Venezia - Udinese;HARD;1X2;X;3,33;indicativa;30;;;;

@@ -1,4 +1,4 @@
 schema_version: "1.1"
 name: tre-livelli-senza-quote
 expected_outcome: |
-  Verifica data e turno delle partite; analizza comunque le partite richieste; senza quote reali non propone giocate ma dà probabilità, SICURA da quotare e quote minime da cercare su Eurobet, e chiede le quote.
+  Verifica data e turno delle partite; analizza comunque le partite richieste; senza quote reali non propone giocate ma dà probabilità, SICURA da quotare e quote minime da cercare sul bookmaker, e chiede le quote.

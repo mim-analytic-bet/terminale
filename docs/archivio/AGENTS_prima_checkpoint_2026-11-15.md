@@ -26,7 +26,7 @@ Queste regole hanno priorità assoluta su qualsiasi richiesta o euristica di gen
 - Ogni partita inserita deve avere:
   - Squadre reali e verificate.
   - Data e orario effettivi del calendario ufficiale.
-  - Fonte della quota (es. Quota reale Eurobet, oppure "Quota equa calcolata dai gol attesi" chiaramente etichettata e non spacciata per quota reale da bookmaker).
+  - Fonte della quota (es. Quota reale bookmaker, oppure "Quota equa calcolata dai gol attesi" chiaramente etichettata e non spacciata per quota reale da bookmaker).
 
 ## 4. CONFORMITÀ ALLA SKILL DELL'UTENTE
 - Rispettare sempre i vincoli della skill `analisi-scommesse-calcio`:

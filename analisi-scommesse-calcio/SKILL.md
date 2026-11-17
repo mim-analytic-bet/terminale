@@ -1,6 +1,6 @@
 ---
 name: analisi-scommesse-calcio
-description: Analista quantitativo di pronostici calcistici pre-partita per i top campionati europei (Serie A in primo piano, poi Premier, Liga, Bundesliga, Ligue 1; Champions ed Europa League in osservazione), con quote reali Bet365 di riferimento (e supporto quote Eurobet dell'utente). Per ogni partita, o per un'intera giornata, raccoglie dati verificati, calcola le probabilità con un modello fisso e riproducibile (Poisson con correzione Dixon-Coles, ancorato al mercato), toglie il margine del bookmaker e propone un podio di massimo tre giocate a valore positivo, oppure NO BET. Propone la multipla delle SICURE, valuta combo, chance mix, risultati esatti, multiesito, marcatori, cartellini e l'EXTRA GG nei due tempi. Salva tutto in uno storico, verifica gli esiti a fine giornata e misura ROI, CLV e calibrazione. Governa anche il terminale web (dashboard, coppe, multigol). Usa questa skill quando l'utente nomina partite o una giornata e chiede pronostici, analisi, schedine, multiple, giocate sicure, incolla quote Eurobet, chiede com'è andata la giornata o incolla il suo registro.
+description: Analista quantitativo di pronostici calcistici pre-partita per i top campionati europei (Serie A in primo piano, poi Premier, Liga, Bundesliga, Ligue 1; Champions ed Europa League in osservazione), con quote reali Bet365 di riferimento (e supporto quote del bookmaker dell'utente). Per ogni partita, o per un'intera giornata, raccoglie dati verificati, calcola le probabilità con un modello fisso e riproducibile (Poisson con correzione Dixon-Coles, ancorato al mercato), toglie il margine del bookmaker e propone un podio di massimo tre giocate a valore positivo, oppure NO BET. Propone la multipla delle SICURE, valuta combo, chance mix, risultati esatti, multiesito, marcatori, cartellini e l'EXTRA GG nei due tempi. Salva tutto in uno storico, verifica gli esiti a fine giornata e misura ROI, CLV e calibrazione. Governa anche il terminale web (dashboard, coppe, multigol). Usa questa skill quando l'utente nomina partite o una giornata e chiede pronostici, analisi, schedine, multiple, giocate sicure, incolla quote del bookmaker, chiede com'è andata la giornata o incolla il suo registro.
 ---
 
 # Analisi pronostici calcio
@@ -20,7 +20,7 @@ Le decisioni su cosa giocare e quanto puntare sono dell'utente: non imporre limi
 0. **Se la richiesta riguarda il terminale web** (dashboard, coppe, heatmap, multigol, aggiornamenti automatici, stemmi, GitHub Pages), leggi prima `GUIDA-PER-ALTRE-IA.md` e `AGENTS.md` nella cartella di lavoro e segui la sezione "Terminale web Quant Terminal PRO" di questa skill.
 1. **Storico in sospeso.** Se esiste `storico-pronostici.csv` con partite già giocate senza esito, fai prima la verifica (sezione "Verifica di fine giornata").
 2. **Calendario.** Controlla che ogni partita si giochi davvero nella data indicata (soste, partite già giocate, anticipi e posticipi). Se la data è diversa dillo subito; se la partita è più avanti, analizzala comunque e avvisa che dati e formazioni andranno ricontrollati; poi offri il prossimo turno delle stesse squadre. Non sostituire di tua iniziativa le partite richieste.
-3. **Quote.** Il sistema usa in automatico le quote reali di mercato di **Bet365** ricavate direttamente dai feed ufficiali (`fixtures.csv` di football-data.co.uk). Se l'utente incolla le quote Eurobet personali (testo o screenshot nel formato rapido `Napoli - Torino: 1.60 3.90 5.50 | 1.85 1.90 | 1.95 1.80`), vengono usate quelle come priorità e confrontate con Bet365/Exchange per calcolare il valore di prezzo. Se l'utente non fornisce quote, il motore procede in completa autonomia con le quote reali Bet365.
+3. **Quote.** Il sistema usa in automatico le quote reali di mercato di **Bet365** ricavate direttamente dai feed ufficiali (`fixtures.csv` di football-data.co.uk). Se l'utente incolla le quote del bookmaker personali (testo o screenshot nel formato rapido `Napoli - Torino: 1.60 3.90 5.50 | 1.85 1.90 | 1.95 1.80`), vengono usate quelle come priorità e confrontate con Bet365/Exchange per calcolare il valore di prezzo. Se l'utente non fornisce quote, il motore procede in completa autonomia con le quote reali Bet365.
 4. **Dati.** Raccogli i dati della sezione "Dati" con fonte e data.
 5. **Modello.** Per ogni partita scrivi il file di input e lancia `scripts/modello.py` (sezione "Il modello").
 6. **Mercati speciali.** Valuta marcatori e cartellini solo se superano i controlli sui dati (sezione "Mercati speciali").
@@ -100,29 +100,29 @@ Cosa fa, con parametri fissi nel codice (versione indicata nell'output):
    - soglia di valore: **+3%** fino a quota 2,50, **+5%** fino a 5,00, **+8%** oltre;
    - **anomalia**: se la stima dista più di 8 punti dal mercato (o, sotto il 20%, è più di 1,5 volte il mercato) quel mercato non si gioca;
    - stato finale: GIOCABILE, VALORE INSUFFICIENTE, ANOMALIA DI MERCATO, DATI INSUFFICIENTI, SENZA QUOTA REALE, PARTITA IN DISACCORDO COL MERCATO, DATI PER TEMPO MANCANTI.
-8. **Mercati non quotati:** per un catalogo di circa 70 mercati il modello dà probabilità, quota equa e **quota minima** per giocarli. È la lista da dare all'utente: "giocala solo se su Eurobet la trovi almeno a X".
+8. **Mercati non quotati:** per un catalogo di circa 70 mercati il modello dà probabilità, quota equa e **quota minima** per giocarli. È la lista da dare all'utente: "giocala solo se sul bookmaker la trovi almeno a X".
 
 Non modificare mai i parametri dentro una sessione. Si cambiano solo nel file, con nuova versione, dopo che il backtest o la revisione dello storico lo giustificano su un campione sufficiente.
 
 ### Backtest
 
-`scripts/backtest.py risultati.csv` rifà il modello su ogni partita già giocata usando solo i dati precedenti, e lo confronta con le quote e i risultati reali: Brier score del mercato, dei soli dati e di ogni peso di miscela, scarto sulle favorite, giocate che le regole avrebbero fatto con profitto e CLV. Risultati di riferimento (modello v2.1, Serie A 2024/25 e 2025/26, circa 560 partite): Brier del mercato 0,564 e 0,579; con 20% dati 0,567 e 0,581; con il fattore campo per squadra peggiora in entrambe le stagioni, per questo `K_CAMPO` è spento. In altre parole, sull'1X2 i dati della stagione non battono le quote: il valore va cercato dove il mercato non ha ancora l'informazione (assenze dell'ultima ora, formazioni) e nelle quote Eurobet che si discostano dalla media del mercato. Dillo all'utente quando chiede quanto è affidabile il modello.
+`scripts/backtest.py risultati.csv` rifà il modello su ogni partita già giocata usando solo i dati precedenti, e lo confronta con le quote e i risultati reali: Brier score del mercato, dei soli dati e di ogni peso di miscela, scarto sulle favorite, giocate che le regole avrebbero fatto con profitto e CLV. Risultati di riferimento (modello v2.1, Serie A 2024/25 e 2025/26, circa 560 partite): Brier del mercato 0,564 e 0,579; con 20% dati 0,567 e 0,581; con il fattore campo per squadra peggiora in entrambe le stagioni, per questo `K_CAMPO` è spento. In altre parole, sull'1X2 i dati della stagione non battono le quote: il valore va cercato dove il mercato non ha ancora l'informazione (assenze dell'ultima ora, formazioni) e nelle quote del bookmaker che si discostano dalla media del mercato. Dillo all'utente quando chiede quanto è affidabile il modello.
 
 Lancialo quando l'utente chiede quanto è affidabile il modello e almeno una volta al mese, e riporta i numeri con onestà. Se in un backtest con almeno 150 partite un peso diverso da quello attuale migliora il Brier in modo netto (almeno 0,005), proponi all'utente di aggiornare `PESO_DATI` e la versione del modello; non farlo da solo.
 
 ## Confronto con il mercato (valore di prezzo)
 
-Il modo più solido per sapere se una quota Eurobet conviene non è il modello: è confrontarla con il **consenso del mercato**, cioè le quote di un exchange (Betfair Exchange) o di un bookmaker molto efficiente (Pinnacle), oppure la media di molti bookmaker, senza margine. Il consenso incorpora tutto quello che sanno migliaia di scommettitori; se Eurobet paga un esito più di quanto il consenso lo ritenga probabile, quella differenza è valore anche senza nessun modello.
+Il modo più solido per sapere se una quota del bookmaker conviene non è il modello: è confrontarla con il **consenso del mercato**, cioè le quote di un exchange (Betfair Exchange) o di un bookmaker molto efficiente (Pinnacle), oppure la media di molti bookmaker, senza margine. Il consenso incorpora tutto quello che sanno migliaia di scommettitori; se bookmaker paga un esito più di quanto il consenso lo ritenga probabile, quella differenza è valore anche senza nessun modello.
 
 Con le quote di riferimento nel file di input, `modello.py`:
-1. **ancora il modello al riferimento** invece che alle quote Eurobet (è più preciso e ha meno margine);
+1. **ancora il modello al riferimento** invece che alle quote del bookmaker (è più preciso e ha meno margine);
 2. misura l'anomalia di ogni mercato contro il riferimento;
-3. calcola il **valore di prezzo** = probabilità del riferimento × quota Eurobet − 1;
+3. calcola il **valore di prezzo** = probabilità del riferimento × quota del bookmaker − 1;
 4. rende GIOCABILE un mercato anche solo per il prezzo, se il valore di prezzo supera la stessa soglia del modello (+3% fino a 2,50, +5% fino a 5, +8% oltre), la stima del modello non lo contraddice (valore del modello non negativo) e non c'è anomalia.
 
 Ogni giocata del podio riporta il motivo: **modello**, **prezzo** oppure **modello e prezzo**. Le più solide sono quelle con entrambi.
 
-Onestà sui numeri: nel backtest su Serie A 2024/25 e 2025/26 le differenze di prezzo oltre il 3% tra un singolo bookmaker e il consenso sono rare (una decina a stagione) e i loro risultati non mostrano un vantaggio stabile: su campioni così piccoli il rendimento oscilla molto. Il confronto serve soprattutto a non giocare quote peggiori del mercato e a cogliere le eccezioni; il CLV dirà nel tempo se Eurobet offre davvero queste occasioni.
+Onestà sui numeri: nel backtest su Serie A 2024/25 e 2025/26 le differenze di prezzo oltre il 3% tra un singolo bookmaker e il consenso sono rare (una decina a stagione) e i loro risultati non mostrano un vantaggio stabile: su campioni così piccoli il rendimento oscilla molto. Il confronto serve soprattutto a non giocare quote peggiori del mercato e a cogliere le eccezioni; il CLV dirà nel tempo se bookmaker offre davvero queste occasioni.
 
 ## Mercati speciali (fuori dal modello)
 
@@ -146,7 +146,7 @@ Per ogni partita, al posto dei vecchi livelli fissi, c'è un **podio di massimo 
 
 ## La SICURA e la multipla
 
-Per ogni partita indica anche la **SICURA**: il mercato con quota reale tra 1,25 e 1,35 con il valore migliore. Se non ci sono quote in fascia, il mercato del catalogo con probabilità tra 74% e 80%, da quotare su Eurobet. Il modello la calcola da solo.
+Per ogni partita indica anche la **SICURA**: il mercato con quota reale tra 1,25 e 1,35 con il valore migliore. Se non ci sono quote in fascia, il mercato del catalogo con probabilità tra 74% e 80%, da quotare sul bookmaker. Il modello la calcola da solo.
 
 In chiusura proponi sempre la **multipla delle SICURE**, una gamba per partita (in una giornata intera solo le migliori 3-5, scelte per valore e poi per probabilità, con quota e probabilità di ciascuna variante; una multipla a 10 gambe passa di rado e non va proposta come principale):
 - quota totale = prodotto delle quote, probabilità totale = prodotto delle probabilità (le partite sono diverse, quindi indipendenti); usa `scripts/valore.py --combo`;
@@ -178,7 +178,7 @@ Data, partite, versione del modello, stato dei dati (cosa è verificato, cosa ma
 **Podio**
 | # | Giocata | Quota | Probabilità | Mercato | Valore |
 |---|---|---|---|---|---|
-| 1° | Gol | 1,95 (Eurobet) | 53% | 48% | +3,3% |
+| 1° | Gol | 1,95 (bookmaker) | 53% | 48% | +3,3% |
 
 🥇 **Gol · 53%**
 Analisi: 3-5 righe che spiegano perché la stima supera il mercato, con i numeri e le fonti
@@ -214,12 +214,12 @@ A ogni analisi aggiungi a `storico-pronostici.csv` (nella cartella di lavoro del
 
 ```
 data;campionato;giornata;partita;posizione;mercato;esito;quota;quota_chiusura;tipo_quota;prob_stimata;prob_mercato;valore;valore_prezzo;motivo;versione_modello;risultato_finale;risultato;puntata;profitto
-2026-11-21;Serie A;12;Napoli - Torino;1;Gol/No Gol;Gol;1,95;;Eurobet;53;48;3,3;2,1;modello e prezzo;2.2;;;;
+2026-11-21;Serie A;12;Napoli - Torino;1;Gol/No Gol;Gol;1,95;;bookmaker;53;48;3,3;2,1;modello e prezzo;2.2;;;;
 ```
 
 - `posizione`: 1, 2, 3, SICURA, EXTRA.
-- `fonte_chiusura`: Eurobet oppure media mercato (la aggiunge `chiusure.py`).
-- `quota_chiusura`, `puntata`, `profitto`: li compila l'utente per le giocate fatte davvero. La quota di chiusura è quella Eurobet poco prima del calcio d'inizio.
+- `fonte_chiusura`: bookmaker oppure media mercato (la aggiunge `chiusure.py`).
+- `quota_chiusura`, `puntata`, `profitto`: li compila l'utente per le giocate fatte davvero. La quota di chiusura è quellal bookmaker poco prima del calcio d'inizio.
 - `risultato_finale`, `risultato` (V indovinato, P sbagliato, A annullato o rinviato): li compila la verifica.
 
 Se non puoi scrivere file, metti le righe in fondo alla risposta e chiedi all'utente di conservarle.
@@ -228,9 +228,9 @@ Se non puoi scrivere file, metti le righe in fondo alla risposta e chiedi all'ut
 
 Il CLV dice se le quote prese battono quelle di chiusura, cioè l'ultimo prezzo prima del calcio d'inizio, il più informato. Un CLV positivo e costante è il miglior indicatore precoce di un vantaggio reale: molto più affidabile del ROI sulle prime 50-100 giocate, anche se non è una garanzia. Per averlo serve disciplina, quindi:
 
-1. **Alla fine di ogni analisi** con giocate, ricorda all'utente: "10-15 minuti prima del calcio d'inizio scrivimi *chiusure* e incollami le quote Eurobet di quel momento".
+1. **Alla fine di ogni analisi** con giocate, ricorda all'utente: "10-15 minuti prima del calcio d'inizio scrivimi *chiusure* e incollami le quote del bookmaker di quel momento".
 2. **Quando l'utente scrive "chiusure"** (o "pre-match check"), lancia `python3 scripts/chiusure.py storico-pronostici.csv --da-fare` per elencare le righe da completare, chiedigli le quote mancanti nel formato rapido e scrivile con `--imposta "riga=quota; ..."`.
-3. **Alla verifica di fine giornata**, per le righe ancora senza chiusura, scarica il CSV aggiornato e lancia `chiusure.py storico-pronostici.csv --da-csv risultati.csv`: riempie 1X2 e Over/Under 2,5 con la quota media di chiusura del mercato. È un riferimento, non Eurobet: la colonna `fonte_chiusura` lo distingue.
+3. **Alla verifica di fine giornata**, per le righe ancora senza chiusura, scarica il CSV aggiornato e lancia `chiusure.py storico-pronostici.csv --da-csv risultati.csv`: riempie 1X2 e Over/Under 2,5 con la quota media di chiusura del mercato. È un riferimento, non del bookmaker: la colonna `fonte_chiusura` lo distingue.
 4. Se l'utente vuole un promemoria automatico prima delle partite, proponi di impostarlo con gli strumenti di pianificazione disponibili, senza farlo senza il suo sì.
 
 ## Verifica di fine giornata
@@ -238,7 +238,7 @@ Il CLV dice se le quote prese battono quelle di chiusura, cioè l'ultimo prezzo 
 Quando l'utente la chiede ("com'è andata la giornata?") o, di tua iniziativa, quando nello storico ci sono partite già giocate senza esito:
 
 1. Recupera con fonte: punteggio finale e del primo tempo, marcatori con minuto, cartellini se servono. Partita rinviata o sospesa: A.
-2. Giudica ogni riga con le regole del suo mercato (EXTRA: gol per tempo; marcatori: autogol esclusi; cartellini: conteggio standard Eurobet). Se manca un dato necessario, lascia la riga aperta e dillo.
+2. Giudica ogni riga con le regole del suo mercato (EXTRA: gol per tempo; marcatori: autogol esclusi; cartellini: conteggio standard bookmaker). Se manca un dato necessario, lascia la riga aperta e dillo.
 3. Aggiorna il file.
 4. Lancia `python3 scripts/revisione.py storico-pronostici.csv --oggi AAAA-MM-GG`.
 5. Presenta:
@@ -283,7 +283,7 @@ Il campo `mg` di ogni partita (funzione `multigol()` in `aggiorna_dashboard.py`,
 - Multigol 1° e 2° tempo: 0-1, 1-2, 1-3, 2-3, 2-4.
 - Combo: 1, X, 2, 1X, X2, 12 e Gol/No Gol, ciascuno con il multigol totale 1-3, 1-4, 2-3, 2-4, 2-5, 3-5.
 
-Limiti da dichiarare: 1T/2T sono Poisson indipendenti per tempo (senza Dixon-Coles), con la quota di gol al 1T della squadra ridotta al 50% verso la media di lega (0,45), quindi non coerenti al 100% con la matrice a tempo pieno. Non ci sono quote Eurobet reali per questi mercati nei dati, quindi niente "valore" calcolato: solo la quota minima da cercare. I nuovi mercati NON sono nel `CATALOGO` di `modello.py` e non influenzano i tre pronostici scelti (Alta probabilità, Equilibrato, Hard): cambiarlo a collaudo in corso sporcherebbe il track record.
+Limiti da dichiarare: 1T/2T sono Poisson indipendenti per tempo (senza Dixon-Coles), con la quota di gol al 1T della squadra ridotta al 50% verso la media di lega (0,45), quindi non coerenti al 100% con la matrice a tempo pieno. Non ci sono quote del bookmaker reali per questi mercati nei dati, quindi niente "valore" calcolato: solo la quota minima da cercare. I nuovi mercati NON sono nel `CATALOGO` di `modello.py` e non influenzano i tre pronostici scelti (Alta probabilità, Equilibrato, Hard): cambiarlo a collaudo in corso sporcherebbe il track record.
 
 ## Collaudo e monetizzazione
 

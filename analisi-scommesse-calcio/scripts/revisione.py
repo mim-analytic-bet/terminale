@@ -169,7 +169,7 @@ def main(argv):
             print(f"CLV medio: {pc(sum(clv) / len(clv))} su {len(cl)} giocate · quota di chiusura battuta {battute} volte su {len(cl)}")
             print("Un CLV positivo e costante è il segnale più affidabile di un vantaggio reale, molto prima del ROI.")
         else:
-            print("CLV: nessuna quota di chiusura registrata. Annotala (la quota Eurobet poco prima del calcio d'inizio): è il miglior indicatore precoce.")
+            print("CLV: nessuna quota di chiusura registrata. Annotala (la quota del bookmaker poco prima del calcio d'inizio): è il miglior indicatore precoce.")
         quota_media = sum(x["quota"] for x in reali if x["quota"]) / n
         minimo = CAMPIONE_MINIMO_QUOTE_ALTE if quota_media > 2.5 else CAMPIONE_MINIMO
         if n < minimo:

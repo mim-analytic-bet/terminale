@@ -314,12 +314,12 @@ def analizza(d):
         motivi_gate.append("assenze non verificate entro 48 ore dalla partita")
 
     quote = d.get("quote", {})
-    tipo_quota = d.get("tipo_quota", "Eurobet")
+    tipo_quota = d.get("tipo_quota", "Bookmaker")
     quota_reale = tipo_quota.lower() not in ("indicativa", "")
     pm = prob_mercato(quote) if quote else {}
     # Quote di riferimento: il consenso del mercato (exchange o media di molti
     # bookmaker), più efficiente delle quote di un singolo bookmaker. Se ci sono,
-    # sono loro l'ancora del modello e il metro per giudicare il prezzo Eurobet.
+    # sono loro l'ancora del modello e il metro per giudicare il prezzo bookmaker.
     rif = d.get("quote_riferimento") or {}
     fonte_rif = d.get("fonte_riferimento", "riferimento")
     pm_rif = prob_mercato(rif) if rif else {}
@@ -367,7 +367,7 @@ def analizza(d):
         p_m, metodo = pm[norm(nome)]
         valore = p * q - 1
         soglia = soglia_valore(q)
-        # l'anomalia si misura contro il riferimento, se c'è (più affidabile di Eurobet)
+        # l'anomalia si misura contro il riferimento, se c'è (più affidabile del bookmaker)
         p_cfr = pm_rif.get(norm(nome), (p_m, None))[0]
         scarto = p - p_cfr
         anomalia = abs(scarto) > SOGLIA_ANOMALIA or (p_cfr < 0.20 and p > RAPPORTO_ANOMALIA * p_cfr)
@@ -387,7 +387,7 @@ def analizza(d):
             stato = "GIOCABILE"
         else:
             stato = "VALORE INSUFFICIENTE"
-        # Valore di prezzo: la quota Eurobet contro la probabilità del consenso
+        # Valore di prezzo: la quota del bookmaker contro la probabilità del consenso
         p_r = pm_rif.get(norm(nome), (None, None))[0]
         valore_prezzo = p_r * q - 1 if p_r else None
         if quota_reale and dati_ok and ancora_completa and not disaccordo_1x2 \
@@ -488,7 +488,7 @@ def stampa(r):
             print(f"{v['mercato']:<28}{it(v['quota']):>7}{pc(v['prob_modello']):>11}{pc(v['prob_mercato']):>11}"
                   f"{sg(v['valore'])}{pc(v['valore']):>8}{it(v['quota_minima']):>7}{ex}  {v['stato']}")
         if r["fonte_riferimento"]:
-            print(f"Riferimento: {r['fonte_riferimento']} (senza margine). v.prezzo = quota Eurobet contro la probabilità del riferimento.")
+            print(f"Riferimento: {r['fonte_riferimento']} (senza margine). v.prezzo = quota del bookmaker contro la probabilità del riferimento.")
         metodi = sorted({v["metodo_margine"] for v in r["valutazioni"]})
         print("Margine: " + "; ".join(metodi))
 
@@ -532,7 +532,7 @@ ESEMPIO = {
     "trasferta": {"partite": 5, "gol_fatti": 7, "gol_subiti": 6, "xg": None, "xga": None, "quota_gol_1t": None},
     "assenze_verificate": True,
     "correzioni": [{"squadra": "casa", "codice": "ASSENZA_BOMBER"}],
-    "tipo_quota": "Eurobet",
+    "tipo_quota": "Bookmaker",
     "quote": {"1": 1.60, "X": 3.90, "2": 5.50, "1X": 1.15, "X2": 2.35, "Over 1,5": 1.28, "Under 1,5": 3.50,
               "Over 2,5": 1.85, "Under 2,5": 1.90, "Gol": 1.95, "No Gol": 1.80},
 }

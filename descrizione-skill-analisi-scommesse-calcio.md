@@ -17,7 +17,7 @@ La skill **non contiene dati, quote né un modello statistico precalcolato**. Di
 
 I dati arrivano a ogni uso da strumenti esterni: connettori di statistiche calcistiche, ricerca web, quote incollate dall'utente.
 
-**Utente tipo:** scommettitore italiano che gioca su Eurobet, pre-partita, soprattutto sulla Serie A. Vuole analisi dettagliate e pronostici a livelli di quota fissi, senza limiti imposti su budget e puntate.
+**Utente tipo:** scommettitore italiano che gioca sul bookmaker, pre-partita, soprattutto sulla Serie A. Vuole analisi dettagliate e pronostici a livelli di quota fissi, senza limiti imposti su budget e puntate.
 
 ---
 
@@ -25,7 +25,7 @@ I dati arrivano a ogni uso da strumenti esterni: connettori di statistiche calci
 
 Il campo `description` (circa 1.000 caratteri) fa scattare la skill quando l'utente:
 - nomina una o più partite, o una giornata di campionato, e chiede pronostici, un'analisi, una schedina, una multipla, una giocata "sicura" o "hard";
-- incolla quote o screenshot di Eurobet;
+- incolla quote o screenshot del bookmaker;
 - chiede come vede una partita;
 - chiede com'è andata la giornata o di controllare i pronostici;
 - incolla il proprio registro delle giocate.
@@ -98,7 +98,7 @@ Regole di scelta:
 - Se in una fascia non c'è nulla di sensato, si sceglie l'esito più vicino e si spiega in una riga.
 - **Combo sulla stessa partita:** le quote non si moltiplicano perché gli esiti sono correlati. Si usa la quota combo reale, oppure una quota indicativa da far verificare.
 - **Chance mix ("A oppure B"):** probabilità = P(A) + P(B) − P(A e B), con la parte in comune calcolata dallo scenario.
-- **Risultati:** la probabilità di un gruppo o di un multiesito è la somma dei punteggi che contiene, presi dalla griglia di Poisson. Un risultato esatto singolo raramente supera il 12-14%, quindi è da HARD. Se la skill non conosce la composizione dei gruppi Eurobet, propone i punteggi e chiede all'utente di verificarli.
+- **Risultati:** la probabilità di un gruppo o di un multiesito è la somma dei punteggi che contiene, presi dalla griglia di Poisson. Un risultato esatto singolo raramente supera il 12-14%, quindi è da HARD. Se la skill non conosce la composizione dei gruppi bookmaker, propone i punteggi e chiede all'utente di verificarli.
 
 ### 3.8 Il pronostico EXTRA (GG 1T + GG 2T)
 - **Definizione:** entrambe le squadre segnano nel primo tempo e di nuovo entrambe nel secondo, quindi almeno 4 gol.
@@ -110,8 +110,8 @@ Regole di scelta:
 - **Presentazione:** sempre anche come frequenza in parole, per esempio "circa 1 volta su 15".
 
 ### 3.9 Quote
-- **Fonti, in ordine di preferenza:** quote Eurobet date dall'utente, quote trovate online (Eurobet o altro bookmaker), quote **indicative** calcolate come 1 / probabilità stimata.
-- **Etichetta obbligatoria** su ogni quota: Eurobet, altro bookmaker, indicativa.
+- **Fonti, in ordine di preferenza:** quote date dall'utente, quote trovate online (bookmaker o altro bookmaker), quote **indicative** calcolate come 1 / probabilità stimata.
+- **Etichetta obbligatoria** su ogni quota: bookmaker, altro bookmaker, indicativa.
 - **Senza quote reali:** gli esiti vengono scelti per fascia di probabilità, così le quote indicative cadono nella fascia giusta:
 
   | Livello | Probabilità stimata |
@@ -176,7 +176,7 @@ Il valore è un'**informazione, non un filtro**: il pronostico viene dato comunq
 ## 5. Cosa la skill non fa (per scelta)
 
 - **Nessun limite su budget, puntate o numero di giocate.** Una prima versione li prevedeva (puntata fissa, tetti settimanali e mensili, "NO BET" obbligatorio); l'utente ha chiesto di toglierli.
-- **Nessuna scommessa piazzata**, nessun accesso a Eurobet.
+- **Nessuna scommessa piazzata**, nessun accesso al bookmaker.
 - **Nessuna promessa di vincita.**
 - **Nessun paternalismo.** Il tono è da analista a scommettitore esperto.
 
@@ -252,7 +252,7 @@ data;campionato;giornata;partita;livello;mercato;esito;quota;tipo_quota;prob_sti
 | Test | Con skill | Senza skill |
 |---|---|---|
 | Giornata intera di Serie A (10 partite) | 8/9 | 3/9 |
-| Tre partite con quote Eurobet date | 8/8 | 4/8 |
+| Tre partite con quote del bookmaker date | 8/8 | 4/8 |
 | Verifica di fine giornata su uno storico di 12 pronostici | 5/5 | 2/5 |
 | **Totale** | **96%** | **41%** |
 
@@ -277,7 +277,7 @@ Giri precedenti, su versioni intermedie: 77% → 100% → 92% → 100% con la sk
 
 ### Dati
 - **Connettore fuori uso:** il connettore TheStatsAPI risponde "chiave revocata". Senza, mancano xG, gol per tempo, tiri e minuti dei giocatori, statistiche precise casa/trasferta. Tutto viene dalla ricerca web, con qualità variabile delle fonti.
-- **Quote Eurobet:** non sono mai state trovate online nei test. Senza le quote incollate dall'utente, quasi tutte le quote sono indicative e il valore non è calcolabile.
+- **Quote di prova:** non sono mai state trovate online nei test. Senza le quote incollate dall'utente, quasi tutte le quote sono indicative e il valore non è calcolabile.
 - **Tempistica:** a 7-10 giorni dalla partita mancano formazioni, squalifiche e arbitri. Marcatori e cartellini di fatto non sono utilizzabili prima di giovedì o venerdì.
 
 ### Modello

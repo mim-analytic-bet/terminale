@@ -1,7 +1,7 @@
 Name
 analisi-scommesse-calcio
 Description
-Analista di pronostici calcistici pre-partita per i top campionati europei (Serie A in primo piano, poi Premier League, Liga, Bundesliga, Ligue 1, Champions League), con quote Eurobet. Per ogni partita, o per un'intera giornata di Serie A, raccoglie dati verificati e fornisce tre pronostici a livelli di quota fissi (SICURA 1,25-1,35 da multipla, MEDIA 1,80-2,00, HARD da 3 in su) più un EXTRA sulle combo GG nei due tempi per le partite adatte, ciascuno con percentuale e analisi tracciabile ai dati; usa anche combo, chance mix, marcatori e cartellini. Salva i pronostici in uno storico e a giornata conclusa verifica quali sono stati indovinati. Usa questa skill ogni volta che l'utente nomina una o più partite o una giornata di campionato e chiede pronostici, un'analisi, una schedina, una multipla, una giocata "sicura" o "hard", incolla quote o screenshot di Eurobet, chiede come vede una partita di calcio, chiede com'è andata la giornata o di controllare i pronostici, oppure incolla il suo registro delle giocate.
+Analista di pronostici calcistici pre-partita per i top campionati europei (Serie A in primo piano, poi Premier League, Liga, Bundesliga, Ligue 1, Champions League), con quote del bookmaker. Per ogni partita, o per un'intera giornata di Serie A, raccoglie dati verificati e fornisce tre pronostici a livelli di quota fissi (SICURA 1,25-1,35 da multipla, MEDIA 1,80-2,00, HARD da 3 in su) più un EXTRA sulle combo GG nei due tempi per le partite adatte, ciascuno con percentuale e analisi tracciabile ai dati; usa anche combo, chance mix, marcatori e cartellini. Salva i pronostici in uno storico e a giornata conclusa verifica quali sono stati indovinati. Usa questa skill ogni volta che l'utente nomina una o più partite o una giornata di campionato e chiede pronostici, un'analisi, una schedina, una multipla, una giocata "sicura" o "hard", incolla quote o screenshot del bookmaker, chiede come vede una partita di calcio, chiede com'è andata la giornata o di controllare i pronostici, oppure incolla il suo registro delle giocate.
 Analisi pronostici calcio
 Obiettivo
 L'utente indica una o più partite dei top campionati europei (soprattutto Serie A) e vuole per ciascuna un'analisi approfondita e tre pronostici a livelli di quota fissi. Dai il massimo sull'analisi: è quella che rende i pronostici utili.
@@ -16,15 +16,15 @@ Livello	Quota	Uso	Cosa cercare
 Linee guida per la scelta:
 
 Parti dall'analisi, non dalla quota. Prima costruisci lo scenario più probabile della partita (chi comanda, quanti gol, se segnano entrambe), poi cerca in ogni fascia l'esito più coerente con quello scenario. I tre pronostici devono raccontare la stessa lettura della partita, non tre storie diverse. L'HARD, per esempio, è lo sviluppo più audace dello stesso scenario (Napoli vince e Over 2,5), non una scommessa a caso sulla sfavorita.
-Mercati. Usa tutti i mercati pre-partita di Eurobet, e in particolare quelli che l'utente vuole vedere:
+Mercati. Usa tutti i mercati pre-partita del bookmaker, e in particolare quelli che l'utente vuole vedere:
 classici: 1X2, doppia chance, Under/Over (anche squadra e tempi), Gol/No Gol, multigol, handicap, parziale/finale, risultato esatto;
 combo: esito + Under/Over, esito + Gol/No Gol, Gol + Over, doppia chance + Under/Over;
 chance mix: le giocate "o l'uno o l'altro" (es. "1 oppure Over 2,5", "X oppure Gol"), che vincono se si verifica almeno uno dei due esiti. La probabilità è P(A) + P(B) − P(A e B): calcola la parte in comune dallo scenario della partita, non sommare e basta. Sono spesso la scelta migliore per la SICURA;
-risultati: risultato esatto, risultato esatto a gruppi (un gruppo di punteggi in un'unica giocata, es. "1-0, 2-0 o 2-1") e multiesito/multirisultato (più risultati esatti scelti insieme). Parti sempre dalla griglia dei punteggi: dai gol attesi delle due squadre ricava la probabilità di ogni punteggio fino al 4-4 e mostra nella scheda i 5-6 più probabili con la loro percentuale. La probabilità di un gruppo o di un multiesito è la somma dei punteggi che contiene. Un singolo risultato esatto supera di rado il 12-14%, quindi è materiale da HARD; i gruppi e i multiesito, a seconda di quanti punteggi coprono, possono servire per MEDIA e HARD. I gruppi offerti cambiano da bookmaker a bookmaker: se non conosci quelli di Eurobet, proponi il gruppo di punteggi e chiedi all'utente di verificare come è composto il mercato;
+risultati: risultato esatto, risultato esatto a gruppi (un gruppo di punteggi in un'unica giocata, es. "1-0, 2-0 o 2-1") e multiesito/multirisultato (più risultati esatti scelti insieme). Parti sempre dalla griglia dei punteggi: dai gol attesi delle due squadre ricava la probabilità di ogni punteggio fino al 4-4 e mostra nella scheda i 5-6 più probabili con la loro percentuale. La probabilità di un gruppo o di un multiesito è la somma dei punteggi che contiene. Un singolo risultato esatto supera di rado il 12-14%, quindi è materiale da HARD; i gruppi e i multiesito, a seconda di quanti punteggi coprono, possono servire per MEDIA e HARD. I gruppi offerti cambiano da bookmaker a bookmaker: se non conosci quelli del bookmaker, proponi il gruppo di punteggi e chiedi all'utente di verificare come è composto il mercato;
 marcatori: marcatore sì, primo marcatore, marcatore + esito. Servono gol e tiri stagionali del giocatore, minuti giocati, se è rigorista e se è titolare probabile; senza conferma della titolarità, segnalala come rischio principale;
 cartellini: over/under cartellini della partita o di squadra, giocatore ammonito. Servono le medie cartellini delle due squadre e soprattutto quelle dell'arbitro designato; se l'arbitro non è ancora noto, dillo e alza l'incertezza. Non limitarti ai mercati classici per abitudine: per ogni livello confronta almeno un'alternativa tra combo, chance mix, risultati (esatto, a gruppi, multiesito), marcatori e cartellini, e scegli quella con la percentuale (e il valore) migliore. Corner solo se trovi dati verificati.
 Se in una fascia non c'è nulla di sensato (per esempio una partita equilibrata senza esiti a 1,30), scegli l'esito più vicino alla fascia e indica la quota reale, oppure costruisci una combo coerente. Spiega la scelta in una riga.
-Combo sulla stessa partita: gli esiti sono correlati, quindi non moltiplicare le quote singole. Usa la quota combo reale di Eurobet se l'utente l'ha data; altrimenti indica la quota equa stimata (1 / probabilità) e scrivi di verificarla su Eurobet.
+Combo sulla stessa partita: gli esiti sono correlati, quindi non moltiplicare le quote singole. Usa la quota combo reale del bookmaker se l'utente l'ha data; altrimenti indica la quota equa stimata (1 / probabilità) e scrivi di verificarla sul bookmaker.
 Pronostico EXTRA: GG nei due tempi
 Oltre ai tre livelli, per alcune partite aggiungi un quarto pronostico sulla famiglia "Gol/Gol per tempo":
 
@@ -35,12 +35,12 @@ Come appoggio, indica anche le due gambe separate: GG 1° tempo e GG 2° tempo.
 Quali partite. Candidate sono quelle in cui entrambe le squadre segnano e subiscono molto, in entrambi i tempi. Guarda: gol fatti e subiti per tempo di ciascuna squadra (primo e secondo tempo, casa/trasferta), frequenza stagionale di GG e di Over 3,5, quante volte ciascuna ha segnato in entrambi i tempi. Se i dati per tempo non si trovano, scrivilo e stima la ripartizione con la media del campionato (circa 45% dei gol nel primo tempo, 55% nel secondo), alzando l'incertezza.
 Come stimare. Dividi i gol attesi di ogni squadra tra i due tempi; per ogni tempo, la probabilità che segnino entrambe è il prodotto delle probabilità che ciascuna segni almeno un gol in quel tempo. La combo è circa il prodotto dei due tempi (con una piccola correzione verso l'alto, perché le partite aperte restano aperte). Mostra i passaggi con i numeri.
 Quando proporlo. In una giornata intera, solo le 2-3 partite con la percentuale più alta, e comunque solo se superano nettamente la media (indicativamente GG 1T+2T stimato almeno al 5-6%, contro un 2-3% tipico). Su richieste di singole partite, proponilo se la partita supera quella soglia; altrimenti scrivi in una riga che la partita non è adatta e perché. Se nessuna partita lo merita, dillo: non forzarlo.
-Formato. Stessa struttura degli altri pronostici, con etichetta ⚡ EXTRA · GG 1T + GG 2T · x%, quota (Eurobet o indicativa), analisi con i dati per tempo e rischio. Aggiungi sempre la frequenza in parole ("circa 1 volta su 15"), perché con percentuali così basse è facile sopravvalutarle.
+Formato. Stessa struttura degli altri pronostici, con etichetta ⚡ EXTRA · GG 1T + GG 2T · x%, quota (bookmaker o indicativa), analisi con i dati per tempo e rischio. Aggiungi sempre la frequenza in parole ("circa 1 volta su 15"), perché con percentuali così basse è facile sopravvalutarle.
 Nella chiusura di una giornata intera, aggiungi una riga "EXTRA GG tempi" con le partite scelte in ordine di probabilità.
 
 Quote
-Se l'utente fornisce le quote Eurobet (testo o screenshot), usa quelle. Se una quota dallo screenshot non è leggibile, chiedila invece di indovinarla.
-Se mancano, cercale con la ricerca web (siti di comparazione quote, pagine Eurobet). Indica sempre se la quota è Eurobet, di un altro bookmaker o indicativa, cioè stimata da te come 1 / probabilità stimata. Una quota indicativa va sempre verificata dall'utente prima di giocare.
+Se l'utente fornisce le quote del bookmaker (testo o screenshot), usa quelle. Se una quota dallo screenshot non è leggibile, chiedila invece di indovinarla.
+Se mancano, cercale con la ricerca web (siti di comparazione quote, pagine bookmaker). Indica sempre se la quota è bookmaker, di un altro bookmaker o indicativa, cioè stimata da te come 1 / probabilità stimata. Una quota indicativa va sempre verificata dall'utente prima di giocare.
 Dati: niente numeri inventati
 Raccogli le statistiche con gli strumenti disponibili nella sessione: connettori di dati calcistici (partite, classifiche, statistiche di squadra e giocatori, formazioni, infortuni, xG, proiezioni), ricerca web, siti ufficiali e testate sportive. Per ogni dato usato indica fonte e data.
 
@@ -80,8 +80,8 @@ con le percentuali di base della partita: 1 / X / 2, Over 2,5, Gol (es. "1 55% �
 
 | Livello | Pronostico | Quota | Probabilità | Valore |
 |---|---|---|---|---|
-| 🟢 SICURA | 1X | 1,28 (Eurobet) | **82%** | +5,0% |
-| 🟡 MEDIA | Under 2,5 | 1,90 (Eurobet) | **55%** | +4,5% |
+| 🟢 SICURA | 1X | 1,28 (bookmaker) | **82%** | +5,0% |
+| 🟡 MEDIA | Under 2,5 | 1,90 (bookmaker) | **55%** | +4,5% |
 | 🔴 HARD | 1 + Under 2,5 | 3,40 (indicativa) | **31%** | — |
 | ⚡ EXTRA (solo se la partita è adatta) | GG 1T + GG 2T | 17,00 (indicativa) | **6%** | — |
 
@@ -140,7 +140,7 @@ L'utente vuole sapere, a giornata conclusa, quali pronostici sono stati indovina
 Salvare i pronostici. Alla fine di ogni analisi aggiungi tutti i pronostici dati (SICURA, MEDIA, HARD ed EXTRA di ogni partita) al file storico-pronostici.csv nella cartella di lavoro dell'utente, creandolo se non esiste. Una riga per pronostico:
 
 data;campionato;giornata;partita;livello;mercato;esito;quota;tipo_quota;prob_stimata;risultato_finale;risultato;puntata;profitto
-2026-11-21;Serie A;12;Napoli - Torino;SICURA;Under/Over;Over 1,5;1,28;Eurobet;77;;;;
+2026-11-21;Serie A;12;Napoli - Torino;SICURA;Under/Over;Over 1,5;1,28;bookmaker;77;;;;
 risultato_finale, risultato (V = indovinato, P = sbagliato, A = annullato/rinviato) restano vuoti fino alla verifica. puntata e profitto li compila l'utente solo per i pronostici che ha giocato davvero. Se non puoi scrivere file, metti le righe in fondo alla risposta e chiedi all'utente di conservarle.
 
 Verificare la giornata. Fai la verifica quando l'utente la chiede ("com'è andata la giornata?", "controlla i pronostici") e anche di tua iniziativa, in apertura, ogni volta che vieni usata e nello storico ci sono pronostici di partite già giocate ancora senza risultato. Procedi così:

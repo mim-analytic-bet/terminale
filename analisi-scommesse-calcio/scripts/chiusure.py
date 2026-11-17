@@ -5,12 +5,12 @@ Uso:
   chiusure.py storico.csv --da-fare [--oggi AAAA-MM-GG]
       elenca le righe di oggi e domani senza quota di chiusura (controllo pre-partita)
   chiusure.py storico.csv --imposta "12=1,88; 13=3,60"
-      scrive la quota di chiusura Eurobet nelle righe indicate (numero di riga del file)
+      scrive la quota di chiusural bookmaker nelle righe indicate (numero di riga del file)
   chiusure.py storico.csv --da-csv risultati.csv
       riempie le chiusure ancora vuote di 1X2 e Over/Under 2,5 con la quota media di
-      chiusura del mercato presa dal CSV di football-data.co.uk (riferimento, non Eurobet)
+      chiusura del mercato presa dal CSV di football-data.co.uk (riferimento, non del bookmaker)
 
-La colonna fonte_chiusura dice da dove viene ogni quota: "Eurobet" oppure
+La colonna fonte_chiusura dice da dove viene ogni quota: "Bookmaker" oppure
 "media mercato". Il file viene riscritto con lo stesso separatore.
 """
 import csv
@@ -80,7 +80,7 @@ def main(argv):
         if not da_fare:
             print("Nessuna quota di chiusura da annotare per oggi e domani.")
             return 0
-        print("Quote di chiusura da annotare (Eurobet, 10-15 minuti prima del calcio d'inizio):")
+        print("Quote di chiusura da annotare (bookmaker, 10-15 minuti prima del calcio d'inizio):")
         for i, r in da_fare:
             giocata = " · GIOCATA" if num(r.get("puntata")) else ""
             print(f"riga {i}: {r.get('data')} {r.get('partita')} · {r.get('esito')} · presa a {r.get('quota')}{giocata}")
@@ -100,7 +100,7 @@ def main(argv):
             if not valore or valore <= 1:
                 raise SystemExit(f"Quota non valida: {q}")
             righe[idx]["quota_chiusura"] = it(valore)
-            righe[idx]["fonte_chiusura"] = "Eurobet"
+            righe[idx]["fonte_chiusura"] = "Bookmaker"
             n += 1
         salva(path, righe, campi, sep)
         print(f"Aggiornate {n} righe.")

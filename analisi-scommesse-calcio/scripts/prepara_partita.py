@@ -13,7 +13,7 @@ Opzioni:
                             formato rapido: 1 X 2 | Over Under 2,5 | Gol No Gol
                             (blocchi facoltativi da destra; virgola o punto decimale;
                             si può aggiungere un quarto blocco "| 1X 12 X2")
-  --tipo-quota Eurobet      (default Eurobet; "indicativa" se non sono quote reali)
+  --tipo-quota Bookmaker      (default Bookmaker; "indicativa" se non sono quote reali)
   --rif "1.62 3.80 5.40 | 1.90 1.90"
                             quote di riferimento del mercato (consenso), formato rapido
   --fonte-rif "Betfair Exchange"
@@ -209,7 +209,7 @@ def main(argv):
     if val("--q"):
         d["quote"].update(quote_rapide(val("--q")))
         if not val("--tipo-quota"):
-            d["tipo_quota"] = "Eurobet"
+            d["tipo_quota"] = "Bookmaker"
     if val("--quote"):
         for coppia in val("--quote").split(";"):
             k, v = coppia.rsplit("=", 1)
@@ -222,7 +222,7 @@ def main(argv):
         d["quote_riferimento"], d["fonte_riferimento"] = rif, fonte
         b365 = quote_bet365(val("--rif-da"), casa, ospite)
         if not d["quote"] and b365:
-            d["quote"] = dict(b365)      # prezzo di confronto, NON quello di Eurobet
+            d["quote"] = dict(b365)      # prezzo di confronto, NON quello del bookmaker
             d["tipo_quota"] = "Bet365"
         if arbitro:
             d["arbitro"] = arbitro

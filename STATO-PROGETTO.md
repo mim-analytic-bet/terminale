@@ -19,7 +19,7 @@ Pubblicato e verificato nel workflow #24 (17/11, 6 proposte registrate, tutte co
 Il pannello "Affidabilità delle proposte" (barra di avanzamento settimanale, tabelle per gruppo, quota e fascia) è nella pagina; soglie e tappe indicative (mie scelte). Dettagli in `docs/REGISTRO_ATTIVITA.md`.
 
 ### Pulizia fonti (17/11/2026, sera)
-Per decisione di Domenico sono stati rimossi dal repository, dalla cronologia e dal disco di lavoro i dati e gli strumenti di lettura di un bookmaker, e il codice che li mostrava. Sul sito restano solo le quote football-data già usate prima. Dettagli in `docs/REGISTRO_ATTIVITA.md`. Aperto: etichette storiche di fonte nel modello e nel registro dei pronostici (decisione di Domenico).
+Per decisione di Domenico sono stati rimossi dal repository, dalla cronologia e dal disco di lavoro i dati e gli strumenti di lettura di un bookmaker, e il codice che li mostrava. Sul sito restano solo le quote football-data già usate prima. Dettagli in `docs/REGISTRO_ATTIVITA.md`. Poi, con l'ok di Domenico, ripulite anche le etichette di fonte: il default del modello e dei flussi manuali è "Bookmaker", i file sintetici obsoleti sono stati cancellati, le righe di prova con quote sono diventate quote indicative, i testi delle skill sono neutri. Modello e soglie invariati; 41 test e test interfaccia passano.
 
 ## Ultima attività importante
 

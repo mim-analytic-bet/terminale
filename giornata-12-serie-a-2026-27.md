@@ -6,7 +6,7 @@ Analisi del 12/11/2026, da 9 a 11 giorni prima delle partite. Modello fisso v2.1
 
 **Stato dei dati.**
 - Risultati, gol, xG e gol per tempo delle giornate 1-11: verificati dal CSV football-data.co.uk (110 partite, tutte con xG), scaricato il 12/11/2026. Ogni squadra ha 11 partite: il minimo di 10 c'è.
-- Quote 1X2: medie di mercato da comparatore (centroquote.it, 12/11/2026), **non Eurobet**. Over/Under e Gol/No Gol non trovati.
+- Quote 1X2: medie di mercato da comparatore (centroquote.it, 12/11/2026), **non del bookmaker**. Over/Under e Gol/No Gol non trovati.
 - Assenze: **non verificate**. Mancano più di 48 ore e c'è la sosta per le nazionali. Per questo nessuna partita può avere un podio definitivo. Il modello è stato lanciato anche nello scenario "assenze verificate" (podio condizionato): neanche lì esce una giocata.
 - Marcatori e cartellini: non valutati. Mancano le probabili formazioni del giorno e le designazioni arbitrali.
 - Connettori di dati calcistici: non usati. Dati presi dal CSV e dal web.
@@ -256,7 +256,7 @@ Le schede elencano prima la squadra di casa. I numeri del quadro vengono dal CSV
 **NO BET**: è la giocata più vicina di tutta la giornata, ma non basta.
 - Il 2 a 5,50 ha valore +7,7%. Sopra quota 5 la soglia è +8%: per giocarlo serve almeno 5,51.
 - I dati danno all'1 il 48%, contro il 62% del mercato: 14 punti, appena sotto il limite di disaccordo.
-- Da rivalutare con le assenze verificate e le quote Eurobet.
+- Da rivalutare con le assenze verificate e le quote del bookmaker.
 
 🟢 **SICURA (da quotare)**: 12 · 79% · quota equa 1,26 · quota minima 1,30.
 - Il pareggio vale solo il 21%: la partita ha 3,7 gol attesi in totale, la più aperta della giornata.
