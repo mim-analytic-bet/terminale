@@ -99739,8 +99739,8 @@ let LETTURA_ATTUALE = 1;
                 <div class="text-xs font-black text-white leading-tight line-clamp-1">${item.mercato}</div>
               </div>
               <div class="mt-2 pt-2 border-t border-slate-800/60 flex justify-between items-center text-[10px] mono">
-                <span class="text-slate-400">Quota:</span>
-                <span class="font-bold text-emerald-400">${item.quota}</span>
+                <span class="text-slate-400" title="${item.qReale ? 'Quota rilevata sul mercato' : 'Non è una quota di un bookmaker: è 1/probabilità del modello. Il prezzo reale può essere molto diverso.'}">${item.qReale ? 'Quota rilevata:' : 'Quota equa (modello):'}</span>
+                <span class="font-bold ${item.qReale ? 'text-emerald-400' : 'text-amber-300'}">${item.quota}</span>
               </div>
             </button>
           `;
