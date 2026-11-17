@@ -2,6 +2,21 @@
   "versione": 1,
   "verifica_pubblica_il": "2026-11-15",
   "stato_progetto": "verifica_interna",
+  "autorizzazione_interna": {
+    "attiva": true,
+    "decisa_il": "2026-11-17",
+    "decisa_da": "Domenico, indicazione in chat con Claude",
+    "ambito": "Collaudo ristretto: solo Domenico e 3 persone fidate; nessuna vendita e nessun compenso. Gli aspetti legali sono rimandati a una fase successiva e NON sono risolti da questa voce.",
+    "operazioni": ["download"],
+    "limiti": {
+      "football_data_uk": {
+        "max_download_settimana": 2,
+        "giorni_consentiti": ["lun", "gio"],
+        "nota": "Rispetta il limite di due scarichi automatici a settimana riportato nella policy della fonte (non verificata direttamente). Il giovedi porta le quote prima del weekend, il lunedi i risultati."
+      }
+    },
+    "nota": "Non modifica i permessi delle singole fonti, che restano non verificati: consente soltanto l'aggiornamento tecnico del collaudo. Condivisione, uso commerciale e addestramento restano bloccati."
+  },
   "nota": "Le condizioni pubbliche non dimostrano il piano acquistato o l'autorizzazione del prodotto concreto. I permessi restano bloccati fino alla documentazione; non è un certificato legale.",
   "fonti": {
     "football_data_uk": {

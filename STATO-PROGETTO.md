@@ -1,12 +1,16 @@
 # Stato corrente del progetto
 
-Ultimo checkpoint: **2026-11-16T15:45:00+01:00**. Leggere questo file per riprendere il lavoro con un'altra IA.
+Ultimo checkpoint: **2026-11-17T12:57:00+01:00**. Leggere questo file per riprendere il lavoro con un'altra IA.
 
 ## Obiettivo e scadenza
 
 Prodotto di analisi calcistica monetizzabile con diritti e conformità verificati, utile agli utenti, intuitivo e aggiornabile. Revisione con Claude entro **martedì 17 novembre 2026, ore 03:00 italiane (02:00 UTC)**.
 
 Stato: **verifica interna; pubblicazione commerciale non autorizzata dalle evidenze disponibili**. Richiesta esplicita dell'utente: abilitare l'uso interno per sé e la propria cerchia ristretta di amici/tester.
+
+## Aggiornamento del 17/11/2026 (collaudo ristretto)
+
+Decisione di Domenico: prima la macchina operativa, gli aspetti legali dopo; progetto visibile solo a lui e a 3 persone fidate. Fatto (dettagli in `docs/REGISTRO_ATTIVITA.md`): autorizzazione interna documentata in `config/fonti_dati.json` solo per il download, con limite di 2 scarichi a settimana (lunedì e giovedì) da football-data.co.uk; calendari del primo weekend verificati su fonti ufficiali (Serie A 12, Premier 11, LaLiga 13, Bundesliga 10); testi delle combinazioni corretti; 30 test superati. **Non risolto:** diritti delle fonti, visibilità pubblica di repository e sito, `fixtures.csv` senza le 5 leghe, prima esecuzione remota dopo le modifiche (giovedì 19/11), peso dei dati nel modello (0,0 nel collaudo; evidenza nel registro).
 
 ## Ultima attività importante
 
@@ -25,7 +29,7 @@ Non usare la precedente osservazione «repository pubblico» per descrivere lo s
 
 ## Modifiche applicate nella cartella
 
-- Controlli documentali delle fonti prima dei percorsi predisposti di download e condivisione; cron sospeso nel workflow locale.
+- Controlli documentali delle fonti prima dei percorsi predisposti di download e condivisione; dal 17/11 il solo download è consentito dall'autorizzazione interna (cron attivo nel workflow remoto, con limite settimanale per football-data.co.uk).
 - Parametri espliciti e congelati; motore 2.2.1. Nessun riaddestramento automatico durante la generazione.
 - Correzioni delle soglie e delle condizioni che un prezzo non può scavalcare.
 - Puntate, Kelly e composizione automatica delle schedine sospesi; riquadri informativi su metodo, confronto storico e dati mancanti.

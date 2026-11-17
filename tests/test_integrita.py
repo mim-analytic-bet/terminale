@@ -17,6 +17,7 @@ import modello as M
 import configurazione_modello as CFG
 import integrita_calendario as IC
 import verifica_fonti as VF
+import limite_download as LD
 import track_record as TR
 import coppe as CP
 
@@ -120,9 +121,56 @@ class FontiTest(unittest.TestCase):
         self.assertTrue(VF.impedimenti(d, "download", ["sconosciuta"]))
 
     def test_registro_corrente_blocca_impieghi_non_verificati(self):
+        # il solo download e' consentito dall'autorizzazione interna documentata; il resto resta bloccato
         d = json.loads(VF.DEFAULT.read_text())
-        for operazione in ("download", "condivisione", "commerciale", "addestramento"):
+        for operazione in ("condivisione", "commerciale", "addestramento"):
             self.assertTrue(VF.impedimenti(d, operazione))
+
+    def test_download_consentito_solo_con_autorizzazione_interna_esplicita(self):
+        d = json.loads(VF.DEFAULT.read_text())
+        self.assertFalse(VF.impedimenti(d, "download"))
+        d["autorizzazione_interna"]["attiva"] = False
+        self.assertTrue(VF.impedimenti(d, "download"))
+        d["autorizzazione_interna"]["attiva"] = True
+        d["autorizzazione_interna"]["operazioni"] = []
+        self.assertTrue(VF.impedimenti(d, "download"))
+
+    def test_autorizzazione_interna_non_copre_fonti_non_censite(self):
+        d = json.loads(VF.DEFAULT.read_text())
+        self.assertTrue(VF.impedimenti(d, "download", ["sconosciuta"]))
+
+
+class LimiteDownloadTest(unittest.TestCase):
+    CFG = {"autorizzazione_interna": {"limiti": {"f": {"max_download_settimana": 2, "giorni_consentiti": ["lun", "gio"]}}}}
+
+    def adesso(self, giorno, ora=7):
+        return dt.datetime(2026, 11, giorno, ora, 0, tzinfo=dt.timezone.utc)   # 16/11/2026 = lunedi
+
+    def test_giorno_non_consentito(self):
+        self.assertFalse(LD.consentito(self.CFG, "f", self.adesso(17), [])[0])      # martedi
+        self.assertTrue(LD.consentito(self.CFG, "f", self.adesso(19), [])[0])       # giovedi
+
+    def test_una_sola_volta_al_giorno(self):
+        fatti = [self.adesso(19, 7).isoformat()]
+        self.assertFalse(LD.consentito(self.CFG, "f", self.adesso(19, 13), fatti)[0])
+
+    def test_massimo_due_a_settimana_e_ripartenza_la_settimana_dopo(self):
+        fatti = [self.adesso(16).isoformat(), self.adesso(19).isoformat()]
+        self.assertTrue(LD.consentito(self.CFG, "f", self.adesso(23), fatti)[0])      # lunedi della settimana nuova
+
+    def test_simulazione_tre_settimane_di_cron_mai_oltre_due_a_settimana(self):
+        fatti = []; per_settimana = {}
+        t = dt.datetime(2026, 11, 16, 0, 0, tzinfo=dt.timezone.utc)
+        while t < dt.datetime(2026, 12, 7, tzinfo=dt.timezone.utc):
+            for ora in (7, 13, 22):
+                x = t.replace(hour=ora)
+                if LD.consentito(self.CFG, "f", x, fatti)[0]:
+                    fatti.append(x.isoformat()); k = x.isocalendar()[:2]; per_settimana[k] = per_settimana.get(k, 0) + 1
+            t += dt.timedelta(days=1)
+        self.assertEqual(sorted(per_settimana.values()), [2, 2, 2])
+
+    def test_fonte_senza_limite_sempre_consentita(self):
+        self.assertTrue(LD.consentito(self.CFG, "altra", self.adesso(17), [])[0])
 
 
 class CalendarioTest(unittest.TestCase):

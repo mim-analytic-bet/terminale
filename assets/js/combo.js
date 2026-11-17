@@ -181,7 +181,7 @@
         '<div class="flex justify-between mt-2 mono"><span class="text-slate-400">Moltiplicatore ' + (legs.length > 1 ? "combinato" : "singolo") + '</span><span class="font-black text-white">' + molt.toFixed(2) + '</span></div>' +
         '<div class="flex justify-between mono"><span class="text-slate-400">Prob. congiunta modello' + (legs.length > 1 ? " (indipendenti)" : "") + '</span><span class="font-black text-white">' + Math.round(prob * 100) + '%</span></div>' +
         '<div class="mt-2 text-[10px] text-slate-500 leading-snug">' +
-        (legs.every(function (c) { return c.tipo === "reale"; }) ? "Quote Bet365 reali verificate." : "Quote reali Bet365 o stime bivariata dove specificato.") +
+        (legs.every(function (c) { return c.tipo === "reale"; }) ? "Quote Bet365 reali." : "Quote Bet365 reali, tranne dove indicato: &laquo;da 1X2&raquo; = ricavata dalle quote 1X2 Bet365; &laquo;equa&raquo; = 1/probabilit\u00e0 del modello, non una quota Bet365.") +
         '</div>';
     }
 

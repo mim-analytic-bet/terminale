@@ -77,3 +77,22 @@ Registro incrementale per la cooperazione tra IA. Le verifiche precedenti sono r
 4. Eseguiti tutti i test (`node tests/test_interfaccia.js`, 23 test Python di `test_integrita.py` e `VERIFICA-LOCALE.command` superati al 100%).
 
 **Prossima attività:** commit e push verso GitHub Pages per rendere visibili i nuovi moduli online.
+
+## 2026-11-17T12:57:00+01:00 — Messa in funzione operativa del collaudo ristretto (decisione di Domenico: prima la macchina, poi gli aspetti legali)
+
+**Richiesta (dichiarazione dell'utente):** rendere operativa la macchina; il progetto resta visibile per settimane o mesi solo a Domenico e a 3 persone fidate; gli aspetti legali vengono dopo.
+
+**Interventi eseguiti:**
+1. `config/fonti_dati.json`: aggiunta `autorizzazione_interna` (attiva dal 2026-11-17, solo operazione `download`, ambito collaudo ristretto, limite football-data.co.uk di 2 scarichi/settimana il lunedi e il giovedi). I permessi delle singole fonti NON sono cambiati e restano non verificati; condivisione, uso commerciale e addestramento restano bloccati (verificato: `verifica_fonti.py` esce con 2 per queste operazioni).
+2. `scripts/verifica_fonti.py`: `autorizzazione_interna()`; il download passa solo se l'autorizzazione e' attiva e dichiara l'operazione; le fonti non censite restano bloccate.
+3. Nuovo `scripts/limite_download.py` e `scripts/aggiorna_tutto.sh`: gli scarichi da football-data.co.uk avvengono solo il lunedi e il giovedi, una volta al giorno, massimo 2 per settimana (registro `dati/scarichi_fonti.json`); le altre esecuzioni usano i file gia' presenti. `FORZA_SCARICO=1` salta il controllo.
+4. `dati/calendario.json` (orari verificati su fonti ufficiali, ora italiana): Bundesliga 10 completata (il manuale aveva Frankfurt-Hoffenheim e Augsburg-Mainz con casa/ospite invertiti e 4 partite senza giorno; fonti: bundesliga.com con orari UTC+1h, concordi con fcbayern.com e openfootball); LaLiga 13 completata e corretta (fonte laliga.com; nel manuale Real Madrid-Celta, Sevilla-Betis, Levante-Elche avevano il giorno sbagliato); Premier 11: rimossa la nota "giorno da verificare" su Brentford-Everton (premierleague.com, orari GMT +1h, confermati da Sky Sports). Serie A 12: il manuale coincide con la versione ufficiale piu' recente (pagina modificata il 16/11); il calendario aperto openfootball e' rimasto alla versione di settembre, quindi i CONFRONTO nel rapporto sono rumore noto.
+5. `assets/js/combo.js` e i due HTML: nota sotto le combinazioni onesta ("Quote Bet365 reali." solo se tutte le righe sono reali; altrimenti spiegazione di "da 1X2" ed "equa"); descrizioni dei box corrette (Eventi Combinati: 1,65-1,80 per evento, oppure combinato >= 1,98 se entrambi a quota reale; Cluster: due eventi 1,80-2,00 oppure singola >= 3,50, non "3 eventi"); frase dell'obiettivo "quote tra 2 e 3 con i valori reali dei bookmaker".
+
+**Verifiche eseguite:** 30 test Python superati (7 nuovi: autorizzazione interna e limitatore, inclusa una simulazione di tre settimane di cron con al massimo 2 scarichi a settimana); `tests/test_interfaccia.js` superato; sintassi di `combo.js` e `aggiorna_tutto.sh`; anteprima del generatore senza errori e senza piu' giornate escluse per conflitto nel primo weekend (restano gli avvisi su Premier 12 e LaLiga 14, non ancora confermate dalle leghe).
+
+**Evidenza sul peso dei dati (non una decisione):** `dati/memoria_modello.json` riporta peso_dati_vs_mercato = 0,0 con Brier mercato puro 0,5337 uguale al misto appreso, su 211 casi: nel backtest mescolare i dati al mercato non migliora l'errore. Quindi con le quote presenti il modello coincide col mercato; senza quote usa il solo modello sui dati (Brier 0,5764). Il collaudo parte con la configurazione congelata `baseline-effettiva-2026-11-15-v1`.
+
+**Limiti e blocchi:** il workflow GitHub non e' stato eseguito dopo queste modifiche (primo controllo: esecuzione automatica del giovedi 19/11); non verificato che le esecuzioni remote precedenti siano fallite; `fixtures.csv` non contiene ancora le 5 leghe; repository e sito restano pubblici (decisione sulla visibilita' e verifica legale rinviate); la pagina non e' stata guardata in un browser da mobile; la policy di football-data.co.uk non e' stata letta alla fonte.
+
+**Prossima attivita':** giovedi 19/11 (cron delle 07:00 UTC) controllare scarico, `fixtures.csv` con le 5 leghe, quote e registrazione delle previsioni con `inizio_utc`; poi aggiornare Premier 12 e LaLiga 14 quando le leghe confermano gli orari.

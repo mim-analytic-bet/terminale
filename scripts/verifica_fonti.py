@@ -7,6 +7,14 @@ from pathlib import Path
 DEFAULT = Path(__file__).resolve().parents[1] / "config" / "fonti_dati.json"
 
 
+def autorizzazione_interna(documento, operazione):
+    """Autorizzazione esplicita e documentata (config) per l'uso tecnico del collaudo ristretto; mai per condivisione o uso commerciale."""
+    a = documento.get("autorizzazione_interna") if isinstance(documento, dict) else None
+    if isinstance(a, dict) and a.get("attiva") is True and operazione in (a.get("operazioni") or []):
+        return a
+    return None
+
+
 def impedimenti(documento, operazione, fonti=None):
     if not isinstance(documento, dict) or not isinstance(documento.get("fonti"), dict):
         return ["Registro delle fonti mancante o non valido"]
@@ -19,6 +27,8 @@ def impedimenti(documento, operazione, fonti=None):
         fonte = registro.get(nome)
         if not isinstance(fonte, dict):
             errori.append(f"{nome}: fonte non censita")
+            continue
+        if autorizzazione_interna(documento, operazione):
             continue
         if fonte.get("piano_verificato") is not True or not fonte.get("evidenze"):
             errori.append(f"{nome}: piano e autorizzazione non documentati")
@@ -46,7 +56,11 @@ def main():
     for errore in errori:
         print("BLOCCO FONTI:", errore)
     if not errori:
-        print("Registro documentale compatibile con l'operazione; non sostituisce una verifica legale.")
+        a = autorizzazione_interna(documento, args.operazione)
+        if a:
+            print("AUTORIZZAZIONE INTERNA attiva (" + a.get("decisa_il", "?") + "): " + a.get("ambito", "") + " Non sostituisce una verifica legale.")
+        else:
+            print("Registro documentale compatibile con l'operazione; non sostituisce una verifica legale.")
     return 2 if errori else 0
 
 

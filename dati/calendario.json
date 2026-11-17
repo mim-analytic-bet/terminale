@@ -200,8 +200,7 @@
       "casa": "Brentford",
       "ospite": "Everton",
       "giorno": "2026-11-23",
-      "ora": "21:00",
-      "nota": "giorno da verificare (fonti discordanti)"
+      "ora": "21:00"
      }
     ]
    }
@@ -214,68 +213,68 @@
     "giornata": "13ª Giornata",
     "partite": [
      {
-      "casa": "Real Madrid",
-      "ospite": "Celta",
-      "giorno": "2026-11-22",
-      "ora": null
+      "casa": "Ath Bilbao",
+      "ospite": "Espanol",
+      "giorno": "2026-11-20",
+      "ora": "21:00"
+     },
+     {
+      "casa": "Alaves",
+      "ospite": "La Coruna",
+      "giorno": "2026-11-21",
+      "ora": "14:00"
+     },
+     {
+      "casa": "Vallecano",
+      "ospite": "Valencia",
+      "giorno": "2026-11-21",
+      "ora": "16:15"
      },
      {
       "casa": "Sevilla",
       "ospite": "Betis",
+      "giorno": "2026-11-21",
+      "ora": "18:30"
+     },
+     {
+      "casa": "Real Madrid",
+      "ospite": "Celta",
+      "giorno": "2026-11-21",
+      "ora": "21:00"
+     },
+     {
+      "casa": "Barcelona",
+      "ospite": "Villarreal",
       "giorno": "2026-11-22",
-      "ora": null
+      "ora": "14:00"
+     },
+     {
+      "casa": "Santander",
+      "ospite": "Sociedad",
+      "giorno": "2026-11-22",
+      "ora": "16:15"
+     },
+     {
+      "casa": "Osasuna",
+      "ospite": "Malaga",
+      "giorno": "2026-11-22",
+      "ora": "18:30"
      },
      {
       "casa": "Getafe",
       "ospite": "Ath Madrid",
       "giorno": "2026-11-22",
-      "ora": null
+      "ora": "21:00"
      },
      {
       "casa": "Levante",
       "ospite": "Elche",
-      "giorno": "2026-11-22",
-      "ora": null
-     },
-     {
-      "casa": "Vallecano",
-      "ospite": "Valencia",
-      "giorno": null,
-      "ora": null
-     },
-     {
-      "casa": "Ath Bilbao",
-      "ospite": "Espanol",
-      "giorno": null,
-      "ora": null
-     },
-     {
-      "casa": "Barcelona",
-      "ospite": "Villarreal",
-      "giorno": null,
-      "ora": null
-     },
-     {
-      "casa": "Osasuna",
-      "ospite": "Malaga",
-      "giorno": null,
-      "ora": null
-     },
-     {
-      "casa": "Alaves",
-      "ospite": "La Coruna",
-      "giorno": null,
-      "ora": null
-     },
-     {
-      "casa": "Santander",
-      "ospite": "Sociedad",
-      "giorno": null,
-      "ora": null
+      "giorno": "2026-11-23",
+      "ora": "21:00"
      }
     ],
-    "finestra": "21-22 Nov",
-    "dataFine": "2026-11-22"
+    "finestra": "20-23 Nov",
+    "dataFine": "2026-11-23"
    }
   }
  },
@@ -310,34 +309,34 @@
       "ora": "15:30"
      },
      {
-      "casa": "Werder Bremen",
-      "ospite": "Hamburg",
-      "giorno": "2026-11-22",
-      "ora": "17:30"
-     },
-     {
       "casa": "M'gladbach",
       "ospite": "Dortmund",
-      "giorno": null,
-      "ora": null
+      "giorno": "2026-11-21",
+      "ora": "15:30"
+     },
+     {
+      "casa": "Ein Frankfurt",
+      "ospite": "Hoffenheim",
+      "giorno": "2026-11-21",
+      "ora": "15:30"
      },
      {
       "casa": "Schalke 04",
       "ospite": "Stuttgart",
-      "giorno": null,
-      "ora": null
+      "giorno": "2026-11-21",
+      "ora": "18:30"
      },
      {
-      "casa": "Hoffenheim",
-      "ospite": "Ein Frankfurt",
-      "giorno": null,
-      "ora": null
+      "casa": "Augsburg",
+      "ospite": "Mainz",
+      "giorno": "2026-11-22",
+      "ora": "15:30"
      },
      {
-      "casa": "Mainz",
-      "ospite": "Augsburg",
-      "giorno": null,
-      "ora": null
+      "casa": "Werder Bremen",
+      "ospite": "Hamburg",
+      "giorno": "2026-11-22",
+      "ora": "17:30"
      }
     ],
     "finestra": "21-22 Nov",

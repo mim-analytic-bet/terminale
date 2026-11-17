@@ -10,8 +10,15 @@ echo "=== $(date '+%d/%m/%Y %H:%M') stagione $S ===" >> "$LOG"
 ERR=0
 scarica() { # url destinazione
   T=$(mktemp); if curl -sSfL --max-time 60 -o "$T" "$1" 2>>"$LOG" && head -c 8 "$T" | grep -q "Div" && [ "$(wc -l < "$T")" -gt 5 ]; then mv "$T" "$2"; echo "ok $2" >> "$LOG"; else rm -f "$T"; echo "FALLITO $2" >> "$LOG"; ERR=$((ERR+1)); fi; }
-for L in I1 E0 SP1 D1 F1; do scarica "https://www.football-data.co.uk/mmz4281/$S/$L.csv" "dati/$L.csv"; done
-scarica "https://www.football-data.co.uk/fixtures.csv" "dati/fixtures.csv"
+# football-data.co.uk: al massimo 2 scarichi a settimana (lun e gio), come da config/fonti_dati.json; altrimenti si usano i file gia' presenti
+if "$PY" scripts/limite_download.py --fonte football_data_uk >> "$LOG" 2>&1; then
+  ERR0=$ERR
+  for L in I1 E0 SP1 D1 F1; do scarica "https://www.football-data.co.uk/mmz4281/$S/$L.csv" "dati/$L.csv"; done
+  scarica "https://www.football-data.co.uk/fixtures.csv" "dati/fixtures.csv"
+  [ "$ERR" -eq "$ERR0" ] && "$PY" scripts/limite_download.py --registra football_data_uk >> "$LOG" 2>&1
+else
+  echo "football-data.co.uk: nessuno scarico in questa esecuzione; uso i file gia' presenti" >> "$LOG"
+fi
 "$PY" scripts/assenze.py >> "$LOG" 2>&1 || true
 "$PY" scripts/scarica_coppe.py >> "$LOG" 2>&1 || true
 "$PY" scripts/calendario_aperto.py >> "$LOG" 2>&1 || true   # calendario aperto openfootball (solo abbinamenti)
