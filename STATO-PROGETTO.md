@@ -78,3 +78,5 @@ Eseguite nel precedente blocco di lavoro; non rieseguite per il solo aggiornamen
 - [Istruzioni per gli agenti](AGENTS.md)
 
 Procedura di verifica locale: `bash VERIFICA-LOCALE.command`. I vecchi file e le copie delle skill non aggiornate non sostituiscono lo stato e le evidenze correnti.
+
+**Aggiornamento 17/11/2026:** Serie A giornata 12 letta per intero da Eurobet (principali, Multigol, combo, Chance Mix; 10/10 partite, solo in locale, escluse da git). Restano da leggere le altre quattro leghe e le coppe quando aprono. Quote non collegate al modello.
