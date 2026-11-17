@@ -9,3 +9,6 @@ scheda-partita-dashboard.BACKUP-*.html
 *.skill
 *.BACKUP-*
 analisi-scommesse-calcio-workspace/
+
+# Quote lette da bookmaker: non pubblicare nel repository pubblico finche diritti e termini d uso non sono verificati
+dati/quote_eurobet/

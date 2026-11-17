@@ -113,3 +113,7 @@ Registro incrementale per la cooperazione tra IA. Le verifiche precedenti sono r
 
 **Prossima attivita':** registro delle proposte (letture del modello, Eventi Combinati, Cluster) con prova temporale; sezione di affidabilita' nella dashboard.
 
+## 2026-11-17T15:10:00+01:00 — Quote Eurobet tolte dal ramo pubblico
+
+**Motivo (decisione di Domenico, "ok" alla proposta di Claude):** il commit `40c44f7` aveva pubblicato in un repository pubblico le quote di un bookmaker, senza aver verificato i termini d'uso. **Fatto:** file rimosso dal ramo principale (`git rm --cached`), cartella `dati/quote_eurobet/` aggiunta a `.gitignore`, copia durevole nel progetto privato Claude "SCOMMESSE". **Limite:** il file resta nella cronologia di git del repository pubblico (commit `40c44f7`); riscrivere la cronologia e' un'operazione distruttiva e non e' stata eseguita. Va deciso se farlo.
+
