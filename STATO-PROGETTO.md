@@ -21,6 +21,9 @@ Pubblicato e verificato nel workflow #24 (17/11, 6 proposte registrate, tutte co
 ### Sezione grafica di affidabilità (17/11/2026, 16:00)
 Il pannello "Affidabilità delle proposte" (barra di avanzamento settimanale, tabelle per gruppo, quota e fascia) è nella pagina; soglie e tappe indicative (mie scelte). Dettagli in `docs/REGISTRO_ATTIVITA.md`.
 
+### Lettura Eurobet standardizzata (17/11/2026, 16:35)
+Procedura v2 in `docs/PROCEDURA_QUOTE_EUROBET.md`, calendario con `scripts/prossime_letture.py`, consumi in `docs/consumo_letture.csv`. Letture complete non ancora avviate: serve l'ok di Domenico e un pilota di una partita per misurare il costo.
+
 ## Ultima attività importante
 
 Consolidamento locale in Git eseguito con successo su richiesta dell'utente (commit `0ae46c9` su `main`): 262 file versionati, working tree pulito. Tutte le modifiche di de-gambling, badge vettoriali, suite di 23 test e configurazione del modello 2.2.1 sono ora tracciate nella cronologia.
