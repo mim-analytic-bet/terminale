@@ -16,7 +16,7 @@ Decisione di Domenico: prima la macchina operativa, gli aspetti legali dopo; pro
 Letta la Serie A giornata 12 da Eurobet (10 partite, mercati attuali) e salvata in `dati/quote_eurobet/serie-a_g12.txt`; procedura in `docs/PROCEDURA_QUOTE_EUROBET.md`. **Non integrata** nel modello, nelle soglie o nel registro. Decisione aperta di Domenico: ruolo di Eurobet (prezzo di gioco oppure anche riferimento del modello). Prossimi passi concordati: registro delle proposte con prova temporale e sezione di affidabilita' nella dashboard (calibrazione per fascia, non solo percentuale di successo).
 
 ### Registro delle proposte (17/11/2026, 16:30)
-Implementato e testato in locale (non ancora pubblicato né eseguito con dati reali): `dati/proposte_live.csv`, `scripts/registro_proposte.py`, `scripts/proposte_cli.js`, `combo.js` rifattorizzato con output identico. Dettagli e limiti in `docs/REGISTRO_ATTIVITA.md`. Prossimo passo: sezione grafica di affidabilità.
+Pubblicato e verificato nel workflow #24 (17/11, 6 proposte registrate, tutte con quota equa): `dati/proposte_live.csv`, `scripts/registro_proposte.py`, `scripts/proposte_cli.js`, `combo.js` rifattorizzato con output identico. Dettagli e limiti in `docs/REGISTRO_ATTIVITA.md`. Prossimo passo: sezione grafica di affidabilità.
 
 ## Ultima attività importante
 

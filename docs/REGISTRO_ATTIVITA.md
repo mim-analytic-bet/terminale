@@ -130,3 +130,7 @@ Registro incrementale per la cooperazione tra IA. Le verifiche precedenti sono r
 
 **Fatto:** il workflow ora installa Node 20 in modo esplicito (`actions/setup-node@v4`) e ha un passo che segnala con avviso se il registro proposte non risulta aggiornato; il riepilogo (`DATA_TRACK.proposte`) separa le proposte per categoria di quota (`quota:reale`, `quota:derivata`, `quota:equa`) oltre che per tipo. Test: 40 OK (1 nuovo); YAML del workflow valido (sintassi, non esecuzione).
 **Non verificato:** l'esecuzione reale del workflow con Node e la scrittura di `dati/proposte_live.csv` (serve il prossimo aggiornamento o un avvio manuale).
+
+## 2026-11-17T15:30:00+01:00 — Prova reale del registro proposte (workflow #24, avvio manuale richiesto da Domenico)
+
+**Verificato:** workflow #24 completato con successo (1m 9s); Node funziona nel workflow; il log riporta "Proposte: 6 nuove registrate, 0 scartate"; `dati/proposte_live.csv` ha 6 righe (3 Eventi Combinati, 2 Cluster a coppia, 1 Cluster singola) su Serie A, Premier, LaLiga, Bundesliga, tutte con orario UTC futuro (21/11) e stato "aperta". **Limite:** tutte e 6 con quota "equa" (le partite non hanno ancora quote di mercato); la regola "prima registrazione immutabile" fa si' che queste proposte restino "equa" anche quando arriveranno le quote reali. Le proposte a quota reale saranno una seconda serie, con altra composizione. **Aperto:** decidere se tenere questa regola (consigliato per l'onesta' della prova temporale).
