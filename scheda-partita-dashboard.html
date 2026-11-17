@@ -99055,6 +99055,24 @@ let LETTURA_ATTUALE = 1;
       if (sigla) sigla.classList.remove("hidden");
     }
 
+    function statoQuote(m) {
+      const q = m && m.quoteMercato;
+      const ok = !!q && ["1", "X", "2"].some(function (k) { return Number(q[k]) > 1; });
+      return {ok: ok, fonte: ok ? (q.fonte || "di mercato") : null};
+    }
+    function aggiornaBadgeQuote(m) {
+      const ref = document.getElementById("match-data");
+      if (!ref) return;
+      let b = document.getElementById("badge-quote-partita");
+      if (!b) { b = document.createElement("span"); b.id = "badge-quote-partita"; ref.after(b); }
+      const st = statoQuote(m);
+      const T = (typeof DATA_TRACK !== "undefined" && DATA_TRACK.totale) || {};
+      b.style.cssText = "display:inline-block;margin-left:8px;padding:2px 10px;border-radius:9999px;font-size:11px;font-weight:700;color:#fff;background:" + (st.ok ? "#065f46" : "#92400e");
+      b.textContent = st.ok
+        ? "Quote: " + st.fonte
+        : "Senza quote di mercato: probabilità solo dal modello" + (T.brier_modello && T.brier_mercato ? " (Brier " + T.brier_modello + " contro " + T.brier_mercato + " del mercato)" : "");
+      b.title = st.ok ? "Probabilità ancorate alle quote di mercato disponibili." : "Quando mancano le quote il modello usa solo i dati storici ed è meno accurato del mercato (verifica interna).";
+    }
     function aggiornaStrisciaPartite(turno, partitaIdSelezionata) {
       const strip = document.getElementById("strip-partite-turno");
       if (!strip || !turno || !turno.partite) return;
@@ -99078,6 +99096,7 @@ let LETTURA_ATTUALE = 1;
               <span>${dataPart}</span>
               <span class="text-cyan-400 font-bold">${oraPart}</span>
             </div>
+            <div class="text-[9px] font-bold mono mb-0.5 ${statoQuote(p).ok ? 'text-emerald-400' : 'text-amber-400'}">${statoQuote(p).ok ? 'Quote reali' : 'Senza quote'}</div>
             <div class="flex items-center justify-around py-1">
               <div class="w-8 h-8 flex items-center justify-center p-0.5">
                 <img src="${logoC}" alt="${p.casa.nome}" class="w-full h-full object-contain filter drop-shadow" onerror="if(!this.dataset.cdn && '${cdnC}'){ this.dataset.cdn='1'; this.src='${cdnC}'; } else { this.style.display='none'; this.nextElementSibling.style.display='block'; }" />
@@ -99521,6 +99540,7 @@ let LETTURA_ATTUALE = 1;
 
       document.getElementById("match-giornata").textContent = m.giornata;
       document.getElementById("match-data").textContent = m.data;
+      aggiornaBadgeQuote(m);
 
       // Squadre
       document.getElementById("nome-casa").textContent = m.casa.nome;

@@ -5,7 +5,7 @@ const path = require("node:path");
 const vm = require("node:vm");
 const root = path.join(__dirname, "..");
 const { quotaMinima } = require(path.join(root, "assets/js/probabilita.js"));
-const { riepilogo } = require(path.join(root, "assets/js/stato-dati.js"));
+const { riepilogo, freschezza } = require(path.join(root, "assets/js/stato-dati.js"));
 const { contesto } = require(path.join(root, "assets/js/contesto.js"));
 for (const p of [.8, .5, .41, .405, .209, .205, .1]) {
   const q = quotaMinima(p), soglia = q <= 2.5 ? .03 : q <= 5 ? .05 : .08;
@@ -45,3 +45,13 @@ for (const [key,partita] of Object.entries(pro)) {
   assert.ok(Number.isFinite(c.confronto));
 }
 console.log("Verificati calcoli di soglia, sintassi di " + scripts + " script e sospensione dei percorsi di puntata/composizione.");
+
+{
+  const t0 = Date.parse("2026-11-17T15:00:00Z");
+  const a = freschezza("2026-11-17T13:00:00Z", "2026-11-15", t0);
+  assert.equal(a.ore, 2); assert.equal(a.livelloPagina, "verde"); assert.equal(a.giorni, 2); assert.equal(a.livelloRisultati, "verde");
+  const b = freschezza("2026-11-17T01:00:00Z", "2026-11-08", t0);
+  assert.equal(b.livelloPagina, "giallo"); assert.equal(b.giorni, 9); assert.equal(b.livelloRisultati, "rosso");
+  assert.equal(freschezza(null, null, t0).livelloPagina, "grigio");
+  assert.ok(html.includes("function statoQuote(") && html.includes("Senza quote"));
+}
