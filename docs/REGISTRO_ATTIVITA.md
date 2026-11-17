@@ -125,3 +125,8 @@ Registro incrementale per la cooperazione tra IA. Le verifiche precedenti sono r
 **Limiti:** il registro non e' ancora stato scritto con dati reali (l'aggiornamento non e' ancora stato eseguito dopo la modifica); il workflow richiede Node (presente su ubuntu-latest, non verificato su questo workflow); le proposte con quote "equa" (senza quote Bet365) sono registrate col tipo indicato e andranno valutate separatamente da quelle a quota reale; combo interne alla partita non incluse.
 
 **Prossima attivita':** sezione grafica di affidabilita' con barra di avanzamento settimanale (calibrazione per fascia, "dati insufficienti" finche' il campione e' piccolo).
+
+## 2026-11-17T15:40:00+01:00 — Limiti del registro proposte ridotti
+
+**Fatto:** il workflow ora installa Node 20 in modo esplicito (`actions/setup-node@v4`) e ha un passo che segnala con avviso se il registro proposte non risulta aggiornato; il riepilogo (`DATA_TRACK.proposte`) separa le proposte per categoria di quota (`quota:reale`, `quota:derivata`, `quota:equa`) oltre che per tipo. Test: 40 OK (1 nuovo); YAML del workflow valido (sintassi, non esecuzione).
+**Non verificato:** l'esecuzione reale del workflow con Node e la scrittura di `dati/proposte_live.csv` (serve il prossimo aggiornamento o un avvio manuale).

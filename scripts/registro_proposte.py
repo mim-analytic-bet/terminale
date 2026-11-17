@@ -121,16 +121,27 @@ def aggiorna(path, proposte, archivi, config_id, versione, adesso=None):
     return righe, nuove, scartate
 
 
+def categoria_quota(r):
+    """'reale' = tutte le gambe con quota Bet365; 'derivata' = nessuna equa ma almeno una ricavata dall'1X2; 'equa' = almeno una gamba senza quota di mercato.
+    Le categorie si valutano separatamente: una quota equa e' 1/p del modello e non misura il confronto con il mercato."""
+    tipi = [r[f"g{i}_tipo"] for i in range(1, int(r["n_gambe"]) + 1)]
+    return "equa" if "equa" in tipi else ("derivata" if "derivata" in tipi else "reale")
+
+
 def riepilogo(righe):
-    """Conteggi per la dashboard. Nessuna percentuale di successo sotto un campione minimo: si dichiara 'dati insufficienti'."""
+    """Conteggi per la dashboard, per tipo di proposta e per categoria di quota (reale / derivata / equa), separati.
+    Nessuna percentuale di successo qui: la soglia di campione minimo e' decisa da chi mostra i dati ('dati insufficienti')."""
     out = {"registrate": len(righe), "valutate": 0, "per_tipo": {}}
     for r in righe:
-        t = out["per_tipo"].setdefault(r["cod"], {"registrate": 0, "valutate": 0, "vinte": 0, "prob_media": 0.0, "somma_brier": 0.0})
-        t["registrate"] += 1
-        if r["stato"] == "valutata":
-            out["valutate"] += 1; t["valutate"] += 1
-            y = 1 if r["esito"] == "V" else 0; t["vinte"] += y
-            t["prob_media"] += float(r["prob"]); t["somma_brier"] += (float(r["prob"]) - y) ** 2
+        valutata = r["stato"] == "valutata"
+        if valutata: out["valutate"] += 1
+        for chiave in (r["cod"], "quota:" + categoria_quota(r)):
+            t = out["per_tipo"].setdefault(chiave, {"registrate": 0, "valutate": 0, "vinte": 0, "prob_media": 0.0, "somma_brier": 0.0})
+            t["registrate"] += 1
+            if valutata:
+                y = 1 if r["esito"] == "V" else 0
+                t["valutate"] += 1; t["vinte"] += y
+                t["prob_media"] += float(r["prob"]); t["somma_brier"] += (float(r["prob"]) - y) ** 2
     for t in out["per_tipo"].values():
         n = t["valutate"]
         t["prob_media"] = round(t["prob_media"] / n, 4) if n else None

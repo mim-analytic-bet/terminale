@@ -91,6 +91,14 @@ class TestProposte(unittest.TestCase):
             self.assertEqual(r["registrata"], righe[0]["registrata"])  # la prova temporale non cambia
         self.assertEqual(RP.riepilogo(righe)["valutate"], len(righe))
 
+    def test_riepilogo_separa_quote_equa_e_reale(self):
+        base = {"cod": "P1", "n_gambe": "2", "stato": "valutata", "esito": "V", "prob": "0.36", "g1_tipo": "reale", "g2_tipo": "reale"}
+        righe = [dict(base), {**base, "g2_tipo": "equa", "esito": "P"}, {**base, "g2_tipo": "derivata", "stato": "aperta", "esito": ""}]
+        r = RP.riepilogo(righe)["per_tipo"]
+        self.assertEqual(r["quota:reale"]["valutate"], 1); self.assertEqual(r["quota:equa"]["vinte"], 0)
+        self.assertEqual(r["quota:derivata"]["registrate"], 1); self.assertIsNone(r["quota:derivata"]["brier"])
+        self.assertEqual(r["P1"]["registrate"], 3)
+
     def test_senza_risultato_resta_aperta(self):
         ps = self.proposte(); RP.aggiorna(self.path, ps, {}, "cfg", "2.2", ADESSO)
         righe, _, _ = RP.aggiorna(self.path, ps, {"serie-a": []}, "cfg", "2.2", ADESSO)

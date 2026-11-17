@@ -18,6 +18,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
       - run: pip install numpy pillow
       - name: Scarica dati e rigenera
         env:
@@ -27,6 +30,11 @@ jobs:
       - name: Controllo download
         run: |
           if tail -40 dati/aggiornamento.log | grep -q "FALLITO"; then echo "::warning::Alcuni download non sono riusciti (vedi dati/aggiornamento.log)"; fi
+      - name: Controllo registro proposte
+        run: |
+          node --version
+          if ! grep -q "Proposte:" dati/aggiornamento.log && ! tail -60 dati/aggiornamento.log | grep -q "Registro proposte"; then echo "::warning::Nessuna riga sul registro delle proposte nel log"; fi
+          if tail -60 dati/aggiornamento.log | grep -q "Registro proposte non aggiornato"; then echo "::warning::Registro proposte non aggiornato (vedi dati/aggiornamento.log)"; fi
       - name: Pubblica
         run: |
           cp scheda-partita-dashboard.html index.html
