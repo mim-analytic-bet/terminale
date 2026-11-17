@@ -4,7 +4,7 @@ Non e' un parere legale. "Verificato" = letto sul testo dei termini in questa da
 
 | Fonte | Cosa dicono i termini | Stato per il sito |
 |---|---|---|
-| Eurobet (sito) | Vietato estrarre/riutilizzare contenuti del sito senza consenso scritto; citati data mining, robot, framing (eurobet.it/guida/index.html, letto 17/11). | NON usare: ne' lettura automatica ne' pubblicazione. Dati gia' raccolti: solo privati. |
+| Sito di un bookmaker italiano | Termini vietano estrazione e riutilizzo senza consenso scritto. | ESCLUSO: dati, strumenti e codice rimossi dal repository e dalla cronologia il 17/11/2026. |
 | football-data.co.uk | Dalla config: policy personale/accademica, max 2 download automatici/settimana, uso commerciale non autorizzato. Pagina non raggiungibile oggi: NON riletta. | Solo collaudo. Da sostituire prima di monetizzare. |
 | football-data.org (API) | Termini 2018 (api.football-data.org/register): piani gratuiti e a pagamento; chiave valida per una sola applicazione/dominio; obbligo di scrivere "Football data provided by the Football-Data.org API" in un punto visibile; uso commerciale non trattato esplicitamente; dopo la cancellazione non si possono citare i dati; loghi e foto richiedono il consenso dei titolari. | Verificare piano e attribuzione; aggiungere la dicitura se si usa. Stemmi: consenso separato. |
 | API-Football | Termini non leggibili oggi (errore del sito). Da ricerca: vietata la rivendita; la licenza per pubblicare i dati delle competizioni va chiesta dall'utente alle autorita' competenti; non concede diritti commerciali sulle competizioni. | Non verificato in dettaglio: serve rilettura. |

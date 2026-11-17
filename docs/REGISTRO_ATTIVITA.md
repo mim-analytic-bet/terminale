@@ -173,3 +173,6 @@ Creato `docs/INVENTARIO_DIRITTI_FONTI.md`: Eurobet vietato; football-data.org ri
 
 ## 2026-11-17 — Decisione collaudo
 Domenico sceglie l'opzione A (link riservato, 4 persone). Pubblicati i commit `b4674a7` e `7f98a41` (codice e inventario, nessun dato Eurobet). Aperte: riscrittura cronologia git (`40c44f7` con quote Eurobet), fonte di quote con licenza (The Odds API: da chiedere se il piano gratuito consente la visualizzazione), quota inserita a mano (non ancora richiesta).
+
+## 2026-11-17 — Pulizia fonte bookmaker
+Per decisione di Domenico ("dobbiamo essere puliti") sono stati eliminati: dati salvati, estrattore, script di salvataggio e di lettura, calendario letture, procedura, registro consumi, test collegati e il codice del sito che mostrava quelle quote. Cronologia git riscritta per togliere gli stessi file da tutti i commit; richiesta a GitHub Support per eliminare viste in cache. Non modificati (serve decisione di Domenico): etichette storiche di fonte nel modello, nello storico pronostici e nelle descrizioni delle skill.
