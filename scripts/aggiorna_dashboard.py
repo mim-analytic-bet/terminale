@@ -16,6 +16,7 @@ import apprendimento as AP
 import calendario_aperto as CA
 import configurazione_modello as CFG
 import integrita_calendario as IC
+import registro_proposte as RP
 W_APP = 1.0
 ANTEPRIMA = False
 RAW = {}
@@ -626,6 +627,7 @@ def main():
                 fs = m["fasi"]; q = m.get("quoteMercato") or {}
                 if e.get("_of") and not q.get("1"): continue   # abbinamento solo da calendario aperto e senza quote: non entra nel registro pre-partita (sarebbe una previsione senza ancora di mercato)
                 inizio_utc = dt.datetime.fromisoformat(e["giorno"] + "T" + e["ora"]).replace(tzinfo=IC.FUSO).astimezone(dt.timezone.utc).isoformat() if e.get("ora") else ""
+                m["inizioUtc"] = inizio_utc or None; m["chiave"] = {"casa": e["casa"], "ospite": e["ospite"], "giorno": e.get("giorno") or ""}  # per il registro delle proposte: stessi criteri del registro delle partite
                 previsioni.append({"lega": key, "casa": e["casa"], "ospite": e["ospite"], "giorno": e.get("giorno") or "", "inizio_utc": inizio_utc, "p1": fs["1"]["seg1"]["p"], "pX": fs["1"]["seg2"]["p"], "p2": fs["1"]["seg3"]["p"],
                                    "pOver25": fs["3"]["seg1"]["p"], "pGol": fs["2"]["seg1"]["p"], "lh": RAW[(e["casa"], e["ospite"])][0], "la": RAW[(e["casa"], e["ospite"])][1], "mc": RAW[(e["casa"], e["ospite"])][2], "mt": RAW[(e["casa"], e["ospite"])][3], "q1": q.get("1", ""), "qX": q.get("X", ""), "q2": q.get("2", ""), "qOver25": q.get("Over 2,5", "")})
             if giorni:
@@ -644,7 +646,15 @@ def main():
             pro[key] = {"nome": nm, "turni": turni}
         rapporto.append(f"{nm}: {sum(len(t['partite']) for t in turni.values())} partite in {len(turni)} giornate, dati fino al {ultima:%d/%m/%Y} ({len(partite)} gare)")
     log = TR.leggi_log(live_path) if ANTEPRIMA else TR.aggiorna_live(live_path, previsioni, archivi, configurazione["id"])
+    prop_path = os.path.join(BASE, "dati", "proposte_live.csv")
+    if ANTEPRIMA: righe_prop = RP.leggi(prop_path)
+    else:
+        proposte, err_prop = RP.calcola_proposte(pro, dt.datetime.now(dt.timezone.utc))
+        if err_prop: avvisi.append("Registro proposte non aggiornato: " + err_prop)
+        righe_prop, _n, _s = RP.aggiorna(prop_path, proposte, archivi, configurazione["id"], mod.VERSIONE_MODELLO)
+        if err_prop is None: rapporto.append(f"Proposte: {_n} nuove registrate, {_s} scartate (partite senza orario valido)")
     track["totale"] = TR.riepilogo(tutte_righe); track["live"] = TR.riepilogo_live(log)
+    track["proposte"] = RP.riepilogo(righe_prop)
     track["apprendimento"] = {"w": mem["w"], "a": mem["a"], "storia": [], "modalita": "congelata", "config_id": configurazione["id"]}
     track["aggiornato"] = dt.datetime.now().strftime("%d/%m/%Y %H:%M")
     def _coppe(cache):

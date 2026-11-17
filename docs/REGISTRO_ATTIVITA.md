@@ -117,3 +117,11 @@ Registro incrementale per la cooperazione tra IA. Le verifiche precedenti sono r
 
 **Motivo (decisione di Domenico, "ok" alla proposta di Claude):** il commit `40c44f7` aveva pubblicato in un repository pubblico le quote di un bookmaker, senza aver verificato i termini d'uso. **Fatto:** file rimosso dal ramo principale (`git rm --cached`), cartella `dati/quote_eurobet/` aggiunta a `.gitignore`, copia durevole nel progetto privato Claude "SCOMMESSE". **Limite:** il file resta nella cronologia di git del repository pubblico (commit `40c44f7`); riscrivere la cronologia e' un'operazione distruttiva e non e' stata eseguita. Va deciso se farlo.
 
+
+## 2026-11-17T16:30:00+01:00 — Registro delle proposte (Eventi Combinati e Cluster) con prova temporale
+
+**Fatto (verificato con test):** `assets/js/combo.js` separato in calcolo puro `calcola(DATA_PRO, adesso)` + grafica; l'HTML dei riquadri e' identico al precedente su 4 date (19, 21, 23, 25/11, 3 anche con i dati nuovi). Nessuna regola, soglia o selezione cambiata. `scripts/proposte_cli.js` esegue la stessa funzione in Node; `scripts/registro_proposte.py` registra in `dati/proposte_live.csv` solo proposte con tutte le partite future e con orario con fuso; la prima registrazione non si riscrive; la stessa proposta non si duplica anche se cambiano le quote; valutazione a risultato noto (V/P). `aggiorna_dashboard.py` aggiunge `inizioUtc` e `chiave` alle partite e aggiorna il registro (non in `--anteprima`); `DATA_TRACK.proposte` contiene il riepilogo. Test: `tests/test_proposte.py` (9 OK), `tests/test_integrita.py` (30 OK).
+
+**Limiti:** il registro non e' ancora stato scritto con dati reali (l'aggiornamento non e' ancora stato eseguito dopo la modifica); il workflow richiede Node (presente su ubuntu-latest, non verificato su questo workflow); le proposte con quote "equa" (senza quote Bet365) sono registrate col tipo indicato e andranno valutate separatamente da quelle a quota reale; combo interne alla partita non incluse.
+
+**Prossima attivita':** sezione grafica di affidabilita' con barra di avanzamento settimanale (calibrazione per fascia, "dati insufficienti" finche' il campione e' piccolo).
