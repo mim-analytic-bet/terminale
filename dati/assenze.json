@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-18T14:12+00:00",
+ "aggiornato": "2026-11-18T23:14+00:00",
  "fonte": "football-data.org",
  "stato": "ok",
  "errori": [],
@@ -159,6 +159,50 @@
    "controllato": null
   },
   {
+   "id": 558517,
+   "lega": "serie-a",
+   "casa": "Udinese Calcio",
+   "ospite": "ACF Fiorentina",
+   "giorno": "2026-11-29",
+   "ora": "12:30",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 558509,
+   "lega": "serie-a",
+   "casa": "US Sassuolo Calcio",
+   "ospite": "SSC Napoli",
+   "giorno": "2026-11-29",
+   "ora": "15:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 558512,
+   "lega": "serie-a",
+   "casa": "AS Roma",
+   "ospite": "AC Monza",
+   "giorno": "2026-11-29",
+   "ora": "18:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 558511,
+   "lega": "serie-a",
+   "casa": "Como 1907",
+   "ospite": "Juventus FC",
+   "giorno": "2026-11-29",
+   "ora": "20:45",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
    "id": 560643,
    "lega": "premier",
    "casa": "Manchester City FC",
@@ -308,6 +352,72 @@
    "ospite": "Aston Villa FC",
    "giorno": "2026-11-28",
    "ora": "18:30",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 560656,
+   "lega": "premier",
+   "casa": "Everton FC",
+   "ospite": "Liverpool FC",
+   "giorno": "2026-11-29",
+   "ora": "13:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 560657,
+   "lega": "premier",
+   "casa": "Fulham FC",
+   "ospite": "AFC Bournemouth",
+   "giorno": "2026-11-29",
+   "ora": "15:05",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 560659,
+   "lega": "premier",
+   "casa": "Brighton & Hove Albion FC",
+   "ospite": "Newcastle United FC",
+   "giorno": "2026-11-29",
+   "ora": "15:05",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 560660,
+   "lega": "premier",
+   "casa": "Sunderland AFC",
+   "ospite": "Tottenham Hotspur FC",
+   "giorno": "2026-11-29",
+   "ora": "15:05",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 560661,
+   "lega": "premier",
+   "casa": "Crystal Palace FC",
+   "ospite": "Hull City AFC",
+   "giorno": "2026-11-29",
+   "ora": "15:05",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 560654,
+   "lega": "premier",
+   "casa": "Arsenal FC",
+   "ospite": "Manchester City FC",
+   "giorno": "2026-11-29",
+   "ora": "17:30",
    "stato": "TIMED",
    "assenze": null,
    "controllato": null
@@ -472,6 +582,50 @@
    "casa": "Real Madrid CF",
    "ospite": "Deportivo Alavés",
    "giorno": "2026-11-28",
+   "ora": "21:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 564761,
+   "lega": "liga",
+   "casa": "Valencia CF",
+   "ospite": "CA Osasuna",
+   "giorno": "2026-11-29",
+   "ora": "14:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 564766,
+   "lega": "liga",
+   "casa": "RC Deportivo La Coruña",
+   "ospite": "FC Barcelona",
+   "giorno": "2026-11-29",
+   "ora": "16:15",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 564758,
+   "lega": "liga",
+   "casa": "RC Celta de Vigo",
+   "ospite": "Villarreal CF",
+   "giorno": "2026-11-29",
+   "ora": "18:30",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 564764,
+   "lega": "liga",
+   "casa": "Real Sociedad de Fútbol",
+   "ospite": "Sevilla FC",
+   "giorno": "2026-11-29",
    "ora": "21:00",
    "stato": "TIMED",
    "assenze": null,
@@ -643,6 +797,39 @@
    "controllato": null
   },
   {
+   "id": 565873,
+   "lega": "bundesliga",
+   "casa": "SC Freiburg",
+   "ospite": "RB Leipzig",
+   "giorno": "2026-11-29",
+   "ora": "15:30",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 565871,
+   "lega": "bundesliga",
+   "casa": "TSG 1899 Hoffenheim",
+   "ospite": "FC Augsburg",
+   "giorno": "2026-11-29",
+   "ora": "17:30",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 565872,
+   "lega": "bundesliga",
+   "casa": "Borussia Dortmund",
+   "ospite": "Bayer 04 Leverkusen",
+   "giorno": "2026-11-29",
+   "ora": "19:30",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
    "id": 559622,
    "lega": "ligue1",
    "casa": "ES Troyes AC",
@@ -802,6 +989,39 @@
    "casa": "Paris Saint-Germain FC",
    "ospite": "FC Lorient",
    "giorno": "2026-11-28",
+   "ora": "20:45",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 559619,
+   "lega": "ligue1",
+   "casa": "AJ Auxerre",
+   "ospite": "Olympique de Marseille",
+   "giorno": "2026-11-29",
+   "ora": "15:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 559618,
+   "lega": "ligue1",
+   "casa": "Toulouse FC",
+   "ospite": "Stade Rennais FC 1901",
+   "giorno": "2026-11-29",
+   "ora": "17:15",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 559615,
+   "lega": "ligue1",
+   "casa": "Olympique Lyonnais",
+   "ospite": "AS Monaco FC",
+   "giorno": "2026-11-29",
    "ora": "20:45",
    "stato": "TIMED",
    "assenze": null,
