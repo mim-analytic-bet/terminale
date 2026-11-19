@@ -262,6 +262,150 @@
    },
    "controllato": "2026-11-19T16:32+00:00",
    "fonte": "CalcioNews24, ItaNews24, Sisal (letti 19/11/2026)"
+  },
+  {
+   "casa": "Manchester City FC",
+   "ospite": "Fulham FC",
+   "giorno": "2026-11-21",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Semenyo",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio (rientro previsto 19/12)"
+     },
+     {
+      "nome": "Guehi",
+      "tipo": "Questionable",
+      "motivo": "Problema all'inguine/anca"
+     },
+     {
+      "nome": "Khusanov",
+      "tipo": "Questionable",
+      "motivo": "Colpo"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Cairney",
+      "tipo": "Questionable",
+      "motivo": "Problema al ginocchio"
+     }
+    ]
+   },
+   "controllato": "2026-11-19T16:34+00:00",
+   "fonte": "Sports Mole, Squawka (letti 19/11/2026)"
+  },
+  {
+   "casa": "ES Troyes AC",
+   "ospite": "Le Havre AC",
+   "giorno": "2026-11-20",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Junior Diaz",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato (somma di ammonizioni)"
+     },
+     {
+      "nome": "Koné",
+      "tipo": "Missing Fixture",
+      "motivo": "Rottura del crociato"
+     },
+     {
+      "nome": "Ouzenadji",
+      "tipo": "Questionable",
+      "motivo": "Distorsione alla caviglia"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Mpasi",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Mambimbi",
+      "tipo": "Missing Fixture",
+      "motivo": "Rottura del tendine d'Achille"
+     },
+     {
+      "nome": "Zagadou",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio"
+     },
+     {
+      "nome": "Pembélé",
+      "tipo": "Questionable",
+      "motivo": "Infortunio, fonti discordanti"
+     },
+     {
+      "nome": "Jelert",
+      "tipo": "Questionable",
+      "motivo": "Infortunio alla coscia, fonti discordanti"
+     },
+     {
+      "nome": "Ndiaye",
+      "tipo": "Questionable",
+      "motivo": "In dubbio"
+     },
+     {
+      "nome": "Nakamura",
+      "tipo": "Questionable",
+      "motivo": "In dubbio"
+     }
+    ]
+   },
+   "controllato": "2026-11-19T16:34+00:00",
+   "fonte": "TopMercato, ButFootballClub, WhoScored, FotMob (letti 19/11/2026)"
+  },
+  {
+   "casa": "Lille OSC",
+   "ospite": "Olympique Lyonnais",
+   "giorno": "2026-11-21",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Igamane",
+      "tipo": "Missing Fixture",
+      "motivo": "In ripresa"
+     },
+     {
+      "nome": "Santos",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Ueda",
+      "tipo": "Questionable",
+      "motivo": "In ripresa"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Ouédraogo",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Sulc",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Morton",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Openda",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     }
+    ]
+   },
+   "controllato": "2026-11-19T16:34+00:00",
+   "fonte": "RueDesJoueurs (fonte unica, letta 19/11/2026)"
   }
  ]
 }
