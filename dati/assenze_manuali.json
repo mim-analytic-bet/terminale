@@ -1,1 +1,267 @@
-{"_nota": "Record inseriti il giorno prima dopo ricerca web: {casa, ospite, giorno, assenze:{casa:[{nome,tipo,motivo}],ospite:[...]}, controllato (ISO UTC), fonte}", "partite": []}
+{
+ "_nota": "Record inseriti il giorno prima dopo ricerca web: {casa, ospite, giorno, assenze:{casa:[{nome,tipo,motivo}],ospite:[...]}, controllato (ISO UTC), fonte}",
+ "partite": [
+  {
+   "casa": "Como 1907",
+   "ospite": "Cagliari Calcio",
+   "giorno": "2026-11-21",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Kean",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio alla tibia"
+     },
+     {
+      "nome": "Jesús Rodríguez",
+      "tipo": "Missing Fixture",
+      "motivo": "Strappo muscolare (rientro previsto 20/12)"
+     },
+     {
+      "nome": "Addai",
+      "tipo": "Questionable",
+      "motivo": "Strappo muscolare, fonti discordanti"
+     },
+     {
+      "nome": "Diao",
+      "tipo": "Questionable",
+      "motivo": "Infortunio alla coscia"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Felici",
+      "tipo": "Missing Fixture",
+      "motivo": "Rottura del crociato"
+     },
+     {
+      "nome": "Aurelio",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Idrissi",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Fadera",
+      "tipo": "Questionable",
+      "motivo": "Infortunio, fonti discordanti"
+     },
+     {
+      "nome": "Nzola",
+      "tipo": "Questionable",
+      "motivo": "Infortunio, fonti discordanti"
+     }
+    ]
+   },
+   "controllato": "2026-11-19T16:32+00:00",
+   "fonte": "Sisal, Affaritaliani, Virgilio.it, DAZN, ItaNews24 (letti 19/11/2026)"
+  },
+  {
+   "casa": "SS Lazio",
+   "ospite": "US Lecce",
+   "giorno": "2026-11-21",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Nuno Tavares",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Sutalo",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Zaccagni",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Marusic",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Gudmundsson",
+      "tipo": "Questionable",
+      "motivo": "Lussazione alla spalla"
+     },
+     {
+      "nome": "Frattesi",
+      "tipo": "Questionable",
+      "motivo": "In dubbio"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Ilic",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Pierotti",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Maye",
+      "tipo": "Missing Fixture",
+      "motivo": "Strappo muscolare (rientro 24/11)"
+     },
+     {
+      "nome": "Monteiro",
+      "tipo": "Questionable",
+      "motivo": "Infortunio, fonti discordanti"
+     },
+     {
+      "nome": "Berisha",
+      "tipo": "Questionable",
+      "motivo": "In dubbio"
+     }
+    ]
+   },
+   "controllato": "2026-11-19T16:32+00:00",
+   "fonte": "Sisal, CalcioNews24, ItaNews24, Virgilio.it (letti 19/11/2026)"
+  },
+  {
+   "casa": "Parma Calcio 1913",
+   "ospite": "AS Roma",
+   "giorno": "2026-11-21",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Ndiaye",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato (espulsione contro il Bologna)"
+     },
+     {
+      "nome": "Bernabé",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio"
+     },
+     {
+      "nome": "Drobnič",
+      "tipo": "Missing Fixture",
+      "motivo": "Fascite plantare"
+     },
+     {
+      "nome": "Romero",
+      "tipo": "Questionable",
+      "motivo": "Problema alla spalla, da valutare"
+     },
+     {
+      "nome": "Diego Carlos",
+      "tipo": "Questionable",
+      "motivo": "Forte dubbio"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Pellegrini",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Rensch",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Dybala",
+      "tipo": "Questionable",
+      "motivo": "In dubbio"
+     },
+     {
+      "nome": "Mancini",
+      "tipo": "Questionable",
+      "motivo": "In dubbio"
+     },
+     {
+      "nome": "Svilar",
+      "tipo": "Questionable",
+      "motivo": "In dubbio"
+     },
+     {
+      "nome": "Gollini",
+      "tipo": "Questionable",
+      "motivo": "In dubbio"
+     }
+    ]
+   },
+   "controllato": "2026-11-19T16:32+00:00",
+   "fonte": "DAZN, Sisal, CalcioNews24, ItaNews24, Affaritaliani (letti 19/11/2026)"
+  },
+  {
+   "casa": "SSC Napoli",
+   "ospite": "Torino FC",
+   "giorno": "2026-11-21",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Buongiorno",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Lobotka",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Favasuli",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Alisson Santos",
+      "tipo": "Questionable",
+      "motivo": "In dubbio"
+     },
+     {
+      "nome": "Badiashile",
+      "tipo": "Questionable",
+      "motivo": "In dubbio"
+     },
+     {
+      "nome": "Di Lorenzo",
+      "tipo": "Questionable",
+      "motivo": "In dubbio"
+     },
+     {
+      "nome": "Neres",
+      "tipo": "Questionable",
+      "motivo": "In dubbio"
+     },
+     {
+      "nome": "Spinazzola",
+      "tipo": "Questionable",
+      "motivo": "In dubbio"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Fortini",
+      "tipo": "Questionable",
+      "motivo": "Problema all'adduttore"
+     },
+     {
+      "nome": "Rodriguez",
+      "tipo": "Questionable",
+      "motivo": "Lesione ai flessori, da valutare"
+     },
+     {
+      "nome": "Belghali",
+      "tipo": "Questionable",
+      "motivo": "Dolore al ginocchio, da valutare"
+     }
+    ]
+   },
+   "controllato": "2026-11-19T16:32+00:00",
+   "fonte": "CalcioNews24, ItaNews24, Sisal (letti 19/11/2026)"
+  }
+ ]
+}
