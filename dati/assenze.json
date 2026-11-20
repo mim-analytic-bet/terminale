@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-20T14:12+00:00",
+ "aggiornato": "2026-11-20T23:10+00:00",
  "fonte": "football-data.org",
  "stato": "ok",
  "errori": [],
@@ -445,11 +445,11 @@
    "controllato": null
   },
   {
-   "id": 564748,
-   "lega": "liga",
-   "casa": "Athletic Club",
-   "ospite": "RCD Espanyol de Barcelona",
-   "giorno": "2026-11-20",
+   "id": 560668,
+   "lega": "premier",
+   "casa": "Coventry City FC",
+   "ospite": "Ipswich Town FC",
+   "giorno": "2026-12-01",
    "ora": "21:00",
    "stato": "TIMED",
    "assenze": null,
@@ -665,17 +665,6 @@
    "controllato": null
   },
   {
-   "id": 565859,
-   "lega": "bundesliga",
-   "casa": "FC Bayern München",
-   "ospite": "1. FC Köln",
-   "giorno": "2026-11-20",
-   "ora": "20:30",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
    "id": 565857,
    "lega": "bundesliga",
    "casa": "Bayer 04 Leverkusen",
@@ -858,17 +847,6 @@
    "ospite": "Bayer 04 Leverkusen",
    "giorno": "2026-11-29",
    "ora": "19:30",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 559622,
-   "lega": "ligue1",
-   "casa": "ES Troyes AC",
-   "ospite": "Le Havre AC",
-   "giorno": "2026-11-20",
-   "ora": "20:45",
    "stato": "TIMED",
    "assenze": null,
    "controllato": null
