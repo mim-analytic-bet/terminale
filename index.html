@@ -7361,8 +7361,8 @@ let LETTURA_ATTUALE = 1;
     let TIMER_TORTA = null;
     let PARTITA_CORRENTE = null;
 
-    /*META*/const DATA_META = {"aggiornato": "2026-11-21T08:01+00:00", "dati_fino": {"serie-a": "2026-11-08", "premier": "2026-11-08", "liga": "2026-11-08", "bundesliga": "2026-11-08", "ligue1": "2026-11-08"}, "avvisi": ["Versione di verifica interna: diritti delle fonti e calendario ufficiale da verificare; condivisione e vendita non abilitate.", "Premier League (Inghilterra): 12ª Giornata ha partite con giorno/orario da confermare", "Premier League (Inghilterra): 12ª Giornata ha date da verificare", "LaLiga (Spagna): 14ª Giornata ha partite con giorno/orario da confermare", "LaLiga (Spagna): 14ª Giornata ha date da verificare"], "config_id": "baseline-effettiva-2026-11-15-v1", "versione_modello": "2.2.1", "parametri_congelati": true, "anteprima": false, "fonti_verificate": false};/*ENDMETA*/
-    /*TRACK*/const DATA_TRACK = {"leghe": {"Serie A": {"n": 50, "brier_modello": 0.5375, "hit_1x2": 62.0, "brier_mercato": 0.5093, "brier_modello_su_stesse": 0.5375, "n_mercato": 50, "calibrazione": [{"fascia": "0-20%", "n": 17, "previsto": 13.8, "reale": 5.9}, {"fascia": "20-35%", "n": 80, "previsto": 26.8, "reale": 22.5}, {"fascia": "35-50%", "n": 57, "previsto": 43.5, "reale": 52.6}, {"fascia": "50-65%", "n": 61, "previsto": 57.3, "reale": 60.7}, {"fascia": "65-80%", "n": 35, "previsto": 69.2, "reale": 68.6}], "value_giocate": 59, "value_roi": -9.1}, "Premier League": {"n": 40, "brier_modello": 0.605, "hit_1x2": 50.0, "brier_mercato": 0.5672, "brier_modello_su_stesse": 0.605, "n_mercato": 40, "calibrazione": [{"fascia": "0-20%", "n": 8, "previsto": 16.0, "reale": 0.0}, {"fascia": "20-35%", "n": 71, "previsto": 27.8, "reale": 28.2}, {"fascia": "35-50%", "n": 51, "previsto": 43.5, "reale": 37.3}, {"fascia": "50-65%", "n": 58, "previsto": 57.7, "reale": 43.1}, {"fascia": "65-80%", "n": 12, "previsto": 69.7, "reale": 41.7}], "value_giocate": 49, "value_roi": -17.4}, "LaLiga": {"n": 58, "brier_modello": 0.5843, "hit_1x2": 51.7, "brier_mercato": 0.527, "brier_modello_su_stesse": 0.5843, "n_mercato": 58, "calibrazione": [{"fascia": "0-20%", "n": 25, "previsto": 15.0, "reale": 16.0}, {"fascia": "20-35%", "n": 93, "previsto": 27.8, "reale": 28.0}, {"fascia": "35-50%", "n": 70, "previsto": 42.4, "reale": 37.1}, {"fascia": "50-65%", "n": 76, "previsto": 56.7, "reale": 64.5}, {"fascia": "65-80%", "n": 25, "previsto": 70.8, "reale": 64.0}, {"fascia": "80-100%", "n": 1, "previsto": 86.5, "reale": 100.0}], "value_giocate": 69, "value_roi": -56.4}, "Bundesliga": {"n": 27, "brier_modello": 0.5969, "hit_1x2": 55.6, "brier_mercato": 0.5501, "brier_modello_su_stesse": 0.5969, "n_mercato": 27, "calibrazione": [{"fascia": "0-20%", "n": 22, "previsto": 13.5, "reale": 22.7}, {"fascia": "20-35%", "n": 30, "previsto": 25.3, "reale": 20.0}, {"fascia": "35-50%", "n": 14, "previsto": 43.1, "reale": 42.9}, {"fascia": "50-65%", "n": 32, "previsto": 57.4, "reale": 65.6}, {"fascia": "65-80%", "n": 33, "previsto": 71.6, "reale": 60.6}, {"fascia": "80-100%", "n": 4, "previsto": 83.0, "reale": 75.0}], "value_giocate": 33, "value_roi": -1.2}, "Ligue 1": {"n": 36, "brier_modello": 0.5702, "hit_1x2": 47.2, "brier_mercato": 0.5286, "brier_modello_su_stesse": 0.5702, "n_mercato": 36, "calibrazione": [{"fascia": "0-20%", "n": 7, "previsto": 14.9, "reale": 14.3}, {"fascia": "20-35%", "n": 60, "previsto": 26.6, "reale": 23.3}, {"fascia": "35-50%", "n": 38, "previsto": 41.4, "reale": 39.5}, {"fascia": "50-65%", "n": 48, "previsto": 58.3, "reale": 52.1}, {"fascia": "65-80%", "n": 27, "previsto": 70.6, "reale": 70.4}], "value_giocate": 48, "value_roi": -30.5}}, "totale": {"n": 211, "brier_modello": 0.5764, "hit_1x2": 53.6, "brier_mercato": 0.5337, "brier_modello_su_stesse": 0.5764, "n_mercato": 211, "calibrazione": [{"fascia": "0-20%", "n": 79, "previsto": 14.4, "reale": 13.9}, {"fascia": "20-35%", "n": 334, "previsto": 27.1, "reale": 25.1}, {"fascia": "35-50%", "n": 230, "previsto": 42.8, "reale": 41.7}, {"fascia": "50-65%", "n": 275, "previsto": 57.4, "reale": 57.1}, {"fascia": "65-80%", "n": 132, "previsto": 70.4, "reale": 63.6}, {"fascia": "80-100%", "n": 5, "previsto": 83.7, "reale": 80.0}], "value_giocate": 258, "value_roi": -26.3}, "live": {"registrate": 71, "valutate": 0, "senza_prova_temporale": 58}, "proposte": {"registrate": 6, "valutate": 0, "per_tipo": {"P1": {"registrate": 3, "valutate": 0, "vinte": 0, "prob_media": null, "brier": null}, "quota:equa": {"registrate": 6, "valutate": 0, "vinte": 0, "prob_media": null, "brier": null}, "P2": {"registrate": 2, "valutate": 0, "vinte": 0, "prob_media": null, "brier": null}, "P2S": {"registrate": 1, "valutate": 0, "vinte": 0, "prob_media": null, "brier": null}}, "settimane": {"2026-11-16": {"registrate": 6, "valutate": 0}}, "fasce": [{"fascia": "meno del 20%", "n": 0, "previsto": null, "reale": null}, {"fascia": "20-30%", "n": 0, "previsto": null, "reale": null}, {"fascia": "30-40%", "n": 0, "previsto": null, "reale": null}, {"fascia": "40% o piu'", "n": 0, "previsto": null, "reale": null}], "min_campione": 30, "traguardi": [30, 100, 400, 1600]}, "apprendimento": {"w": 1.0, "a": 0.0, "storia": [], "modalita": "congelata", "config_id": "baseline-effettiva-2026-11-15-v1"}, "aggiornato": "21/11/2026 08:01"};/*ENDTRACK*/
+    /*META*/const DATA_META = {"aggiornato": "2026-11-21T13:53+00:00", "dati_fino": {"serie-a": "2026-11-08", "premier": "2026-11-08", "liga": "2026-11-08", "bundesliga": "2026-11-08", "ligue1": "2026-11-08"}, "avvisi": ["Versione di verifica interna: diritti delle fonti e calendario ufficiale da verificare; condivisione e vendita non abilitate.", "Premier League (Inghilterra): 12ª Giornata ha partite con giorno/orario da confermare", "Premier League (Inghilterra): 12ª Giornata ha date da verificare", "LaLiga (Spagna): 14ª Giornata ha partite con giorno/orario da confermare", "LaLiga (Spagna): 14ª Giornata ha date da verificare"], "config_id": "baseline-effettiva-2026-11-15-v1", "versione_modello": "2.2.1", "parametri_congelati": true, "anteprima": false, "fonti_verificate": false};/*ENDMETA*/
+    /*TRACK*/const DATA_TRACK = {"leghe": {"Serie A": {"n": 50, "brier_modello": 0.5375, "hit_1x2": 62.0, "brier_mercato": 0.5093, "brier_modello_su_stesse": 0.5375, "n_mercato": 50, "calibrazione": [{"fascia": "0-20%", "n": 17, "previsto": 13.8, "reale": 5.9}, {"fascia": "20-35%", "n": 80, "previsto": 26.8, "reale": 22.5}, {"fascia": "35-50%", "n": 57, "previsto": 43.5, "reale": 52.6}, {"fascia": "50-65%", "n": 61, "previsto": 57.3, "reale": 60.7}, {"fascia": "65-80%", "n": 35, "previsto": 69.2, "reale": 68.6}], "value_giocate": 59, "value_roi": -9.1}, "Premier League": {"n": 40, "brier_modello": 0.605, "hit_1x2": 50.0, "brier_mercato": 0.5672, "brier_modello_su_stesse": 0.605, "n_mercato": 40, "calibrazione": [{"fascia": "0-20%", "n": 8, "previsto": 16.0, "reale": 0.0}, {"fascia": "20-35%", "n": 71, "previsto": 27.8, "reale": 28.2}, {"fascia": "35-50%", "n": 51, "previsto": 43.5, "reale": 37.3}, {"fascia": "50-65%", "n": 58, "previsto": 57.7, "reale": 43.1}, {"fascia": "65-80%", "n": 12, "previsto": 69.7, "reale": 41.7}], "value_giocate": 49, "value_roi": -17.4}, "LaLiga": {"n": 58, "brier_modello": 0.5843, "hit_1x2": 51.7, "brier_mercato": 0.527, "brier_modello_su_stesse": 0.5843, "n_mercato": 58, "calibrazione": [{"fascia": "0-20%", "n": 25, "previsto": 15.0, "reale": 16.0}, {"fascia": "20-35%", "n": 93, "previsto": 27.8, "reale": 28.0}, {"fascia": "35-50%", "n": 70, "previsto": 42.4, "reale": 37.1}, {"fascia": "50-65%", "n": 76, "previsto": 56.7, "reale": 64.5}, {"fascia": "65-80%", "n": 25, "previsto": 70.8, "reale": 64.0}, {"fascia": "80-100%", "n": 1, "previsto": 86.5, "reale": 100.0}], "value_giocate": 69, "value_roi": -56.4}, "Bundesliga": {"n": 27, "brier_modello": 0.5969, "hit_1x2": 55.6, "brier_mercato": 0.5501, "brier_modello_su_stesse": 0.5969, "n_mercato": 27, "calibrazione": [{"fascia": "0-20%", "n": 22, "previsto": 13.5, "reale": 22.7}, {"fascia": "20-35%", "n": 30, "previsto": 25.3, "reale": 20.0}, {"fascia": "35-50%", "n": 14, "previsto": 43.1, "reale": 42.9}, {"fascia": "50-65%", "n": 32, "previsto": 57.4, "reale": 65.6}, {"fascia": "65-80%", "n": 33, "previsto": 71.6, "reale": 60.6}, {"fascia": "80-100%", "n": 4, "previsto": 83.0, "reale": 75.0}], "value_giocate": 33, "value_roi": -1.2}, "Ligue 1": {"n": 36, "brier_modello": 0.5702, "hit_1x2": 47.2, "brier_mercato": 0.5286, "brier_modello_su_stesse": 0.5702, "n_mercato": 36, "calibrazione": [{"fascia": "0-20%", "n": 7, "previsto": 14.9, "reale": 14.3}, {"fascia": "20-35%", "n": 60, "previsto": 26.6, "reale": 23.3}, {"fascia": "35-50%", "n": 38, "previsto": 41.4, "reale": 39.5}, {"fascia": "50-65%", "n": 48, "previsto": 58.3, "reale": 52.1}, {"fascia": "65-80%", "n": 27, "previsto": 70.6, "reale": 70.4}], "value_giocate": 48, "value_roi": -30.5}}, "totale": {"n": 211, "brier_modello": 0.5764, "hit_1x2": 53.6, "brier_mercato": 0.5337, "brier_modello_su_stesse": 0.5764, "n_mercato": 211, "calibrazione": [{"fascia": "0-20%", "n": 79, "previsto": 14.4, "reale": 13.9}, {"fascia": "20-35%", "n": 334, "previsto": 27.1, "reale": 25.1}, {"fascia": "35-50%", "n": 230, "previsto": 42.8, "reale": 41.7}, {"fascia": "50-65%", "n": 275, "previsto": 57.4, "reale": 57.1}, {"fascia": "65-80%", "n": 132, "previsto": 70.4, "reale": 63.6}, {"fascia": "80-100%", "n": 5, "previsto": 83.7, "reale": 80.0}], "value_giocate": 258, "value_roi": -26.3}, "live": {"registrate": 71, "valutate": 0, "senza_prova_temporale": 58}, "proposte": {"registrate": 8, "valutate": 0, "per_tipo": {"P1": {"registrate": 5, "valutate": 0, "vinte": 0, "prob_media": null, "brier": null}, "quota:equa": {"registrate": 8, "valutate": 0, "vinte": 0, "prob_media": null, "brier": null}, "P2": {"registrate": 2, "valutate": 0, "vinte": 0, "prob_media": null, "brier": null}, "P2S": {"registrate": 1, "valutate": 0, "vinte": 0, "prob_media": null, "brier": null}}, "settimane": {"2026-11-16": {"registrate": 8, "valutate": 0}}, "fasce": [{"fascia": "meno del 20%", "n": 0, "previsto": null, "reale": null}, {"fascia": "20-30%", "n": 0, "previsto": null, "reale": null}, {"fascia": "30-40%", "n": 0, "previsto": null, "reale": null}, {"fascia": "40% o piu'", "n": 0, "previsto": null, "reale": null}], "min_campione": 30, "traguardi": [30, 100, 400, 1600]}, "apprendimento": {"w": 1.0, "a": 0.0, "storia": [], "modalita": "congelata", "config_id": "baseline-effettiva-2026-11-15-v1"}, "aggiornato": "21/11/2026 13:53"};/*ENDTRACK*/
     const DATA_PRO = {
   "serie-a": {
     "nome": "Serie A (Italia)",
@@ -19702,516 +19702,6 @@ let LETTURA_ATTUALE = 1;
             }
           },
           {
-            "id": "man-ful",
-            "label": "Manchester City - Fulham",
-            "bgGradient": "from-[#04295c] via-[#090d16] to-[#f33b44]",
-            "colori": {
-              "casa": [
-                "#04295c",
-                "#4d72a3"
-              ],
-              "ospite": [
-                "#f33b44",
-                "#ff959a"
-              ]
-            },
-            "casa": {
-              "sigla": "MAN",
-              "nome": "Manchester City",
-              "rank": "3° · 21 pt",
-              "colBox": "bg-indigo-500/20 text-indigo-400 border-indigo-400"
-            },
-            "ospite": {
-              "sigla": "FUL",
-              "nome": "Fulham",
-              "rank": "15° · 10 pt",
-              "colBox": "bg-fuchsia-500/20 text-fuchsia-400 border-fuchsia-400"
-            },
-            "data": "Sabato 21 Nov · 13:30",
-            "giornata": "Premier League · 11ª Giornata",
-            "golC": "2.03",
-            "golO": "1.07",
-            "barC": "65%",
-            "barO": "35%",
-            "fasi": {
-              "1": {
-                "label": "Fase 1: 1X2",
-                "centerVal": "59%",
-                "centerLbl": "Segno 1",
-                "seg1": {
-                  "p": 0.586,
-                  "col": "#06b6d4",
-                  "nome": "1: 59%"
-                },
-                "seg2": {
-                  "p": 0.23,
-                  "col": "#f59e0b",
-                  "nome": "X: 23%"
-                },
-                "seg3": {
-                  "p": 0.184,
-                  "col": "#f43f5e",
-                  "nome": "2: 18%"
-                }
-              },
-              "2": {
-                "label": "Fase 2: GG / NG",
-                "centerVal": "58%",
-                "centerLbl": "Gol (GG)",
-                "seg1": {
-                  "p": 0.581,
-                  "col": "#10b981",
-                  "nome": "Gol: 58%"
-                },
-                "seg2": {
-                  "p": 0.419,
-                  "col": "#64748b",
-                  "nome": "No Gol: 42%"
-                },
-                "seg3": {
-                  "p": 0.0,
-                  "col": "transparent",
-                  "nome": ""
-                }
-              },
-              "3": {
-                "label": "Fase 3: Under / Over 2.5",
-                "centerVal": "60%",
-                "centerLbl": "Over 2.5",
-                "seg1": {
-                  "p": 0.6,
-                  "col": "#8b5cf6",
-                  "nome": "Over: 60%"
-                },
-                "seg2": {
-                  "p": 0.4,
-                  "col": "#3b82f6",
-                  "nome": "Under: 40%"
-                },
-                "seg3": {
-                  "p": 0.0,
-                  "col": "transparent",
-                  "nome": ""
-                }
-              },
-              "4": {
-                "label": "Fase 4: xG per Squadra",
-                "centerVal": "2.03 vs 1.07",
-                "centerLbl": "Volume xG",
-                "seg1": {
-                  "p": 0.65,
-                  "col": "#0ea5e9",
-                  "nome": "Manchester City: 65% (2.03)"
-                },
-                "seg2": {
-                  "p": 0.35,
-                  "col": "#d97706",
-                  "nome": "Fulham: 35% (1.07)"
-                },
-                "seg3": {
-                  "p": 0.0,
-                  "col": "transparent",
-                  "nome": ""
-                }
-              }
-            },
-            "isValore": false,
-            "evBadge": "",
-            "mercato": "Miglior stima del modello: 1 oppure Gol (87%)",
-            "qEqua": "1.15",
-            "qReale": "",
-            "spiegazione": "Stime del modello — 1: 59% · X: 23% · 2: 18% · Gol: 58% · Over 2.5: 60%. Attesa gol (xG modello): Manchester City 2.03 – Fulham 1.07. Quota equa teorica 1.15. Quote di mercato non disponibili per questa partita. Il modello non ha dimostrato un vantaggio sul mercato nei test disponibili. Questa scheda descrive stime teoriche.",
-            "quoteMercato": null,
-            "analisi": "Manchester City: 2V 0N 3P nelle ultime 5, xG diff +4.51, 21 gol fatti e 13 subiti in 10 gare. Fulham: 2V 2N 1P nelle ultime 5, xG diff +1.89, 10 fatti e 12 subiti in 10. (Dati football-data.co.uk)",
-            "rischio": "Assenze e squalificati riportati dalla fonte (vedi riquadro). Le formazioni probabili non sono incluse e le assenze NON entrano nel calcolo del modello. Nessuna quota di mercato disponibile per questa partita nei dati.",
-            "assenti": {
-              "casa": [
-                {
-                  "nome": "Semenyo",
-                  "tipo": "Missing Fixture",
-                  "motivo": "Infortunio al ginocchio (rientro previsto 19/12)"
-                },
-                {
-                  "nome": "Guehi",
-                  "tipo": "Questionable",
-                  "motivo": "Problema all'inguine/anca"
-                },
-                {
-                  "nome": "Khusanov",
-                  "tipo": "Questionable",
-                  "motivo": "Colpo"
-                }
-              ],
-              "ospite": [
-                {
-                  "nome": "Cairney",
-                  "tipo": "Questionable",
-                  "motivo": "Problema al ginocchio"
-                }
-              ],
-              "controllato": "2026-11-19 16:34",
-              "fonte": "Sports Mole, Squawka (letti 19/11/2026)"
-            },
-            "heat": {
-              "k": 4,
-              "c": [
-                [
-                  0.05465,
-                  0.03833,
-                  0.02578,
-                  0.00921,
-                  0.00311
-                ],
-                [
-                  0.08141,
-                  0.10752,
-                  0.05238,
-                  0.01872,
-                  0.00632
-                ],
-                [
-                  0.09265,
-                  0.0993,
-                  0.05322,
-                  0.01902,
-                  0.00642
-                ],
-                [
-                  0.06275,
-                  0.06726,
-                  0.03605,
-                  0.01288,
-                  0.00435
-                ],
-                [
-                  0.0509,
-                  0.05456,
-                  0.02924,
-                  0.01045,
-                  0.00353
-                ]
-              ],
-              "top": [
-                [
-                  1,
-                  1,
-                  0.10752
-                ],
-                [
-                  2,
-                  1,
-                  0.0993
-                ],
-                [
-                  2,
-                  0,
-                  0.09265
-                ]
-              ]
-            },
-            "mg": {
-              "totale": {
-                "1-2": 0.34568,
-                "1-3": 0.56934,
-                "1-4": 0.74288,
-                "1-5": 0.85061,
-                "2-3": 0.44959,
-                "2-4": 0.62314,
-                "2-5": 0.73087,
-                "3-5": 0.50493,
-                "3-6": 0.56066,
-                "4-6": 0.337
-              },
-              "casa": {
-                "0-1": 0.39743,
-                "1-2": 0.53695,
-                "1-3": 0.72024,
-                "2-3": 0.45389,
-                "2-4": 0.547
-              },
-              "ospite": {
-                "0-1": 0.70934,
-                "1-2": 0.56365,
-                "1-3": 0.63392,
-                "2-3": 0.26695,
-                "2-4": 0.28578
-              },
-              "1t": {
-                "0-1": 0.64427,
-                "1-2": 0.58203,
-                "1-3": 0.67542,
-                "2-3": 0.31737,
-                "2-4": 0.34658
-              },
-              "2t": {
-                "0-1": 0.44733,
-                "1-2": 0.55966,
-                "1-3": 0.72586,
-                "2-3": 0.43534,
-                "2-4": 0.51232
-              },
-              "tempi_info": {
-                "l1": 1.25,
-                "l2": 1.85,
-                "reali": true
-              },
-              "combo": [
-                [
-                  "1 + Multigol 1-3",
-                  0.33611
-                ],
-                [
-                  "1 + Multigol 1-4",
-                  0.43525
-                ],
-                [
-                  "1 + Multigol 2-3",
-                  0.2547
-                ],
-                [
-                  "1 + Multigol 2-4",
-                  0.35384
-                ],
-                [
-                  "1 + Multigol 2-5",
-                  0.43701
-                ],
-                [
-                  "1 + Multigol 3-5",
-                  0.34436
-                ],
-                [
-                  "X + Multigol 1-3",
-                  0.10752
-                ],
-                [
-                  "X + Multigol 1-4",
-                  0.16074
-                ],
-                [
-                  "X + Multigol 2-3",
-                  0.10752
-                ],
-                [
-                  "X + Multigol 2-4",
-                  0.16074
-                ],
-                [
-                  "X + Multigol 2-5",
-                  0.16074
-                ],
-                [
-                  "X + Multigol 3-5",
-                  0.05322
-                ],
-                [
-                  "2 + Multigol 1-3",
-                  0.1257
-                ],
-                [
-                  "2 + Multigol 1-4",
-                  0.14689
-                ],
-                [
-                  "2 + Multigol 2-3",
-                  0.08738
-                ],
-                [
-                  "2 + Multigol 2-4",
-                  0.10856
-                ],
-                [
-                  "2 + Multigol 2-5",
-                  0.13312
-                ],
-                [
-                  "2 + Multigol 3-5",
-                  0.10734
-                ],
-                [
-                  "1X + Multigol 1-3",
-                  0.44363
-                ],
-                [
-                  "1X + Multigol 1-4",
-                  0.59599
-                ],
-                [
-                  "1X + Multigol 2-3",
-                  0.36222
-                ],
-                [
-                  "1X + Multigol 2-4",
-                  0.51458
-                ],
-                [
-                  "1X + Multigol 2-5",
-                  0.59775
-                ],
-                [
-                  "1X + Multigol 3-5",
-                  0.39758
-                ],
-                [
-                  "X2 + Multigol 1-3",
-                  0.23322
-                ],
-                [
-                  "X2 + Multigol 1-4",
-                  0.30763
-                ],
-                [
-                  "X2 + Multigol 2-3",
-                  0.19489
-                ],
-                [
-                  "X2 + Multigol 2-4",
-                  0.2693
-                ],
-                [
-                  "X2 + Multigol 2-5",
-                  0.29386
-                ],
-                [
-                  "X2 + Multigol 3-5",
-                  0.16056
-                ],
-                [
-                  "12 + Multigol 1-3",
-                  0.46182
-                ],
-                [
-                  "12 + Multigol 1-4",
-                  0.58214
-                ],
-                [
-                  "12 + Multigol 2-3",
-                  0.34208
-                ],
-                [
-                  "12 + Multigol 2-4",
-                  0.4624
-                ],
-                [
-                  "12 + Multigol 2-5",
-                  0.57013
-                ],
-                [
-                  "12 + Multigol 3-5",
-                  0.4517
-                ],
-                [
-                  "Gol + Multigol 1-3",
-                  0.25921
-                ],
-                [
-                  "Gol + Multigol 1-4",
-                  0.39841
-                ],
-                [
-                  "Gol + Multigol 2-3",
-                  0.25921
-                ],
-                [
-                  "Gol + Multigol 2-4",
-                  0.39841
-                ],
-                [
-                  "Gol + Multigol 2-5",
-                  0.49265
-                ],
-                [
-                  "Gol + Multigol 3-5",
-                  0.38514
-                ],
-                [
-                  "No Gol + Multigol 1-3",
-                  0.31013
-                ],
-                [
-                  "No Gol + Multigol 1-4",
-                  0.34447
-                ],
-                [
-                  "No Gol + Multigol 2-3",
-                  0.19039
-                ],
-                [
-                  "No Gol + Multigol 2-4",
-                  0.22473
-                ],
-                [
-                  "No Gol + Multigol 2-5",
-                  0.23822
-                ],
-                [
-                  "No Gol + Multigol 3-5",
-                  0.11979
-                ]
-              ]
-            },
-            "pronosticiExtra": {
-              "1": {
-                "tipo": "ESITO FREQUENTE",
-                "icona": "🛡️",
-                "mercato": "1 oppure Gol",
-                "alt": "Over 1,5 (83%)",
-                "prob": 87,
-                "probStr": "87%",
-                "quota": "1.15",
-                "qEqua": "1.15",
-                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
-                "barCol": "from-emerald-500 to-teal-400",
-                "desc": "Mercato a probabilità più alta secondo il modello. Quota equa 1.15; soglia teorica del modello 1.19."
-              },
-              "2": {
-                "tipo": "EQUILIBRATO",
-                "icona": "⚡",
-                "mercato": "1X + Over 1,5",
-                "alt": "2 oppure Over 2,5 (66%)",
-                "prob": 68,
-                "probStr": "68%",
-                "quota": "1.47",
-                "qEqua": "1.47",
-                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
-                "barCol": "from-cyan-500 to-blue-500",
-                "desc": "Esito nella fascia intermedia di probabilità del modello. Quota equa 1.47; soglia teorica del modello 1.52."
-              },
-              "3": {
-                "tipo": "ESITO MENO FREQUENTE",
-                "icona": "🎯",
-                "mercato": "1X + Under 3,5",
-                "alt": "1X + Over 2,5 (48%)",
-                "prob": 50,
-                "probStr": "50%",
-                "quota": "2.01",
-                "qEqua": "2.01",
-                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
-                "barCol": "from-rose-500 to-amber-500",
-                "desc": "Più rischioso, probabilità più bassa. Quota equa 2.01; soglia teorica del modello 2.07."
-              },
-              "4": {
-                "tipo": "PUNTEGGIO TEORICO",
-                "icona": "🔮",
-                "mercato": "Risultato esatto 1-1",
-                "alt": "2-1 (10%)",
-                "prob": 11,
-                "probStr": "11%",
-                "quota": "9.30",
-                "qEqua": "9.30",
-                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
-                "barCol": "from-purple-500 to-indigo-500",
-                "desc": "Punteggio più probabile per il modello Dixon-Coles."
-              }
-            },
-            "inizioUtc": "2026-11-21T12:30:00+00:00",
-            "chiave": {
-              "casa": "Man City",
-              "ospite": "Fulham",
-              "giorno": "2026-11-21"
-            }
-          },
-          {
             "id": "new-ars",
             "label": "Newcastle - Arsenal",
             "bgGradient": "from-[#00b7f3] via-[#090d16] to-[#a87657]",
@@ -26930,489 +26420,6 @@ let LETTURA_ATTUALE = 1;
         "label": "13ª Giornata (21-23 Nov 2026)",
         "dataFine": "2026-11-23T23:59:59",
         "partite": [
-          {
-            "id": "ala-dep",
-            "label": "Alavés - Deportivo",
-            "bgGradient": "from-[#0c2c91] via-[#090d16] to-[#871b75]",
-            "colori": {
-              "casa": [
-                "#0c2c91",
-                "#6b85d8"
-              ],
-              "ospite": [
-                "#871b75",
-                "#b65b61"
-              ]
-            },
-            "casa": {
-              "sigla": "ALA",
-              "nome": "Alavés",
-              "rank": "12° · 13 pt",
-              "colBox": "bg-sky-500/20 text-sky-400 border-sky-400"
-            },
-            "ospite": {
-              "sigla": "DEP",
-              "nome": "Deportivo",
-              "rank": "9° · 15 pt",
-              "colBox": "bg-orange-500/20 text-orange-400 border-orange-400"
-            },
-            "data": "Sabato 21 Nov · 14:00",
-            "giornata": "LaLiga · 13ª Giornata",
-            "golC": "1.19",
-            "golO": "1.08",
-            "barC": "52%",
-            "barO": "48%",
-            "fasi": {
-              "1": {
-                "label": "Fase 1: 1X2",
-                "centerVal": "37%",
-                "centerLbl": "Segno 1",
-                "seg1": {
-                  "p": 0.37,
-                  "col": "#06b6d4",
-                  "nome": "1: 37%"
-                },
-                "seg2": {
-                  "p": 0.312,
-                  "col": "#f59e0b",
-                  "nome": "X: 31%"
-                },
-                "seg3": {
-                  "p": 0.318,
-                  "col": "#f43f5e",
-                  "nome": "2: 32%"
-                }
-              },
-              "2": {
-                "label": "Fase 2: GG / NG",
-                "centerVal": "53%",
-                "centerLbl": "No Gol",
-                "seg1": {
-                  "p": 0.472,
-                  "col": "#10b981",
-                  "nome": "Gol: 47%"
-                },
-                "seg2": {
-                  "p": 0.528,
-                  "col": "#64748b",
-                  "nome": "No Gol: 53%"
-                },
-                "seg3": {
-                  "p": 0.0,
-                  "col": "transparent",
-                  "nome": ""
-                }
-              },
-              "3": {
-                "label": "Fase 3: Under / Over 2.5",
-                "centerVal": "60%",
-                "centerLbl": "Under 2.5",
-                "seg1": {
-                  "p": 0.395,
-                  "col": "#8b5cf6",
-                  "nome": "Over: 40%"
-                },
-                "seg2": {
-                  "p": 0.605,
-                  "col": "#3b82f6",
-                  "nome": "Under: 60%"
-                },
-                "seg3": {
-                  "p": 0.0,
-                  "col": "transparent",
-                  "nome": ""
-                }
-              },
-              "4": {
-                "label": "Fase 4: xG per Squadra",
-                "centerVal": "1.19 vs 1.08",
-                "centerLbl": "Volume xG",
-                "seg1": {
-                  "p": 0.52,
-                  "col": "#0ea5e9",
-                  "nome": "Alavés: 52% (1.19)"
-                },
-                "seg2": {
-                  "p": 0.48,
-                  "col": "#d97706",
-                  "nome": "Deportivo: 48% (1.08)"
-                },
-                "seg3": {
-                  "p": 0.0,
-                  "col": "transparent",
-                  "nome": ""
-                }
-              }
-            },
-            "isValore": false,
-            "evBadge": "",
-            "mercato": "Miglior stima del modello: Under 3,5 (81%)",
-            "qEqua": "1.24",
-            "qReale": "",
-            "spiegazione": "Stime del modello — 1: 37% · X: 31% · 2: 32% · Gol: 47% · Over 2.5: 40%. Attesa gol (xG modello): Alavés 1.19 – Deportivo 1.08. Quota equa teorica 1.24. Quote di mercato non disponibili per questa partita. Il modello non ha dimostrato un vantaggio sul mercato nei test disponibili. Questa scheda descrive stime teoriche.",
-            "quoteMercato": null,
-            "analisi": "Alavés: 0V 2N 3P nelle ultime 5, xG diff -3.09, 15 gol fatti e 17 subiti in 12 gare. Deportivo: 1V 2N 2P nelle ultime 5, xG diff +1.98, 15 fatti e 14 subiti in 12. (Dati football-data.co.uk)",
-            "rischio": "Assenze, squalifiche e formazioni NON verificate: queste informazioni non entrano nella stima. Le stime di gol attesi sono ricavate dai dati storici, non da un feed xG osservato. Nessuna quota di mercato disponibile per questa partita nei dati.",
-            "assenti": null,
-            "heat": {
-              "k": 4,
-              "c": [
-                [
-                  0.11687,
-                  0.09873,
-                  0.06057,
-                  0.02183,
-                  0.00745
-                ],
-                [
-                  0.10956,
-                  0.14613,
-                  0.07183,
-                  0.02589,
-                  0.00884
-                ],
-                [
-                  0.07284,
-                  0.07878,
-                  0.0426,
-                  0.01535,
-                  0.00524
-                ],
-                [
-                  0.0288,
-                  0.03114,
-                  0.01684,
-                  0.00607,
-                  0.00207
-                ],
-                [
-                  0.01104,
-                  0.01194,
-                  0.00646,
-                  0.00233,
-                  0.00079
-                ]
-              ],
-              "top": [
-                [
-                  1,
-                  1,
-                  0.14613
-                ],
-                [
-                  0,
-                  0,
-                  0.11687
-                ],
-                [
-                  1,
-                  0,
-                  0.10956
-                ]
-              ]
-            },
-            "mg": {
-              "totale": {
-                "1-2": 0.48784,
-                "1-3": 0.68908,
-                "1-4": 0.80315,
-                "1-5": 0.85488,
-                "2-3": 0.48078,
-                "2-4": 0.59486,
-                "2-5": 0.64659,
-                "3-5": 0.36704,
-                "3-6": 0.38659,
-                "4-6": 0.18535
-              },
-              "casa": {
-                "0-1": 0.66771,
-                "1-2": 0.57706,
-                "1-3": 0.66198,
-                "2-3": 0.29973,
-                "2-4": 0.3249
-              },
-              "ospite": {
-                "0-1": 0.70583,
-                "1-2": 0.56502,
-                "1-3": 0.6365,
-                "2-3": 0.26978,
-                "2-4": 0.2891
-              },
-              "1t": {
-                "0-1": 0.77699,
-                "1-2": 0.52755,
-                "1-3": 0.57553,
-                "2-3": 0.21016,
-                "2-4": 0.2208
-              },
-              "2t": {
-                "0-1": 0.59886,
-                "1-2": 0.58673,
-                "1-3": 0.69688,
-                "2-3": 0.34968,
-                "2-4": 0.38767
-              },
-              "tempi_info": {
-                "l1": 0.89,
-                "l2": 1.38,
-                "reali": true
-              },
-              "combo": [
-                [
-                  "1 + Multigol 1-3",
-                  0.28997
-                ],
-                [
-                  "1 + Multigol 1-4",
-                  0.32965
-                ],
-                [
-                  "1 + Multigol 2-3",
-                  0.18041
-                ],
-                [
-                  "1 + Multigol 2-4",
-                  0.22009
-                ],
-                [
-                  "1 + Multigol 2-5",
-                  0.24819
-                ],
-                [
-                  "1 + Multigol 3-5",
-                  0.17535
-                ],
-                [
-                  "X + Multigol 1-3",
-                  0.14613
-                ],
-                [
-                  "X + Multigol 1-4",
-                  0.18873
-                ],
-                [
-                  "X + Multigol 2-3",
-                  0.14613
-                ],
-                [
-                  "X + Multigol 2-4",
-                  0.18873
-                ],
-                [
-                  "X + Multigol 2-5",
-                  0.18873
-                ],
-                [
-                  "X + Multigol 3-5",
-                  0.0426
-                ],
-                [
-                  "2 + Multigol 1-3",
-                  0.25297
-                ],
-                [
-                  "2 + Multigol 1-4",
-                  0.28477
-                ],
-                [
-                  "2 + Multigol 2-3",
-                  0.15424
-                ],
-                [
-                  "2 + Multigol 2-4",
-                  0.18604
-                ],
-                [
-                  "2 + Multigol 2-5",
-                  0.20967
-                ],
-                [
-                  "2 + Multigol 3-5",
-                  0.1491
-                ],
-                [
-                  "1X + Multigol 1-3",
-                  0.43611
-                ],
-                [
-                  "1X + Multigol 1-4",
-                  0.51838
-                ],
-                [
-                  "1X + Multigol 2-3",
-                  0.32655
-                ],
-                [
-                  "1X + Multigol 2-4",
-                  0.40882
-                ],
-                [
-                  "1X + Multigol 2-5",
-                  0.43692
-                ],
-                [
-                  "1X + Multigol 3-5",
-                  0.21794
-                ],
-                [
-                  "X2 + Multigol 1-3",
-                  0.3991
-                ],
-                [
-                  "X2 + Multigol 1-4",
-                  0.4735
-                ],
-                [
-                  "X2 + Multigol 2-3",
-                  0.30037
-                ],
-                [
-                  "X2 + Multigol 2-4",
-                  0.37476
-                ],
-                [
-                  "X2 + Multigol 2-5",
-                  0.3984
-                ],
-                [
-                  "X2 + Multigol 3-5",
-                  0.19169
-                ],
-                [
-                  "12 + Multigol 1-3",
-                  0.54294
-                ],
-                [
-                  "12 + Multigol 1-4",
-                  0.61442
-                ],
-                [
-                  "12 + Multigol 2-3",
-                  0.33465
-                ],
-                [
-                  "12 + Multigol 2-4",
-                  0.40613
-                ],
-                [
-                  "12 + Multigol 2-5",
-                  0.45786
-                ],
-                [
-                  "12 + Multigol 3-5",
-                  0.32444
-                ],
-                [
-                  "Gol + Multigol 1-3",
-                  0.29674
-                ],
-                [
-                  "Gol + Multigol 1-4",
-                  0.39637
-                ],
-                [
-                  "Gol + Multigol 2-3",
-                  0.29674
-                ],
-                [
-                  "Gol + Multigol 2-4",
-                  0.39637
-                ],
-                [
-                  "Gol + Multigol 2-5",
-                  0.4448
-                ],
-                [
-                  "Gol + Multigol 3-5",
-                  0.29867
-                ],
-                [
-                  "No Gol + Multigol 1-3",
-                  0.39234
-                ],
-                [
-                  "No Gol + Multigol 1-4",
-                  0.40678
-                ],
-                [
-                  "No Gol + Multigol 2-3",
-                  0.18404
-                ],
-                [
-                  "No Gol + Multigol 2-4",
-                  0.19848
-                ],
-                [
-                  "No Gol + Multigol 2-5",
-                  0.20179
-                ],
-                [
-                  "No Gol + Multigol 3-5",
-                  0.06837
-                ]
-              ]
-            },
-            "pronosticiExtra": {
-              "1": {
-                "tipo": "ESITO FREQUENTE",
-                "icona": "🛡️",
-                "mercato": "Under 3,5",
-                "alt": "1 oppure Under 2,5 (79%)",
-                "prob": 81,
-                "probStr": "81%",
-                "quota": "1.24",
-                "qEqua": "1.24",
-                "badgeCol": "text-emerald-400 bg-emerald-500/10 border-emerald-500/30",
-                "barCol": "from-emerald-500 to-teal-400",
-                "desc": "Mercato a probabilità più alta secondo il modello. Quota equa 1.24; soglia teorica del modello 1.28."
-              },
-              "2": {
-                "tipo": "EQUILIBRATO",
-                "icona": "⚡",
-                "mercato": "1 oppure Gol",
-                "alt": "Multigol 1-3 (69%)",
-                "prob": 69,
-                "probStr": "69%",
-                "quota": "1.44",
-                "qEqua": "1.44",
-                "badgeCol": "text-cyan-400 bg-cyan-500/10 border-cyan-500/30",
-                "barCol": "from-cyan-500 to-blue-500",
-                "desc": "Esito nella fascia intermedia di probabilità del modello. Quota equa 1.44; soglia teorica del modello 1.49."
-              },
-              "3": {
-                "tipo": "ESITO MENO FREQUENTE",
-                "icona": "🎯",
-                "mercato": "Multigol 1-2",
-                "alt": "Multigol 2-3 (48%)",
-                "prob": 49,
-                "probStr": "49%",
-                "quota": "2.05",
-                "qEqua": "2.05",
-                "badgeCol": "text-rose-400 bg-rose-500/10 border-rose-500/30",
-                "barCol": "from-rose-500 to-amber-500",
-                "desc": "Più rischioso, probabilità più bassa. Quota equa 2.05; soglia teorica del modello 2.12."
-              },
-              "4": {
-                "tipo": "PUNTEGGIO TEORICO",
-                "icona": "🔮",
-                "mercato": "Risultato esatto 1-1",
-                "alt": "0-0 (12%)",
-                "prob": 15,
-                "probStr": "15%",
-                "quota": "6.84",
-                "qEqua": "6.84",
-                "badgeCol": "text-purple-400 bg-purple-500/10 border-purple-500/30",
-                "barCol": "from-purple-500 to-indigo-500",
-                "desc": "Punteggio più probabile per il modello Dixon-Coles."
-              }
-            },
-            "inizioUtc": "2026-11-21T13:00:00+00:00",
-            "chiave": {
-              "casa": "Alaves",
-              "ospite": "La Coruna",
-              "giorno": "2026-11-21"
-            }
-          },
           {
             "id": "ray-val",
             "label": "Rayo Vallecano - Valencia",
@@ -52602,7 +51609,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -53104,7 +52111,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -53606,7 +52613,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -54108,7 +53115,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -54610,7 +53617,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -55112,7 +54119,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -55614,7 +54621,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -56116,7 +55123,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -56618,7 +55625,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -57120,7 +56127,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -57622,7 +56629,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -58124,7 +57131,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -58626,7 +57633,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -59128,7 +58135,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -59630,7 +58637,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -60132,7 +59139,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -60634,7 +59641,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -61136,7 +60143,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -61644,7 +60651,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -62146,7 +61153,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -62648,7 +61655,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -63150,7 +62157,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -63652,7 +62659,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -64154,7 +63161,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -64656,7 +63663,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -65158,7 +64165,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -65660,7 +64667,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -66162,7 +65169,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -66664,7 +65671,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -67166,7 +66173,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -67668,7 +66675,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -68170,7 +67177,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -68672,7 +67679,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -69174,7 +68181,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -69676,7 +68683,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -70178,7 +69185,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -70686,7 +69693,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -71188,7 +70195,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -71690,7 +70697,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -72192,7 +71199,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -72694,7 +71701,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -73196,7 +72203,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -73698,7 +72705,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -74200,7 +73207,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -74702,7 +73709,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -75204,7 +74211,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -75706,7 +74713,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -76208,7 +75215,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -76710,7 +75717,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -77212,7 +76219,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -77714,7 +76721,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -78216,7 +77223,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -78718,7 +77725,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -79220,7 +78227,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -79728,7 +78735,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -80230,7 +79237,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -80732,7 +79739,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -81234,7 +80241,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -81736,7 +80743,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -82238,7 +81245,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -82740,7 +81747,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -83242,7 +82249,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -83744,7 +82751,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -84246,7 +83253,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -84748,7 +83755,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -85250,7 +84257,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -85752,7 +84759,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -86254,7 +85261,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -86756,7 +85763,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -87258,7 +86265,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -87760,7 +86767,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -88262,7 +87269,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 72,
               "senza_prova_temporale": 72,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -88643,7 +87650,7 @@ let LETTURA_ATTUALE = 1;
       "w_dom": 0.25,
       "aperte": 72,
       "senza_prova_temporale": 72,
-      "aggiornato": "21/11/2026 08:01"
+      "aggiornato": "21/11/2026 13:53"
     }
   },
   "europa": {
@@ -88801,7 +87808,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -89303,7 +88310,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -89805,7 +88812,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -90307,7 +89314,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -90809,7 +89816,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -91311,7 +90318,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -91813,7 +90820,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -92315,7 +91322,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -92817,7 +91824,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -93319,7 +92326,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -93821,7 +92828,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -94323,7 +93330,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -94825,7 +93832,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -95327,7 +94334,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -95829,7 +94836,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -96331,7 +95338,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -96833,7 +95840,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -97335,7 +96342,7 @@ let LETTURA_ATTUALE = 1;
               "w_dom": 0.25,
               "aperte": 18,
               "senza_prova_temporale": 18,
-              "aggiornato": "21/11/2026 08:01"
+              "aggiornato": "21/11/2026 13:53"
             },
             "heat": {
               "k": 4,
@@ -97716,7 +96723,7 @@ let LETTURA_ATTUALE = 1;
       "w_dom": 0.25,
       "aperte": 18,
       "senza_prova_temporale": 18,
-      "aggiornato": "21/11/2026 08:01"
+      "aggiornato": "21/11/2026 13:53"
     }
   }
 };

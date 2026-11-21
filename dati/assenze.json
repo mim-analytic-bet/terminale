@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-21T08:00+00:00",
+ "aggiornato": "2026-11-21T13:52+00:00",
  "fonte": "football-data.org",
  "stato": "ok",
  "errori": [],
@@ -230,8 +230,8 @@
    "casa": "Manchester City FC",
    "ospite": "Fulham FC",
    "giorno": "2026-11-21",
-   "ora": "13:30",
-   "stato": "TIMED",
+   "ora": null,
+   "stato": "IN_PLAY",
    "assenze": null,
    "controllato": null
   },
@@ -461,8 +461,8 @@
    "casa": "Deportivo Alavés",
    "ospite": "RC Deportivo La Coruña",
    "giorno": "2026-11-21",
-   "ora": "14:00",
-   "stato": "TIMED",
+   "ora": null,
+   "stato": "IN_PLAY",
    "assenze": null,
    "controllato": null
   },
