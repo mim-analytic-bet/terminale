@@ -1,64 +1,9 @@
 {
- "aggiornato": "2026-11-22T13:52+00:00",
+ "aggiornato": "2026-11-22T23:04+00:00",
  "fonte": "football-data.org",
  "stato": "ok",
  "errori": [],
  "partite": [
-  {
-   "id": 558521,
-   "lega": "serie-a",
-   "casa": "Juventus FC",
-   "ospite": "Venezia FC",
-   "giorno": "2026-11-22",
-   "ora": "12:30",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 558522,
-   "lega": "serie-a",
-   "casa": "Bologna FC 1909",
-   "ospite": "Udinese Calcio",
-   "giorno": "2026-11-22",
-   "ora": "15:00",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 558524,
-   "lega": "serie-a",
-   "casa": "US Sassuolo Calcio",
-   "ospite": "Genoa CFC",
-   "giorno": "2026-11-22",
-   "ora": "15:00",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 558523,
-   "lega": "serie-a",
-   "casa": "AC Milan",
-   "ospite": "Frosinone Calcio",
-   "giorno": "2026-11-22",
-   "ora": "18:00",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 558520,
-   "lega": "serie-a",
-   "casa": "Atalanta BC",
-   "ospite": "FC Internazionale Milano",
-   "giorno": "2026-11-22",
-   "ora": "20:45",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
   {
    "id": 558519,
    "lega": "serie-a",
@@ -176,28 +121,6 @@
    "ospite": "AC Milan",
    "giorno": "2026-11-30",
    "ora": "20:45",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 560646,
-   "lega": "premier",
-   "casa": "Hull City AFC",
-   "ospite": "Brighton & Hove Albion FC",
-   "giorno": "2026-11-22",
-   "ora": "15:00",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 560645,
-   "lega": "premier",
-   "casa": "Liverpool FC",
-   "ospite": "Manchester United FC",
-   "giorno": "2026-11-22",
-   "ora": "17:30",
    "stato": "TIMED",
    "assenze": null,
    "controllato": null
@@ -423,44 +346,11 @@
    "controllato": null
   },
   {
-   "id": 564749,
-   "lega": "liga",
-   "casa": "FC Barcelona",
-   "ospite": "Villarreal CF",
-   "giorno": "2026-11-22",
-   "ora": "14:00",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 564750,
-   "lega": "liga",
-   "casa": "Real Racing Club de Santander",
-   "ospite": "Real Sociedad de Fútbol",
-   "giorno": "2026-11-22",
-   "ora": "16:15",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 564752,
-   "lega": "liga",
-   "casa": "CA Osasuna",
-   "ospite": "Málaga CF",
-   "giorno": "2026-11-22",
-   "ora": "18:30",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 564753,
-   "lega": "liga",
-   "casa": "Getafe CF",
-   "ospite": "Club Atlético de Madrid",
-   "giorno": "2026-11-22",
+   "id": 560662,
+   "lega": "premier",
+   "casa": "Tottenham Hotspur FC",
+   "ospite": "Fulham FC",
+   "giorno": "2026-12-03",
    "ora": "21:00",
    "stato": "TIMED",
    "assenze": null,
@@ -610,28 +500,6 @@
    "controllato": null
   },
   {
-   "id": 565864,
-   "lega": "bundesliga",
-   "casa": "FC Augsburg",
-   "ospite": "1. FSV Mainz 05",
-   "giorno": "2026-11-22",
-   "ora": "15:30",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 565863,
-   "lega": "bundesliga",
-   "casa": "SV Werder Bremen",
-   "ospite": "Hamburger SV",
-   "giorno": "2026-11-22",
-   "ora": "17:30",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
    "id": 565869,
    "lega": "bundesliga",
    "casa": "SV Werder Bremen",
@@ -726,39 +594,6 @@
    "ospite": "Bayer 04 Leverkusen",
    "giorno": "2026-11-29",
    "ora": "19:30",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 559625,
-   "lega": "ligue1",
-   "casa": "Paris FC",
-   "ospite": "Angers SCO",
-   "giorno": "2026-11-22",
-   "ora": "15:00",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 559626,
-   "lega": "ligue1",
-   "casa": "FC Lorient",
-   "ospite": "Stade Rennais FC 1901",
-   "giorno": "2026-11-22",
-   "ora": "17:15",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 559629,
-   "lega": "ligue1",
-   "casa": "Olympique de Marseille",
-   "ospite": "Le Mans FC",
-   "giorno": "2026-11-22",
-   "ora": "20:45",
    "stato": "TIMED",
    "assenze": null,
    "controllato": null
