@@ -1,20 +1,9 @@
 {
- "aggiornato": "2026-11-23T14:21+00:00",
+ "aggiornato": "2026-11-23T23:17+00:00",
  "fonte": "football-data.org",
  "stato": "ok",
  "errori": [],
  "partite": [
-  {
-   "id": 558519,
-   "lega": "serie-a",
-   "casa": "AC Monza",
-   "ospite": "ACF Fiorentina",
-   "giorno": "2026-11-23",
-   "ora": "20:45",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
   {
    "id": 558515,
    "lega": "serie-a",
@@ -126,12 +115,12 @@
    "controllato": null
   },
   {
-   "id": 560649,
-   "lega": "premier",
-   "casa": "Brentford FC",
-   "ospite": "Everton FC",
-   "giorno": "2026-11-23",
-   "ora": "21:00",
+   "id": 558502,
+   "lega": "serie-a",
+   "casa": "Bologna FC 1909",
+   "ospite": "AS Roma",
+   "giorno": "2026-12-04",
+   "ora": "20:45",
    "stato": "TIMED",
    "assenze": null,
    "controllato": null
@@ -357,17 +346,6 @@
    "controllato": null
   },
   {
-   "id": 564757,
-   "lega": "liga",
-   "casa": "Levante UD",
-   "ospite": "Elche CF",
-   "giorno": "2026-11-23",
-   "ora": "21:00",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
    "id": 564765,
    "lega": "liga",
    "casa": "Levante UD",
@@ -500,6 +478,17 @@
    "controllato": null
   },
   {
+   "id": 564770,
+   "lega": "liga",
+   "casa": "Deportivo Alavés",
+   "ospite": "RCD Espanyol de Barcelona",
+   "giorno": "2026-12-04",
+   "ora": "21:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
    "id": 565869,
    "lega": "bundesliga",
    "casa": "SV Werder Bremen",
@@ -599,6 +588,17 @@
    "controllato": null
   },
   {
+   "id": 565882,
+   "lega": "bundesliga",
+   "casa": "FC Bayern München",
+   "ospite": "SC Paderborn 07",
+   "giorno": "2026-12-04",
+   "ora": "20:30",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
    "id": 559616,
    "lega": "ligue1",
    "casa": "Stade Brestois 29",
@@ -692,6 +692,17 @@
    "casa": "Olympique Lyonnais",
    "ospite": "AS Monaco FC",
    "giorno": "2026-11-29",
+   "ora": "20:45",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 559609,
+   "lega": "ligue1",
+   "casa": "Toulouse FC",
+   "ospite": "Paris Saint-Germain FC",
+   "giorno": "2026-12-04",
    "ora": "20:45",
    "stato": "TIMED",
    "assenze": null,
