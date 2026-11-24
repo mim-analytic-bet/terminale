@@ -23,6 +23,8 @@ Per decisione di Domenico sono stati rimossi dal repository, dalla cronologia e 
 
 ## Ultima attività importante
 
+**24/11/2026 — Assenze Champions League, 5ª giornata:** registrate 9 partite del 24/11 in `dati/assenze_manuali.json` (fonte unica: schede di Sports Mole del 22-24/11, due squadre per partita; non incrociata con i club). Mancano le 9 del 25/11 (fonti recenti trovate per una sola squadra su Inter-Stoccarda, PSG-Roma, Lille-Bayern; le altre non cercate). Assenze solo informative, modello e soglie invariati. Aperto: salvare i 48 risultati del weekend in un file a parte (decisione di Domenico); dopo lo scarico di giovedì 26/11 verificare se i risultati di football-data si sbloccano.
+
 Consolidamento locale in Git eseguito con successo su richiesta dell'utente (commit `0ae46c9` su `main`): 262 file versionati, working tree pulito. Tutte le modifiche di de-gambling, badge vettoriali, suite di 23 test e configurazione del modello 2.2.1 sono ora tracciate nella cronologia.
 
 | Elemento | Stato verificato o limite |
