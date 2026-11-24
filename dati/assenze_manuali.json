@@ -406,6 +406,463 @@
    },
    "controllato": "2026-11-19T16:34+00:00",
    "fonte": "RueDesJoueurs (fonte unica, letta 19/11/2026)"
+  },
+  {
+   "casa": "Galatasaray SK",
+   "ospite": "Aston Villa FC",
+   "giorno": "2026-11-24",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Osimhen",
+      "tipo": "Missing Fixture",
+      "motivo": "Ginocchio (operato)"
+     },
+     {
+      "nome": "Leão",
+      "tipo": "Missing Fixture",
+      "motivo": "Problema muscolare"
+     },
+     {
+      "nome": "Sallai",
+      "tipo": "Questionable",
+      "motivo": "Ischiocrurali; fonti discordanti"
+     },
+     {
+      "nome": "Jakobs",
+      "tipo": "Questionable",
+      "motivo": "Inguine"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Onana",
+      "tipo": "Missing Fixture",
+      "motivo": "Ginocchio"
+     },
+     {
+      "nome": "Ruggeri",
+      "tipo": "Missing Fixture",
+      "motivo": "Ischiocrurali"
+     },
+     {
+      "nome": "Cash",
+      "tipo": "Missing Fixture",
+      "motivo": "Commozione cerebrale"
+     },
+     {
+      "nome": "Lindelöf",
+      "tipo": "Questionable",
+      "motivo": "Malattia"
+     }
+    ]
+   },
+   "controllato": "2026-11-24T08:49:36Z",
+   "fonte": "Sports Mole, schede squadre del 22-24/11/2026"
+  },
+  {
+   "casa": "FK Bodø/Glimt",
+   "ospite": "LASK Linz",
+   "giorno": "2026-11-24",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Evjen",
+      "tipo": "Missing Fixture",
+      "motivo": "Legamento crociato"
+     },
+     {
+      "nome": "Mikkelsen",
+      "tipo": "Questionable",
+      "motivo": "Inguine"
+     },
+     {
+      "nome": "Sjong",
+      "tipo": "Questionable",
+      "motivo": "Portiere di riserva, dubbio"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Bello",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Usor",
+      "tipo": "Questionable",
+      "motivo": "Dubbio fisico"
+     }
+    ]
+   },
+   "controllato": "2026-11-24T08:49:36Z",
+   "fonte": "Sports Mole, schede squadre del 22-24/11/2026"
+  },
+  {
+   "casa": "Real Madrid CF",
+   "ospite": "PSV",
+   "giorno": "2026-11-24",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Rodrygo",
+      "tipo": "Missing Fixture",
+      "motivo": "Ginocchio"
+     },
+     {
+      "nome": "Asencio",
+      "tipo": "Missing Fixture",
+      "motivo": "Gamba"
+     },
+     {
+      "nome": "Endrick",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Mendy",
+      "tipo": "Missing Fixture",
+      "motivo": "Anca; non in lista UEFA"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Ouaissa",
+      "tipo": "Missing Fixture",
+      "motivo": "Muscolare"
+     },
+     {
+      "nome": "Plea",
+      "tipo": "Missing Fixture",
+      "motivo": "Non specificato"
+     },
+     {
+      "nome": "Schouten",
+      "tipo": "Missing Fixture",
+      "motivo": "Ginocchio"
+     },
+     {
+      "nome": "Nagalo",
+      "tipo": "Missing Fixture",
+      "motivo": "Non specificato"
+     },
+     {
+      "nome": "Mauro Júnior",
+      "tipo": "Questionable",
+      "motivo": "Muscolare"
+     }
+    ]
+   },
+   "controllato": "2026-11-24T08:49:36Z",
+   "fonte": "Sports Mole, schede squadre del 22-24/11/2026"
+  },
+  {
+   "casa": "Manchester City FC",
+   "ospite": "SSC Napoli",
+   "giorno": "2026-11-24",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Semenyo",
+      "tipo": "Missing Fixture",
+      "motivo": "Ginocchio"
+     },
+     {
+      "nome": "Nunes",
+      "tipo": "Questionable",
+      "motivo": "Caviglia; Maresca parla di aggiornamento positivo"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Meret",
+      "tipo": "Missing Fixture",
+      "motivo": "Schiena"
+     },
+     {
+      "nome": "Di Lorenzo",
+      "tipo": "Missing Fixture",
+      "motivo": "Muscolare"
+     },
+     {
+      "nome": "Lobotka",
+      "tipo": "Missing Fixture",
+      "motivo": "Caviglia"
+     },
+     {
+      "nome": "Badiashile",
+      "tipo": "Missing Fixture",
+      "motivo": "Muscolare"
+     },
+     {
+      "nome": "Alisson Santos",
+      "tipo": "Missing Fixture",
+      "motivo": "Coscia"
+     },
+     {
+      "nome": "Rafa Marín",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato"
+     },
+     {
+      "nome": "Buongiorno",
+      "tipo": "Questionable",
+      "motivo": "Menisco"
+     }
+    ]
+   },
+   "controllato": "2026-11-24T08:49:36Z",
+   "fonte": "Sports Mole, schede squadre del 22-24/11/2026"
+  },
+  {
+   "casa": "Arsenal FC",
+   "ospite": "Borussia Dortmund",
+   "giorno": "2026-11-24",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Raya",
+      "tipo": "Missing Fixture",
+      "motivo": "Spalla"
+     },
+     {
+      "nome": "Zubimendi",
+      "tipo": "Missing Fixture",
+      "motivo": "Ischiocrurali"
+     },
+     {
+      "nome": "Saka",
+      "tipo": "Missing Fixture",
+      "motivo": "Quadricipite"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Emre Can",
+      "tipo": "Missing Fixture",
+      "motivo": "Legamento crociato"
+     },
+     {
+      "nome": "Inacio",
+      "tipo": "Missing Fixture",
+      "motivo": "Ginocchio"
+     },
+     {
+      "nome": "Lerma",
+      "tipo": "Missing Fixture",
+      "motivo": "Muscolare"
+     },
+     {
+      "nome": "Konstantelias",
+      "tipo": "Missing Fixture",
+      "motivo": "Legamento crociato"
+     },
+     {
+      "nome": "Kaba",
+      "tipo": "Missing Fixture",
+      "motivo": "Spalla"
+     },
+     {
+      "nome": "Guirassy",
+      "tipo": "Questionable",
+      "motivo": "Ischiocrurali; fonti discordanti"
+     },
+     {
+      "nome": "Chukwuemeka",
+      "tipo": "Questionable",
+      "motivo": "Coscia; fonti discordanti"
+     }
+    ]
+   },
+   "controllato": "2026-11-24T08:49:36Z",
+   "fonte": "Sports Mole, schede squadre del 22-24/11/2026"
+  },
+  {
+   "casa": "Feyenoord Rotterdam",
+   "ospite": "FC Porto",
+   "giorno": "2026-11-24",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Moder",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Nieuwkoop",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Beelen",
+      "tipo": "Missing Fixture",
+      "motivo": "Gamba"
+     },
+     {
+      "nome": "Bos",
+      "tipo": "Missing Fixture",
+      "motivo": "Legamento crociato"
+     },
+     {
+      "nome": "St. Juste",
+      "tipo": "Missing Fixture",
+      "motivo": "Stinco"
+     },
+     {
+      "nome": "Hadj Moussa",
+      "tipo": "Questionable",
+      "motivo": "Caviglia"
+     },
+     {
+      "nome": "Watanabe",
+      "tipo": "Questionable",
+      "motivo": "Piede"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Vasco Sousa",
+      "tipo": "Missing Fixture",
+      "motivo": "Gamba, lungo periodo"
+     },
+     {
+      "nome": "Smalling",
+      "tipo": "Missing Fixture",
+      "motivo": "Ginocchio; fuori lista UEFA"
+     },
+     {
+      "nome": "William Gomes",
+      "tipo": "Questionable",
+      "motivo": "Rientrato da infortunio alla caviglia"
+     }
+    ]
+   },
+   "controllato": "2026-11-24T08:49:36Z",
+   "fonte": "Sports Mole, schede squadre del 22-24/11/2026"
+  },
+  {
+   "casa": "ŠK Slovan Bratislava",
+   "ospite": "Real Betis Balompié",
+   "giorno": "2026-11-24",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Gajdoš",
+      "tipo": "Questionable",
+      "motivo": "Possibile infortunio nella gara precedente"
+     },
+     {
+      "nome": "Čerepaki",
+      "tipo": "Questionable",
+      "motivo": "Schiena"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Ceballos",
+      "tipo": "Missing Fixture",
+      "motivo": "Ischiocrurali, rientro da dicembre"
+     }
+    ]
+   },
+   "controllato": "2026-11-24T08:49:36Z",
+   "fonte": "Sports Mole, schede squadre del 22-24/11/2026"
+  },
+  {
+   "casa": "RB Leipzig",
+   "ospite": "Racing Club de Lens",
+   "giorno": "2026-11-24",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Guiu",
+      "tipo": "Missing Fixture",
+      "motivo": "Ischiocrurali"
+     },
+     {
+      "nome": "Ouédraogo",
+      "tipo": "Missing Fixture",
+      "motivo": "Spalla"
+     },
+     {
+      "nome": "Zingerle",
+      "tipo": "Missing Fixture",
+      "motivo": "Fuori lista UEFA"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Ivanović",
+      "tipo": "Missing Fixture",
+      "motivo": "Protocollo commozione"
+     },
+     {
+      "nome": "Bulatović",
+      "tipo": "Missing Fixture",
+      "motivo": "Collo"
+     },
+     {
+      "nome": "Edouard",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Gradit",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Nawrocki",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Aguilar",
+      "tipo": "Questionable",
+      "motivo": "Ischiocrurali"
+     }
+    ]
+   },
+   "controllato": "2026-11-24T08:49:36Z",
+   "fonte": "Sports Mole, schede squadre del 22-24/11/2026"
+  },
+  {
+   "casa": "Como 1907",
+   "ospite": "PAE AEK",
+   "giorno": "2026-11-24",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Kean",
+      "tipo": "Missing Fixture",
+      "motivo": "Tibia, ricaduta"
+     },
+     {
+      "nome": "Addai",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Diao",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Jesús Rodríguez",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Koita",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato, 2 giornate (rosso col Real Madrid)"
+     }
+    ]
+   },
+   "controllato": "2026-11-24T08:49:36Z",
+   "fonte": "Sports Mole, schede squadre del 22-24/11/2026; elenco squalificati UEFA MD5"
   }
  ]
 }
