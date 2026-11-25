@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-25T14:17+00:00",
+ "aggiornato": "2026-11-25T23:16+00:00",
  "fonte": "football-data.org",
  "stato": "ok",
  "errori": [],
@@ -153,6 +153,50 @@
    "casa": "SSC Napoli",
    "ospite": "US Lecce",
    "giorno": "2026-12-05",
+   "ora": "20:45",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 558499,
+   "lega": "serie-a",
+   "casa": "Genoa CFC",
+   "ospite": "Torino FC",
+   "giorno": "2026-12-06",
+   "ora": "12:30",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 558504,
+   "lega": "serie-a",
+   "casa": "SS Lazio",
+   "ospite": "Atalanta BC",
+   "giorno": "2026-12-06",
+   "ora": "15:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 558500,
+   "lega": "serie-a",
+   "casa": "Juventus FC",
+   "ospite": "Udinese Calcio",
+   "giorno": "2026-12-06",
+   "ora": "18:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 558505,
+   "lega": "serie-a",
+   "casa": "AC Milan",
+   "ospite": "Parma Calcio 1913",
+   "giorno": "2026-12-06",
    "ora": "20:45",
    "stato": "TIMED",
    "assenze": null,
@@ -456,6 +500,39 @@
    "controllato": null
   },
   {
+   "id": 560675,
+   "lega": "premier",
+   "casa": "Newcastle United FC",
+   "ospite": "Sunderland AFC",
+   "giorno": "2026-12-06",
+   "ora": "15:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 560681,
+   "lega": "premier",
+   "casa": "Everton FC",
+   "ospite": "Fulham FC",
+   "giorno": "2026-12-06",
+   "ora": "15:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 560672,
+   "lega": "premier",
+   "casa": "Tottenham Hotspur FC",
+   "ospite": "Arsenal FC",
+   "giorno": "2026-12-06",
+   "ora": "17:30",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
    "id": 564765,
    "lega": "liga",
    "casa": "Levante UD",
@@ -643,6 +720,50 @@
    "controllato": null
   },
   {
+   "id": 564768,
+   "lega": "liga",
+   "casa": "CA Osasuna",
+   "ospite": "Elche CF",
+   "giorno": "2026-12-06",
+   "ora": "14:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 564775,
+   "lega": "liga",
+   "casa": "Athletic Club",
+   "ospite": "Real Madrid CF",
+   "giorno": "2026-12-06",
+   "ora": "16:15",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 564774,
+   "lega": "liga",
+   "casa": "Getafe CF",
+   "ospite": "Valencia CF",
+   "giorno": "2026-12-06",
+   "ora": "18:30",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 564771,
+   "lega": "liga",
+   "casa": "Club Atlético de Madrid",
+   "ospite": "Real Betis Balompié",
+   "giorno": "2026-12-06",
+   "ora": "21:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
    "id": 565869,
    "lega": "bundesliga",
    "casa": "SV Werder Bremen",
@@ -819,6 +940,28 @@
    "controllato": null
   },
   {
+   "id": 565876,
+   "lega": "bundesliga",
+   "casa": "FC Schalke 04",
+   "ospite": "Borussia Dortmund",
+   "giorno": "2026-12-06",
+   "ora": "15:30",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 565880,
+   "lega": "bundesliga",
+   "casa": "SV 07 Elversberg",
+   "ospite": "VfB Stuttgart",
+   "giorno": "2026-12-06",
+   "ora": "17:30",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
    "id": 559616,
    "lega": "ligue1",
    "casa": "Stade Brestois 29",
@@ -978,6 +1121,39 @@
    "casa": "Paris FC",
    "ospite": "Le Mans FC",
    "giorno": "2026-12-05",
+   "ora": "20:45",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 559603,
+   "lega": "ligue1",
+   "casa": "ES Troyes AC",
+   "ospite": "Olympique Lyonnais",
+   "giorno": "2026-12-06",
+   "ora": "15:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 559608,
+   "lega": "ligue1",
+   "casa": "Stade Rennais FC 1901",
+   "ospite": "Stade Brestois 29",
+   "giorno": "2026-12-06",
+   "ora": "17:15",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 559607,
+   "lega": "ligue1",
+   "casa": "Olympique de Marseille",
+   "ospite": "OGC Nice",
+   "giorno": "2026-12-06",
    "ora": "20:45",
    "stato": "TIMED",
    "assenze": null,
