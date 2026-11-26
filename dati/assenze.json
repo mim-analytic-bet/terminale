@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-26T14:15+00:00",
+ "aggiornato": "2026-11-26T23:20+00:00",
  "fonte": "football-data.org",
  "stato": "ok",
  "errori": [],
@@ -197,6 +197,28 @@
    "casa": "AC Milan",
    "ospite": "Parma Calcio 1913",
    "giorno": "2026-12-06",
+   "ora": "20:45",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 558506,
+   "lega": "serie-a",
+   "casa": "Venezia FC",
+   "ospite": "US Sassuolo Calcio",
+   "giorno": "2026-12-07",
+   "ora": "18:30",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 558503,
+   "lega": "serie-a",
+   "casa": "ACF Fiorentina",
+   "ospite": "Cagliari Calcio",
+   "giorno": "2026-12-07",
    "ora": "20:45",
    "stato": "TIMED",
    "assenze": null,
@@ -758,6 +780,17 @@
    "casa": "Club Atlético de Madrid",
    "ospite": "Real Betis Balompié",
    "giorno": "2026-12-06",
+   "ora": "21:00",
+   "stato": "TIMED",
+   "assenze": null,
+   "controllato": null
+  },
+  {
+   "id": 564769,
+   "lega": "liga",
+   "casa": "Sevilla FC",
+   "ospite": "Málaga CF",
+   "giorno": "2026-12-07",
    "ora": "21:00",
    "stato": "TIMED",
    "assenze": null,
