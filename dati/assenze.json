@@ -1,20 +1,9 @@
 {
- "aggiornato": "2026-11-27T14:17+00:00",
+ "aggiornato": "2026-11-27T23:17+00:00",
  "fonte": "football-data.org",
  "stato": "ok",
  "errori": [],
  "partite": [
-  {
-   "id": 558515,
-   "lega": "serie-a",
-   "casa": "Venezia FC",
-   "ospite": "Bologna FC 1909",
-   "giorno": "2026-11-27",
-   "ora": "20:45",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
   {
    "id": 558513,
    "lega": "serie-a",
@@ -220,17 +209,6 @@
    "ospite": "Cagliari Calcio",
    "giorno": "2026-12-07",
    "ora": "20:45",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 560658,
-   "lega": "premier",
-   "casa": "Nottingham Forest FC",
-   "ospite": "Chelsea FC",
-   "giorno": "2026-11-27",
-   "ora": "21:00",
    "stato": "TIMED",
    "assenze": null,
    "controllato": null
@@ -555,17 +533,6 @@
    "controllato": null
   },
   {
-   "id": 564765,
-   "lega": "liga",
-   "casa": "Levante UD",
-   "ospite": "Real Racing Club de Santander",
-   "giorno": "2026-11-27",
-   "ora": "21:00",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
    "id": 564760,
    "lega": "liga",
    "casa": "Real Betis Balompié",
@@ -797,17 +764,6 @@
    "controllato": null
   },
   {
-   "id": 565869,
-   "lega": "bundesliga",
-   "casa": "SV Werder Bremen",
-   "ospite": "Borussia Mönchengladbach",
-   "giorno": "2026-11-27",
-   "ora": "20:30",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
    "id": 565866,
    "lega": "bundesliga",
    "casa": "1. FC Köln",
@@ -990,17 +946,6 @@
    "ospite": "VfB Stuttgart",
    "giorno": "2026-12-06",
    "ora": "17:30",
-   "stato": "TIMED",
-   "assenze": null,
-   "controllato": null
-  },
-  {
-   "id": 559616,
-   "lega": "ligue1",
-   "casa": "Stade Brestois 29",
-   "ospite": "Paris FC",
-   "giorno": "2026-11-27",
-   "ora": "20:45",
    "stato": "TIMED",
    "assenze": null,
    "controllato": null
