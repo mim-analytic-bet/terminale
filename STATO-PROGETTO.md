@@ -23,7 +23,7 @@ Per decisione di Domenico sono stati rimossi dal repository, dalla cronologia e 
 
 ## Ultima attività importante
 
-**27/11/2026 — Coppe concluse e nuovo turno:** CL ed EL della 5ª giornata tutte finite; football-data di nuovo aggiornato fino al 23/11. Assenze registrate solo per 4 partite del turno 27-29/11 (restano circa 45 senza record). Verifica di giornata sui campionati (risultati 20-23/11 ora disponibili in `dati/*.csv`) da fare dopo decisione di Domenico sul file dei risultati inseriti a mano.
+**27/11/2026 — Coppe concluse e nuovo turno:** CL ed EL della 5ª giornata tutte finite; football-data di nuovo aggiornato fino al 23/11. Assenze registrate per 7 partite del turno 27-29/11 (restano circa 42 senza record); verifica di giornata 20-23/11 salvata in `docs/VERIFICA_GIORNATA_2026-11-20_23.md`. Verifica di giornata sui campionati (risultati 20-23/11 ora disponibili in `dati/*.csv`) da fare dopo decisione di Domenico sul file dei risultati inseriti a mano.
 
 **24/11/2026 — Assenze Champions League, 5ª giornata:** registrate 9 partite del 24/11 in `dati/assenze_manuali.json` (fonte unica: schede di Sports Mole del 22-24/11, due squadre per partita; non incrociata con i club). Mancano le 9 del 25/11 (fonti recenti trovate per una sola squadra su Inter-Stoccarda, PSG-Roma, Lille-Bayern; le altre non cercate). Assenze solo informative, modello e soglie invariati. Aperto: salvare i 48 risultati del weekend in un file a parte (decisione di Domenico); dopo lo scarico di giovedì 26/11 verificare se i risultati di football-data si sbloccano.
 

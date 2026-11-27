@@ -1020,6 +1020,175 @@
    },
    "controllato": "2026-11-27T12:37:27Z",
    "fonte": "Sports Mole, schede del 24-27/11/2026"
+  },
+  {
+   "casa": "Leeds United FC",
+   "ospite": "Coventry City FC",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Joseph",
+      "tipo": "Missing Fixture",
+      "motivo": "Ginocchio"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Awoniyi",
+      "tipo": "Missing Fixture",
+      "motivo": "Caviglia"
+     },
+     {
+      "nome": "Wright",
+      "tipo": "Missing Fixture",
+      "motivo": "Quadricipite"
+     },
+     {
+      "nome": "Eccles",
+      "tipo": "Missing Fixture",
+      "motivo": "Caviglia"
+     },
+     {
+      "nome": "Amenda",
+      "tipo": "Missing Fixture",
+      "motivo": "Polpaccio"
+     },
+     {
+      "nome": "Woolfenden",
+      "tipo": "Missing Fixture",
+      "motivo": "Ginocchio"
+     },
+     {
+      "nome": "Yirenkyi",
+      "tipo": "Questionable",
+      "motivo": "Non specificato"
+     },
+     {
+      "nome": "Mason-Clark",
+      "tipo": "Questionable",
+      "motivo": "Ginocchio"
+     }
+    ]
+   },
+   "controllato": "2026-11-27T12:45:54Z",
+   "fonte": "Sports Mole, schede del 26-27/11/2026"
+  },
+  {
+   "casa": "Ipswich Town FC",
+   "ospite": "Aston Villa FC",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Davis",
+      "tipo": "Questionable",
+      "motivo": "Caviglia"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Onana",
+      "tipo": "Missing Fixture",
+      "motivo": "Ginocchio"
+     },
+     {
+      "nome": "Ruggeri",
+      "tipo": "Missing Fixture",
+      "motivo": "Ischiocrurali"
+     },
+     {
+      "nome": "Cash",
+      "tipo": "Questionable",
+      "motivo": "Commozione cerebrale, da valutare"
+     }
+    ]
+   },
+   "controllato": "2026-11-27T12:45:54Z",
+   "fonte": "Sports Mole, schede del 26-27/11/2026"
+  },
+  {
+   "casa": "Sunderland AFC",
+   "ospite": "Tottenham Hotspur FC",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Mundle",
+      "tipo": "Missing Fixture",
+      "motivo": "Ginocchio"
+     },
+     {
+      "nome": "Ballard",
+      "tipo": "Missing Fixture",
+      "motivo": "Coscia"
+     },
+     {
+      "nome": "Diarra",
+      "tipo": "Missing Fixture",
+      "motivo": "Coscia"
+     },
+     {
+      "nome": "Xhaka",
+      "tipo": "Missing Fixture",
+      "motivo": "Polpaccio"
+     },
+     {
+      "nome": "Brobbey",
+      "tipo": "Missing Fixture",
+      "motivo": "Coscia"
+     },
+     {
+      "nome": "Methalie",
+      "tipo": "Questionable",
+      "motivo": "Malattia"
+     },
+     {
+      "nome": "Alderete",
+      "tipo": "Questionable",
+      "motivo": "Colpo"
+     },
+     {
+      "nome": "Danso",
+      "tipo": "Missing Fixture",
+      "motivo": "Non schierabile contro il club proprietario del cartellino"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Simons",
+      "tipo": "Missing Fixture",
+      "motivo": "Ginocchio, lungo periodo"
+     },
+     {
+      "nome": "Odobert",
+      "tipo": "Missing Fixture",
+      "motivo": "Ginocchio, lungo periodo"
+     },
+     {
+      "nome": "Tel",
+      "tipo": "Missing Fixture",
+      "motivo": "Tendine d'Achille"
+     },
+     {
+      "nome": "Mudryk",
+      "tipo": "Missing Fixture",
+      "motivo": "Caviglia"
+     },
+     {
+      "nome": "Sávio",
+      "tipo": "Missing Fixture",
+      "motivo": "Coscia"
+     },
+     {
+      "nome": "Adarabioyo",
+      "tipo": "Questionable",
+      "motivo": "Polpaccio"
+     }
+    ]
+   },
+   "controllato": "2026-11-27T12:45:54Z",
+   "fonte": "Sports Mole, schede del 26-27/11/2026"
   }
  ]
 }
