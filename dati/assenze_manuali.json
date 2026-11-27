@@ -863,6 +863,163 @@
    },
    "controllato": "2026-11-24T08:49:36Z",
    "fonte": "Sports Mole, schede squadre del 22-24/11/2026; elenco squalificati UEFA MD5"
+  },
+  {
+   "casa": "SV Werder Bremen",
+   "ospite": "Borussia Mönchengladbach",
+   "giorno": "2026-11-27",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Musah",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Topp",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Stage",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Kleindienst",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio, vicino al rientro"
+     },
+     {
+      "nome": "Leopold",
+      "tipo": "Missing Fixture",
+      "motivo": "Legamento crociato, fuori quasi tutta la stagione"
+     }
+    ]
+   },
+   "controllato": "2026-11-27T12:37:27Z",
+   "fonte": "Sports Mole, schede del 24-27/11/2026"
+  },
+  {
+   "casa": "Stade Brestois 29",
+   "ospite": "Paris FC",
+   "giorno": "2026-11-27",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Chardonnet",
+      "tipo": "Questionable",
+      "motivo": "Strappo al polpaccio, potrebbe saltare la gara"
+     },
+     {
+      "nome": "Lala",
+      "tipo": "Questionable",
+      "motivo": "Colpo"
+     },
+     {
+      "nome": "Doumbia",
+      "tipo": "Questionable",
+      "motivo": "Caviglia"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Sangui",
+      "tipo": "Missing Fixture",
+      "motivo": "Ischiocrurali"
+     }
+    ]
+   },
+   "controllato": "2026-11-27T12:37:27Z",
+   "fonte": "Sports Mole, schede del 24-27/11/2026"
+  },
+  {
+   "casa": "Nottingham Forest FC",
+   "ospite": "Chelsea FC",
+   "giorno": "2026-11-27",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Domínguez",
+      "tipo": "Missing Fixture",
+      "motivo": "Muscolare"
+     },
+     {
+      "nome": "Savona",
+      "tipo": "Missing Fixture",
+      "motivo": "Ginocchio"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Hato",
+      "tipo": "Missing Fixture",
+      "motivo": "Schiena"
+     },
+     {
+      "nome": "Reece James",
+      "tipo": "Missing Fixture",
+      "motivo": "Ginocchio, operato"
+     },
+     {
+      "nome": "João Pedro",
+      "tipo": "Missing Fixture",
+      "motivo": "Coscia"
+     },
+     {
+      "nome": "Lacroix",
+      "tipo": "Missing Fixture",
+      "motivo": "Coscia/ischiocrurali"
+     },
+     {
+      "nome": "Caicedo",
+      "tipo": "Questionable",
+      "motivo": "Schiena; Alonso lo dà disponibile"
+     },
+     {
+      "nome": "Gittens",
+      "tipo": "Questionable",
+      "motivo": "Condizione fisica"
+     }
+    ]
+   },
+   "controllato": "2026-11-27T12:37:27Z",
+   "fonte": "Sports Mole, schede del 24-27/11/2026"
+  },
+  {
+   "casa": "Hamburger SV",
+   "ospite": "FC Bayern München",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Remberg",
+      "tipo": "Missing Fixture",
+      "motivo": "Fuori per il resto della stagione"
+     },
+     {
+      "nome": "Poulsen",
+      "tipo": "Missing Fixture",
+      "motivo": "Non disponibile"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Kane",
+      "tipo": "Missing Fixture",
+      "motivo": "Caviglia, fuori per mesi"
+     },
+     {
+      "nome": "Olise",
+      "tipo": "Questionable",
+      "motivo": "Dubbio"
+     }
+    ]
+   },
+   "controllato": "2026-11-27T12:37:27Z",
+   "fonte": "Sports Mole, schede del 24-27/11/2026"
   }
  ]
 }
