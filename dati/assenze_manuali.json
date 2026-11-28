@@ -1189,6 +1189,1777 @@
    },
    "controllato": "2026-11-27T12:45:54Z",
    "fonte": "Sports Mole, schede del 26-27/11/2026"
+  },
+  {
+   "casa": "US Sassuolo Calcio",
+   "ospite": "SSC Napoli",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Adzic",
+      "tipo": "Missing Fixture",
+      "motivo": "Operato dopo un infortunio al ginocchio"
+     },
+     {
+      "nome": "Volpato",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Boloca",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Leysen",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Kone",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "De Bruyne",
+      "tipo": "Missing Fixture",
+      "motivo": "Affaticamento muscolare"
+     },
+     {
+      "nome": "Meret",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Badiashile",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Alisson Santos",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Lobotka",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Buongiorno",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Vergara",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Di Lorenzo",
+      "tipo": "Questionable",
+      "motivo": "Ha ripreso ad allenarsi a pieno, ma potrebbe non essere rischiato"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:18:45Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "Como 1907",
+   "ospite": "Juventus FC",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Kean",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Kambwala",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Rodriguez",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Addai",
+      "tipo": "Questionable",
+      "motivo": "Da valutare la condizione fisica"
+     },
+     {
+      "nome": "Diao",
+      "tipo": "Questionable",
+      "motivo": "Da valutare la condizione fisica"
+     },
+     {
+      "nome": "Caqueret",
+      "tipo": "Questionable",
+      "motivo": "Fortemente in dubbio, motivo non indicato"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Yildiz",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Thuram",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Locatelli",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Gonzalez",
+      "tipo": "Questionable",
+      "motivo": "In dubbio, motivo non indicato"
+     },
+     {
+      "nome": "Alajbegovic",
+      "tipo": "Questionable",
+      "motivo": "Possibile rientro in panchina"
+     },
+     {
+      "nome": "Kalulu",
+      "tipo": "Questionable",
+      "motivo": "Possibile rientro in panchina"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:18:45Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "AS Roma",
+   "ospite": "AC Monza",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Pellegrini",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Rensch",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Balerdi",
+      "tipo": "Questionable",
+      "motivo": "Caviglia, possibile recupero"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Folorunsho",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Maye",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Ngonge",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:18:45Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "Frosinone Calcio",
+   "ospite": "Parma Calcio 1913",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Raimondo",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Birligea",
+      "tipo": "Missing Fixture",
+      "motivo": "Stiramento al flessore, fuori alcune settimane"
+     },
+     {
+      "nome": "Grillitsch",
+      "tipo": "Missing Fixture",
+      "motivo": "Problema alla coscia non ancora superato"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Romero",
+      "tipo": "Missing Fixture",
+      "motivo": "Grave infortunio alla spalla"
+     },
+     {
+      "nome": "Diego Carlos",
+      "tipo": "Questionable",
+      "motivo": "Coscia"
+     },
+     {
+      "nome": "Drobnic",
+      "tipo": "Questionable",
+      "motivo": "Piede"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:18:45Z",
+   "fonte": "Sports Mole, scheda del 26/11/2026"
+  },
+  {
+   "casa": "Torino FC",
+   "ospite": "SS Lazio",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Ismajli",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio all'adduttore, operato"
+     },
+     {
+      "nome": "Belghali",
+      "tipo": "Questionable",
+      "motivo": "Infiammazione al ginocchio, dubbi sulla condizione"
+     },
+     {
+      "nome": "Rodriguez",
+      "tipo": "Questionable",
+      "motivo": "Dubbi sulla condizione fisica"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Tavares",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio ai flessori"
+     },
+     {
+      "nome": "Sutalo",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio ai flessori"
+     },
+     {
+      "nome": "Zaccagni",
+      "tipo": "Questionable",
+      "motivo": "Ha ripreso ad allenarsi a pieno, possibile panchina"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:18:45Z",
+   "fonte": "Sports Mole, scheda del 26/11/2026"
+  },
+  {
+   "casa": "Udinese Calcio",
+   "ospite": "ACF Fiorentina",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Bertola",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Gueye",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Davis",
+      "tipo": "Questionable",
+      "motivo": "Problema all'adduttore"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Parisi",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Pongracic",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Viery",
+      "tipo": "Missing Fixture",
+      "motivo": "Fuori per un mese, motivo non indicato"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:18:45Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "FC Internazionale Milano",
+   "ospite": "Genoa CFC",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Calhanoglu",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio alla coscia"
+     },
+     {
+      "nome": "Bonny",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio alla coscia"
+     },
+     {
+      "nome": "Zielinski",
+      "tipo": "Questionable",
+      "motivo": "In dubbio, motivo non indicato"
+     },
+     {
+      "nome": "Bastoni",
+      "tipo": "Questionable",
+      "motivo": "Problema muscolare"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Colombo",
+      "tipo": "Missing Fixture",
+      "motivo": "Lesione del legamento crociato anteriore"
+     },
+     {
+      "nome": "Ostigard",
+      "tipo": "Questionable",
+      "motivo": "Ricovero recente per febbre alta, comunque atteso in campo"
+     },
+     {
+      "nome": "Frendrup",
+      "tipo": "Questionable",
+      "motivo": "Problema alla caviglia, corsa contro il tempo"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:18:45Z",
+   "fonte": "Sports Mole, scheda del 26/11/2026"
+  },
+  {
+   "casa": "Arsenal FC",
+   "ospite": "Manchester City FC",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Raya",
+      "tipo": "Questionable",
+      "motivo": "Problema alla spalla, non escluso ufficialmente"
+     },
+     {
+      "nome": "Zubimendi",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al tendine del ginocchio"
+     },
+     {
+      "nome": "Saka",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al quadricipite"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Semenyo",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:56Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "Manchester United FC",
+   "ospite": "Brentford FC",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Baleba",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al tendine del ginocchio"
+     },
+     {
+      "nome": "Sesko",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al polpaccio"
+     },
+     {
+      "nome": "Ugarte",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio"
+     },
+     {
+      "nome": "Rashford",
+      "tipo": "Questionable",
+      "motivo": "In dubbio, problema all'anca"
+     },
+     {
+      "nome": "Shaw",
+      "tipo": "Questionable",
+      "motivo": "In dubbio, condizione fisica"
+     },
+     {
+      "nome": "Darlow",
+      "tipo": "Questionable",
+      "motivo": "In dubbio, problema al ginocchio"
+     },
+     {
+      "nome": "Fernandes",
+      "tipo": "Questionable",
+      "motivo": "In dubbio, malattia"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Thiago",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato (seconda di tre giornate)"
+     },
+     {
+      "nome": "Hickey",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio alla coscia"
+     },
+     {
+      "nome": "Collins",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio"
+     },
+     {
+      "nome": "Henry",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio all'inguine"
+     },
+     {
+      "nome": "Furo",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio alla caviglia"
+     },
+     {
+      "nome": "Milambo",
+      "tipo": "Missing Fixture",
+      "motivo": "Condizione fisica"
+     },
+     {
+      "nome": "Dasilva",
+      "tipo": "Missing Fixture",
+      "motivo": "Condizione fisica"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:56Z",
+   "fonte": "Sports Mole, scheda del 26/11/2026"
+  },
+  {
+   "casa": "Everton FC",
+   "ospite": "Liverpool FC",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Tarkowski",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato, espulso contro il Brentford"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Gakpo",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al polpaccio"
+     },
+     {
+      "nome": "Munoz",
+      "tipo": "Questionable",
+      "motivo": "In dubbio, colpo al ginocchio"
+     },
+     {
+      "nome": "Gravenberch",
+      "tipo": "Questionable",
+      "motivo": "In dubbio, problema alla fascia del tallone"
+     },
+     {
+      "nome": "Bradley",
+      "tipo": "Missing Fixture",
+      "motivo": "Lungodegente (ginocchio), vicino al rientro"
+     },
+     {
+      "nome": "Leoni",
+      "tipo": "Missing Fixture",
+      "motivo": "Lungodegente (ginocchio), vicino al rientro"
+     },
+     {
+      "nome": "Ekitike",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al tendine d'Achille, rientro previsto a gennaio"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:56Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "Fulham FC",
+   "ospite": "AFC Bournemouth",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Smith Rowe",
+      "tipo": "Questionable",
+      "motivo": "Problema all'anca, da valutare"
+     },
+     {
+      "nome": "Andersen",
+      "tipo": "Questionable",
+      "motivo": "Probabile assenza, motivo non indicato"
+     },
+     {
+      "nome": "Lecomte",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al tendine d'Achille, stagione finita"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Sanchez",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio alla caviglia"
+     },
+     {
+      "nome": "Toth",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio alla coscia"
+     },
+     {
+      "nome": "Araujo",
+      "tipo": "Questionable",
+      "motivo": "Problema alla coscia, da valutare"
+     },
+     {
+      "nome": "Kroupi",
+      "tipo": "Questionable",
+      "motivo": "Malattia, da valutare"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:56Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "Brighton & Hove Albion FC",
+   "ospite": "Newcastle United FC",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Costinha",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato, cartellino rosso nell'ultimo fine settimana"
+     },
+     {
+      "nome": "Hadjam",
+      "tipo": "Questionable",
+      "motivo": "Infortunato secondo la scheda, in dubbio secondo il riepilogo Sports Mole"
+     },
+     {
+      "nome": "Tzimas",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunato"
+     },
+     {
+      "nome": "Ferguson",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunato"
+     },
+     {
+      "nome": "Mitoma",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunato"
+     },
+     {
+      "nome": "Yalcouye",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunato"
+     },
+     {
+      "nome": "Yohanna",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunato"
+     },
+     {
+      "nome": "Azeez",
+      "tipo": "Questionable",
+      "motivo": "In dubbio, motivo non indicato"
+     },
+     {
+      "nome": "Boscagli",
+      "tipo": "Questionable",
+      "motivo": "Malattia: recuperato secondo la scheda, in dubbio secondo il riepilogo Sports Mole"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Jaouen",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al tendine del ginocchio"
+     },
+     {
+      "nome": "Joelinton",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio alla coscia"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:56Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "Crystal Palace FC",
+   "ospite": "Hull City AFC",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Mateta",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato, ultima giornata di squalifica"
+     },
+     {
+      "nome": "Pino",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato per la quinta ammonizione stagionale"
+     },
+     {
+      "nome": "Sarr",
+      "tipo": "Missing Fixture",
+      "motivo": "Problema all'inguine"
+     },
+     {
+      "nome": "Tomiyasu",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al polpaccio"
+     },
+     {
+      "nome": "Riad",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Hughes",
+      "tipo": "Questionable",
+      "motivo": "Da valutare prima della trasferta"
+     },
+     {
+      "nome": "Morita",
+      "tipo": "Questionable",
+      "motivo": "Problema muscolare, disponibilità non chiarita dalla scheda"
+     },
+     {
+      "nome": "Ansah",
+      "tipo": "Questionable",
+      "motivo": "Problema alla schiena, disponibilità non chiarita dalla scheda"
+     },
+     {
+      "nome": "Gelhardt",
+      "tipo": "Questionable",
+      "motivo": "Problema alla coscia, disponibilità non chiarita dalla scheda"
+     },
+     {
+      "nome": "Targett",
+      "tipo": "Questionable",
+      "motivo": "Problema alla caviglia, disponibilità non chiarita dalla scheda"
+     },
+     {
+      "nome": "Matazo",
+      "tipo": "Questionable",
+      "motivo": "Problema al ginocchio, disponibilità non chiarita dalla scheda"
+     },
+     {
+      "nome": "Iroegbunam",
+      "tipo": "Questionable",
+      "motivo": "Problema alla coscia, disponibilità non chiarita dalla scheda"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:56Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "RC Celta de Vigo",
+   "ospite": "Villarreal CF",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Lago",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato per somma di ammonizioni"
+     },
+     {
+      "nome": "Iglesias",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Starfelt",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Roman",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Gonzalez",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Navarro",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato per espulsione"
+     },
+     {
+      "nome": "Akhomach",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Moreno",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Foyth",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Diatta",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Saliba",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:56Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "Elche CF",
+   "ospite": "Club Atlético de Madrid",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Sanchez",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Boayar",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Houary",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Aguado",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Santiago",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Lookman",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Romero",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:02Z",
+   "fonte": "Sports Mole, scheda del 26/11/2026"
+  },
+  {
+   "casa": "Real Betis Balompié",
+   "ospite": "Rayo Vallecano de Madrid",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Bernal",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato"
+     },
+     {
+      "nome": "Ceballos",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Lo Celso",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Losada",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Morante",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Batalla",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Luiz Felipe",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Valentin",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:56Z",
+   "fonte": "Sports Mole, scheda del 26/11/2026"
+  },
+  {
+   "casa": "Valencia CF",
+   "ospite": "CA Osasuna",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Canos",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Lopez",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Vazquez",
+      "tipo": "Missing Fixture",
+      "motivo": "Assente, motivo non indicato"
+     },
+     {
+      "nome": "Danjuma",
+      "tipo": "Questionable",
+      "motivo": "Rientro probabile; era assente nell'ultima gara per un lutto familiare"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Catena",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato per espulsione"
+     },
+     {
+      "nome": "Bretones",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Fernandez",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Yeboah",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:56Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "Real Madrid CF",
+   "ospite": "Deportivo Alavés",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Rodrygo",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio"
+     },
+     {
+      "nome": "Asencio",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio alla gamba"
+     },
+     {
+      "nome": "Mendy",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio all'anca"
+     },
+     {
+      "nome": "Endrick",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio all'inguine"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Garces",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio"
+     },
+     {
+      "nome": "Rodriguez",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio"
+     },
+     {
+      "nome": "Noava",
+      "tipo": "Missing Fixture",
+      "motivo": "Problema muscolare"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:02Z",
+   "fonte": "Sports Mole, scheda del 26/11/2026"
+  },
+  {
+   "casa": "Real Sociedad de Fútbol",
+   "ospite": "Sevilla FC",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Herrera",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Odriozola",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Barrenetxea",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Aramburu",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Astiazaran",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Marcao",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Carmona",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Gonzalez",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Sierra",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:56Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "RC Deportivo La Coruña",
+   "ospite": "FC Barcelona",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Ede",
+      "tipo": "Questionable",
+      "motivo": "Forte dubbio, bicipite femorale"
+     },
+     {
+      "nome": "Eddahchouri",
+      "tipo": "Questionable",
+      "motivo": "Forte dubbio, polso"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Lopez",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato per espulsione"
+     },
+     {
+      "nome": "Bardghji",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio"
+     },
+     {
+      "nome": "Espart",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio alla caviglia"
+     },
+     {
+      "nome": "Yamal",
+      "tipo": "Questionable",
+      "motivo": "Lieve problema alla caviglia, dato in rientro tra i titolari"
+     },
+     {
+      "nome": "Rodri",
+      "tipo": "Questionable",
+      "motivo": "Possibile rientro tra i convocati"
+     },
+     {
+      "nome": "Christensen",
+      "tipo": "Questionable",
+      "motivo": "Possibile rientro tra i convocati"
+     },
+     {
+      "nome": "Balde",
+      "tipo": "Questionable",
+      "motivo": "Infortunio non grave alla caviglia, possibile convocazione"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:56Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "Málaga CF",
+   "ospite": "Athletic Club",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Rafita",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Calero",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Lobete",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Ochoa",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Eguiluz",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Guruzeta",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Sannadi",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     },
+     {
+      "nome": "Vivian",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:56Z",
+   "fonte": "Sports Mole, scheda del 26/11/2026"
+  },
+  {
+   "casa": "1. FC Köln",
+   "ospite": "SV 07 Elversberg",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Dallinga",
+      "tipo": "Missing Fixture",
+      "motivo": "Rottura del legamento crociato, stagione finita"
+     },
+     {
+      "nome": "Ache",
+      "tipo": "Questionable",
+      "motivo": "Rientro dopo infortunio alla coscia, non ha ancora giocato"
+     },
+     {
+      "nome": "Schwabe",
+      "tipo": "Questionable",
+      "motivo": "Dolore alla schiena, allenamenti saltati"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Mickelson",
+      "tipo": "Questionable",
+      "motivo": "Problema al ginocchio dopo la nazionale"
+     },
+     {
+      "nome": "Gunther",
+      "tipo": "Questionable",
+      "motivo": "Raffreddore"
+     },
+     {
+      "nome": "Kristof",
+      "tipo": "Questionable",
+      "motivo": "Raffreddore"
+     },
+     {
+      "nome": "Darvich",
+      "tipo": "Questionable",
+      "motivo": "Problemi muscolari"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:16:56Z",
+   "fonte": "Sports Mole, scheda del 26/11/2026"
+  },
+  {
+   "casa": "1. FSV Mainz 05",
+   "ospite": "1. FC Union Berlin",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Kohr",
+      "tipo": "Missing Fixture",
+      "motivo": "Recupero da infortunio alla caviglia"
+     },
+     {
+      "nome": "Silas",
+      "tipo": "Questionable",
+      "motivo": "Rientro da frattura di tibia e perone"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Van Den Bosch",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato per somma di ammonizioni"
+     },
+     {
+      "nome": "Nsoki",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al polpaccio"
+     },
+     {
+      "nome": "Uduokhai",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio alla coscia"
+     },
+     {
+      "nome": "Juranovic",
+      "tipo": "Missing Fixture",
+      "motivo": "Malattia"
+     },
+     {
+      "nome": "Markgraf",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio"
+     },
+     {
+      "nome": "Burcu",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunato, tipo di infortunio non indicato"
+     },
+     {
+      "nome": "Skov",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunato, tipo di infortunio non indicato"
+     },
+     {
+      "nome": "Khedira",
+      "tipo": "Missing Fixture",
+      "motivo": "Fastidio fisico dopo la gara con il Lipsia"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:16:56Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "VfB Stuttgart",
+   "ospite": "Eintracht Frankfurt",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [],
+    "ospite": [
+     {
+      "nome": "Ngankam",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio all'inguine"
+     },
+     {
+      "nome": "Uzun",
+      "tipo": "Questionable",
+      "motivo": "Malattia"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:16:56Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "TSG 1899 Hoffenheim",
+   "ospite": "FC Augsburg",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Kabak",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato (quattro turni per aver afferrato un avversario; ricorso con udienza citata)"
+     },
+     {
+      "nome": "Burger",
+      "tipo": "Missing Fixture",
+      "motivo": "Problema muscolare"
+     },
+     {
+      "nome": "Gendrey",
+      "tipo": "Missing Fixture",
+      "motivo": "Frattura alla gamba"
+     },
+     {
+      "nome": "Hajdari",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al piede"
+     },
+     {
+      "nome": "Hranac",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Massengo",
+      "tipo": "Missing Fixture",
+      "motivo": "Problema muscolare"
+     },
+     {
+      "nome": "Gouweleeuw",
+      "tipo": "Missing Fixture",
+      "motivo": "Problema muscolare"
+     },
+     {
+      "nome": "Banks",
+      "tipo": "Questionable",
+      "motivo": "Recupero rallentato da un'infezione"
+     },
+     {
+      "nome": "Matsima",
+      "tipo": "Missing Fixture",
+      "motivo": "Strappo muscolare, non ancora pronto a rientrare"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:16:56Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "Borussia Dortmund",
+   "ospite": "Bayer 04 Leverkusen",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Lerma",
+      "tipo": "Missing Fixture",
+      "motivo": "Problema muscolare"
+     },
+     {
+      "nome": "Inacio",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al menisco"
+     },
+     {
+      "nome": "Konstantelias",
+      "tipo": "Missing Fixture",
+      "motivo": "Rottura del crociato anteriore, rientro previsto a febbraio o marzo"
+     },
+     {
+      "nome": "Can",
+      "tipo": "Questionable",
+      "motivo": "Vicino al rientro da infortunio al crociato anteriore"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Eichhorn",
+      "tipo": "Missing Fixture",
+      "motivo": "Recupero della condizione dopo un disturbo metabolico"
+     },
+     {
+      "nome": "Terrier",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio ai flessori della coscia"
+     },
+     {
+      "nome": "Vazquez",
+      "tipo": "Questionable",
+      "motivo": "Dubbi sulla condizione fisica"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:16:56Z",
+   "fonte": "Sports Mole, scheda del 28/11/2026"
+  },
+  {
+   "casa": "Angers SCO",
+   "ospite": "Racing Club de Lens",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Zinga",
+      "tipo": "Questionable",
+      "motivo": "Problema alla spalla, assente all'allenamento di mercoledì; forfait per la gara non dichiarato"
+     },
+     {
+      "nome": "Diatta",
+      "tipo": "Questionable",
+      "motivo": "Infortunio alla caviglia, assente all'allenamento di mercoledì; forfait per la gara non dichiarato"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Aguilar",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunato contro il Tolosa"
+     },
+     {
+      "nome": "Edouard",
+      "tipo": "Missing Fixture",
+      "motivo": "Operato agli adduttori"
+     },
+     {
+      "nome": "Nawrocki",
+      "tipo": "Missing Fixture",
+      "motivo": "Rottura del legamento crociato"
+     },
+     {
+      "nome": "Cuisance",
+      "tipo": "Questionable",
+      "motivo": "In dubbio, ha saltato la gara col Lipsia per malattia"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:18:01Z",
+   "fonte": "Sports Mole, scheda del 26/11/2026"
+  },
+  {
+   "casa": "Le Mans FC",
+   "ospite": "Lille OSC",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Bourabaa",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio alla caviglia"
+     },
+     {
+      "nome": "Sidibe",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al piede, rientro non prima di gennaio"
+     },
+     {
+      "nome": "Rossignol",
+      "tipo": "Questionable",
+      "motivo": "In dubbio, motivo non indicato"
+     },
+     {
+      "nome": "Colas",
+      "tipo": "Questionable",
+      "motivo": "Da gestire dopo il ritorno di un problema alla schiena"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Nianzou",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio muscolare, fuori diverse settimane"
+     },
+     {
+      "nome": "Santos",
+      "tipo": "Missing Fixture",
+      "motivo": "Grave infortunio al ginocchio"
+     },
+     {
+      "nome": "Igamane",
+      "tipo": "Missing Fixture",
+      "motivo": "Problema al ginocchio"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:23Z",
+   "fonte": "Sports Mole, scheda del 26/11/2026"
+  },
+  {
+   "casa": "OGC Nice",
+   "ospite": "ES Troyes AC",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Abdelmonem",
+      "tipo": "Questionable",
+      "motivo": "In dubbio, problema al bicipite femorale"
+     },
+     {
+      "nome": "Wahi",
+      "tipo": "Questionable",
+      "motivo": "In dubbio (motivo non indicato), ma atteso in campo"
+     },
+     {
+      "nome": "Abergel",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio di lunga durata"
+     },
+     {
+      "nome": "Mendy",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio di lunga durata"
+     },
+     {
+      "nome": "Bombito",
+      "tipo": "Missing Fixture",
+      "motivo": "Problema alla gamba"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Ifnaoui",
+      "tipo": "Questionable",
+      "motivo": "Da valutare prima della partita"
+     },
+     {
+      "nome": "Gozzi",
+      "tipo": "Missing Fixture",
+      "motivo": "Problema al bicipite femorale"
+     },
+     {
+      "nome": "Kone",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al ginocchio"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:23Z",
+   "fonte": "Sports Mole, scheda del 26/11/2026"
+  },
+  {
+   "casa": "Le Havre AC",
+   "ospite": "RC Strasbourg Alsace",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Mambimbi",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al tendine d'Achille"
+     },
+     {
+      "nome": "Pembele",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio muscolare"
+     },
+     {
+      "nome": "Ndiaye",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio muscolare"
+     },
+     {
+      "nome": "Mosengo",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio alla caviglia"
+     },
+     {
+      "nome": "Zagadou",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al legamento crociato"
+     },
+     {
+      "nome": "Nakamura",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio alla gamba"
+     },
+     {
+      "nome": "Mpasi",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al tendine d'Achille"
+     },
+     {
+      "nome": "Koffi",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato per due giornate (espulsione contro il Troyes)"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Reyna",
+      "tipo": "Missing Fixture",
+      "motivo": "Problema muscolare"
+     },
+     {
+      "nome": "Balde",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio alla gamba"
+     },
+     {
+      "nome": "Oso",
+      "tipo": "Missing Fixture",
+      "motivo": "Contusione"
+     },
+     {
+      "nome": "Panichelli",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al legamento crociato"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:23Z",
+   "fonte": "Sports Mole, scheda del 26/11/2026"
+  },
+  {
+   "casa": "Paris Saint-Germain FC",
+   "ospite": "FC Lorient",
+   "giorno": "2026-11-28",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Kvaratskhelia",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al legamento crociato"
+     },
+     {
+      "nome": "Doue",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio al legamento crociato"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Katseris",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio muscolare"
+     },
+     {
+      "nome": "Toure",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio all'inguine"
+     },
+     {
+      "nome": "Fadiga",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio muscolare"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:23Z",
+   "fonte": "Sports Mole, scheda del 26/11/2026"
+  },
+  {
+   "casa": "AJ Auxerre",
+   "ospite": "Olympique de Marseille",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Okoh",
+      "tipo": "Missing Fixture",
+      "motivo": "Recupero da rottura del legamento crociato"
+     },
+     {
+      "nome": "Diousse",
+      "tipo": "Missing Fixture",
+      "motivo": "Recupero da rottura del legamento crociato"
+     },
+     {
+      "nome": "Fofana",
+      "tipo": "Questionable",
+      "motivo": "Stiramento all'inguine; forfait non dichiarato esplicitamente"
+     },
+     {
+      "nome": "Loader",
+      "tipo": "Questionable",
+      "motivo": "In dubbio, infortunio alla caviglia"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Cornelius",
+      "tipo": "Questionable",
+      "motivo": "Ancora in recupero da un problema all'anca; forfait non dichiarato esplicitamente"
+     },
+     {
+      "nome": "Emerson",
+      "tipo": "Questionable",
+      "motivo": "In dubbio, infortunio al ginocchio"
+     },
+     {
+      "nome": "Hojbjerg",
+      "tipo": "Questionable",
+      "motivo": "In dubbio per malattia"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:23Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "Toulouse FC",
+   "ospite": "Stade Rennais FC 1901",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "McKenzie",
+      "tipo": "Questionable",
+      "motivo": "Stiramento al bicipite femorale, potrebbe mancare"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Rongier",
+      "tipo": "Questionable",
+      "motivo": "In dubbio per una lieve contusione"
+     },
+     {
+      "nome": "Thomasson",
+      "tipo": "Missing Fixture",
+      "motivo": "Squalificato (cartellino rosso)"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:17:23Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
+  },
+  {
+   "casa": "Olympique Lyonnais",
+   "ospite": "AS Monaco FC",
+   "giorno": "2026-11-29",
+   "assenze": {
+    "casa": [
+     {
+      "nome": "Sulc",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunato, rientro atteso nel nuovo anno"
+     },
+     {
+      "nome": "Morton",
+      "tipo": "Missing Fixture",
+      "motivo": "Problema all'inguine, fuori fino a febbraio"
+     },
+     {
+      "nome": "Mata",
+      "tipo": "Missing Fixture",
+      "motivo": "Infortunio muscolare, indisponibile fino a due settimane"
+     }
+    ],
+    "ospite": [
+     {
+      "nome": "Fati",
+      "tipo": "Questionable",
+      "motivo": "Problema al bicipite femorale, atteso fuori per gran parte di dicembre; forfait per questa gara non dichiarato esplicitamente"
+     },
+     {
+      "nome": "Salisu",
+      "tipo": "Questionable",
+      "motivo": "Problema al ginocchio, tempi di recupero simili; forfait per questa gara non dichiarato esplicitamente"
+     }
+    ]
+   },
+   "controllato": "2026-11-28T08:18:01Z",
+   "fonte": "Sports Mole, scheda del 27/11/2026"
   }
  ]
 }
